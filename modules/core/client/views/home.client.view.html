@@ -8,6 +8,9 @@
     <div class="col-md-3 announcement-pane">
         <section ng-controller="AnnouncementController">
             <h2 class="text-center">Announcements</h2>
+            <ul>
+                <li ng-repeat="ann in announcement">{{ ann.text }}</li>
+            </ul>
         </section>
     </div>
 </div>
