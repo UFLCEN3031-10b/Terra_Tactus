@@ -35,3 +35,9 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+/* Newly Added CSS */
+
+.announcement-pane {
+    border: 1px solid black;
+}
