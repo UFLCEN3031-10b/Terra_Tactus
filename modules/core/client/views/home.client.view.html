@@ -5,8 +5,8 @@
             <div ng-controller="CarouselHomeController">
               <div style="height: 305px">
                 <carousel interval="myInterval" no-wrap="noWrapSlides">
-                  <slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.image}}" style="margin:auto; height: 300px">
+                  <slide style="height: 50vh" ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="{{slide.image}}" style="margin:auto; width: 100%">
                     <div class="carousel-caption">
                       <h4>{{slide.text}}</h4>
                       <p><a class="btn btn-primary btn-lg" href="{{slide.link}}" role="button">Learn more</a></p>
