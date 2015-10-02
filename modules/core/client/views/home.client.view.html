@@ -2,12 +2,13 @@
     <div class="col-md-9">
         <section ng-controller="HomeController">
 
+            <!-- carousel setup -->
             <div ng-controller="CarouselHomeController">
               <div style="height: 305px">
                 <carousel interval="myInterval" no-wrap="noWrapSlides">
                   <slide style="height: 50vh" ng-repeat="slide in slides" active="slide.active">
                     <img ng-src="{{slide.image}}" style="margin:auto; width: 100%">
-                    <div class="carousel-caption">
+                    <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius: 10px;">
                       <h4>{{slide.text}}</h4>
                       <p><a class="btn btn-primary btn-lg" href="{{slide.link}}" role="button">Learn more</a></p>
                     </div>
@@ -15,6 +16,7 @@
                 </carousel>
               </div>
             </div>
+            <!-- end carousel -->
 
         </section>
     </div>
