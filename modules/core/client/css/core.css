@@ -40,4 +40,19 @@ a:hover .header-profile-image {
 
 .announcement-pane {
     border: 1px solid black;
+    height: 90vh;
+}
+
+#about {
+    margin-top: 50px;
+}
+
+#about-image {
+    width: 100%;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }

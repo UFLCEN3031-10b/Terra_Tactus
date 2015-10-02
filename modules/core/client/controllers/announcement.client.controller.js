@@ -4,6 +4,6 @@ angular.module('core').controller('AnnouncementController', ['$scope', function 
         //this needs to be populated with a call to the database
         //to receive the most recent announcements
         //posted by the admin account
-        $scope.announcement = [{text:'testing...'}];
+        $scope.announcement = [{text: 'testing... '}, {text: 'blah'}];
     }
 ]);
