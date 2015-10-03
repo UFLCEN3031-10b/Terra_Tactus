@@ -38,13 +38,16 @@ a:hover .header-profile-image {
 
 /* Newly Added CSS */
 
+.debug-border {
+    border: 1px solid yellow;
+}
+
 .announcement-pane {
-    border: 1px solid black;
     height: 90vh;
 }
 
 #about {
-    margin-top: 25px;
+    margin-top: 3vh;
 }
 
 #about-image {
@@ -52,7 +55,8 @@ a:hover .header-profile-image {
 }
 
 .vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+    min-height: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
 }
