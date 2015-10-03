@@ -4,7 +4,7 @@
 
             <!-- carousel setup -->
             <div ng-controller="CarouselHomeController">
-              <div style="height: 305px">
+              <div>
                 <carousel interval="myInterval" no-wrap="noWrapSlides">
                   <slide style="height: 50vh" ng-repeat="slide in slides" active="slide.active">
                     <img ng-src="{{slide.image}}" style="margin:auto; width: 100%">
