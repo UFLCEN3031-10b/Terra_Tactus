@@ -1,10 +1,9 @@
-<div class="row">
-    <div class="col-md-9">
-        <section ng-controller="HomeController">
-
+<section ng-controller="HomeController">
+    <section id="home-section" class="row debug-border">
+        <div class="col-md-9">
             <!-- carousel setup -->
             <div ng-controller="CarouselHomeController">
-              <div style="height: 305px">
+              <div>
                 <carousel interval="myInterval" no-wrap="noWrapSlides">
                   <slide style="height: 50vh" ng-repeat="slide in slides" active="slide.active">
                     <img ng-src="{{slide.image}}" style="margin:auto; width: 100%">
@@ -24,22 +23,56 @@
                     <p>Lorem ipsum dolor sit amet, ei pri suas inimicus volutpat. Malis ornatus te his, laudem libris euismod ex his. Ne eum errem scripta nusquam, tale mucius everti cum ne. Ea aliquando instructior mel, ad mei alii erat rebum. His fastidii eligendi adversarium ei, ex sea aeque semper fierent, vim wisi accusam cu.</p>
                     <p>Veniam aliquip invidunt ea pri. Per omnes qualisque ad, pri at dicam everti, et liber dignissim quaerendum sit. At impetus denique convenire has. Cu ludus dolores rationibus mel, idque maluisset cum at, per ex illud primis. Has probo concludaturque id.
                     </p>
+                    <h4 class="text-center"><a href="#product-section"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a></h4>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 vcenter" style="height: 37vh;">
                     <img id="about-image" src="http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg" alt="Oops.">
                 </div>
             </div>
+        </div>
 
-        </section>
-    </div>
+        <div class="col-md-3 announcement-pane">
+            <section ng-controller="AnnouncementController">
+                <h2 class="text-center">Announcements</h2>
+                <ul>
+                    <li ng-repeat="ann in announcement">{{ ann.text }}</li>
+                </ul>
+            </section>
+        </div>
+    </section>
 
-    <div class="col-md-3 announcement-pane">
-        <section ng-controller="AnnouncementController">
-            <h2 class="text-center">Announcements</h2>
-            <ul>
-                <li ng-repeat="ann in announcement">{{ ann.text }}</li>
-            </ul>
-        </section>
-    </div>
-</div>
+    <section id="product-section" class="row debug-border">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Thinking About Subscribing?</h3>
+                <p>Lorem ipsum dolor sit amet, ei pri suas inimicus volutpat. Malis ornatus te his, laudem libris euismod ex his. Ne eum errem scripta nusquam, tale mucius everti cum ne. Ea aliquando instructior mel, ad mei alii erat rebum. His fastidii eligendi adversarium ei, ex sea aeque semper fierent, vim wisi accusam cu.</p>
+                <p>Veniam aliquip invidunt ea pri. Per omnes qualisque ad, pri at dicam everti, et liber dignissim quaerendum sit. At impetus denique convenire has. Cu ludus dolores rationibus mel, idque maluisset cum at, per ex illud primis. Has probo concludaturque id.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <h3>Or Maybe an Individual Product?</h3>
+                <p>Lorem ipsum dolor sit amet, ei pri suas inimicus volutpat. Malis ornatus te his, laudem libris euismod ex his. Ne eum errem scripta nusquam, tale mucius everti cum ne. Ea aliquando instructior mel, ad mei alii erat rebum. His fastidii eligendi adversarium ei, ex sea aeque semper fierent, vim wisi accusam cu.</p>
+                <p>Veniam aliquip invidunt ea pri. Per omnes qualisque ad, pri at dicam everti, et liber dignissim quaerendum sit. At impetus denique convenire has. Cu ludus dolores rationibus mel, idque maluisset cum at, per ex illud primis. Has probo concludaturque id.
+                </p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-2">
+                <a href=""><i class="fa fa-linkedin-square fa-4x"></i></a>
+            </div>
+            <div class="col-md-2">
+                <a href=""><i class="fa fa-facebook-square fa-4x"></i></a>
+            </div>
+            <div class="col-md-4">
+                <p>Terra Tactus<br>1 Address Street<br>Gainesville, Fla. 32603<br>phone: (123)456-7890<br>fax: (123)456-7891</p>
+            </div>
+            <div class="col-md-2">
+                <a href=""><i class="fa fa-twitter-square fa-4x"></i></a>
+            </div>
+            <div class="col-md-2">
+                <a href=""><i class="fa fa-google-plus-square fa-4x"></i></a>
+            </div>
+        </div>
+    </section>
+</section><!-- home controller -->
