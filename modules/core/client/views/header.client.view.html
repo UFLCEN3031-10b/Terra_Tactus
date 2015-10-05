@@ -56,12 +56,17 @@
         </ul>
       </li>
     </ul>
-    <ul class = "nav navbar-nav navbar-right">
+    <ul class = "nav navbar-nav navbar-right" ng-hide="authentication.user.roles=='paidUser'">
       <li ui-sref-active="active">
         <a ui-sref="subscriptions">Subscriptions Explained</a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref="products">Individual Products</a>
+      </li>
+    </ul>
+    <ul class = "nav navbar-nav navbar-right" ng-hide="authentication.user.roles=='paidUser'">
+      <li ui-sref-active="active">
+        <a ui-sref="portal">Subscribers' Portal</a>
       </li>
     </ul>
   </nav>
