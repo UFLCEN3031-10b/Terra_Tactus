@@ -11,7 +11,7 @@ angular.module('users').factory('PasswordValidator', ['$window',
         return result;
       },
       getPopoverMsg: function () {
-        var popoverMsg = "Please enter a passphrase or password with greater than 10 characters, numbers, lowercase, upppercase, and special characters.";
+        var popoverMsg = "Please enter a passphrase or password with greater than 10 characters containing at least 1 of each the following: uppercase letter, lowercase letter, number, and a special character.";
         return popoverMsg;
       }
     };

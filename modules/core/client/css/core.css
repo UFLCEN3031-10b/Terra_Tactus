@@ -35,3 +35,24 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+/* Newly Added CSS */
+
+.announcement-pane {
+    border: 1px solid black;
+    height: 90vh;
+}
+
+#about {
+    margin-top: 50px;
+}
+
+#about-image {
+    width: 100%;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}

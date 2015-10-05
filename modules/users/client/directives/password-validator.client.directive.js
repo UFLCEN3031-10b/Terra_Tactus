@@ -11,10 +11,10 @@ angular.module('users')
 
           // Strength Meter - visual indicator for users
           var strengthMeter = [
-            { color: "danger", progress: "20" },
-            { color: "warning", progress: "40"},
-            { color: "info", progress: "60"},
-            { color: "primary", progress: "80"},
+            { color: "danger", progress: "0" },
+            { color: "warning", progress: "25"},
+            { color: "info", progress: "50"},
+            { color: "primary", progress: "75"},
             { color: "success", progress: "100"}
           ];
           var strengthMax = strengthMeter.length;
