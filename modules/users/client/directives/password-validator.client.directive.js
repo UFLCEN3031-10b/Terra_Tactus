@@ -28,7 +28,7 @@ angular.module('users')
 
           if (result.errors.length) {
             scope.popoverMsg = PasswordValidator.getPopoverMsg();
-            scope.passwordErrors = result.optionalTestErrors;
+            scope.passwordErrors = result.errors;
             modelCtrl.$setValidity('strength', false);
             return undefined;
           } else {

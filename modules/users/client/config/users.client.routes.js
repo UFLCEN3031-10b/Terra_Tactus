@@ -74,7 +74,7 @@ angular.module('users').config(['$stateProvider',
       })
       .state('subscriptions',{
         url: '/subscriptions',
-        templateUrl: 'modults/users/client/views/products/subscriptions.html'
+        templateUrl: 'modules/users/client/views/products/subscriptions.html'
       });
   }
 ]);
