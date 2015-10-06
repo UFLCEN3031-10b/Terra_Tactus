@@ -2,27 +2,21 @@
   
  img{
     float: bottom;
-    background-color: #999999;
+    background-color:white; /*frame colour*/
+    padding: 6px; /*frame size*/
+    
     -moz-border-radius: 5px;
     border-radius: 10px;
 }
 
 #temp-div{
-    background-color: gray;
-    padding-bottom: 20px;
+    background-color: rgb(2,9,2);
+    padding-bottom: 50px;
     -moz-border-radius: 5px;
     border-radius: 20px;
-    text-align: center;
 }
 
-#left {
-float: left;
-margin-right:10px;
-}
-#right{
-float: left;
-margin-left: 10px;
-}
+
 
 </style>
 
@@ -32,56 +26,66 @@ margin-left: 10px;
     <h1 align = "center"><b> Our Products </b></h1>
 </div>
 
-<!-- Division that will be used to repeat the product blocks -->
-<!-- Product blocks contain {Product Name, Product Thumbnail, Short Description, Price, see more link}-->
-<div class = "row" id = "temp-div" >    
-    
+<section ng-controller="ProductsController">
+    <div ng-repeat="pro in products">
+        <!-- Division that will be used to repeat the product blocks -->
+        <!-- Product blocks contain {Product Name, Product Thumbnail, Short Description, Price, see more link}-->
+        <div class = "row text-center " id = "temp-div" >    
+            
 
 
+            <h3 style="color:white" style = "text-align:center"><b>{{pro.title}}</b></h3>
+            <!--This Should Take Care of the Product Name and Thumbnail-->
+            <div class = "col-xs-3 ">
+                <div style = "padding-left:90px">
+                   <div>
+                        <img ng-src="{{pro.image}}" height="250" width="250">
+                    </div> 
+                </div>
+            </div>
 
-    <!--This Should Take Care of the Product Name and Thumbnail-->
-    <div class = "col-xs-3">
+            <!-- Code containing a brief description and a see more button -->
+            <div class = "col-xs-9 ">
+                 <!-- Breaks used to lay the textare out correctly -->
+                
+                <div style = "padding-top:20px">
+                    <p style ="color:white"><b> About this Product </b></p>
 
-        <h3 style="color:white">Exploring The Swamp Kit</h3>
+                    <textarea readonly rows = "5" cols = "80" style="resize:none">{{pro.text}}</textarea>
+                    
+                    <br><br>
 
-        <div>
-            <img src="http://1.bp.blogspot.com/-QuICtWHygN0/UoAlMMR9UNI/AAAAAAABYfc/rfcld52y97M/s1600/Gaineville+Trip+136.JPG" height="250" width="250">
+                    <!-- Button which will link to specific product page -->
+                    <div >
+                        <button type="button" class="btn btn-default btn-md" ><b>Learn More</b></button>
+                    </div>   
+
+                </div>
+            </div>
+
         </div>
 
-    </div>
-
-    
-
-    <!-- Code containing a brief description and a see more button -->
-    <div class = "col-xs-9">
-        <br><br><br> <!-- Breaks used to lay the textare out correctly -->
-        <p> Small Description </p>
-
-        <textarea readonly rows = "5" cols = "80" style="resize:none">Sample Text Mauris non dui sit amet magna volutpat suscipit sed eu mi. Nam molestie, justo id egestas vulputate, leo mauris elementum turpis, eget mollis ipsum nibh et metus. Vestibulum nec ligula non felis laoreet blandit ac id erat. Integer a diam eu sem fringilla hendrerit non eget mi. Praesent mattis ultrices interdum. Phasellus vestibulum metus quis pulvinar dapibus. </textarea>
-        
-        <br><br>
-        <div class = "row" style = "padding-left:18px">
-            <div id = "left" >
-                <button type="button" class="btn btn-default btn-md" ><b>Learn More</b></button>
-            </div>   
-           
-            <div id = "right">
-                <button type="button" class="btn btn-default btn-md" ><b>Learn More</b></button>
-            </div>       
-       </div>
+        <br>
 
     </div>
-
-</div>
-
-<br>
-
-
+</section>
 
 <br><br>
 
-<footer>
-  <p>Posted by: Hege Refsnes</p>
-  <p>Contact information: <a href="mailto:someone@example.com">
-  someone@example.com</a>.</p>
-</footer>
+<div class="row text-center">
+            <div class="col-md-2">
+                <a href=""><i class="fa fa-linkedin-square fa-4x"></i></a>
+            </div>
+            <div class="col-md-2">
+                <a href=""><i class="fa fa-facebook-square fa-4x"></i></a>
+            </div>
+            <div class="col-md-4">
+                <p>Terra Tactus<br>1 Address Street<br>Gainesville, Fla. 32603<br>phone: (123)456-7890<br>fax: (123)456-7891</p>
+            </div>
+            <div class="col-md-2">
+                <a href=""><i class="fa fa-twitter-square fa-4x"></i></a>
+            </div>
+            <div class="col-md-2">
+                <a href=""><i class="fa fa-google-plus-square fa-4x"></i></a>
+            </div>
+</div>
