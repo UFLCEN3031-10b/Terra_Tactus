@@ -43,7 +43,7 @@ a:hover .header-profile-image {
 }
 
 .announcement-pane {
-    height: 90vh;
+    height: 95vh;
 }
 
 #about {
@@ -56,6 +56,10 @@ a:hover .header-profile-image {
 
 .product-info {
     height: 60vh;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
 }
 
 .contact-info > div {
