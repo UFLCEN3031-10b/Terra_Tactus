@@ -1,3 +1,139 @@
+<style>
+
+  .round {
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+
+  }
+  #section-footer{
+    background: #191f21;
+    padding: 0px 0px;
+  }
+  #section-footer h4{
+    color:lightgray;
+    margin-bottom: 30px;
+  }
+
+  .jumbotron .container {
+    position: relative;
+    z-index: 1;
+  }
+  .jumbotron-hero {
+    text-align: center;
+  }
+  .jumbotron {
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 30px 15 px;
+    margin-bottom: 30px;
+    color: #2e2f33;
+  }
+
+  .col-free {
+    background-color: #eee;
+    color: black;
+  }
+
+  .col-premium {
+    background-color: #eee;
+    color: black;
+  }
+  .col-premium .checked {
+    color: limegreen;
+  }
+  .col-free .checked {
+    color: limegreen;
+  }
+  .col-free li {
+    color: red;
+  }
+  .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .col-offers .offers {
+    background-color: #eee;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-box-shadow: 0 15px 30px 0 rgba(0,0,0,0.05);
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.05);
+    padding: 5px 20px;
+  }
+  #med {
+    font-size: 200%;
+  }
+  .bigbutton {
+    width:500px;
+    background: limegreen; /*the colour of the button*/
+    padding: 8px 14px 10px; /*apply some padding inside the button*/
+    border:1px solid limegreen; /*required or the default border for the browser will appear*/
+    cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+    /*style the text*/
+    font-size:1.5em;
+    font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
+    letter-spacing:.1em;
+    text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3); /*give the text a shadow - doesn't appear in Opera 12.02 or earlier*/
+    color: #fff;
+    /*use box-shadow to give the button some depth - see cssdemos.tupence.co.uk/box-shadow.htm#demo7 for more info on this technique*/
+    -webkit-box-shadow: inset 0px 1px 0px #1efd00, 0px 5px 0px 0px #167300, 0px 10px 5px #999;
+    -moz-box-shadow: inset 0px 1px 0px #1efd00, 0px 5px 0px 0px #167300, 0px 10px 5px #999;
+    box-shadow: inset 0px 1px 0px #1efd00, 0px 5px 0px 0px #167300, 0px 10px 5px #999;
+    /*give the corners a small curve*/
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+  /***SET THE BUTTON'S HOVER AND FOCUS STATES***/
+  .bigbutton:hover, .bigbutton:focus {
+    color:#dfe7ea;
+    /*reduce the size of the shadow to give a pushed effect*/
+    -webkit-box-shadow: inset 0px 1px 0px #1efd00, 0px 2px 0px 0px #167300, 0px 2px 5px #999;
+    -moz-box-shadow: inset 0px 1px 0px #1efd00, 0px 2px 0px 0px #167300, 0px 2px 5px #999;
+    box-shadow: inset 0px 1px 0px #1efd00, 0px 2px 0px 0px #167300, 0px 2px 5px #999;
+  }
+  #section-banner{
+    background: url(http://www.premiumtours.co.uk/images/product/original/59_1.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  .banner-content{
+    padding: 300px 0px 300px 0px;
+  }
+  h2.title{
+    font-size: 60px;
+    line-height:60px;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .line-top{
+    width: 930px;
+    color: #fff;
+    background: #fff;
+    height: 2px;
+    margin: 32px auto;
+  }
+  .line-btm{
+    width: 930px;
+    color: #fff;
+    background: #fff;
+    height: 2px;
+    margin: 32px auto;
+  }
+  .banner-content a.btn-default {
+    padding: 20px 36px!important;
+  }
+
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +144,21 @@
   <link href="../../../../../public/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="../../../../../public/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Template styles-->
-  <link rel="stylesheet" href="css/subscriptions.css">
 
-  <div class="jumbotron-hero">
-    <h1>Explore the world culturally and geologically.</h1>
-  </div>
+  <section id="section-banner">
+    <div class="container">
+      <div class="row">
+        <div class="banner-content text-center">
+          <h2 class="title">
+            <div class="line-top"></div>
+            Explore the world, culturally and geographically!
+            <div class="line-btm"></div>
+          </h2>
+          <a href="#learnMore" class="btn btn-default">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </head>
 <body>
@@ -21,80 +166,86 @@
     <div class="jumbotron">
       <h1>Sign up for a free trial now!</h1>
       <p>Free trial for 30 days. *Only $9.99/month afterwards.</p>
-      <a href="../authentication/signup.client.view.html" role="button">Start Free Trial </a>
+      <a href="../authentication/signup.client.view.html" class="bigbutton" role="button">Start Free Trial </a><br><br>
       <p class="small"> *Terms and conditions apply.</p>
     </div>
   </div>
-
+  <section id="learnMore">
     <div class="container">
       <h1 class="text-center">Browse <strong>free</strong> or subscribe to <strong>Terra Tactus</strong>.</h1>
       <div class="row">
-        <div class="col-sm-4 col-sm-push-6 col-premium">
-            <p>RECOMMENDED</p>
-            <h2>Subscription</h2>
-            <p><b>$9.99</b>/month</p>
-            <small>
-              <p>Try it free for 30 days</p>
-            </small>
-            <ul>
-              <li class="checked">Full view of products</li>
-              <li class="checked">News Updates</li>
-              <li class="checked">Online activities</li>
-              <li class="checked">More kits</li>
-              <li class="checked">Educational Resources</li>
-            </ul>
-            <a href="../authentication/signup.client.view.html" class="btn btn-green btn-block">
-              Subscribe now
-            </a>
-          </div>
-        <div class="col-sm-4 col-sm-pull-4 col-free">
+        <div class="col-sm-4 col-sm-push-6 col-premium round">
+          <p>RECOMMENDED</p>
+          <h2>Subscription</h2>
+          <p><b id="med">$9.99</b>/month</p>
+          <small>
+            <p>Try it free for 30 days</p>
+          </small>
+          <ul>
+            <li class="checked" id="med">Full view of products</li>
+            <li class="checked" id="med">News Updates</li>
+            <li class="checked" id="med">Online activities</li>
+            <li class="checked" id="med">More kits</li>
+            <li class="checked" id="med">Educational Resources</li>
+          </ul>
+          <a href="../authentication/signup.client.view.html" class="bigbutton btn-green btn-block">
+            Subscribe now
+          </a>
+        </div>
+        <div class="col-sm-4 col-sm-pull-4 col-free round">
           <div class="shadow-box">
             <h2>Free</h2>
             <p class="price">$0.00 <span class="small-down">/month</span></p>
             <ul>
-              <li class="checked">Full view of products</li>
-              <li class="checked">News Updates</li>
-              <li>Online activities</li>
-              <li>More kits</li>
-              <li>Educational Resources</li>
+              <li class="checked" id="med">Full view of products</li>
+              <li class="checked" id="med">News Updates</li>
+              <li id="med">Online activities</li>
+              <li id="med">More kits</li>
+              <li id="med">Educational Resources</li>
             </ul>
-            <a href="/us/download/other/" class="btn btn-halo btn-block js-goto-signup js-button-download">
+            <a href="/us/download/other/" class="bigbutton btn-halo btn-block js-goto-signup js-button-download">
               Get Free
             </a>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="container hidden-xs">
+    <br><br>
+    <div class="container hidden-xs round">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-offers">
           <div class="offers">
             <div class="offer">
               <h3 class="offer-title">Terra Tactus for Families</h3>
-              <a class="btn btn-link btn-sm" href="family/" data-ga-category="premium" data-ga-action="offers" data-ga-label="family">Learn more</a>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum eleifend blandit. Cras vitae ipsum id elit semper mattis vel at odio. </p>
+              <a  align=center class="bigbutton btn-halo " href="family.html">Learn more</a>
             </div>
             <div class="offer">
               <h3 class="offer-title">Students</h3>
-              <a class="btn btn-link btn-sm" href="student/" data-ga-category="premium" data-ga-action="offers" data-ga-label="students">Learn more</a>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum eleifend blandit. Cras vitae ipsum id elit semper mattis vel at odio. </p>
+
+              <a align=center  class="bigbutton btn-halo " href="student.html">Learn more</a>
             </div>
             <div class="offer">
-              <h3 class="offer-title">Children<sup></sup></h3>
-              <a class="btn btn-link btn-sm" href="kids/" data-ga-category="premium" data-ga-action="offers" data-ga-label="kids">Learn more</a>
+              <h3 class="offer-title">Children</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum eleifend blandit. Cras vitae ipsum id elit semper mattis vel at odio. </p>
+              <a align=center class="bigbutton btn-halo " href="kids.html">Learn more</a>
             </div>
           </div>
         </div>
 
       </div>
     </div>
+    <br><br>
+  </section>
 
     <footer id="section-footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 text-center">
-            <p>Posted by: Hege Refsnes</p>
-            <p>Contact information: <a href="mailto:someone@example.com">
-              someone@example.com</a>.</p>
+          <div class="col-md-12 text-center round">
+            <h4>Posted by: Hege Refsnes</h4>
+            <h4>Contact information: <a href="mailto:someone@example.com">
+              someone@example.com</a>.</h4>
           </div>
         </div>
       </div>
