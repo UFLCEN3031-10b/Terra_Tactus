@@ -43,7 +43,7 @@ a:hover .header-profile-image {
 }
 
 .announcement-pane {
-    height: 90vh;
+    height: 95vh;
 }
 
 #about {
@@ -54,8 +54,20 @@ a:hover .header-profile-image {
     width: 100%;
 }
 
-#product-section {
-    height: 90vh;
+.product-info {
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.contact-info > div {
+    height: 25vh;
+}
+
+.marg-auto {
+    margin: auto;
 }
 
 .vcenter {
