@@ -55,7 +55,7 @@ a:hover .header-profile-image {
 }
 
 .product-info {
-    height: 60vh;
+    height: 100%;
     background-color: rgba(0,0,0,0.8);
     color: white;
     border: 2px solid white;
