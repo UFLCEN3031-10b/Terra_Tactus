@@ -54,8 +54,8 @@ a:hover .header-profile-image {
     width: 100%;
 }
 
-#product-section {
-    height: 90vh;
+.product-info {
+    height: 60vh;
 }
 
 .vcenter {
