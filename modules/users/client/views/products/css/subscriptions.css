@@ -1,53 +1,87 @@
-/*==================================================
-	navbar-menu
-=====================================================*/
-.section-menu{
-    z-index: 9999;
-}
-.navbar{}
-.navbar-default{
-    background: #252e30;
-    border: 0px;
-    border-radius: 0px;
-}
-.navbar-nav {}
-.navbar-nav li{
-    /*padding-right: 40px;*/
-}
-.navbar-default .navbar-nav > li > a{
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 30px 20px;
-    font-size: 16px;
-    font-family: 'Roboto', serif;
-    color: #fff;
-    line-height: 30px;
-}
-.navbar-default .navbar-nav > li > a:hover,.navbar-default .navbar-nav > li > a:focus{
-    color: #5fc2ff;
-}
-.main-nav{
-    width: 100%;
-    margin: 0 auto;
+
+#temp-div{
+    background-color: gray;
+    padding-bottom: 20px;
+    -moz-border-radius: 5px;
+    border-radius: 20px;
+    text-align: center;
 }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-    color: #5fc2ff;
-    background-color: transparent;
-}
-
-.navbar-brand img{
+#left {
     float: left;
-    margin-right: 20px;
+    margin-right:10px;
 }
-.navbar-brand{
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #fff!important;
-    line-height: 40px;
-    padding-top: 25px;
+#right{
+    float: left;
+    margin-left: 10px;
 }
-.navbar-brand span{
-    color: #5fc2ff;
+#black {
+    background-color: #000000;
+}
 
+#full-width {
+    background-size: 80px 60px;
+    background-repeat: no-repeat;
+}
+
+
+#section-footer{
+    background: #191f21;
+    padding: 50px 0px;
+}
+#section-footer h4{
+    color: #485153;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.jumbotron .container {
+    position: relative;
+    z-index: 1;
+}
+.jumbotron-hero {
+    background-color: #f8f8f8;
+    text-align: center;
+}
+.jumbotron {
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 30px 15 px;
+    margin-bottom: 30px;
+    color: #2e2f33;
+}
+
+.col-free {
+    background-color: #eee;
+    color: black;
+}
+
+.col-premium {
+    background-color: #eee;
+    color: black;
+}
+.col-premium .checked {
+    color: limegreen;
+}
+.col-free .checked {
+    color: limegreen;
+}
+.col-free li {
+    color: red;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-offers .offers {
+    background-color: #c8fff7;
+    -webkit-box-shadow: 0 15px 30px 0 rgba(0,0,0,0.05);
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.05);
+    padding: 0 40px;
 }
