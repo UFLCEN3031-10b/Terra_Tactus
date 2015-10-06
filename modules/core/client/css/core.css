@@ -58,6 +58,14 @@ a:hover .header-profile-image {
     height: 60vh;
 }
 
+.contact-info > div {
+    height: 25vh;
+}
+
+.marg-auto {
+    margin: auto;
+}
+
 .vcenter {
     min-height: 100%;
     max-height: 100%;
