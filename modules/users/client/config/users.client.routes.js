@@ -10,7 +10,7 @@ angular.module('users').config(['$stateProvider',
         url: '/settings',
         templateUrl: 'modules/users/client/views/settings/settings.client.view.html',
         data: {
-          roles: ['user', 'admin']
+          roles: ['freeUser', 'paidUser', 'admin']
         }
       })
       .state('settings.profile', {
@@ -79,6 +79,10 @@ angular.module('users').config(['$stateProvider',
       .state('portal',{
         url: '/portal',
         templateUrl: 'modules/users/client/views/portal/portal.html'
+      })
+      .state('China',{
+        url: '/portal/China',
+        templateUrl: 'modules/users/client/views/portal/China.html'
       });
   }
 ]);

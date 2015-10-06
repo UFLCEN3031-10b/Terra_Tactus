@@ -64,7 +64,7 @@
         <a ui-sref="products">Individual Products</a>
       </li>
     </ul>
-    <ul class = "nav navbar-nav navbar-right" ng-hide="authentication.user.roles=='paidUser'">
+    <ul class = "nav navbar-nav navbar-right" ng-show="authentication.user.roles=='user'">
       <li ui-sref-active="active">
         <a ui-sref="portal">Subscribers' Portal</a>
       </li>

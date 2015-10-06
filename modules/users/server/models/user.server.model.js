@@ -71,7 +71,7 @@ var UserSchema = new Schema({
       type: String,
       enum: ['freeUser', 'paidUser', 'admin']
     }],
-    default: ['user'],
+    default: ['freeUser'],
     required: 'Please provide at least one role'
   },
   updated: {
