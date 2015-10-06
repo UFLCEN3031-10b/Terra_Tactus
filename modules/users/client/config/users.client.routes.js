@@ -10,7 +10,7 @@ angular.module('users').config(['$stateProvider',
         url: '/settings',
         templateUrl: 'modules/users/client/views/settings/settings.client.view.html',
         data: {
-          roles: ['user', 'admin']
+          roles: ['freeUser', 'paidUser', 'admin']
         }
       })
       .state('settings.profile', {
@@ -34,7 +34,7 @@ angular.module('users').config(['$stateProvider',
         url: '/authentication',
         templateUrl: 'modules/users/client/views/authentication/authentication.client.view.html'
       })
-      .state('authentication.signup', {
+      .state('signup', {
         url: '/signup',
         templateUrl: 'modules/users/client/views/authentication/signup.client.view.html'
       })
@@ -67,6 +67,22 @@ angular.module('users').config(['$stateProvider',
       .state('password.reset.form', {
         url: '/:token',
         templateUrl: 'modules/users/client/views/password/reset-password.client.view.html'
+      })
+      .state('products', {
+        url: '/products',
+        templateUrl: 'modules/users/client/views/products/products.html'
+      })
+      .state('subscriptions',{
+        url: '/subscriptions',
+        templateUrl: 'modules/users/client/views/products/subscriptions.html'
+      })
+      .state('portal',{
+        url: '/portal',
+        templateUrl: 'modules/users/client/views/portal/portal.html'
+      })
+      .state('China',{
+        url: '/portal/China',
+        templateUrl: 'modules/users/client/views/portal/China.html'
       });
   }
 ]);

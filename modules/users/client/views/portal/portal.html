@@ -1,0 +1,24 @@
+
+<section class = "row" ng-controller = "CarouselPortalController">
+  <h1 class = 'text-center'>Welcome to the wonderful world of Terra Tactus!</h1>
+
+  <div class = 'col-md-12'>
+    <h3 class = 'text-center'>
+      Explore the world, one country at a time!
+    </h3>
+
+    <div ng-controller="CarouselPortalController">
+      <div>
+        <carousel interval="myInterval" no-wrap="noWrapSlides">
+          <slide style="height: 70vh" ng-repeat="slide in slides" active="slide.active">
+            <img ng-src="{{slide.image}}" style="margin:auto; width: 100%; height:100%">
+            <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius: 10px;">
+              <p><a class="btn btn-primary btn-lg" ui-sref="{{slide.link}}" role="button">{{slide.text}}</a></p>
+            </div>
+          </slide>
+        </carousel>
+      </div>
+    </div>
+  </div>
+
+</section>
