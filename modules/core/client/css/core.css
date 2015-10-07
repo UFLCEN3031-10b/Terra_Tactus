@@ -111,6 +111,7 @@ body {
  .navbar-default .navbar-brand:hover,
  .navbar-default .navbar-brand:focus {
      color: #1ade4c;
+     background-color: #0b2077;
  }
  /* link */
  .navbar-default .navbar-nav > li > a {
@@ -119,6 +120,7 @@ body {
  .navbar-default .navbar-nav > li > a:hover,
  .navbar-default .navbar-nav > li > a:focus {
      color: #1ade4c;
+     background-color: #0b2077;
  }
  .navbar-default .navbar-nav > .active > a,
  .navbar-default .navbar-nav > .active > a:hover,
