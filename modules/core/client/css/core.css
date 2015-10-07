@@ -76,3 +76,62 @@ a:hover .header-profile-image {
     display: flex;
     align-items: center;
 }
+
+/* The following is used to override the default
+ * coloring of the navbar, requires .navbar-default
+ * to be set rather than .navbar-inverse
+ */
+
+ /* navbar */
+ .navbar-default {
+     background-color: #bbbbbb;
+     border-color: #101010;
+ }
+ /* title */
+ .navbar-default .navbar-brand {
+     color: #7e1726;
+ }
+ .navbar-default .navbar-brand:hover,
+ .navbar-default .navbar-brand:focus {
+     color: #bb0022;
+ }
+ /* link */
+ .navbar-default .navbar-nav > li > a {
+     color: #7e1726;
+ }
+ .navbar-default .navbar-nav > li > a:hover,
+ .navbar-default .navbar-nav > li > a:focus {
+     color: #bb0022;
+ }
+ .navbar-default .navbar-nav > .active > a,
+ .navbar-default .navbar-nav > .active > a:hover,
+ .navbar-default .navbar-nav > .active > a:focus {
+     color: #99aabb;
+     background-color: #7e1726;
+ }
+ .navbar-default .navbar-nav > .open > a,
+ .navbar-default .navbar-nav > .open > a:hover,
+ .navbar-default .navbar-nav > .open > a:focus {
+     color: #99aabb;
+     background-color: #7e1726;
+ }
+ /* mobile version */
+ .navbar-default .navbar-toggle {
+     border-color: #7e1726;
+ }
+ .navbar-default .navbar-toggle:hover,
+ .navbar-default .navbar-toggle:focus {
+     background-color: #99aabb;
+ }
+ .navbar-default .navbar-toggle .icon-bar {
+     background-color: #7e1726;
+ }
+ @media (max-width: 767px) {
+     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+         color: #777;
+     }
+     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+         color: #333;
+     }
+ }
