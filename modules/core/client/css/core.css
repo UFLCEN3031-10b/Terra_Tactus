@@ -38,6 +38,11 @@ a:hover .header-profile-image {
 
 /* Newly Added CSS */
 
+body {
+    background-color: black;
+    color: white;
+}
+
 .debug-border {
     border: 1px solid yellow;
 }
@@ -56,10 +61,16 @@ a:hover .header-profile-image {
 
 .product-info {
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    color: white;
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 10px;
+}
+
+#product-info-blue {
+    background-color: #0b2077;
+}
+
+#product-info-green {
+    background-color: #0faf38;
 }
 
 .contact-info > div {
