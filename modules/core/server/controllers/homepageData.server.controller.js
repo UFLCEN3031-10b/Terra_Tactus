@@ -17,21 +17,6 @@ exports.find = function (req, res) {
     });
 };
 
-exports.create = function (req, res) {
-    var nd = new homepageData();
-    nd.aboutUs = 'Testing...';
-
-    nd.save(function (err) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            res.json(nd);
-        }
-    });
-};
-
 exports.update = function (req, res) {
     var d = req.data;
     d.aboutUs = req.body.aboutUs;

@@ -6,7 +6,6 @@ var core = require('../controllers/core.server.controller'),
 module.exports = function (app) {
   // routing for homepage data, needs user restriction
   app.route('/api/homepage-data').get(homepageData.find)
-    .post(homepageData.create)
     .put(homepageData.update);
 
   // Define error pages
