@@ -5,12 +5,14 @@ angular.module('core').controller('HomeController', ['$scope', '$http', 'Authent
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
+    var loader = '/modules/core/client/img/loaders/loader_black.gif';
+
     $scope.aboutUsText = '';
-    $scope.aboutUsImage = '';
+    $scope.aboutUsImage = loader;
     $scope.subscribeText = '';
-    $scope.subscribeImage = '';
+    $scope.subscribeImage = loader;
     $scope.individualProdText = '';
-    $scope.individualProdImage = '';
+    $scope.individualProdImage = loader;
 
     $http.get('/api/homepage-data').success(function (res) {
         if (res === null) console.log('[ERROR] homepage-data does not exist yet.');
