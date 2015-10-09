@@ -9,10 +9,27 @@
     border-radius: 10px;
 }
 #temp-div{
-    background-color: rgb(2,9,2);
+    background-color: rgba(0,0,0,0.8);
     padding-bottom: 50px;
     -moz-border-radius: 5px;
     border-radius: 20px;
+}
+
+.t-box{
+    background-color: white;
+    padding-left: 6px;
+    padding-right: 6px;
+    min-height: 125px;
+    
+}
+
+#about-des{
+padding-top:20px;
+
+@media only screen and (max-width: 1200px) {
+    padding-right:30px;
+ }
+
 }
 </style>
 
@@ -44,10 +61,12 @@
             <div class = "col-lg-8 text-center">
                  <!-- Breaks used to lay the textare out correctly -->
                 
-                <div style = "padding-top:20px">
+                <div id = "about-des">
                     <p style ="color:white"><b> About this Product </b></p>
-
-                    <textarea readonly rows = "5" cols = "80" style="resize:none">{{pro.text}}</textarea>
+                        
+                        <div class = "t-box">
+                            <p style = "color:black" align="left">{{pro.text}}</p>
+                        </div>
                     
                     <br><br>
 
