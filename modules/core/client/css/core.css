@@ -185,8 +185,9 @@ body {
 .secondary-nav .form-control {
     background-color: black;
     border-color: #1ade4c;
+    color: white;
 }
 
-.secondary-nav .input-group-btn {
+.secondary-nav .btn {
     background-color: #1ade4c;
 }
