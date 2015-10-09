@@ -1,12 +1,17 @@
 'use strict';
 
 var core = require('../controllers/core.server.controller'),
-    homepageData = require('../controllers/homepageData.server.controller');
+    homepageData = require('../controllers/homepageData.server.controller'),
+    contact = require('../controllers/contact.server.controller');
 
 module.exports = function (app) {
   // routing for homepage data, needs user restriction
   app.route('/api/homepage-data').get(homepageData.find)
     .put(homepageData.update);
+
+  // routing for contact data, needs user restriction
+  app.route('/api/contact-info').get(contact.find)
+    .put(contact.update);
 
   // Define error pages
   app.route('/server-error').get(core.renderServerError);
