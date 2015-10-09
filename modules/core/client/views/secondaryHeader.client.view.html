@@ -1,9 +1,9 @@
-<div class="navbar" ng-controller="SecondaryHeaderController">
-    <ul class="nav navbar-nav nav-pills">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="/products">Products</a></li>
-        <li role="presentation"><a href="/subscriptions">Subscriptions</a></li>
-        <li role="presentation"><a href="#">Testimonials</a></li>
+<div class="navbar secondary-nav" ng-controller="SecondaryHeaderController">
+    <ul class="nav navbar-nav">
+        <li role="presentation" ui-sref-active="active"><a ui-sref="home">Home</a></li>
+        <li role="presentation" ui-sref-active="active"><a ui-sref="products">Products</a></li>
+        <li role="presentation" ui-sref-active="active"><a ui-sref="subscriptions">Subscriptions</a></li>
+        <li role="presentation" ui-sref-active="active"><a ui-sref="">Testimonials</a></li>
     </ul>
     <form class="navbar-form navbar-right" role="search">
         <div class="input-group">

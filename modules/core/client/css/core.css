@@ -156,3 +156,28 @@ body {
          color: #333;
      }
  }
+
+/* secondary navbar coloring */
+/* link */
+.secondary-nav .navbar-nav > li > a {
+    color: #0faf38;
+}
+.secondary-nav .navbar-nav > li > a:hover,
+.secondary-nav .navbar-nav > li > a:focus {
+    color: #1ade4c;
+    background-color: #0b2077;
+}
+.secondary-nav .navbar-nav > .active > a,
+.secondary-nav .navbar-nav > .active > a:hover,
+.secondary-nav .navbar-nav > .active > a:focus {
+    color: #1ade4c;
+    background-color: #0b2077;
+    background-image: none;
+}
+.secondary-nav .navbar-nav > .open > a,
+.secondary-nav .navbar-nav > .open > a:hover,
+.secondary-nav .navbar-nav > .open > a:focus {
+    color: #1ade4c;
+    background-color: #0b2077;
+    background-image: none;
+}
