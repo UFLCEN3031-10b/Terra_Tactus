@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ContactSchema = new Schema({
-    name: {
+    contactName: {
         type: String
     },
     address: {

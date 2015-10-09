@@ -10,7 +10,7 @@ angular.module('core').controller('ContactController', ['$scope', '$http', funct
         $http.get('/api/contact-info').success(function (res) {
             if (res === null) console.log('[ERROR] contact-info does not exist yet.');
             else {
-                $scope.contactName = res.name;
+                $scope.contactName = res.contactName;
                 $scope.address = res.address;
                 $scope.citystatezip = res.citystatezip;
                 $scope.phone = res.phone;
