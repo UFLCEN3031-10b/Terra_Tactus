@@ -138,14 +138,14 @@ body {
  }
  /* mobile version */
  .navbar-default .navbar-toggle {
-     border-color: #7e1726;
+     border-color: #0faf38;
  }
  .navbar-default .navbar-toggle:hover,
  .navbar-default .navbar-toggle:focus {
-     background-color: #99aabb;
+     background-color: #0b2077;
  }
  .navbar-default .navbar-toggle .icon-bar {
-     background-color: #7e1726;
+     background-color: #0faf38;
  }
  @media (max-width: 767px) {
      .navbar-default .navbar-nav .open .dropdown-menu > li > a {
