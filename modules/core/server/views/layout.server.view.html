@@ -39,10 +39,12 @@
 </head>
 
 <body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-default"></header>
   <section class="content">
     <section class="container">
       {% block content %}{% endblock %}
+
+      <div ng-include="'/modules/core/client/views/contact.client.view.html'"></div>
     </section>
   </section>
 

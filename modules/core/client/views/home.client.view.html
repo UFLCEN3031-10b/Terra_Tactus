@@ -19,15 +19,13 @@
 
             <div id="about" class="row">
                 <div class="col-md-8">
-                    <h3>About Us</h3>
-                    <p>Lorem ipsum dolor sit amet, ei pri suas inimicus volutpat. Malis ornatus te his, laudem libris euismod ex his. Ne eum errem scripta nusquam, tale mucius everti cum ne. Ea aliquando instructior mel, ad mei alii erat rebum. His fastidii eligendi adversarium ei, ex sea aeque semper fierent, vim wisi accusam cu.</p>
-                    <p>Veniam aliquip invidunt ea pri. Per omnes qualisque ad, pri at dicam everti, et liber dignissim quaerendum sit. At impetus denique convenire has. Cu ludus dolores rationibus mel, idque maluisset cum at, per ex illud primis. Has probo concludaturque id.
-                    </p>
+                    <h3>About Us</h3><hr>
+                    <p>{{aboutUsText}}</p>
                     <h4 class="text-center"><a href="#product-section"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a></h4>
                 </div>
 
                 <div class="col-md-4 vcenter" style="height: 37vh;">
-                    <img id="about-image" src="http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg" alt="Oops.">
+                    <img id="about-image" src="{{aboutUsImage}}" alt="Oops.">
                 </div>
             </div>
         </div>
@@ -44,43 +42,21 @@
 
     <section id="product-section">
         <div class="row">
-            <div class="col-md-6 product-info">
+            <div class="col-md-6 product-info" id="product-info-blue">
                 <h3>Thinking About Subscribing?</h3>
                 <div class="col-md-4">
-                    <img class="img-responsive" src="http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg" alt="Oops.">
+                    <img class="img-responsive" src="{{subscribeImage}}" alt="Oops.">
                 </div>
-                <p>Lorem ipsum dolor sit amet, ei pri suas inimicus volutpat. Malis ornatus te his, laudem libris euismod ex his. Ne eum errem scripta nusquam, tale mucius everti cum ne. Ea aliquando instructior mel, ad mei alii erat rebum. His fastidii eligendi adversarium ei, ex sea aeque semper fierent, vim wisi accusam cu.</p>
-                <p>Veniam aliquip invidunt ea pri. Per omnes qualisque ad, pri at dicam everti, et liber dignissim quaerendum sit. At impetus denique convenire has. Cu ludus dolores rationibus mel, idque maluisset cum at, per ex illud primis. Has probo concludaturque id.
-                </p>
-                <p class="text-center"><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
+                <p>{{subscribeText}}</p>
+                <p class="text-center"><a class="btn btn-primary btn-lg" href="/subscriptions" role="button">Learn more</a></p>
             </div>
-            <div class="col-md-6 product-info">
+            <div class="col-md-6 product-info" id="product-info-green">
                 <h3>Or Maybe an Individual Product?</h3>
                 <div class="col-md-4">
-                    <img class="img-responsive" src="http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg" alt="Oops.">
+                    <img class="img-responsive" src="{{individualProdImage}}" alt="Oops.">
                 </div>
-                <p>Lorem ipsum dolor sit amet, ei pri suas inimicus volutpat. Malis ornatus te his, laudem libris euismod ex his. Ne eum errem scripta nusquam, tale mucius everti cum ne. Ea aliquando instructior mel, ad mei alii erat rebum. His fastidii eligendi adversarium ei, ex sea aeque semper fierent, vim wisi accusam cu.</p>
-                <p>Veniam aliquip invidunt ea pri. Per omnes qualisque ad, pri at dicam everti, et liber dignissim quaerendum sit. At impetus denique convenire has. Cu ludus dolores rationibus mel, idque maluisset cum at, per ex illud primis. Has probo concludaturque id.
-                </p>
-                <p class="text-center"><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
-            </div>
-        </div>
-
-        <div class="row text-center contact-info">
-            <div class="col-md-2 col-xs-6 vcenter">
-                <a class="marg-auto" href=""><i class="fa fa-linkedin-square fa-4x"></i></a>
-            </div>
-            <div class="col-md-2 col-xs-6 vcenter">
-                <a class="marg-auto" href=""><i class="fa fa-facebook-square fa-4x"></i></a>
-            </div>
-            <div class="col-md-4 col-xs-12 vcenter">
-                <p class="marg-auto">Terra Tactus<br>1 Address Street<br>Gainesville, Fla. 32603<br>phone: (123)456-7890<br>fax: (123)456-7891</p>
-            </div>
-            <div class="col-md-2 col-xs-6 vcenter">
-                <a class="marg-auto" href=""><i class="fa fa-twitter-square fa-4x"></i></a>
-            </div>
-            <div class="col-md-2 col-xs-6 vcenter">
-                <a class="marg-auto" href=""><i class="fa fa-google-plus-square fa-4x"></i></a>
+                <p>{{individualProdText}}</p>
+                <p class="text-center"><a class="btn btn-primary btn-lg" href="/products" role="button">Learn more</a></p>
             </div>
         </div>
     </section>
