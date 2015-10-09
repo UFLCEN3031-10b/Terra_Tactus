@@ -181,3 +181,12 @@ body {
     background-color: #0b2077;
     background-image: none;
 }
+
+.secondary-nav .form-control {
+    background-color: black;
+    border-color: #1ade4c;
+}
+
+.secondary-nav .input-group-btn {
+    background-color: #1ade4c;
+}
