@@ -12,7 +12,7 @@ angular.module('core').controller('ProductsController', function ($scope) {
         image: 'http://www.gatortailgating.com/files/imagecache/gt7_full_580/mike/2012/03/gators-usf.jpg',
         text: 'Sample Text Mauris non dui sit amet magna volutpat suscipit sed eu mi. Nam molestie, justo id egestas vulputate, leo mauris elementum turpis, eget mollis ipsum nibh et metus. Vestibulum nec ligula non felis laoreet blandit ac id erat.'
     },{
-        title: 'Taking a Look at Century Tower',
+        title: 'Exploring the Century Tower',
         image: 'http://cdn.webservices.ufhealth.org/wp-content/blogs.dir/350/files/2012/05/UFCampus.jpg',
         text: 'Sample Text Mauris non dui sit amet magna volutpat suscipit sed eu mi. Nam molestie, justo id egestas vulputate, leo mauris elementum turpis, eget mollis ipsum nibh et metus. Vestibulum nec ligula non felis laoreet blandit ac id erat.'
     },{
