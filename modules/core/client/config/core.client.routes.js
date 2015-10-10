@@ -24,11 +24,20 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         ignoreState: true
       }
     })
+
     .state('bad-request', {
       url: '/bad-request',
       templateUrl: 'modules/core/client/views/400.client.view.html',
       data: {
         ignoreState: true
+      }
+    })
+    //adding an edit-article
+    .state('announcements.edit', {
+      url: '/:announcementId/edit',
+      templateUrl: 'modules/core/client/views/edit-announcement.client.view.html',
+      data: {
+        roles: ['admin']
       }
     })
     .state('forbidden', {
