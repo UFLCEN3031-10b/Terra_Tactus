@@ -18,6 +18,7 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
       // Create new Announcement object
       var announcement = new Announcements({
         title: this.title,
+        username: this.username,
         content: this.content
       });
 

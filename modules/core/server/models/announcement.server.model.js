@@ -25,6 +25,12 @@ var AnnouncementSchema = new Schema({
     default: '',
     trim: true
   },
+  username: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'Title cannot be blank'
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'

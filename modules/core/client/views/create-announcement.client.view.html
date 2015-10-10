@@ -12,6 +12,13 @@
             <p class="help-block error-text" ng-message="required">Announcement title is required.</p>
           </div>
         </div>
+        <div class="form-group" show-errors>
+          <label for="username">User Name</label>
+          <input name="username" type="text" ng-model="username" id="username" class="form-control" placeholder="UserName" required>
+          <div ng-messages="announcementForm.username.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Username is required.</p>
+          </div>
+        </div>
         <div class="form-group">
           <label for="content">Content</label>
           <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>

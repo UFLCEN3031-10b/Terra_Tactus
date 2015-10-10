@@ -40,6 +40,7 @@ exports.update = function (req, res) {
   var announcement = req.announcement;
 
   announcement.title = req.body.title;
+  announcement.username = req.body.username;
   announcement.content = req.body.content;
 
   announcement.save(function (err) {
