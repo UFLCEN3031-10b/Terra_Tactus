@@ -31,12 +31,22 @@
         </div>
 
         <div class="col-md-3 announcement-pane">
-            <section ng-controller="AnnouncementController">
-                <h2 class="text-center">Announcements</h2>
-                <ul>
-                    <li> {{title}}</li>
-                    <li> {{content}}</li>
-                </ul>
+          <section ng-controller="AnnouncementsController" ng-init="find()">
+              <div class="page-header">
+                <h1>Announcements</h1>
+              </div>
+              <div class="list-group">
+                <a ng-repeat="announcement in announcements" ui-sref="announcements.view({announcementId: announcement._id})" class="list-group-item">
+                  <small class="list-group-item-text">
+                    Posted on
+                    <span ng-bind="announcement.created | date:'mediumDate'"></span>
+                    by
+                    <span ng-bind="announcement.user.displayName"></span>
+                  </small>
+                  <h4 class="list-group-item-heading" ng-bind="announcement.title"></h4>
+                  <p class="list-group-item-text" ng-bind="announcement.content"></p>
+                </a>
+              </div>
             </section>
         </div>
     </section>
