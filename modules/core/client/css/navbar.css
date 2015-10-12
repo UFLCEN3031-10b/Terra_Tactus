@@ -67,6 +67,11 @@
      }
  }
 
+ .no-pad > li > a {
+     padding-top: 4px !important;
+     padding-bottom: 4px !important;
+ }
+
 /* secondary navbar coloring */
 /* link */
 .secondary-nav .navbar-nav > li > a {
