@@ -11,6 +11,11 @@ angular.module('core.admin.routes').config(['$stateProvider',
         data: {
           roles: ['admin']
         }
+      })
+      .state('create-announcement', {
+        url: '/create-announcement',
+        templateUrl: '/modules/core/client/views/create-announcement.client.view.html',
+        controller: 'AnnouncementsController'
       });
   }
 ]);

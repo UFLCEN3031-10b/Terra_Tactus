@@ -138,14 +138,14 @@ body {
  }
  /* mobile version */
  .navbar-default .navbar-toggle {
-     border-color: #7e1726;
+     border-color: #0faf38;
  }
  .navbar-default .navbar-toggle:hover,
  .navbar-default .navbar-toggle:focus {
-     background-color: #99aabb;
+     background-color: #0b2077;
  }
  .navbar-default .navbar-toggle .icon-bar {
-     background-color: #7e1726;
+     background-color: #0faf38;
  }
  @media (max-width: 767px) {
      .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -156,3 +156,28 @@ body {
          color: #333;
      }
  }
+
+/* secondary navbar coloring */
+/* link */
+.secondary-nav .navbar-nav > li > a {
+    color: #0faf38;
+}
+.secondary-nav .navbar-nav > li > a:hover,
+.secondary-nav .navbar-nav > li > a:focus {
+    color: #1ade4c;
+    background-color: #0b2077;
+}
+.secondary-nav .navbar-nav > .active > a,
+.secondary-nav .navbar-nav > .active > a:hover,
+.secondary-nav .navbar-nav > .active > a:focus {
+    color: #1ade4c;
+    background-color: #0b2077;
+    background-image: none;
+}
+.secondary-nav .navbar-nav > .open > a,
+.secondary-nav .navbar-nav > .open > a:hover,
+.secondary-nav .navbar-nav > .open > a:focus {
+    color: #1ade4c;
+    background-color: #0b2077;
+    background-image: none;
+}
