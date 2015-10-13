@@ -72,6 +72,11 @@
      padding-bottom: 4px !important;
  }
 
+ .navbar-socialmedia-oneline {
+     width: 25vw;
+     float: left;
+ }
+
 /* secondary navbar coloring */
 /* link */
 .secondary-nav .navbar-nav > li > a {
