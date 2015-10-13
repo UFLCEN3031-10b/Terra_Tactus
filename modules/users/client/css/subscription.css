@@ -1,0 +1,101 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.col-premium {
+    background-color: #2e2f33;
+    color: white;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+.col-premium .checked {
+    color: limegreen;
+}
+.col-free .checked {
+    color: limegreen;
+}
+.col-free li {
+    color: red;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+}
+
+.col-offers .offers {
+    background-color: #2e2f33;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-box-shadow: 0 15px 30px 0 rgba(0,0,0,0.05);
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.05);
+    padding: 5px 20px;
+}
+#med {
+    font-size: 200%;
+}
+
+/***SET THE BUTTON'S HOVER AND FOCUS STATES***/
+.bigbutton:hover, .bigbutton:focus {
+    color:#2e2f33;
+    /*reduce the size of the shadow to give a pushed effect*/
+    -webkit-box-shadow: inset 0px 1px 0px #1efd00, 0px 2px 0px 0px #167300, 0px 2px 5px #999;
+    -moz-box-shadow: inset 0px 1px 0px #1efd00, 0px 2px 0px 0px #167300, 0px 2px 5px #999;
+    box-shadow: inset 0px 1px 0px #1efd00, 0px 2px 0px 0px #167300, 0px 2px 5px #999;
+}
+#section-banner{
+    background: url(http://www.premiumtours.co.uk/images/product/original/59_1.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.banner-content{
+    padding: 300px 0px 300px 0px;
+}
+h2.title{
+    font-size: 60px;
+    line-height:60px;
+    color: #fff;
+    border-color: #0faf38;
+    border-radius: 10%;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn.btn-default {
+    background-image: linear-gradient(to bottom, #0b1d53 0%, #0b2077 100%);
+    border-color: #0b1d53;
+    background-color: #0b2077;
+    color: white;
+    font-size: 120%;
+    align: center;
+}
+
+h2 {
+    color: #0faf38;
+}
+.line-top{
+    width: 930px;
+    color: #fff;
+    background: #fff;
+    height: 2px;
+    margin: 32px auto;
+}
+.line-btm{
+    width: 930px;
+    color: #fff;
+    background: #fff;
+    height: 2px;
+    margin: 32px auto;
+}
+.banner-content a.btn-default {
+    padding: 20px 36px!important;
+}
+.col-md-4 {
+    width: 25%;
+    margin-left: 75px;
+}
