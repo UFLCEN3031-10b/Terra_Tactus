@@ -1,60 +1,72 @@
-<style>
-  
- img{
-    float: bottom;
-    background-color:white; /*frame colour*/
-    padding: 6px; /*frame size*/
-    
-    -moz-border-radius: 5px;
-    border-radius: 10px;
-}
-#temp-div{
-    background-color: rgb(2,9,2);
-    padding-bottom: 50px;
-    -moz-border-radius: 5px;
-    border-radius: 20px;
-}
-</style>
-
-
-<!-- Make a Division for the Initial Header Stating our products -->
+<!-- Begining of Code starts with the Tabs-->
+    <div id="tabs" ng-controller="TabsCtrl">
+        <ul id = "ul-tab">
+            <li id = "tab-li" ng-repeat="tab in tabs" 
+                ng-class="{activetab:isActiveTab(tab.url)}" 
+                ng-click="onClickTab(tab)">{{tab.title}}</li>
+        </ul>
+        <div id="mainView">
+            <div ng-include="currentTab"></div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="one.tpl.html">
+        <div id="viewOne">
+<!-- Make a Division for the Initial Header Stating our Cultural products -->
 <div>
-    <h1 align = "center"><b> Our Products </b></h1>
+    <h1 align = "center"><b> Cultural Products </b></h1>
 </div>
 
-<section ng-controller="ProductsController">
-    <div ng-repeat="pro in products">
+<section ng-controller="cltProductsController">
+    <div ng-repeat="clt in cltproducts">
         <!-- Division that will be used to repeat the product blocks -->
         <!-- Product blocks contain {Product Name, Product Thumbnail, Short Description, Price, see more link}-->
         <div class = "row text-center " id = "temp-div" >    
             
 
-
-            <h3 style="color:white" style = "text-align:center"><b>{{pro.title}}</b></h3>
-            <!--This Should Take Care of the Product Name and Thumbnail-->
-            <div class = "col-lg-4 text-center">
-                <div ><!--style = "padding-left:90px"-->>
-                   <div>
-                        <img ng-src="{{pro.image}}" height="250" width="250">
-                    </div> 
+            <div class = "col-lg-4">
+                <div class = "row">
+                    <div class = "col-lg-12">
+                        <h3 style="color:white" style = "text-align:center"><b>{{clt.title}}</b></h3>
+                    </div>   
+                        <!--This Should Take Care of the Product Name and Thumbnail-->
+                    <div class = "col-lg-12 text-center">
+                            
+                        <div style="height: 50vh">
+                            <img ng-src="{{clt.image}}" height="100%" width="100%">
+                        </div> 
+                            
+                    </div>
                 </div>
             </div>
-
             <!-- Code containing a brief description and a see more button -->
-            <div class = "col-lg-8 text-center">
-                 <!-- Breaks used to lay the textare out correctly -->
-                
-                <div style = "padding-top:20px">
-                    <p style ="color:white"><b> About this Product </b></p>
+            <div class = "col-lg-8 text-center" style = "padding-top:6.25%">
+                 
+                <div class = "row">     
+                    <div class = "col-lg-12 text-center">
+                        <h5 style ="color:white"><b>About this Product</b></h5>
+                    </div> 
 
-                    <textarea readonly rows = "5" cols = "80" style="resize:none">{{pro.text}}</textarea>
-                    
-                    <br><br>
+                            <div class = "col-lg-12">    
+                                <div class = "t-box">
+                                    <p style = "color:black" align="left">{{clt.text}}</p>
+                                </div>
+                            </div>
+                          
 
-                    <!-- Button which will link to specific product page -->
-                    <div >
-                        <button type="button" class="btn btn-default btn-md" ><b>Learn More</b></button>
-                    </div>   
+                            <!-- Button which will link to specific product page -->
+                            <div class = "col-lg-12"> 
+                                <div class = "row">
+                                    
+                                    <div class = "col-lg-6 text-center" style = "padding-top:5px">    
+                                        <button type="button" class="btn btn-default btn-md" ><b>Learn More</b></button>
+                                    </div>
+                                    
+                                    <div class = "col-lg-6 text-center" style = "padding-top:5px">    
+                                        <button type="button" class="btn btn-default btn-md" ><b>Add to Cart</b></button>
+                                    </div>
+
+                                </div>
+                            </div>   
 
                 </div>
             </div>
@@ -65,23 +77,79 @@
 
     </div>
 </section>
-
-<br><br>
-
-<div class="row text-center">
-            <div class="col-md-2">
-                <a href=""><i class="fa fa-linkedin-square fa-4x"></i></a>
-            </div>
-            <div class="col-md-2">
-                <a href=""><i class="fa fa-facebook-square fa-4x"></i></a>
-            </div>
-            <div class="col-md-4">
-                <p>Terra Tactus<br>1 Address Street<br>Gainesville, Fla. 32603<br>phone: (123)456-7890<br>fax: (123)456-7891</p>
-            </div>
-            <div class="col-md-2">
-                <a href=""><i class="fa fa-twitter-square fa-4x"></i></a>
-            </div>
-            <div class="col-md-2">
-                <a href=""><i class="fa fa-google-plus-square fa-4x"></i></a>
-            </div>
+        </div>
+    </script>
+    
+    <script type="text/ng-template" id="two.tpl.html">
+        <div id="viewTwo">
+        <!-- Make a Division for the Initial Header Stating our Geological products -->
+<div>
+    <h1 align = "center"><b> Geological Products </b></h1>
 </div>
+
+            <section ng-controller="geoProductsController">
+    <div ng-repeat="geo in geoproducts">
+        <!-- Division that will be used to repeat the product blocks -->
+        <!-- Product blocks contain {Product Name, Product Thumbnail, Short Description, Price, see more link}-->
+        <div class = "row text-center " id = "temp-div" >    
+            
+
+            <div class = "col-lg-4">
+                <div class = "row">
+                    <div class = "col-lg-12">
+                        <h3 style="color:white" style = "text-align:center"><b>{{geo.title}}</b></h3>
+                    </div>   
+                        <!--This Should Take Care of the Product Name and Thumbnail-->
+                    <div class = "col-lg-12 text-center">
+                            
+                        <div style="height: 50vh">
+                            <img ng-src="{{geo.image}}" height="100%" width="100%">
+                        </div> 
+                            
+                    </div>
+                </div>
+            </div>
+            <!-- Code containing a brief description and a see more button -->
+            <div class = "col-lg-8 text-center" style = "padding-top:6.25%">
+                 
+                <div class = "row">     
+                    <div class = "col-lg-12 text-center">
+                        <h5 style ="color:white"><b>About this Product</b></h5>
+                    </div> 
+
+                            <div class = "col-lg-12">    
+                                <div class = "t-box">
+                                    <p style = "color:black" align="left">{{geo.text}}</p>
+                                </div>
+                            </div>
+                          
+
+                            <!-- Button which will link to specific product page -->
+                            <div class = "col-lg-12"> 
+                                <div class = "row">
+                                    
+                                    <div class = "col-lg-6 text-center" style = "padding-top:5px">    
+                                        <button type="button" class="btn btn-default btn-md" ><b>Learn More</b></button>
+                                    </div>
+                                    
+                                    <div class = "col-lg-6 text-center" style = "padding-top:5px">    
+                                        <button type="button" class="btn btn-default btn-md" ><b>Add to Cart</b></button>
+                                    </div>
+
+                                </div>
+                            </div>   
+
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+
+    </div>
+</section>
+        </div>
+    </script>
+    
+    
+<!-- Credit Given to Piotr (https://twitter.com/zalun) and Oskar (https://twitter.com/oskar) @ JFiddle for the use of the code which allowed me to create the tabs -->
