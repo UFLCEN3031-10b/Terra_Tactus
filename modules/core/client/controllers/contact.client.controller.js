@@ -7,7 +7,7 @@ angular.module('core').controller('ContactController', ['$scope', '$http', funct
         $scope.phone = '';
         $scope.fax = '';
 
-        $http.get('/api/contact-info').success(function (res) {
+        $http.get('/api/contact/info').success(function (res) {
             if (res === null) console.log('[ERROR] contact-info does not exist yet.');
             else {
                 $scope.contactName = res.contactName;
