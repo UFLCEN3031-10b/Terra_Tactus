@@ -77,6 +77,14 @@ body {
     height: 25vh;
 }
 
+.contact-info > div > a {
+    color: #0b2077;
+}
+
+.contact-info > div > a:hover {
+    color: #1ade4c;
+}
+
 .marg-auto {
     margin: auto;
 }
