@@ -16,10 +16,10 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
     console.log('[+] Connected to database.\n[*] Generating data.');
     var c = new socialmedia();
-    c.facebook = '';
-    c.twitter = '';
-    c.linkedin = '';
-    c.googleplus = '';
+    c.facebook = 'https://www.facebook.com';
+    c.twitter = 'https://www.twitter.com';
+    c.linkedin = 'https://www.linkedin.com';
+    c.googleplus = 'https://plus.google.com';
 
     c.save(function (err) {
         if (err) {
