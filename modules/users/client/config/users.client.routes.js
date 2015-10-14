@@ -78,7 +78,10 @@ angular.module('users').config(['$stateProvider',
       })
       .state('portal',{
         url: '/portal',
-        templateUrl: 'modules/users/client/views/portal/portal.html'
+        templateUrl: 'modules/users/client/views/portal/portal.html',
+        data:{
+          roles: ['user', 'admin', 'freeUser']
+        }
       })
       .state('China',{
         url: '/portal/China',
