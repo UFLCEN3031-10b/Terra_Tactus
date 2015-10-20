@@ -33,22 +33,22 @@ angular.module('core').controller('cltProductsController', function ($scope) {
 angular.module('core').controller('geoProductsController', function ($scope) {
 
     $scope.geoproducts = [{
-        title: 'Rocks With Eyes',
-        image: 'https://stevengoddard.files.wordpress.com/2011/07/pet-rocks.jpg',
-        text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.'
+        title: 'Taking a Look at Mt. Saint Helens',
+        image: 'https://volcanoes.usgs.gov/observatories/cvo/Historical/LewisClark/Historical/corps-engineers-archives_mount_st_helens_1978.jpg',
+        text: 'Mount St. Helens or Louwala-Clough (known as Lawetlat la to the indigenous Cowlitz people, and Loowit to the Klickitat) is an active stratovolcano located in Skamania County, Washington, in the Pacific Northwest region of the United States. It is 96 miles (154 km) south of Seattle, Washington, and 50 miles (80 km) northeast of Portland, Oregon. Mount St. Helens takes its English name from the British diplomat Lord St Helens, a friend of explorer George Vancouver who made a survey of the area in the late 18th century.'
 
     }, {
-        title: 'Very Hot Rocks',
-        image: 'http://thegrumpymom.com/wp-content/uploads/2015/04/evil-love-1-rocks.jpg',
-        text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.'
+        title: 'Analyzing the Crater in Northern Airzona',
+        image: 'http://160knots.com/images/Winslow/mc3.JPG',
+        text: 'Meteor Crater is a meteorite impact crater approximately 37 miles (60 km) east of Flagstaff and 18 miles (29 km) west of Winslow in the northern Arizona desert of the United States. Because the United States Board on Geographic Names commonly recognizes names of natural features derived from the nearest post office, the feature acquired the name of "Meteor Crater" from the nearby post office named Meteor.[2] The site was formerly known as the Canyon Diablo Crater and fragments of the meteorite are officially called the Canyon Diablo Meteorite.[3] Scientists refer to the crater as Barringer Crater in honor of Daniel Barringer, who was first to suggest that it was produced by meteorite impact.'
     },{
-        title: 'Shiny Rocks',
-        image: 'https://s3.amazonaws.com/rapgenius/tumbled-stones.jpg',
-        text: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.'
+        title: 'Explore the Grand Canyon',
+        image: 'http://www.thecanyon.com/assets/css/images/grandcanyon1.jpg',
+        text: 'The Grand Canyon (Hopi: Ongtupqa; Yavapai: Wi:kaʼi:la, Spanish: Gran Cañón), is a steep-sided canyon carved by the Colorado River in the state of Arizona in the United States. It is contained within and managed by Grand Canyon National Park, the Kaibab National Forest, Grand Canyon-Parashant National Monument, the Hualapai Tribal Nation, the Havasupai people and the Navajo Nation. President Theodore Roosevelt was a major proponent of preservation of the Grand Canyon area, and visited it on numerous occasions to hunt and enjoy the scenery.'
     },{
-        title: 'THE ROCK',
-        image: 'http://robbinsmedia.com/wp-content/uploads/2012/12/10_Dwayne_Johnson.jpg',
-        text: 'Dwayne Douglas Johnson (born May 2, 1972), also known by his ring name The Rock, is an American and Canadian actor, producer and professional wrestler. Johnson was a college football player for the University of Miami, winning a national championship on the 1991 Miami Hurricanes football team. He later played for the Calgary Stampeders in the Canadian Football League, and was cut two months into the 1995 season. '
+        title: 'Discovering Stonehenge',
+        image: 'http://www.english-heritage.org.uk/remote/www.english-heritage.org.uk/content/properties/stonehenge/hero-carousel/stonehenge-circle-pink-sky?w=1440&h=750&mode=crop&scale=both&cache=always&quality=60&anchor=bottomcenter',
+        text: 'Stonehenge is a prehistoric monument located in Wiltshire, England, about 2 miles (3 km) west of Amesbury and 8 miles (13 km) north of Salisbury. One of the most famous sites in the world, Stonehenge is the remains of a ring of standing stones set within earthworks. It is in the middle of the most dense complex of Neolithic and Bronze Age monuments in England, including several hundred burial mounds'
     }];
 
     $scope.addGeoProduct = function (newTitle,newImage, newText) {

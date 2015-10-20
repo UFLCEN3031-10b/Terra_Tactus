@@ -1,10 +1,11 @@
 <!-- Begining of Code starts with the Tabs-->
     <div id="tabs" ng-controller="TabsCtrl">
-        <ul id = "ul-tab">
-            <li id = "tab-li" ng-repeat="tab in tabs" 
-                ng-class="{activetab:isActiveTab(tab.url)}" 
-                ng-click="onClickTab(tab)">{{tab.title}}</li>
-        </ul>
+
+       <div class="btn-group" role="group" >
+            <button id = "tab-li" type="button" class="btn tab-btn" ng-repeat = "tab in tabs" ng-class="{activetab:isActiveTab(tab.url)}" 
+                ng-click="onClickTab(tab)"><b>{{tab.title}}</b></button>
+        </div>
+
         <div id="mainView">
             <div ng-include="currentTab"></div>
         </div>
@@ -13,69 +14,42 @@
         <div id="viewOne">
 <!-- Make a Division for the Initial Header Stating our Cultural products -->
 <div>
-    <h1 align = "center"><b> Cultural Products </b></h1>
+    <h1 align = "center"><b> Cultural Explorer Kits </b></h1>
 </div>
 
 <section ng-controller="cltProductsController">
-    <div ng-repeat="clt in cltproducts">
+    
         <!-- Division that will be used to repeat the product blocks -->
         <!-- Product blocks contain {Product Name, Product Thumbnail, Short Description, Price, see more link}-->
-        <div class = "row text-center " id = "temp-div" >    
-            
+         <div class="row" >
+        <div class="col-lg-10 " >
+            <div class=" col-lg-12 col-lg-offset-1" ng-repeat="clt in cltproducts" >
+                <div class="thumbnail" style = "background-color : #2e2f33; border-color:transparent; border-radius: 20px;">
+                    <h2 class="text-center" style = "color:white"><span class="label label-info" style = "background-color:#0faf38"><b>{{clt.title}}</b></span></h2>
+                    <img src ="{{clt.image}}" class="img-responsive" style="height: 50vh; width: 70vh; -moz-border-radius: 5px;
+    border-radius: 10px;">
+                    <div class="caption">
+                        <div class="row text-center">
+                            <div class="col-md-12 col-xs-12">
+                                <h4 style = "color:white"><b>About Product</b></h4>
+                            </div>
+                        </div>
+                        <p style = "color:white">{{clt.text}}</p>
+                        <div class="row text-center">
+                            <div class="col-md-6">
+                                <a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-triangle-right"></span>Learn More</a> 
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a></div>
+                            </div>
 
-            <div class = "col-lg-4">
-                <div class = "row">
-                    <div class = "col-lg-12">
-                        <h3 style="color:white" style = "text-align:center"><b>{{clt.title}}</b></h3>
-                    </div>   
-                        <!--This Should Take Care of the Product Name and Thumbnail-->
-                    <div class = "col-lg-12 text-center">
-                            
-                        <div class = "p-img" style="height: 50vh">
-                            <img ng-src="{{clt.image}}" height="100%" width="100%">
-                        </div> 
-                            
+                        <p> </p>
                     </div>
                 </div>
             </div>
-            <!-- Code containing a brief description and a see more button -->
-            <div class = "col-lg-8 text-center" style = "padding-top:6.25%">
-                 
-                <div class = "row">     
-                    <div class = "col-lg-12 text-center">
-                        <h5 style ="color:white"><b>About this Product</b></h5>
-                    </div> 
-
-                            <div class = "col-lg-12">    
-                                <div class = "t-box">
-                                    <p style = "color:black" align="left">{{clt.text}}</p>
-                                </div>
-                            </div>
-                          
-
-                            <!-- Button which will link to specific product page -->
-                            <div class = "col-lg-12"> 
-                                <div class = "row">
-                                    
-                                    <div class = "col-lg-6 text-center" style = "padding-top:5px">    
-                                        <button type="button" class="btn btn-default btn-md" ><b>Learn More</b></button>
-                                    </div>
-                                    
-                                    <div class = "col-lg-6 text-center" style = "padding-top:5px">    
-                                        <button type="button" class="btn btn-default btn-md" ><b>Add to Cart</b></button>
-                                    </div>
-
-                                </div>
-                            </div>   
-
-                </div>
-            </div>
-
         </div>
 
-        <br>
-
-    </div>
+    
 </section>
         </div>
     </script>
@@ -84,69 +58,39 @@
         <div id="viewTwo">
         <!-- Make a Division for the Initial Header Stating our Geological products -->
 <div>
-    <h1 align = "center"><b> Geological Products </b></h1>
+    <h1 align = "center"><b> Geological Explorer Kits </b></h1>
 </div>
 
             <section ng-controller="geoProductsController">
-    <div ng-repeat="geo in geoproducts">
-        <!-- Division that will be used to repeat the product blocks -->
+   <!-- Division that will be used to repeat the product blocks -->
         <!-- Product blocks contain {Product Name, Product Thumbnail, Short Description, Price, see more link}-->
-        <div class = "row text-center " id = "temp-div" >    
-            
+         <div class="row" >
+        <div class="col-lg-10 " >
+            <div class=" col-lg-12 col-lg-offset-1" ng-repeat="geo in geoproducts" >
+                <div class="thumbnail" style = "background-color : #2e2f33; border-color:transparent; border-radius: 20px;">
+                    <h2 class="text-center" style = "color:white"><span class="label label-info" style = "background-color:#0faf38"><b>{{geo.title}}</b></span></h2>
+                    <img src ="{{geo.image}}" class="img-responsive" style="height: 50vh; width: 70vh; -moz-border-radius: 5px;
+    border-radius: 10px;">
+                    <div class="caption">
+                        <div class="row text-center">
+                            <div class="col-md-12 col-xs-12">
+                                <h4 style = "color:white"><b>About Product</b></h4>
+                            </div>
+                        </div>
+                        <p style = "color:white">{{geo.text}}</p>
+                        <div class="row text-center">
+                            <div class="col-md-6">
+                                <a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-triangle-right"></span>Learn More</a> 
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a></div>
+                            </div>
 
-            <div class = "col-lg-4">
-                <div class = "row">
-                    <div class = "col-lg-12">
-                        <h3 style="color:white" style = "text-align:center"><b>{{geo.title}}</b></h3>
-                    </div>   
-                        <!--This Should Take Care of the Product Name and Thumbnail-->
-                    <div class = "col-lg-12 text-center">
-                            
-                        <div class = "p-img" style="height: 50vh">
-                            <img ng-src="{{geo.image}}" height="100%" width="100%">
-                        </div> 
-                            
+                        <p> </p>
                     </div>
                 </div>
             </div>
-            <!-- Code containing a brief description and a see more button -->
-            <div class = "col-lg-8 text-center" style = "padding-top:6.25%">
-                 
-                <div class = "row">     
-                    <div class = "col-lg-12 text-center">
-                        <h5 style ="color:white"><b>About this Product</b></h5>
-                    </div> 
-
-                            <div class = "col-lg-12">    
-                                <div class = "t-box">
-                                    <p style = "color:black" align="left">{{geo.text}}</p>
-                                </div>
-                            </div>
-                          
-
-                            <!-- Button which will link to specific product page -->
-                            <div class = "col-lg-12"> 
-                                <div class = "row">
-                                    
-                                    <div class = "col-lg-6 text-center" style = "padding-top:5px">    
-                                        <button type="button" class="btn btn-default btn-md" ><b>Learn More</b></button>
-                                    </div>
-                                    
-                                    <div class = "col-lg-6 text-center" style = "padding-top:5px">    
-                                        <button type="button" class="btn btn-default btn-md" ><b>Add to Cart</b></button>
-                                    </div>
-
-                                </div>
-                            </div>   
-
-                </div>
-            </div>
-
         </div>
-
-        <br>
-
-    </div>
 </section>
         </div>
     </script>
