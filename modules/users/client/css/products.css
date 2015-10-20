@@ -22,7 +22,6 @@
     min-height: 120px;
     -moz-border-radius: 5px;
     border-radius: 10px;
-    
 }
 /*Code for the format of the tabs*/
 #ul-tab {
@@ -36,8 +35,12 @@
     clear: both;
     padding: 0 1em;
 }
-
-/*default formating of the tabs such as default colors and rounded edges
+/*changes the color of the current tab*/
+.activetab {
+    background-color: green;
+    color: blue;
+}
+/*default formating of the tabs such as default colors and rounded edges*/
 #tab-li {
     float: left;
     border: 1px solid blue;
@@ -46,22 +49,4 @@
     color: white;
     -moz-border-radius: 5px;
     border-radius: 10px;
-}*/
-.tab-btn{
-    border: 1px solid #0faf38;
-    background-color: transparent;
-    color: #0faf38;
-}
-
-/*changes the color of the current tab*/
-.activetab {
-    background-color: #0b2077;
-    color: #0faf38;
-}
-
-.btn:hover
-{
-background-image:none !important;
-background-color:#0faf38 !important;
-color: white !important;
 }
