@@ -52,12 +52,6 @@ h2.title{
     text-transform: uppercase;
 }
 
-.btn:hover {
-    background-image:none !important;
-    background-color:#0faf38 !important;
-    color: white !important;
-}
-
 h2 {
     color: #0faf38;
 }
