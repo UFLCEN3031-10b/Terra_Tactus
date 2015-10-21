@@ -36,6 +36,11 @@ var AnnouncementSchema = new Schema({
     default: '',
     trim: true
   },
+  picture: {
+    type: String,
+    default: '',
+    trim: true
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'

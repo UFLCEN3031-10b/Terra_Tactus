@@ -6,7 +6,7 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
     $scope.authentication = Authentication;
 
     //check for a link
-    $scope.isLink = function (item) {
+    $scope.isThere = function (item) {
       console.log(item);
       if (item !== "") {
         return true;
@@ -29,7 +29,8 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
         title: this.title,
         username: this.username,
         content: this.content,
-        link: this.link
+        link: this.link,
+        picture: this.picture
       });
 
       // Redirect after save

@@ -40,11 +40,11 @@
                       <div>
                         <p class="list-group-item-text" ng-bind="announcement.content"></p>
                       </div>
-                      <div ng-show="isLink(announcement.link)">
-                        <a href="{{announcement.link}}">Link here!</a>
+                      <div ng-show="isThere(announcement.link)">
+                        <a href="http://{{announcement.link}}">Link here!</a>
                       </div>
-                      <div>
-                        <img class="img-responsive" src="modules/core/client/img/brand/logo.png">
+                      <div ng-show="isThere(announcement.link)">
+                        <img class="img-responsive" src="{{announcement.picture}}">
                       </div>
                       <small class="list-group-item-text">
                         Posted on

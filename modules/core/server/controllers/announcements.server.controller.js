@@ -43,6 +43,7 @@ exports.update = function (req, res) {
   announcement.username = req.body.username;
   announcement.content = req.body.content;
   announcement.link = req.body.link;
+  announcement.picture = req.body.picture;
 
   announcement.save(function (err) {
     if (err) {
