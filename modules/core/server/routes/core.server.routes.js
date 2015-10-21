@@ -28,6 +28,8 @@ module.exports = function (app) {
     .put(carouseldata.update)
     .delete(carouseldata.remove);
 
+  app.param('slideId', carouseldata.slideById);
+
   // Define error pages
   app.route('/server-error').get(core.renderServerError);
 

@@ -63,3 +63,24 @@ exports.remove = function (req, res) {
         }
     });
 };
+
+exports.slideById = function(req, res, next, id) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).send({
+            message: 'Slide is invalid'
+        });
+    }
+
+    CarouselData.findById(id).exec(function (err, slide) {
+        if (err) {
+            return next(err);
+        } else if(!slide) {
+            return res.status(404).send({
+                message: 'Slide ID not found'
+            });
+        }
+
+        req.carouseldata = slide;
+        next();
+    });
+};
