@@ -16,6 +16,9 @@ exports.invokeRolesPolicies = function () {
         }, {
             resources: '/api/homepage/socialmedia',
             permissions: '*'
+        }, {
+            resources: '/api/homepage/carousel',
+            permissions: '*'
         }]
     }, {
         roles: ['user', 'guest', 'freeUser'],
@@ -27,6 +30,9 @@ exports.invokeRolesPolicies = function () {
             permissions: ['get']
         }, {
             resources: '/api/homepage/socialmedia',
+            permissions: ['get']
+        }, {
+            resources: '/api/homepage/carousel',
             permissions: ['get']
         }]
     }]);

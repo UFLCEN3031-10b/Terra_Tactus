@@ -4,6 +4,7 @@ var core = require('../controllers/core.server.controller'),
     homepageData = require('../controllers/homepageData.server.controller'),
     contact = require('../controllers/contact.server.controller'),
     socialmedia = require('../controllers/socialmedia.server.controller'),
+    carouseldata = require('../controllers/carouseldata.server.controller'),
     hompagepolicy = require('../policies/homepage.server.policy.js');
 
 module.exports = function (app) {
@@ -20,6 +21,12 @@ module.exports = function (app) {
   app.route('/api/homepage/socialmedia').all(hompagepolicy.isAllowed)
     .get(socialmedia.find)
     .put(socialmedia.update);
+
+  app.route('/api/homepage/carousel').all(hompagepolicy.isAllowed)
+    .get(carouseldata.find)
+    .post(carouseldata.create)
+    .put(carouseldata.update)
+    .delete(carouseldata.remove);
 
   // Define error pages
   app.route('/server-error').get(core.renderServerError);
