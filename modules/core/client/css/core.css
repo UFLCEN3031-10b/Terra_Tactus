@@ -83,11 +83,11 @@ body {
 }
 
 #product-info-blue {
-    background-color: #0b2077;
+    background-color: #00c9dd;
 }
 
 #product-info-green {
-    background-color: #0faf38;
+    background-color: lime;
 }
 
 .contact-info > div {
@@ -95,7 +95,7 @@ body {
 }
 
 .contact-info > div > a {
-    color: #0b2077;
+    color: #00c9dd;
 }
 
 .contact-info > div > a:hover {
@@ -112,7 +112,10 @@ body {
     display: flex;
     align-items: center;
 }
-
 .bg-color-main {
-  background-color: black;
+    background-color: black;
+}
+.btn-blue {
+    background-color: #00c9dd;
+/*changed colors to increase contrast*/
 }

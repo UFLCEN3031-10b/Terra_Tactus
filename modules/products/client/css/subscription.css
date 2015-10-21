@@ -46,14 +46,14 @@ h2.title{
     font-size: 60px;
     line-height:60px;
     color: #fff;
-    border-color: #0faf38;
+    border-color: lime;
     border-radius: 10%;
     font-weight: 700;
     text-transform: uppercase;
 }
 
 h2 {
-    color: #0faf38;
+    color: lime;
 }
 .line-top{
     width: 930px;
