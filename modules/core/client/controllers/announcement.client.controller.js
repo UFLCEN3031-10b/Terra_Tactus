@@ -19,16 +19,14 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
       var announcement = new Announcements({
         title: this.title,
         username: this.username,
-        content: this.content
+        content: this.content,
+        link: this.link
       });
 
       // Redirect after save
       announcement.$save(function (response) {
         $location.path('');
 
-        // Clear form fields
-        $scope.title = '';
-        $scope.content = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });

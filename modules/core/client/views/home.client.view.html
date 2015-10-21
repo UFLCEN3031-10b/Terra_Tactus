@@ -35,10 +35,13 @@
                 <h1>Announcements</h1>
               </div>
                   <div class="list-group">
-                    <a ng-repeat="announcement in announcements" ui-sref="announcements.view({announcementId: announcement._id})" class="list-group-item">
+                    <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item">
                       <h4 class="list-group-item-heading" ng-bind="announcement.title"></h4>
-                      <div style="overflow: auto;">
+                      <div>
                         <p class="list-group-item-text" ng-bind="announcement.content"></p>
+                      </div>
+                      <div>
+                        <a href="{{announcement.link}}" ng-bind="announcement.link"></a>
                       </div>
                       <small class="list-group-item-text">
                         Posted on
@@ -46,7 +49,7 @@
                         by
                         <span ng-bind="announcement.username"></span>
                       </small>
-                    </a>
+                    </div>
                 </div>
             </section>
         </div>

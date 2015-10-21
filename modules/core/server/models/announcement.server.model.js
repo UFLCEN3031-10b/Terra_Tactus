@@ -22,7 +22,7 @@ var AnnouncementSchema = new Schema({
   },
   content: {
     type: String,
-    default: '',
+    default: 'NO LINK!',
     trim: true
   },
   username: {
@@ -30,6 +30,11 @@ var AnnouncementSchema = new Schema({
     default: '',
     trim: true,
     required: 'Title cannot be blank'
+  },
+  link: {
+    type: String,
+    default: '',
+    trim: true
   },
   user: {
     type: Schema.ObjectId,

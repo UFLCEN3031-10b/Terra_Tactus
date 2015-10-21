@@ -42,6 +42,7 @@ exports.update = function (req, res) {
   announcement.title = req.body.title;
   announcement.username = req.body.username;
   announcement.content = req.body.content;
+  announcement.link = req.body.link;
 
   announcement.save(function (err) {
     if (err) {
