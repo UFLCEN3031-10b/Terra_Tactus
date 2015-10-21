@@ -22,7 +22,7 @@ var AnnouncementSchema = new Schema({
   },
   content: {
     type: String,
-    default: 'NO LINK!',
+    default: '',
     trim: true
   },
   username: {

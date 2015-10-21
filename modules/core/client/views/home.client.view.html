@@ -40,8 +40,8 @@
                       <div>
                         <p class="list-group-item-text" ng-bind="announcement.content"></p>
                       </div>
-                      <div>
-                        <a href="{{announcement.link}}" ng-bind="announcement.link"></a>
+                      <div ng-show="isLink(announcement.link)">
+                        <a href="{{announcement.link}}">Link here!</a>
                       </div>
                       <small class="list-group-item-text">
                         Posted on

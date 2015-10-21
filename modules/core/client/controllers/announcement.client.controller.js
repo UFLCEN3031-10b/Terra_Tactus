@@ -5,6 +5,15 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
   function ($scope, $stateParams, $location, Authentication, Announcements) {
     $scope.authentication = Authentication;
 
+    //check for a link
+    $scope.isLink = function (item) {
+      console.log(item);
+      if (item !== "") {
+        return true;
+      }
+      return false;
+    };
+
     // Create new Announcement
     $scope.create = function (isValid) {
       $scope.error = null;
