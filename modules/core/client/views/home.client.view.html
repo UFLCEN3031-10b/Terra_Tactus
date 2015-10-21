@@ -43,6 +43,9 @@
                       <div ng-show="isLink(announcement.link)">
                         <a href="{{announcement.link}}">Link here!</a>
                       </div>
+                      <div>
+                        <img class="img-responsive" src="modules/core/client/img/brand/logo.png">
+                      </div>
                       <small class="list-group-item-text">
                         Posted on
                         <span ng-bind="announcement.created | date:'mediumDate'"></span>
