@@ -7,14 +7,14 @@ var core = require('../controllers/core.server.controller'),
 
 module.exports = function (app) {
   // routing for homepage data, needs user restriction
-  app.route('/api/homepage-data').get(homepageData.find)
+  app.route('/api/homepage/data').get(homepageData.find)
     .put(homepageData.update);
 
   // routing for contact data, needs user restriction
-  app.route('/api/contact/info').get(contact.find)
+  app.route('/api/homepage/contact').get(contact.find)
     .put(contact.update);
 
-  app.route('/api/contact/socialmedia').get(socialmedia.find)
+  app.route('/api/homepage/socialmedia').get(socialmedia.find)
     .put(socialmedia.update);
 
   // Define error pages
