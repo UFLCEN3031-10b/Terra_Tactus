@@ -1,22 +1,22 @@
 'use strict';
 
-angular.module('core').controller('CarouselHomeController', function ($scope) {
+angular.module('core').controller('CarouselHomeController',['$scope', '$http', function ($scope, $http) {
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
     $scope.slides = [{
-        image: 'http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg',
-        text: 'These are rocks. They are interesting.',
-        link: '#'
-    }, {
-        image: 'http://janasays.com/wp-content/uploads/2012/05/rocks.jpg',
-        text: 'These are more rocks. They are more interesting.',
-        link: '#'
+        imglink: 'http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg',
+        content: 'These are rocks. They are interesting.',
+        iflink: true,
+        linktext: '#'
     }];
 
-    $scope.addSlide = function (newImage, newText) {
-        $scope.slides.push({
-            image: newImage,
-            text: newText
-        });
+    $scope.addSlide = function (slide) {
+        $scope.slides.push(slide);
     };
-});
+
+    $http.get('/api/homepage/carousel').success(function (res) {
+        res.forEach(function (slide) {
+            $scope.addSlide(slide);
+        });
+    });
+}]);
