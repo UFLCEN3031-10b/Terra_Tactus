@@ -24,7 +24,8 @@ module.exports = function (app) {
 
   app.route('/api/homepage/carousel').all(hompagepolicy.isAllowed)
     .get(carouseldata.find)
-    .post(carouseldata.create)
+    .post(carouseldata.create);
+  app.route('/api/homepage/carousel/:slideId').all(hompagepolicy.isAllowed)
     .put(carouseldata.update)
     .delete(carouseldata.remove);
 

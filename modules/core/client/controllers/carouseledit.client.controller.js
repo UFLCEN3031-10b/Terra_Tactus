@@ -13,7 +13,20 @@ angular.module('core').controller('CarouselEditController', ['$scope', '$http', 
     };
 
     $scope.update = function (slide) {
+        var linkexists = (this.linktext !== '');
+        var req = {
+            imglink: this.imglink,
+            iflink: linkexists,
+            linktext: this.linktext,
+            content: this.content
+        };
 
+        $http.put('/api/homepage/carousel/' + slide._id, req).success(function (res) {
+            this.imglink = '';
+            this.linktext = '';
+            this.content = '';
+            $location.path($location.path());
+        });
     };
 
     $scope.create = function () {
