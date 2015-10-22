@@ -12,5 +12,9 @@ angular.module('core.admin').run(['Menus',
       title: 'Create Announcement',
       state: 'create-announcement'
     });
+    Menus.addSubMenuItem('topbar', 'admin', {
+        title: 'Edit Carousel',
+        state: 'edit-carousel'
+    });
   }
 ]);
