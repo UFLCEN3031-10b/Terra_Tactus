@@ -14,6 +14,9 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
       return false;
     };
 
+    //editting shows
+    $scope.isEditing = false;
+
     // Create new Announcement
     $scope.create = function (isValid) {
       $scope.error = null;
@@ -35,7 +38,7 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
 
       // Redirect after save
       announcement.$save(function (response) {
-        $location.path('');
+        //$location.path('announcements/' + response._id);
 
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
@@ -60,8 +63,9 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
     };
 
     // Update existing Announcement
-    $scope.update = function (isValid) {
+    $scope.update = function (isValid, announcement) {
       $scope.error = null;
+      $scope.isEditing = false;
 
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'announcementForm');
@@ -69,13 +73,15 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
         return false;
       }
 
-      var announcement = $scope.announcement;
-
       announcement.$update(function () {
-        $location.path('announcements/' + announcement._id);
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
+    };
+
+    //edit it and then update it
+    $scope.edit = function (announcement) {
+      $scope.isEditing = true;
     };
 
     // Find a list of Announcements
