@@ -3,12 +3,7 @@
 angular.module('core').controller('CarouselHomeController',['$scope', '$http', function ($scope, $http) {
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
-    $scope.slides = [{
-        imglink: 'http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg',
-        content: 'These are rocks. They are interesting.',
-        iflink: true,
-        linktext: '#'
-    }];
+    $scope.slides = [];
 
     $scope.addSlide = function (slide) {
         $scope.slides.push(slide);

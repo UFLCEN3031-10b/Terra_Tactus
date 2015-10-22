@@ -14,18 +14,15 @@ angular.module('core').controller('CarouselEditController', ['$scope', '$http', 
 
     $scope.setEditSlide = function (slide) {
         $scope.editslide = slide;
-        $scope.imglink = slide.imglink;
-        $scope.linktext = slide.linktext;
-        $scope.content = slide.content;
     };
 
     $scope.update = function (slide) {
-        var linkexists = ($scope.linktext !== '');
+        var linkexists = (slide.linktext !== '');
         var req = {
-            imglink: $scope.imglink,
+            imglink: slide.imglink,
             iflink: linkexists,
-            linktext: $scope.linktext,
-            content: $scope.content
+            linktext: slide.linktext,
+            content: slide.content
         };
 
         $http.put('/api/homepage/carousel/' + slide._id, req).success(function (res) {

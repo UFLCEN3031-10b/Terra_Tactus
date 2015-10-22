@@ -30,22 +30,22 @@
                 <fieldset>
                     <div class="form-group">
                         <label>Image Url</label>
-                        <input name="imglink" type="text" ng-model="imglink" class="form-control" placeholder="https://google.com/image.jpg" required>
+                        <input name="editimglink" type="text" ng-model="slide.imglink" class="form-control" placeholder="https://google.com/image.jpg" required>
                     </div>
                     <div class="form-group">
                         <label>Link Url</label>
-                        <input name="linktext" type="text" ng-model="linktext" class="form-control" placeholder="/path/to/link">
+                        <input name="editlinktext" type="text" ng-model="slide.linktext" class="form-control" placeholder="/path/to/link">
                     </div>
                     <div class="form-group">
                         <label>Text Field</label>
-                        <textarea name="content" ng-model="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+                        <textarea name="editcontent" ng-model="slide.content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
                     </div>
                     <div class="form-group text-center">
                         <div class="col-xs-6"><input type="submit" class="btn btn-primary"></div>
                         <div class="col-xs-6"><div ng-click="cancel()" class="btn btn-warning">Cancel</div></div>
+                    </div>
                 </fieldset>
             </form>
-        </div>
         </div>
     </div>
 
