@@ -70,6 +70,22 @@
     </div>
     <form name="socialmediaDataForm" class="form-horizontal col-md-12" ng-submit="socialmediaUpdate()" novalidate>
         <fieldset>
+            <div class="form-group">
+                <label>Facebook Link</label>
+                <input name="facebooklink" type="text" ng-model="socialmediaData.facebook" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label>Twitter Link</label>
+                <input name="twitterlink" type="text" ng-model="socialmediaData.twitter" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label>LinkedIn Link</label>
+                <input name="linkedinlink" type="text" ng-model="socialmediaData.linkedin" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label>Google Plus Link</label>
+                <input name="googlepluslink" type="text" ng-model="socialmediaData.googleplus" class="form-control" placeholder="" required>
+            </div>
             <div class="form-group text-center">
                 <input type="submit" class="btn btn-primary">
             </div>
