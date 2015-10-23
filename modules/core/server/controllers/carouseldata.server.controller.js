@@ -19,7 +19,7 @@ exports.create = function (req, res) {
     });
 };
 
-exports.find = function (req, res) {
+exports.list = function (req, res) {
     CarouselData.find().exec(function (err, datas) {
         if (err) {
             return res.status(400).send({

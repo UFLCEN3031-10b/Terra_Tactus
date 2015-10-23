@@ -23,7 +23,7 @@ module.exports = function (app) {
     .put(socialmedia.update);
 
   app.route('/api/homepage/carousel').all(hompagepolicy.isAllowed)
-    .get(carouseldata.find)
+    .get(carouseldata.list)
     .post(carouseldata.create);
   app.route('/api/homepage/carousel/:slideId').all(hompagepolicy.isAllowed)
     .put(carouseldata.update)
