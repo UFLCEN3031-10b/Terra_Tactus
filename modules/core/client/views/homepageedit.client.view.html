@@ -43,6 +43,33 @@
                 <label>Contact Name</label>
                 <input name="contactName" type="text" ng-model="contactData.contactName" class="form-control" placeholder="" required>
             </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input name="address" type="text" ng-model="contactData.address" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label>City State and Zip code</label>
+                <input name="citystatezip" type="text" ng-model="contactData.citystatezip" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input name="phone" type="text" ng-model="contactData.phone" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label>Fax</label>
+                <input name="fax" type="text" ng-model="contactData.fax" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" class="btn btn-primary">
+            </div>
+        </fieldset>
+    </form>
+
+    <div class="page-header">
+        <h1>Edit Social Media Links</h1>
+    </div>
+    <form name="socialmediaDataForm" class="form-horizontal col-md-12" ng-submit="socialmediaUpdate()" novalidate>
+        <fieldset>
             <div class="form-group text-center">
                 <input type="submit" class="btn btn-primary">
             </div>

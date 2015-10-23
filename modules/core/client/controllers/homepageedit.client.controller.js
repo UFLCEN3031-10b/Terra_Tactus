@@ -22,6 +22,8 @@ angular.module('core').controller('HomepageEditController', ['$scope', '$http', 
 
         $http.put('/api/homepage/data', req).success(function (res) {
             $window.location.reload();
+        }).error(function (res) {
+            console.log(res);
         });
     };
 
