@@ -16,5 +16,9 @@ angular.module('core.admin').run(['Menus',
         title: 'Edit Carousel',
         state: 'edit-carousel'
     });
+    Menus.addSubMenuItem('topbar', 'admin', {
+        title: 'Edit Homepage',
+        state: 'edit-homepage'
+    });
   }
 ]);
