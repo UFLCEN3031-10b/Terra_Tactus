@@ -112,13 +112,15 @@ body {
     display: flex;
     align-items: center;
 }
-.btn:hover{
-    background-image:none !important;
-    background-color:lime !important;
-    color: white !important;
-    border-color: white;
-    font-weight: bold;
 
 .bg-color-main {
     background-color: black;
+}
+
+.btn:hover {
+    background-image: none !important;
+    background-color: lime !important;
+    color: white !important;
+    border-color: white;
+    font-weight: bold;
 }
