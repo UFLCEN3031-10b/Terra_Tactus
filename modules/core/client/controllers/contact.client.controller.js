@@ -8,7 +8,7 @@ angular.module('core').controller('ContactController', ['$scope', '$http', funct
         $scope.fax = '';
         var sm = $scope.socialmedia = {};
 
-        $http.get('/api/homepage/contact').success(function (res) {
+        $http.get('/api/contact/info').success(function (res) {
             if (res === null) console.log('[ERROR] contact-info does not exist yet.');
             else {
                 $scope.contactName = res.contactName;
@@ -19,7 +19,7 @@ angular.module('core').controller('ContactController', ['$scope', '$http', funct
             }
         });
 
-        $http.get('/api/homepage/socialmedia').success(function (res) {
+        $http.get('/api/contact/socialmedia').success(function (res) {
             if (res === null) console.log();
             else {
                 sm.facebook = res.facebook;
