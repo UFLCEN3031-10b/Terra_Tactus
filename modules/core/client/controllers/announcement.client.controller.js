@@ -5,6 +5,18 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
   function ($scope, $stateParams, $location, Authentication, Announcements) {
     $scope.authentication = Authentication;
 
+    //check for a link
+    $scope.isThere = function (item) {
+      console.log(item);
+      if (item !== "") {
+        return true;
+      }
+      return false;
+    };
+
+    //editting shows
+    $scope.isEditing = false;
+
     // Create new Announcement
     $scope.create = function (isValid) {
       $scope.error = null;
@@ -19,16 +31,15 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
       var announcement = new Announcements({
         title: this.title,
         username: this.username,
-        content: this.content
+        content: this.content,
+        link: this.link,
+        picture: this.picture
       });
 
       // Redirect after save
       announcement.$save(function (response) {
-        $location.path('');
+        //$location.path('announcements/' + response._id);
 
-        // Clear form fields
-        $scope.title = '';
-        $scope.content = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
@@ -52,8 +63,9 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
     };
 
     // Update existing Announcement
-    $scope.update = function (isValid) {
+    $scope.update = function (isValid, announcement) {
       $scope.error = null;
+      $scope.isEditing = false;
 
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'announcementForm');
@@ -61,13 +73,15 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
         return false;
       }
 
-      var announcement = $scope.announcement;
-
       announcement.$update(function () {
-        $location.path('announcements/' + announcement._id);
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
+    };
+
+    //edit it and then update it
+    $scope.edit = function (announcement) {
+      $scope.isEditing = true;
     };
 
     // Find a list of Announcements

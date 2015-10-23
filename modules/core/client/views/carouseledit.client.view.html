@@ -1,0 +1,76 @@
+<section ng-controller="CarouselEditController">
+    <div class="page-header">
+        <h1>Edit Slides</h1>
+    </div>
+    <div class="row" style="margin-bottom: 10px" ng-repeat="slide in slides">
+        <div class="col-md-4">
+            <img class="img-responsive" src="{{slide.imglink}}">
+        </div>
+        <div class="col-md-8" ng-hide="slide === editslide">
+            <h4 class="text-center col-md-12">Slide #{{slide._id | limitTo:-5}}</h4>
+            <div class="row">
+                <div class="col-xs-4"><p>Image Url:</p></div>
+                <div class="col-xs-8"><p>{{slide.imglink}}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4"><p>Link Url:</p></div>
+                <div class="col-xs-8"><p>{{slide.linktext || 'NULL'}}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4"><p>Content:</p></div>
+                <div class="col-xs-8"><p>{{slide.content}}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 text-center"><button ng-click="setEditSlide(slide)" class="btn btn-primary">Edit</button></div>
+                <div class="col-xs-6 text-center"><button ng-click="delete(slide)" class="btn btn-danger">Delete</button></div>
+            </div>
+        </div>
+        <div class="col-md-8" ng-show="slide === editslide">
+            <form name="updateSlide" class="form-horizontal" ng-submit="update(slide)" novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <label>Image Url</label>
+                        <input name="editimglink" type="text" ng-model="slide.imglink" class="form-control" placeholder="https://google.com/image.jpg" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Link Url</label>
+                        <input name="editlinktext" type="text" ng-model="slide.linktext" class="form-control" placeholder="/path/to/link">
+                    </div>
+                    <div class="form-group">
+                        <label>Text Field</label>
+                        <textarea name="editcontent" ng-model="slide.content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="col-xs-6"><input type="submit" class="btn btn-primary"></div>
+                        <div class="col-xs-6"><div ng-click="cancel()" class="btn btn-warning">Cancel</div></div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <div class="page-header" ng-show="editslide === null">
+        <h3>New Slide</h3>
+    </div>
+    <div class="col-md-12" ng-show="editslide === null">
+        <form name="newSlide" class="form-horizontal" ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label>Image Url</label>
+                    <input name="imglink" type="text" ng-model="imglink" class="form-control" placeholder="https://google.com/image.jpg" required>
+                </div>
+                <div class="form-group">
+                    <label>Link Url</label>
+                    <input name="linktext" type="text" ng-model="linktext" class="form-control" placeholder="/path/to/link">
+                </div>
+                <div class="form-group">
+                    <label>Text Field</label>
+                    <textarea name="content" ng-model="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" class="btn btn-primary">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>
