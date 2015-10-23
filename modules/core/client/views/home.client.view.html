@@ -51,9 +51,11 @@
                         Posted on
                         <span ng-bind="announcement.created | date:'mediumDate'"></span>
                         by
-                        <span ng-bind="announcement.username"></span><br>
-                        <a class="text-vertical-center" ng-click="edit(announcement)">Edit </a>
-                        <a class="text-vertical-center" ng-click="remove(announcement)">Delete</a>
+                        <span ng-bind="announcement.username"></span>
+                        <div ng-if="authentication.user.roles == 'admin';">
+                          <a class="text-vertical-center" ng-click="edit(announcement)">Edit </a>
+                          <a class="text-vertical-center" ng-click="remove(announcement)">Delete</a>
+                        </div>
                       </small>
                     </div>
                       <form name="announcementForm" class="form-horizontal" ng-submit="update(announcementForm.$valid, announcement)" ng-show="isEditing" novalidate>
