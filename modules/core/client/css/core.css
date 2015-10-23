@@ -113,10 +113,6 @@ body {
     align-items: center;
 }
 
-.bg-color-main {
-    background-color: black;
-}
-
 .btn:hover {
     background-image: none !important;
     background-color: lime !important;
