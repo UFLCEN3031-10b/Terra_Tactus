@@ -115,3 +115,13 @@ body {
 .btn-blue {
     background-color: #00c9dd;
 }
+.btn:hover{
+    background-image:none !important;
+    background-color:lime !important;
+    color: white !important;
+    border-color: white;
+    font-weight: bold;
+
+.bg-color-main {
+    background-color: black;
+}
