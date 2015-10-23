@@ -21,7 +21,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$htt
     });
 
     var sm = $scope.socialmedia = {};
-    $http.get('/api/homepage/socialmedia').success(function (res) {
+    $http.get('/api/contact/socialmedia').success(function (res) {
         if (res === null) console.log();
         else {
             sm.facebook = res.facebook;

@@ -18,23 +18,7 @@ exports.find = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    homepageData.findOne().exec(function (err, data) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            data.remove(function (err) {
-                if (err) {
-                    return res.status(400).send({
-                        message: errorHandler.getErrorMessage(err)
-                    });
-                }
-            });
-        }
-    });
-
-    var d = new homepageData();
+    var d = req.data;
     d.aboutUsText = req.body.aboutUsText;
     d.aboutUsImage = req.body.aboutUsImage;
     d.subscribeText = req.body.subscribeText;
