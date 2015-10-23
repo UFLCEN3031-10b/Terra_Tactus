@@ -33,4 +33,19 @@
             </div>
         </fieldset>
     </form>
+
+    <div class="page-header">
+        <h1>Edit Contact Data</h1>
+    </div>
+    <form name="contactDataForm" class="form-horizontal col-md-12" ng-submit="contactUpdate()" novalidate>
+        <fieldset>
+            <div class="form-group">
+                <label>Contact Name</label>
+                <input name="contactName" type="text" ng-model="contactData.contactName" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" class="btn btn-primary">
+            </div>
+        </fieldset>
+    </form>
 </section>
