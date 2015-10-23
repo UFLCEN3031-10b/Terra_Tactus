@@ -14,7 +14,7 @@ angular.module('core').controller('HomeController', ['$scope', '$http', 'Authent
     $scope.individualProdText = '';
     $scope.individualProdImage = loader;
 
-    $http.get('/api/homepage/data').success(function (res) {
+    $http.get('/api/homepage-data').success(function (res) {
         if (res === null) console.log('[ERROR] homepage-data does not exist yet.');
         else {
             $scope.aboutUsText = res.aboutUsText;
