@@ -37,16 +37,7 @@
     padding: 0 1em;
 }
 
-/*default formating of the tabs such as default colors and rounded edges
-#tab-li {
-    float: left;
-    border: 1px solid blue;
-    margin: 3px 3px 0px 3px;
-    padding: 5px 5px 0px 5px;
-    color: white;
-    -moz-border-radius: 5px;
-    border-radius: 10px;
-}*/
+
 .tab-btn{
     border: 1px solid #0faf38;
     background-color: transparent;
@@ -59,9 +50,52 @@
     color: #0faf38;
 }
 
-.btn:hover
+.tab-btn:hover
 {
 background-image:none !important;
 background-color:#0faf38 !important;
 color: white !important;
+}
+
+/*css for the background of each product title*/
+.label-info
+{
+    background-color:#0faf38;
+    -moz-border-radius: 5px;
+    border-radius: 10px;
+    
+}
+
+.label-info h2
+{
+color:white;
+font-weight: bold;
+text-align: center;  
+}
+
+/* css for the product image*/
+.product-img
+{
+height: 50vh; 
+width: 70vh;
+-moz-border-radius: 5px;
+border-radius: 10px;
+}
+
+.product-thumb
+{
+background-color : #2e2f33; 
+border-color:transparent; 
+border-radius: 20px;
+}
+
+.about-label
+{
+color:white;
+font-weight: bold;
+}
+
+.about-text
+{
+color:white;
 }

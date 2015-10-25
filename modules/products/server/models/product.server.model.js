@@ -26,7 +26,16 @@ var ProductSchema = new Schema({
         type: String,
         default: '',
         trim: true
+    },
+    imageSet: {
+        image: [String]
+    },
+    priceSet: {
+        individual: {type: String, trim: true},
+        wholesale : {type: String, trim: true},
+        educational: {type: String, trim: true} 
     }
+
 });
 
 mongoose.model('Product', ProductSchema);
