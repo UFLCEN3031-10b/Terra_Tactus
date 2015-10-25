@@ -8,6 +8,7 @@ var ProductSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    proType: Boolean,
     title: {
         type: String,
         default: '',
