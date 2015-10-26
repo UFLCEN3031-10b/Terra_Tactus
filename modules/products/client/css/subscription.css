@@ -16,9 +16,6 @@ body {
 .col-free .checked {
     color: limegreen;
 }
-.col-free li {
-    color: red;
-}
 
 .col-offers .offers {
     background-color: #2e2f33;
