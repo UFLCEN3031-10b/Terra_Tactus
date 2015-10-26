@@ -14,6 +14,16 @@ angular.module('products').config(['$stateProvider',
             .state('cart', {
                 url: '/cart',
                 templateUrl: 'modules/products/client/views/cart.client.view.html'
+            })
+            .state('commercial', {
+                url: '/commercial',
+                templateUrl: 'modules/products/client/views/commercial.html',
+                controller: 'CommercialController',
+            })
+            .state('retail', {
+                url: '/retail',
+                templateUrl: 'modules/products/client/views/reatil.html',
+                controller: 'RetailController',
             });
     }
 ]);
