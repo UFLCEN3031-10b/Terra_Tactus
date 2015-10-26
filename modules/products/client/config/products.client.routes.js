@@ -10,6 +10,10 @@ angular.module('products').config(['$stateProvider',
             .state('subscriptions', {
                 url: '/subscriptions',
                 templateUrl: 'modules/products/client/views/subscriptions.html'
+            })
+            .state('cart', {
+                url: '/cart',
+                templateUrl: 'modules/products/client/views/cart.client.view.html'
             });
     }
 ]);
