@@ -5,14 +5,27 @@ var path = require('path'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 exports.cartChecker = function (req, res, next) {
-    if (req.session.cart === null) {
-        req.session.cart = [];
+    if (!req.session.cart) {
+        req.session.cart = [{
+            product: {
+                _id: '1',
+                title: 'test',
+            },
+            quantity: 2
+        }, {
+            product: {
+                _id: '2',
+                title: 'test2'
+            },
+            quantity: 1
+        }];
     }
 
     next();
 };
 
 exports.list = function (req, res) {
+    console.log(req.session.cart);
     res.json(req.session.cart);
 };
 
