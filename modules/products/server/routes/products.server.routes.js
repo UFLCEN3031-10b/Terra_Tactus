@@ -8,7 +8,10 @@ module.exports = function (app) {
         .get(cart.list)
         .delete(cart.remove);
 
-    app.route('/api/cart/:productId')
+    app.route('/api/cart/:productId').all(cart.cartChecker)
         .put(cart.update)
         .delete(cart.removeProduct);
+
+    app.route('/api/cart/length').all(cart.cartChecker)
+        .get(cart.getLength);
 };

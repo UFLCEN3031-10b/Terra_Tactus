@@ -1,4 +1,7 @@
 <section ng-controller="CartController">
+    <div class="page-header">
+        <h1>Cart</h1>
+    </div>
     <div class="row" style="margin-bottom: 10px;" ng-repeat="prodWrap in cart">
         <div class="col-md-3">
             <img class="img-responsive" src="{{prodWrap.product.imageUrl}}">
