@@ -4,14 +4,8 @@ angular.module('products').controller('CartController', ['$scope', '$http', 'Aut
     $scope.cart = [];
     $scope.totalPrice = 0.0;
 
-    $scope.checkout = function () {};
-
-    $scope.setEditable = function () {};
-
-    $scope.clearCart = function () {};
-
-    $http.get('/api/cart').success(function (res) {
-        $scope.cart = res;
+    var updatePrice = function () {
+        $scope.totalPrice = 0.0;
         $scope.cart.forEach(function (prodWrap) {
             if (Authentication.user.roles == 'wholesale') {
                 prodWrap.price = prodWrap.product.priceSet.wholesale;
@@ -23,5 +17,21 @@ angular.module('products').controller('CartController', ['$scope', '$http', 'Aut
 
             $scope.totalPrice += parseFloat(prodWrap.quantity)*parseFloat(prodWrap.price);
         });
+    };
+
+    $scope.checkout = function () {};
+
+    $scope.setEditable = function () {};
+
+    $scope.clearCart = function () {
+        $http.delete('/api/cart').success(function (res) {
+            $scope.cart = res;
+            updatePrice();
+        });
+    };
+
+    $http.get('/api/cart').success(function (res) {
+        $scope.cart = res;
+        updatePrice();
     });
 }]);
