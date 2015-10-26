@@ -48,20 +48,14 @@
     border-radius: 10px;
 }*/
 .tab-btn{
-    border: 1px solid lime;
+    border: 1px solid #00DD00;
     background-color: transparent;
-    color: lime;
+    color: #00DD00;
 }
 
 /*changes the color of the current tab*/
 .activetab {
     background-color: #00c9dd;
-    color: lime;
+    color: #00DD00;
 }
 
-.btn:hover
-{
-background-image:none !important;
-background-color:lime !important;
-color: white !important;
-}

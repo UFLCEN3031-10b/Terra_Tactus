@@ -16,7 +16,7 @@
  }
  /* title */
  .navbar-default .navbar-brand {
-     color: lime;
+     color: #00DD00;
  }
  .navbar-default .navbar-brand:hover,
  .navbar-default .navbar-brand:focus {
@@ -25,7 +25,7 @@
  }
  /* link */
  .navbar-default .navbar-nav > li > a {
-     color: lime;
+     color: #00DD00;
  }
  .navbar-default .navbar-nav > li > a:hover,
  .navbar-default .navbar-nav > li > a:focus {
@@ -48,14 +48,14 @@
  }
  /* mobile version */
  .navbar-default .navbar-toggle {
-     border-color: lime;
+     border-color: #00DD00;
  }
  .navbar-default .navbar-toggle:hover,
  .navbar-default .navbar-toggle:focus {
      background-color: #00c9dd;
  }
  .navbar-default .navbar-toggle .icon-bar {
-     background-color: lime;
+     background-color: #00DD00;
  }
  @media (max-width: 767px) {
      .navbar-default .navbar-nav .open .dropdown-menu > li > a {
