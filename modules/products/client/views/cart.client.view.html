@@ -1,5 +1,20 @@
 <section ng-controller="CartController">
-    <ul>
-        <li ng-repeat="prodWrap in cart">{{prodWrap.product._id}}</li>
-    </ul>
+    <div class="row" style="margin-bottom: 10px;" ng-repeat="prodWrap in cart">
+        <div class="col-md-3">
+            <img class="img-responsive" src="{{prodWrap.product.imageUrl}}">
+        </div>
+        <div class="col-md-5">
+            <h4>{{prodWrap.product.title}}</h4>
+        </div>
+        <div class="col-md-2">
+            <p class="pull-right">Quantity: {{prodWrap.quantity}}</p>
+        </div>
+        <div class="col-md-2">
+            <p class="pull-right">Price: ${{prodWrap.price}}<p>
+        </div>
+    </div>
+    <hr>
+    <div class="col-md-12">
+        <p class="pull-right">Total: ${{totalPrice.toFixed(2)}}</p>
+    </div>
 </section>

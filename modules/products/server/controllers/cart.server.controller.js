@@ -10,12 +10,24 @@ exports.cartChecker = function (req, res, next) {
             product: {
                 _id: '1',
                 title: 'test',
+                imageUrl: 'http://1.bp.blogspot.com/-QuICtWHygN0/UoAlMMR9UNI/AAAAAAABYfc/rfcld52y97M/s1600/Gaineville+Trip+136.JPG',
+                priceSet: {
+                    individual: '1.00',
+                    wholesale: '0.50',
+                    educational: '2.00'
+                }
             },
             quantity: 2
         }, {
             product: {
                 _id: '2',
-                title: 'test2'
+                title: 'test2',
+                imageUrl: 'http://www.gatortailgating.com/files/imagecache/gt7_full_580/mike/2012/03/gators-usf.jpg',
+                priceSet: {
+                    individual: '2.00',
+                    wholesale: '1.00',
+                    educational: '4.00'
+                }
             },
             quantity: 1
         }];
@@ -25,7 +37,6 @@ exports.cartChecker = function (req, res, next) {
 };
 
 exports.list = function (req, res) {
-    console.log(req.session.cart);
     res.json(req.session.cart);
 };
 
