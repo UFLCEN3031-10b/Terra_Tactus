@@ -4,6 +4,12 @@ angular.module('products').controller('CartController', ['$scope', '$http', 'Aut
     $scope.cart = [];
     $scope.totalPrice = 0.0;
 
+    $scope.checkout = function () {};
+
+    $scope.setEditable = function () {};
+
+    $scope.clearCart = function () {};
+
     $http.get('/api/cart').success(function (res) {
         $scope.cart = res;
         $scope.cart.forEach(function (prodWrap) {
