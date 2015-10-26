@@ -60,3 +60,9 @@ exports.removeProduct = function (req, res) {
 
     res.json(req.session.cart);
 };
+
+exports.getLength = function (req, res) {
+    res.json({
+        length: req.session.cart.length
+    });
+};
