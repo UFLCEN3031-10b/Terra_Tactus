@@ -6,42 +6,18 @@ var path = require('path'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 exports.find = function (req, res) {
-    products.findOne().exec(function (err, data) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            res.json(data);
-        }
-    });
+  res.json(req.product);
 };
 
 exports.update = function (req, res) {
-    products.findOne().exec(function (err, data) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            data.remove(function (err) {
-                if (err) {
-                    return res.status(400).send({
-                        message: errorHandler.getErrorMessage(err)
-                    });
-                }
-            });
-        }
-    });
-
-    var d = new products();
+    var d = req.product;
     d.proType = req.body.proType;
     d.proTitle = req.body.proTitle;
     d.longDes = req.body.longDes;
     d.shortDes = req.body.shortDes;
     d.imageUrl = req.body.imageUrl;
     d.imageSet = req.body.imageSet;
-  d.priceSet = req.body.priceSet;
+    d.priceSet = req.body.priceSet;
 
     d.save(function (err) {
         if (err) {
@@ -53,3 +29,46 @@ exports.update = function (req, res) {
         }
     });
 };
+
+exports.productByID = function (req, res, next, id) {
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: 'Product is invalid'
+    });
+  }
+
+  products.findById(id).exec(function (err, product) {
+    if (err) {
+      return next(err);
+    } else if (!product) {
+      return res.status(404).send({
+        message: 'No product with that identifier has been found'
+      });
+    }
+    req.product = product;
+    next();
+  });
+};
+
+
+  exports.create = function (req, res) {
+    var d = new products();
+    d.proType = req.body.proType;
+    d.proTitle = req.body.proTitle;
+    d.longDes = req.body.longDes;
+    d.shortDes = req.body.shortDes;
+    d.imageUrl = req.body.imageUrl;
+    d.imageSet = req.body.imageSet;
+    d.priceSet = req.body.priceSet;
+
+    d.save(function (err) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.json(d);
+        }
+    });
+  };
