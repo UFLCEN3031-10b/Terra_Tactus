@@ -6,10 +6,10 @@
               <div>
                 <carousel interval="myInterval" no-wrap="noWrapSlides">
                   <slide class="home-slide" ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.image}}">
+                    <img ng-src="{{slide.imglink}}">
                     <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius: 10px;">
-                      <h4>{{slide.text}}</h4>
-                      <p><a class="btn btn-blue btn-lg" href="{{slide.link}}" role="button">Learn more</a></p>
+                      <h4>{{slide.content}}</h4>
+                      <p><a ng-show="slide.iflink" class="btn btn-primary btn-lg" href="{{slide.linktext}}" role="button">Learn more</a></p>
                     </div>
                   </slide>
                 </carousel>
@@ -85,38 +85,22 @@
 
     <section id="product-section">
         <div class="row">
-            <div class="col-sm-3 product-info" id="product-info-blue">
-                <h3>Targeting Educators?</h3>
+            <div class="col-md-6 product-info" id="product-info-blue">
+                <h3>Thinking About Subscribing?</h3>
                 <div class="col-md-4">
                     <img class="img-responsive" src="{{subscribeImage}}" alt="Oops.">
                 </div>
                 <p>{{subscribeText}}</p>
-                <p class="text-center"><a class="btn btn-green btn-lg" href="/commercial" role="button">Learn more</a></p>
+                <p class="text-center"><a class="btn btn-primary btn-lg" href="/subscriptions" role="button">Learn more</a></p>
             </div>
-            <div class="col-sm-3 product-info" id="product-info-green">
-                <h3>Home Schooled Children?</h3>
+            <div class="col-md-6 product-info" id="product-info-green">
+                <h3>Or Maybe an Individual Product?</h3>
                 <div class="col-md-4">
                     <img class="img-responsive" src="{{individualProdImage}}" alt="Oops.">
                 </div>
                 <p>{{individualProdText}}</p>
-                <p class="text-center"><a class="btn btn-blue btn-lg" href="/subscriptions" role="button">Learn more</a></p>
+                <p class="text-center"><a class="btn btn-primary btn-lg" href="/products" role="button">Learn more</a></p>
             </div>
-          <div class="col-sm-3 product-info" id="product-info-blue">
-            <h3>Possibly gift shops?</h3>
-            <div class="col-md-4">
-              <img class="img-responsive" src="{{subscribeImage}}" alt="Oops.">
-            </div>
-            <p>{{subscribeText}}</p>
-            <p class="text-center"><a class="btn btn-green btn-lg" href="/retail" role="button">Learn more</a></p>
-          </div>
-          <div class="col-sm-3 product-info" id="product-info-green">
-            <h3>An Individual Product?</h3>
-            <div class="col-md-4">
-              <img class="img-responsive" src="{{individualProdImage}}" alt="Oops.">
-            </div>
-            <p>{{individualProdText}}</p>
-            <p class="text-center"><a class="btn btn-blue btn-lg" href="/products" role="button">Learn more</a></p>
-          </div>
         </div>
     </section>
 </section><!-- home controller -->

@@ -1,5 +1,5 @@
 /* Code for the styling of this section*/
- .p-img img{
+.p-img img{
     float: bottom;
     background-color:white; /*frame color*/
     padding: 6px; /*frame edge size*/
@@ -22,7 +22,7 @@
     min-height: 120px;
     -moz-border-radius: 5px;
     border-radius: 10px;
-    
+
 }
 /*Code for the format of the tabs*/
 #ul-tab {
@@ -58,4 +58,3 @@
     background-color: #00c9dd;
     color: #00DD00;
 }
-

@@ -3,19 +3,33 @@
 var core = require('../controllers/core.server.controller'),
     homepageData = require('../controllers/homepageData.server.controller'),
     contact = require('../controllers/contact.server.controller'),
-    socialmedia = require('../controllers/socialmedia.server.controller');
+    socialmedia = require('../controllers/socialmedia.server.controller'),
+    carouseldata = require('../controllers/carouseldata.server.controller'),
+    hompagepolicy = require('../policies/homepage.server.policy.js');
 
 module.exports = function (app) {
   // routing for homepage data, needs user restriction
-  app.route('/api/homepage-data').get(homepageData.find)
+  app.route('/api/homepage/data').all(hompagepolicy.isAllowed)
+    .get(homepageData.find)
     .put(homepageData.update);
 
   // routing for contact data, needs user restriction
-  app.route('/api/contact/info').get(contact.find)
+  app.route('/api/homepage/contact').all(hompagepolicy.isAllowed)
+    .get(contact.find)
     .put(contact.update);
 
-  app.route('/api/contact/socialmedia').get(socialmedia.find)
+  app.route('/api/homepage/socialmedia').all(hompagepolicy.isAllowed)
+    .get(socialmedia.find)
     .put(socialmedia.update);
+
+  app.route('/api/homepage/carousel').all(hompagepolicy.isAllowed)
+    .get(carouseldata.list)
+    .post(carouseldata.create);
+  app.route('/api/homepage/carousel/:slideId').all(hompagepolicy.isAllowed)
+    .put(carouseldata.update)
+    .delete(carouseldata.remove);
+
+  app.param('slideId', carouseldata.slideById);
 
   // Define error pages
   app.route('/server-error').get(core.renderServerError);
