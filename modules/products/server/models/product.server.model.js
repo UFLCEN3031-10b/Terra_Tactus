@@ -4,22 +4,18 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
-    created: {
-        type: Date,
-        default: Date.now
-    },
     proType: Boolean,
-    title: {
+    proTitle: {
         type: String,
         default: '',
         required: 'Product must have a name'
     },
-    longDesc: {
+    longDes: {
         type: String,
         default: '',
         required: 'Product must have a description'
     },
-    shortDesc: {
+    shortDes: {
         type: String,
         default: ''
     },
