@@ -72,3 +72,30 @@ exports.productByID = function (req, res, next, id) {
         }
     });
   };
+
+
+  exports.list = function (req, res) {
+    products.find().sort('-created').exec(function (err, productlist) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(productlist);
+      }
+    });
+  };
+
+  exports.delete = function (req, res) {
+    var d_product = req.product;
+
+    d_product.remove(function (err) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(d_product);
+      }
+    });
+  };
