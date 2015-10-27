@@ -69,10 +69,18 @@ var UserSchema = new Schema({
   roles: {
     type: [{
       type: String,
-      enum: ['freeUser', 'paidUser', 'admin']
+      enum: ['freeUser', 'paidUser', 'admin', 'wholesale', 'individual', 'education']
     }],
     default: ['freeUser'],
     required: 'Please provide at least one role'
+  },
+  priceRoles: {
+    type: [{
+      type: String,
+      enum: ['individual', 'education', 'wholesale']
+    }],
+    default: ['individual'],
+    required: 'Please select at least one role'
   },
   updated: {
     type: Date
