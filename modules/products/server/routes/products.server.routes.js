@@ -9,7 +9,7 @@ module.exports = function (app) {
         .get(cart.list)
         .delete(cart.remove);
 
-    app.route('/api/cart/:productId').all(cart.cartChecker)
+    app.route('/api/cart/product/:productId').all(cart.cartChecker)
         .put(cart.update)
         .delete(cart.removeProduct);
 
