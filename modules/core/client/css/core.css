@@ -115,6 +115,20 @@ body {
 .bg-color-main {
     background-color: black;
 }
+.btn-blue {
+    background-color: #00c9dd;
+/*changed colors to increase contrast*/
+}
+.btn:hover {
+    background-image: none !important;
+    background-color: lime !important;
+    color: white !important;
+    border-color: white;
+    font-weight: bold;
+}
+.bg-color-main {
+    background-color: black;
+}
 .btn-green{
     border:1px solid #8cff90;
     -webkit-border-radius: 3px;
