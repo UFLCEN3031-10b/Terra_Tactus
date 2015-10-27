@@ -4,10 +4,10 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://cen3031:c075d4a58daf9601d1907db40098e1a9@ds045622.mongolab.com:45622/terratactus',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ds045622.mongolab.com:45622/terratactus',
     options: {
-      user: '',
-      pass: ''
+      user: 'cen3031',
+      pass: 'c075d4a58daf9601d1907db40098e1a9'
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
