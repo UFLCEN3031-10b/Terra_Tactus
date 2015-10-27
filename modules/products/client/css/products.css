@@ -1,5 +1,5 @@
 /* Code for the styling of this section*/
- .p-img img{
+.p-img img{
     float: bottom;
     background-color:white; /*frame color*/
     padding: 6px; /*frame edge size*/
@@ -22,7 +22,7 @@
     min-height: 120px;
     -moz-border-radius: 5px;
     border-radius: 10px;
-    
+
 }
 /*Code for the format of the tabs*/
 #ul-tab {
@@ -48,20 +48,13 @@
     border-radius: 10px;
 }*/
 .tab-btn{
-    border: 1px solid #0faf38;
+    border: 1px solid #00DD00;
     background-color: transparent;
-    color: #0faf38;
+    color: #00DD00;
 }
 
 /*changes the color of the current tab*/
 .activetab {
-    background-color: #0b2077;
-    color: #0faf38;
-}
-
-.btn:hover
-{
-background-image:none !important;
-background-color:#0faf38 !important;
-color: white !important;
+    background-color: #00c9dd;
+    color: #00DD00;
 }
