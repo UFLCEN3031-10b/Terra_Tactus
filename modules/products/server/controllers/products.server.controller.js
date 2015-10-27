@@ -16,8 +16,13 @@ exports.update = function (req, res) {
     d.longDes = req.body.longDes;
     d.shortDes = req.body.shortDes;
     d.imageUrl = req.body.imageUrl;
-    d.imageSet = req.body.imageSet;
-    d.priceSet = req.body.priceSet;
+    d.imageOne = req.body.imageOne;
+    d.imageTwo = req.body.imageTwo;
+    d.imageFour = req.body.imageThree;
+    d.imageFour = req.body.imageFour;
+    d.indvPrice = req.body.indvPrice;
+    d.eduPrice = req.body.eduPrice;
+    d.wholePrice = req.body.wholePrice;
 
     d.save(function (err) {
         if (err) {
@@ -59,8 +64,13 @@ exports.productByID = function (req, res, next, id) {
     d.longDes = req.body.longDes;
     d.shortDes = req.body.shortDes;
     d.imageUrl = req.body.imageUrl;
-    d.imageSet = req.body.imageSet;
-    d.priceSet = req.body.priceSet;
+    d.imageOne = req.body.imageOne;
+    d.imageTwo = req.body.imageTwo;
+    d.imageFour = req.body.imageThree;
+    d.imageFour = req.body.imageFour;
+    d.indvPrice = req.body.indvPrice;
+    d.eduPrice = req.body.eduPrice;
+    d.wholePrice = req.body.wholePrice;
 
     d.save(function (err) {
         if (err) {
