@@ -2,9 +2,9 @@
 
 var path = require('path'),
     mongoose = require('mongoose'),
- //   products = mongoose.model('products'),
+    products = mongoose.model('Product'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
-/*
+
 exports.find = function (req, res) {
     products.findOne().exec(function (err, data) {
         if (err) {
@@ -41,7 +41,7 @@ exports.update = function (req, res) {
     d.shortDes = req.body.shortDes;
     d.imageUrl = req.body.imageUrl;
     d.imageSet = req.body.imageSet;
-    d.priceSet = req.body.priceSet;
+  d.priceSet = req.body.priceSet;
 
     d.save(function (err) {
         if (err) {
@@ -53,4 +53,3 @@ exports.update = function (req, res) {
         }
     });
 };
-*/

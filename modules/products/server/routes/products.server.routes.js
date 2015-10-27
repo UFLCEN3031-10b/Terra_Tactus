@@ -6,10 +6,9 @@ var products = require('../controllers/products.server.controller'),
 
 module.exports = function (app) {
 
-/*	// routing for products data, needs user restriction
+	// routing for products data, needs user restriction
   app.route('/api/products/data').all(productspolicy.isAllowed)
     .get(products.find)
     .put(products.update);
-*/
 
 };
