@@ -179,3 +179,19 @@ body {
     background-image: -o-linear-gradient(top, #9EFCFF, #009baa);
     background-image: linear-gradient(to bottom, #9EFCFF, #009baa);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#9EFCFF, endColorstr=#009baa);
 }
+
+.half-section {
+  height: 40%;
+  overflow-y: auto;
+}
+
+.clear-margins {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.clear-top-margin {
+  margin-top: 0;
+}
