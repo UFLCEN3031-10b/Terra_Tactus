@@ -29,11 +29,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 announcement-pane" style="overflow: auto;">
-          <section ng-controller="AnnouncementsController" ng-init="find()">
-              <div class="page-header">
-                <h1>Announcements</h1>
-              </div>
+        <div class="col-md-3 announcement-pane">
+          <div class="page-header clear-top-margin">
+            <h1 class="clear-margins">Announcements</h1>
+          </div>
+          <section ng-controller="AnnouncementsController" ng-init="find()" class="half-section">
                   <div class="list-group">
                     <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item">
                       <div ng-hide="isEditing">

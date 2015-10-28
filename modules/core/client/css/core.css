@@ -116,3 +116,19 @@ body {
 .bg-color-main {
   background-color: black;
 }
+
+.half-section {
+  height: 40%;
+  overflow-y: auto;
+}
+
+.clear-margins {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.clear-top-margin {
+  margin-top: 0;
+}
