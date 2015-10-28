@@ -22,8 +22,8 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
 
     $scope.checkout = function () {};
 
-    $scope.toggleEditable = function () {
-        $scope.editable = !($scope.editable);
+    $scope.toggleInfo = function (prodWrap) {
+        prodWrap.showDesc = (prodWrap.showDesc) ? false : true;
     };
 
     $scope.deleteProd = function (prodWrap) {
