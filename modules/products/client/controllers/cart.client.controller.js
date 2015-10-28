@@ -40,6 +40,7 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
         $http.delete('/api/cart').success(function (res) {
             $scope.cart = res;
             updatePrice();
+            $rootScope.$broadcast('cartChange');
         });
     };
 
