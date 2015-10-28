@@ -29,11 +29,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 announcement-pane" style="overflow: auto;">
-          <section ng-controller="AnnouncementsController" ng-init="find()">
-              <div class="page-header">
-                <h1>Announcements</h1>
-              </div>
+        <div class="col-md-3 announcement-pane">
+          <div class="page-header clear-top-margin">
+            <h1 class="clear-margins">Announcements</h1>
+          </div>
+          <section ng-controller="AnnouncementsController" ng-init="find()" class="half-section">
                   <div class="list-group">
                     <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item">
                       <div ng-hide="isEditing">
@@ -51,9 +51,11 @@
                         Posted on
                         <span ng-bind="announcement.created | date:'mediumDate'"></span>
                         by
-                        <span ng-bind="announcement.username"></span><br>
-                        <a class="text-vertical-center" ng-click="edit(announcement)">Edit </a>
-                        <a class="text-vertical-center" ng-click="remove(announcement)">Delete</a>
+                        <span ng-bind="announcement.username"></span>
+                        <div ng-if="authentication.user.roles == 'admin';">
+                          <a class="text-vertical-center" ng-click="edit(announcement)">Edit </a>
+                          <a class="text-vertical-center" ng-click="remove(announcement)">Delete</a>
+                        </div>
                       </small>
                     </div>
                       <form name="announcementForm" class="form-horizontal" ng-submit="update(announcementForm.$valid, announcement)" ng-show="isEditing" novalidate>
@@ -80,6 +82,7 @@
                     </div>
                 </div>
             </section>
+            <twitter-timeline></twitter-timeline>
         </div>
     </section>
 
