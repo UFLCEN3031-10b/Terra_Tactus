@@ -8,7 +8,7 @@ angular.module('core')
        link: function(scope, element, attrs) {
 
       function run() {
-          !function(d,s,id) {
+          function twit(d,s,id) {
             var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
             if (!d.getElementById(id)) {
               js=d.createElement(s);
@@ -16,7 +16,8 @@ angular.module('core')
               js.src=p+"://platform.twitter.com/widgets.js";
               fjs.parentNode.insertBefore(js,fjs);
             }
-          }(document,"script","twitter-wjs");
+          }
+          twit(document,"script","twitter-wjs");
           console.log('run script');
       }
 
