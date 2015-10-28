@@ -1,0 +1,67 @@
+/* Code for the styling of this section*/
+ .p-img img{
+    float: bottom;
+    background-color:white; /*frame color*/
+    padding: 6px; /*frame edge size*/
+    /* Give the frame rounded edges*/
+    -moz-border-radius: 5px;
+    border-radius: 10px;
+}
+/*code to give each product block some padding and color as well as round edges*/
+#temp-div{
+    background-color: #2e2f33;
+    padding-bottom: 30px;
+    -moz-border-radius: 5px;
+    border-radius: 20px;
+}
+/*code which gives a background for the description text of each product*/
+.t-box{
+    background-color: white;
+    padding-left: 6px;
+    padding-right: 6px;
+    min-height: 120px;
+    -moz-border-radius: 5px;
+    border-radius: 10px;
+    
+}
+/*Code for the format of the tabs*/
+#ul-tab {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+/*Code for div held by current tab*/
+#mainView {
+    border: 0px solid black;
+    clear: both;
+    padding: 0 1em;
+}
+
+/*default formating of the tabs such as default colors and rounded edges
+#tab-li {
+    float: left;
+    border: 1px solid blue;
+    margin: 3px 3px 0px 3px;
+    padding: 5px 5px 0px 5px;
+    color: white;
+    -moz-border-radius: 5px;
+    border-radius: 10px;
+}*/
+.tab-btn{
+    border: 1px solid #0faf38;
+    background-color: transparent;
+    color: #0faf38;
+}
+
+/*changes the color of the current tab*/
+.activetab {
+    background-color: #0b2077;
+    color: #0faf38;
+}
+
+.btn:hover
+{
+background-image:none !important;
+background-color:#0faf38 !important;
+color: white !important;
+}

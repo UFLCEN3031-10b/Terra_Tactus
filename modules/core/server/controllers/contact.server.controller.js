@@ -18,8 +18,24 @@ exports.find = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    var i = req.contact;
-    i.name = req.body.name;
+    contact.findOne().exec(function (err, data) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            data.remove(function (err) {
+                if (err) {
+                    return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                }
+            });
+        }
+    });
+
+    var i = new contact();
+    i.contactName = req.body.contactName;
     i.address = req.body.address;
     i.citystatezip = req.body.citystatezip;
     i.phone = req.body.phone;

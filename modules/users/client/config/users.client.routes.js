@@ -68,17 +68,12 @@ angular.module('users').config(['$stateProvider',
         url: '/:token',
         templateUrl: 'modules/users/client/views/password/reset-password.client.view.html'
       })
-      .state('products', {
-        url: '/products',
-        templateUrl: 'modules/users/client/views/products/products.html'
-      })
-      .state('subscriptions',{
-        url: '/subscriptions',
-        templateUrl: 'modules/users/client/views/products/subscriptions.html'
-      })
       .state('portal',{
         url: '/portal',
-        templateUrl: 'modules/users/client/views/portal/portal.html'
+        templateUrl: 'modules/users/client/views/portal/portal.html',
+        data:{
+          roles: ['user', 'admin', 'freeUser']
+        }
       })
       .state('China',{
         url: '/portal/China',

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', '$state', 'Authentication', 'Menus',
-  function ($scope, $state, Authentication, Menus) {
+angular.module('core').controller('HeaderController', ['$scope', '$state', '$http', 'Authentication', 'Menus',
+  function ($scope, $state, $http, Authentication, Menus) {
     // Expose view variables
     $scope.$state = $state;
     $scope.authentication = Authentication;
@@ -18,6 +18,17 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
     // Collapsing the menu after navigation
     $scope.$on('$stateChangeSuccess', function () {
       $scope.isCollapsed = false;
+    });
+
+    var sm = $scope.socialmedia = {};
+    $http.get('/api/homepage/socialmedia').success(function (res) {
+        if (res === null) console.log();
+        else {
+            sm.facebook = res.facebook;
+            sm.twitter = res.twitter;
+            sm.linkedin = res.linkedin;
+            sm.googleplus = res.googleplus;
+        }
     });
   }
 ]);

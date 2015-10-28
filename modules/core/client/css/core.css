@@ -47,6 +47,23 @@ body {
     border: 1px solid yellow;
 }
 
+.home-slide {
+    height: 50vh;
+}
+
+.home-slide > img {
+    margin: auto;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .home-slide > img {
+        margin: auto;
+        min-height: 100%;
+        min-width: 100%;
+    }
+}
+
 .announcement-pane {
     height: 95vh;
 }
@@ -77,6 +94,14 @@ body {
     height: 25vh;
 }
 
+.contact-info > div > a {
+    color: #0b2077;
+}
+
+.contact-info > div > a:hover {
+    color: #1ade4c;
+}
+
 .marg-auto {
     margin: auto;
 }
@@ -88,71 +113,6 @@ body {
     align-items: center;
 }
 
-/* The following is used to override the default
- * coloring of the navbar, requires .navbar-default
- * to be set rather than .navbar-inverse
- */
-
-/*trick necessary to colorize navbar*/
- .navbar {
-     background-image: none;
- }
-
- /* navbar */
- .navbar-default {
-     background-color: black;
-     border-color: #0b2077;
-     border-bottom: 2px solid #0b2077;
- }
- /* title */
- .navbar-default .navbar-brand {
-     color: #0faf38;
- }
- .navbar-default .navbar-brand:hover,
- .navbar-default .navbar-brand:focus {
-     color: #1ade4c;
-     background-color: #0b2077;
- }
- /* link */
- .navbar-default .navbar-nav > li > a {
-     color: #0faf38;
- }
- .navbar-default .navbar-nav > li > a:hover,
- .navbar-default .navbar-nav > li > a:focus {
-     color: #1ade4c;
-     background-color: #0b2077;
- }
- .navbar-default .navbar-nav > .active > a,
- .navbar-default .navbar-nav > .active > a:hover,
- .navbar-default .navbar-nav > .active > a:focus {
-     color: #1ade4c;
-     background-color: #0b2077;
-     background-image: none;
- }
- .navbar-default .navbar-nav > .open > a,
- .navbar-default .navbar-nav > .open > a:hover,
- .navbar-default .navbar-nav > .open > a:focus {
-     color: #1ade4c;
-     background-color: #0b2077;
-     background-image: none;
- }
- /* mobile version */
- .navbar-default .navbar-toggle {
-     border-color: #7e1726;
- }
- .navbar-default .navbar-toggle:hover,
- .navbar-default .navbar-toggle:focus {
-     background-color: #99aabb;
- }
- .navbar-default .navbar-toggle .icon-bar {
-     background-color: #7e1726;
- }
- @media (max-width: 767px) {
-     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-         color: #777;
-     }
-     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-         color: #333;
-     }
- }
+.bg-color-main {
+  background-color: black;
+}

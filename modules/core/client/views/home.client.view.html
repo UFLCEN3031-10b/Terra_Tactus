@@ -5,11 +5,11 @@
             <div ng-controller="CarouselHomeController">
               <div>
                 <carousel interval="myInterval" no-wrap="noWrapSlides">
-                  <slide style="height: 50vh" ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.image}}" style="margin:auto; width: 100%">
+                  <slide class="home-slide" ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="{{slide.imglink}}">
                     <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius: 10px;">
-                      <h4>{{slide.text}}</h4>
-                      <p><a class="btn btn-primary btn-lg" href="{{slide.link}}" role="button">Learn more</a></p>
+                      <h4>{{slide.content}}</h4>
+                      <p><a ng-show="slide.iflink" class="btn btn-primary btn-lg" href="{{slide.linktext}}" role="button">Learn more</a></p>
                     </div>
                   </slide>
                 </carousel>
@@ -29,13 +29,56 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-3 announcement-pane">
-            <section ng-controller="AnnouncementController">
-                <h2 class="text-center">Announcements</h2>
-                <ul>
-                    <li ng-repeat="ann in announcement">{{ ann.text }}</li>
-                </ul>
+        <div class="col-md-3 announcement-pane" style="overflow: auto;">
+          <section ng-controller="AnnouncementsController" ng-init="find()">
+              <div class="page-header">
+                <h1>Announcements</h1>
+              </div>
+                  <div class="list-group">
+                    <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item">
+                      <div ng-hide="isEditing">
+                      <h4 class="list-group-item-heading" ng-bind="announcement.title"></h4>
+                      <div>
+                        <p class="list-group-item-text" ng-bind="announcement.content"></p>
+                      </div>
+                      <div ng-show="isThere(announcement.link)">
+                        <a href="http://{{announcement.link}}">Link here!</a>
+                      </div>
+                      <div ng-show="isThere(announcement.picture)">
+                        <img class="img-responsive" src="{{announcement.picture}}">
+                      </div>
+                      <small class="list-group-item-text">
+                        Posted on
+                        <span ng-bind="announcement.created | date:'mediumDate'"></span>
+                        by
+                        <span ng-bind="announcement.username"></span><br>
+                        <a class="text-vertical-center" ng-click="edit(announcement)">Edit </a>
+                        <a class="text-vertical-center" ng-click="remove(announcement)">Delete</a>
+                      </small>
+                    </div>
+                      <form name="announcementForm" class="form-horizontal" ng-submit="update(announcementForm.$valid, announcement)" ng-show="isEditing" novalidate>
+                        <fieldset>
+                          <div class="form-group" show-errors>
+                            <label for="title">Title</label>
+                            <input name="title" type="text" ng-model="announcement.title" id="title" class="form-control" placeholder="Title" required>
+                            <div ng-messages="announcementForm.title.$error" role="alert">
+                              <p class="help-block error-text" ng-message="required">Announcement title is required.</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea name="content" ng-model="announcement.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <input type="submit" value="Update" class="btn btn-default">
+                          </div>
+                          <div ng-show="error" class="text-danger">
+                            <strong ng-bind="error"></strong>
+                          </div>
+                        </fieldset>
+                      </form>
+                    </div>
+                </div>
             </section>
         </div>
     </section>
