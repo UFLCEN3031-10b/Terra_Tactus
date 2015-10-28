@@ -61,4 +61,22 @@ angular.module('core').controller('geoProductsController', function ($scope) {
 });
 
 
+// Products controller
+angular.module('core').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Products',
+  function ($scope, $stateParams, $location, Authentication, Products) {
+    $scope.authentication = Authentication;
 
+
+    // Find a list of Products
+    $scope.find = function () {
+      $scope.products = Products.query();
+    };
+
+    // Find existing Products
+    $scope.findOne = function () {
+      $scope.product = Products.get({
+        productId: $stateParams.productId
+      });
+    };
+  }
+]);
