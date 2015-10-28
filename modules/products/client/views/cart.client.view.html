@@ -2,23 +2,24 @@
     <div class="page-header">
         <h1>Cart</h1>
     </div>
-    <div class="row" style="margin-bottom: 10px;" ng-repeat="prodWrap in cart">
-        <div class="col-md-3 col-xs-12">
-            <img class="img-responsive" src="{{prodWrap.product.imageUrl}}">
-        </div>
-        <div class="col-md-9 col-xs-12">
-            <div class="row"><h3 class="text-center">{{prodWrap.product.proTitle}}</h3></div>
-            <div class="row text-right">
-                <div class="col-md-6 col-xs-12"></div>
-                <div class="col-md-3 col-xs-6">
-                    <p>Quantity: {{prodWrap.quantity}}</p>
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <p>Price: ${{prodWrap.price}}<p>
-                </div>
+    <div ng-repeat="prodWrap in cart">
+        <div class="row">
+            <div class="col-md-8 col-xs-12">
+                {{prodWrap.product.proTitle}}
             </div>
-            <div class="row">
-                <div ng-show="editable" ng-click="deleteProd(prodWrap)" class="btn btn-danger pull-right"><i class="glyphicon glyphicon-trash"></i></div>
+            <div class="col-md-2 col-xs-6 text-center">
+                Quantity: {{prodWrap.quantity}}
+            </div>
+            <div class="col-md-2 col-xs-6 text-center">
+                Price: ${{prodWrap.price}}
+            </div>
+        </div>
+        <div class="row" ng-show="prodWrap.showDesc">
+            <div class="col-md-3 col-xs-12">
+                <img class="img-responsive" src="{{prodWrap.product.imageUrl}}">
+            </div>
+            <div class="col-md-9 col-xs-12">
+                <p>{{prodWrap.product.longDes}}</p>
             </div>
         </div>
     </div>
