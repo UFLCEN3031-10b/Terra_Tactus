@@ -30,11 +30,10 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
         $http.delete('/api/cart/product/' + prodWrap.product._id).success(function (res) {
             $scope.cart = res;
             updatePrice();
+            $rootScope.$broadcast('cartChange');
         }).error(function (err) {
             console.log(err);
         });
-
-        $rootScope.$emit('cartChange');
     };
 
     $scope.clearCart = function () {
