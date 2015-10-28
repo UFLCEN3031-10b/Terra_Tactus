@@ -33,7 +33,7 @@ exports.update = function (req, res) {
 exports.removeProduct = function (req, res) {
     var index = -1;
     req.session.cart.forEach(function (prodWrap, i) {
-        if (req.product === prodWrap.product) {
+        if (String(req.product._id) === prodWrap.product._id) {
             index = i;
         }
     });

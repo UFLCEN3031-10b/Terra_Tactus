@@ -6,9 +6,9 @@
         <div class="col-md-3 col-xs-12">
             <img class="img-responsive" src="{{prodWrap.product.imageUrl}}">
         </div>
-        <div class="col-md-9 col-xs-12 text-center">
-            <h3>{{prodWrap.product.title}}</h3>
-            <div class="row" style="vertical-align: bottom;">
+        <div class="col-md-9 col-xs-12">
+            <div class="row"><h3 class="text-center">{{prodWrap.product.proTitle}}</h3></div>
+            <div class="row text-right">
                 <div class="col-md-6 col-xs-12"></div>
                 <div class="col-md-3 col-xs-6">
                     <p>Quantity: {{prodWrap.quantity}}</p>
@@ -17,13 +17,16 @@
                     <p>Price: ${{prodWrap.price}}<p>
                 </div>
             </div>
+            <div class="row">
+                <div ng-show="editable" ng-click="deleteProd(prodWrap)" class="btn btn-danger pull-right"><i class="glyphicon glyphicon-trash"></i></div>
+            </div>
         </div>
     </div>
     <hr>
     <div class="row">
         <div class="col-md-3 col-xs-6 text-center">
             <div ng-click="clearCart()" class="btn btn-danger">Clear Cart</div>
-            <div ng-click="setEditable()" class="btn btn-primary">Edit Cart</div>
+            <div ng-click="toggleEditable()" class="btn btn-primary">Edit Cart</div>
         </div>
         <div class="col-md-9 col-xs-6 text-center">
             <div ng-click="checkout()" class="btn btn-primary">Checkout!</div>
