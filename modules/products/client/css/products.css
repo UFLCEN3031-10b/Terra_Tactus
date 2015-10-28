@@ -32,21 +32,12 @@
 }
 /*Code for div held by current tab*/
 #mainView {
-    border: 0px solid black;
+    border: 0 solid black;
     clear: both;
     padding: 0 1em;
 }
 
-/*default formating of the tabs such as default colors and rounded edges
-#tab-li {
-    float: left;
-    border: 1px solid blue;
-    margin: 3px 3px 0px 3px;
-    padding: 5px 5px 0px 5px;
-    color: white;
-    -moz-border-radius: 5px;
-    border-radius: 10px;
-}*/
+
 .tab-btn{
     border: 1px solid #00DD00;
     background-color: transparent;
@@ -56,5 +47,5 @@
 /*changes the color of the current tab*/
 .activetab {
     background-color: #00c9dd;
-    color: #00DD00;
+    color: #FFFFFF;
 }
