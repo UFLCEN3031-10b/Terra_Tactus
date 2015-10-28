@@ -37,11 +37,13 @@
                 </button>
             </div>
         </div>
+        <hr ng-show="prodWrap.showDesc">
         <div class="row" ng-show="prodWrap.showDesc">
             <div class="col-md-3 col-xs-12">
                 <img class="img-responsive" src="{{prodWrap.product.imageUrl}}">
             </div>
             <div class="col-md-9 col-xs-12">
+                <h4>Description</h4><hr>
                 <p>{{prodWrap.product.longDes}}</p>
             </div>
         </div>
