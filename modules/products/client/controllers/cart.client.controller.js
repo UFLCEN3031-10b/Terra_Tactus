@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('products').controller('CartController', ['$scope', '$http', 'Authentication', function($scope, $http, Authentication) {
+angular.module('products').controller('CartController', ['$scope', '$rootScope', '$http', 'Authentication', function($scope, $rootScope, $http, Authentication) {
     $scope.cart = [];
     $scope.totalPrice = 0.0;
     $scope.editable = false;
@@ -33,6 +33,8 @@ angular.module('products').controller('CartController', ['$scope', '$http', 'Aut
         }).error(function (err) {
             console.log(err);
         });
+
+        $rootScope.$emit('cartChange');
     };
 
     $scope.clearCart = function () {
