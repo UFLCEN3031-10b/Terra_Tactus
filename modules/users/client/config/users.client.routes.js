@@ -82,6 +82,10 @@ angular.module('users').config(['$stateProvider',
       .state('wholesaleVerify',{
         url: '/wholesaleverify',
         templateUrl: 'modules/users/client/views/wholesaleverify.html',
+        data:{
+          priceRoles: ['wholesale'],
+          roles: ['freeUser', 'admin']
+        }
       });
   }
 ]);
