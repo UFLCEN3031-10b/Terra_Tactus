@@ -24,13 +24,40 @@ var ProductSchema = new Schema({
         default: '',
         trim: true
     },
-    imageSet: {
-        image: [String]
+    imageOne: {
+        type: String,
+        default: '',
+        trim: true
     },
-    priceSet: {
-        individual: {type: String, trim: true},
-        wholesale : {type: String, trim: true},
-        educational: {type: String, trim: true} 
+    imageTwo: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    imageThree: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    imageFour: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    indvPrice: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    eduPrice: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    wholePrice: {
+        type: String,
+        default: '',
+        trim: true
     }
 
 });
