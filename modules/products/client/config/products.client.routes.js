@@ -10,6 +10,16 @@ angular.module('products').config(['$stateProvider',
             .state('subscriptions', {
                 url: '/subscriptions',
                 templateUrl: 'modules/products/client/views/subscriptions.html'
+            })
+            .state('commercial', {
+                url: '/commercial',
+                templateUrl: 'modules/products/client/views/commercial.html',
+                controller: 'CommercialController',
+            })
+            .state('retail', {
+                url: '/retail',
+                templateUrl: 'modules/products/client/views/reatil.html',
+                controller: 'RetailController',
             });
     }
 ]);
