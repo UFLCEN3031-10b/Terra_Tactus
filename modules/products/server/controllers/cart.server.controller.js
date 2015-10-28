@@ -31,7 +31,19 @@ exports.update = function (req, res) {
 };
 
 exports.removeProduct = function (req, res) {
-    var index = req.session.cart.indexOf(req.body.toRemove);
+    var index = -1;
+    req.session.cart.forEach(function (prodWrap, i) {
+        if (req.product === prodWrap.product) {
+            index = i;
+        }
+    });
+
+    if (index === -1) {
+        return res.status(400).send({
+            message: errorHandler.getErrorMessage('Cannot remove product from cart')
+        });
+    }
+
     req.session.cart.splice(index, 1);
 
     res.json(req.session.cart);
