@@ -16,9 +16,9 @@ angular.module('core.admin.routes').config(['$stateProvider',
         url: '/create-announcement',
         templateUrl: '/modules/core/client/views/create-announcement.client.view.html',
         controller: 'AnnouncementsController',
-		data: {
-			roles: ['admin']
-		}
+        data: {
+          roles: ['admin']
+        }
       })
       .state('edit-carousel', {
           url: '/edit/carousel',
