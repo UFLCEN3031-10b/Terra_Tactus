@@ -5,7 +5,7 @@ angular.module('products').config(['$stateProvider',
         $stateProvider
             .state('products', {
                 url: '/products',
-                templateUrl: 'modules/products/client/views/products.client.view.html'
+                templateUrl: 'modules/products/client/views/list-products.client.view.html'
             })
             .state('product', {
                 url: '/product',
