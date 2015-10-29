@@ -45,6 +45,23 @@
             <div class="col-md-9 col-xs-12">
                 <h4>Description</h4><hr>
                 <p>{{prodWrap.product.longDes}}</p>
+                <div class="text-center col-md-6 col-xs-6">
+                    <form class="" name="quantityChanger" ng-submit="updateQuantity(prodWrap)" novalidate>
+                        <fieldset>
+                            <div class="input-group">
+                                <input name="quan" type="text" ng-model="prodWrap.quantity" class=" form-control pull-left" placeholder="0" required>
+                                <span class="input-group-btn">
+                                    <input name="submit" type="submit" value="Update" class="btn btn-primary pull-right">
+                                </span>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="text-center col-md-6 col-xs-6">
+                    <button class="btn btn-danger" ng-click="deleteProd(prodWrap)">
+                        <i class="glyphicon glyphicon-trash"></i> Remove From Cart
+                    </button>
+                </div>
             </div>
         </div>
         <hr>

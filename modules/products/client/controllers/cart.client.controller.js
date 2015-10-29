@@ -22,6 +22,19 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
 
     $scope.checkout = function () {};
 
+    $scope.updateQuantity = function (prodWrap) {
+        var id = prodWrap.product._id,
+            quan = prodWrap.quantity;
+
+        $http.delete('/api/cart/product/' + id).success(function (res) {
+            $http.put('/api/cart/product/' + id, {quantity: quan}).success(function (res) {
+                $scope.cart = res;
+                updatePrice();
+                $rootScope.$broadcast('cartChange');
+            });
+        });
+    };
+
     $scope.toggleInfo = function (prodWrap) {
         $scope.cart.forEach(function (pw) {
             if (pw === prodWrap) {
