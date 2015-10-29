@@ -7,9 +7,9 @@ angular.module('products').config(['$stateProvider',
                 url: '/products',
                 templateUrl: 'modules/products/client/views/products.html'
             })
-            .state('products', {
-              url: '/product',
-              templateUrl: 'individual-product.client.view.html'
+            .state('product', {
+                url: '/product',
+                templateUrl: 'modules/products/client/views/individual-product.client.view.html'
             })
             .state('subscriptions', {
                 url: '/subscriptions',
