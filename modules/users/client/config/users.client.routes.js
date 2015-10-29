@@ -79,8 +79,8 @@ angular.module('users').config(['$stateProvider',
         url: '/portal/China',
         templateUrl: 'modules/users/client/views/portal/China.html'
       })
-      .state('wholesaleVerify',{
-        url: '/wholesaleverify',
+      .state('wholesale',{
+        url: '/wholesale',
         templateUrl: 'modules/users/client/views/wholesaleverify.html',
         data:{
           priceRoles: ['wholesale'],
