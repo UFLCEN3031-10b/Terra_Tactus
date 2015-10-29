@@ -167,7 +167,7 @@
 
 .service-image-left > center > img,.service-image-right > center > img{
 	max-height: 155px;
-
+}
 /*code that dictates what happens when you hover over the cultural/geological button tabs*/
 .tab-btn:hover{
     background-image:none !important;
