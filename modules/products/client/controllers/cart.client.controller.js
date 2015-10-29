@@ -23,7 +23,13 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
     $scope.checkout = function () {};
 
     $scope.toggleInfo = function (prodWrap) {
-        prodWrap.showDesc = (prodWrap.showDesc) ? false : true;
+        $scope.cart.forEach(function (pw) {
+            if (pw === prodWrap) {
+                pw.showDesc = (pw.showDesc) ? false : true;
+            } else {
+                pw.showDesc = false;
+            }
+        });
     };
 
     $scope.deleteProd = function (prodWrap) {
