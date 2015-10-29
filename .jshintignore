@@ -1,2 +1,2 @@
 /modules/core/client/directives/twitter.client.directives.js
-modules/core/client/directives/leave-review.client.directives.js
+modules/products/client/directives/leave-review.client.directives.js

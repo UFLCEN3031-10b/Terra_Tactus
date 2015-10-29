@@ -1,28 +1,53 @@
-<div class="container">
-	<div class="row" style="margin-top:40px;">
-		<div class="col-md-6">
-    	<div class="well well-sm">
-            <div class="text-right">
-                <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a Review</a>
-            </div>
+<section>
+  <div class="container">
 
-            <div class="row" id="post-review-box" style="display:none;">
-                <div class="col-md-12">
-                    <form accept-charset="UTF-8" action="" method="post">
-                        <input id="ratings-hidden" name="rating" type="hidden">
-                        <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
-
-                        <div class="text-right">
-                            <div class="stars starrr" data-rating="0"></div>
-                            <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
-                            <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                            <button class="btn btn-success btn-lg" type="submit">Save</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="post-comments">
+      <div class="row">
+        <div class="comments-nav">
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" ng-click="showComments = !showComments;" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                      Show Comments! <span class="caret"></span>
+                    </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Best</a></li>
+                <li><a href="#">Hot</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
+      </div>
 
-		</div>
-	</div>
-</div>
+        <div class="row">
+          <div class="col-md-1 col-sm-2 col-xs-2">
+            <div class="thumbnail">
+              <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+            </div><!-- /thumbnail -->
+          </div><!-- /col-sm-1 -->
+
+          <div class="col-md-10 col-sm-10 col-xs-10">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+              <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
+              </div>
+              <div class="panel-body">
+              Panel content
+              </div><!-- /panel-body -->
+            </div><!-- /panel panel-default -->
+          </div><!-- /col-sm-5 -->
+
+        </div><!-- /row -->
+
+
+  		<form> <!-- Leave a review with this form -->
+        <div class="form-group">
+          <label for="comment">Your Comment</label>
+          <textarea name="comment" class="form-control" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default">Send</button>
+      </form>
+
+    </div>
+    <!-- post-comments -->
+  </div>
+</section>
