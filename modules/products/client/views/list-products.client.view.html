@@ -8,8 +8,9 @@
                 <li><a><i class="fa fa-angle-right"></i>Geological Kits </a></li>
             </ul>
         </div>
+      <section ng-controller="ProductsController" ng-init="find()">
         <div class="col-md-9">
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-6 col-sm-6" ng-repeat="product in products">
                 <div class="store-item">
                     <div class="store-item-rating text-warning">
                         <i class="fa fa-star"></i>
@@ -20,83 +21,19 @@
                     </div>
                     <div class="store-item-image">
                         <a href="#">
-                            <img src="http://lorempixel.com/300/200/technics/1/" alt="" class="img-responsive">
+                            <img src="{{product.imageUrl}}" alt="" class="img-responsive">
                         </a>
                     </div>
                     <div class="store-item-info clearfix">
                         <span class="store-item-price themed-color-dark pull-right">$ 109</span>
-                        <a href="#"><strong>Product one</strong></a><br>
+                        <a href="#"><strong>{{product.proTitle}}</strong></a><br>
                         <small><i class="fa fa-shopping-cart text-muted"></i>
-                        <a href="#" class="text-muted">Add to cart</a></small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="store-item">
-                    <div class="store-item-rating text-warning">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <div class="store-item-image">
-                        <a href="#">
-                            <img src="http://lorempixel.com/300/200/technics/3/" alt="" class="img-responsive">
-                        </a>
-                    </div>
-                    <div class="store-item-info clearfix">
-                        <span class="store-item-price themed-color-dark pull-right">$ 109</span>
-                        <a href="#"><strong>Product two</strong></a><br>
-                        <small><i class="fa fa-shopping-cart text-muted"></i>
-                        <a href="#" class="text-muted">Add to cart</a></small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="store-item">
-                    <div class="store-item-rating text-warning">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <div class="img-responsive store-item-image">
-                        <a href="#">
-                            <img src="http://lorempixel.com/300/200/technics/9/" alt="" class="img-responsive">
-                        </a>
-                    </div>
-                    <div class="store-item-info clearfix">
-                        <span class="store-item-price themed-color-dark pull-right">$ 109</span>
-                        <a href="#"><strong>Product</strong></a><br>
-                        <small><i class="fa fa-shopping-cart text-muted"></i>
-                        <a href="#" class="text-muted">Add to cart</a></small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="store-item">
-                    <div class="store-item-rating text-warning">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <div class="img-responsive store-item-image">
-                        <a href="#">
-                            <img src="http://lorempixel.com/300/200/technics/9/" alt="">
-                        </a>
-                    </div>
-                    <div class="store-item-info clearfix">
-                        <span class="store-item-price themed-color-dark pull-right">$ 109</span>
-                        <a href="#"><strong>Sunglasses</strong></a><br>
-                        <small><i class="fa fa-shopping-cart text-muted"></i>
-                        <a href="#" class="text-muted">Add to cart</a></small>
+                        <a href="#" class="text-muted">Add to cart</a></small><br>
+                        <b class="item-description">Description: </b><span class="item-description">{{product.shortDes}}</span>
                     </div>
                 </div>
             </div>
 	    </div>
+    </section>
 	</div>
 </div>
