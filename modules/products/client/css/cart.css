@@ -14,3 +14,8 @@
     text-align: center;
     vertical-align: center;
 }
+
+.quantity-input {
+    max-width: 250px;
+    margin: auto;
+}

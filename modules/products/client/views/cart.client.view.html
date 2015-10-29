@@ -48,7 +48,10 @@
                 <div class="text-center col-md-6 col-xs-6">
                     <form class="" name="quantityChanger" ng-submit="updateQuantity(prodWrap)" novalidate>
                         <fieldset>
-                            <div class="input-group">
+                            <div class="input-group quantity-input">
+                                <span class="input-group-addon">
+                                    Quantity
+                                </span>
                                 <input name="quan" type="text" ng-model="prodWrap.quantity" class=" form-control pull-left" placeholder="0" required>
                                 <span class="input-group-btn">
                                     <input name="submit" type="submit" value="Update" class="btn btn-primary pull-right">
