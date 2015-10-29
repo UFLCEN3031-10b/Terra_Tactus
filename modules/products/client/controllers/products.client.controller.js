@@ -61,22 +61,22 @@ angular.module('core').controller('geoProductsController', function ($scope) {
 });
 
 
-angular.module('core').controller('TabsCtrl', ['$scope', function ($scope) {
-    $scope.tabs = [{
-            title: 'Cultural Products',
-            url: 'one.tpl.html'
-        }, {
-            title: 'Geological Products',
-            url: 'two.tpl.html'
-    }];
+// Products controller
+angular.module('core').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Products',
+  function ($scope, $stateParams, $location, Authentication, Products) {
+    $scope.authentication = Authentication;
 
-    $scope.currentTab = 'one.tpl.html';
 
-    $scope.onClickTab = function (tab) {
-        $scope.currentTab = tab.url;
+    // Find a list of Products
+    $scope.find = function () {
+      $scope.products = Products.query();
     };
-    
-    $scope.isActiveTab = function(tabUrl) {
-        return tabUrl === $scope.currentTab;
+
+    // Find existing Products
+    $scope.findOne = function () {
+      $scope.product = Products.get({
+        productId: $stateParams.productId
+      });
     };
-}]);
+  }
+]);
