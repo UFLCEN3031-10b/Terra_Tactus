@@ -8,15 +8,23 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
     var updatePrice = function () {
         $scope.totalPrice = 0.0;
         $scope.cart.forEach(function (prodWrap) {
-            if (Authentication.user.roles == 'wholesale') {
-                prodWrap.price = prodWrap.product.wholePrice;
-            } else if (Authentication.user.roles == 'education') {
-                prodWrap.price = prodWrap.product.eduPrice;
-            } else {
-                prodWrap.price = prodWrap.product.indvPrice;
+            var tempPrice = -1;
+
+            for (var i = 0; i < Authentication.user.roles.length; i++) {
+                var r = Authentication.user.roles[i];
+                if (r === 'wholesale') {
+                    tempPrice = prodWrap.product.wholePrice;
+                } else if (r === 'education') {
+                    tempPrice = prodWrap.product.eduPrice;
+                }
             }
 
-            $scope.totalPrice += parseFloat(prodWrap.quantity)*parseFloat(prodWrap.price);
+            if (tempPrice === -1) {
+                tempPrice = prodWrap.product.indvPrice;
+            }
+
+            prodWrap.price = tempPrice;
+            $scope.totalPrice += parseFloat(prodWrap.quantity)*parseFloat(tempPrice);
         });
     };
 
