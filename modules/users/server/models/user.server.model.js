@@ -95,6 +95,16 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
+  },
+  verified:{
+    type: Boolean,
+    default: true
+  },
+  verificationRequest: {
+    validRequest: {
+      type: Boolean,
+      default: false
+    }
   }
 });
 

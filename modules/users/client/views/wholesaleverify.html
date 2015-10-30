@@ -1,7 +1,5 @@
-
-<div ng-controller = "VerifyLandingController">
-
-  <div class = "row" ng-show>
+<div ng-controller = "VerifyController">
+  <div class = "row" ng-show="!verify">
     <h1 class = "text-center">Please have your ____ forms ready before you verify.</h1>
     <div class = "col-md-4 col-md-offset-4 text-center">
       <p>In this verification process, you will need to submit certain information in order to ensure that you qualify for the prices that you are receiving.</p>
@@ -10,10 +8,25 @@
       <p>Once you're ready to begin, click the button below to start.</p>
       <div>
         <a ui-sref="wholesale.verify">
-          <button id="add_item_button" class="btn btn-blue"> <!--will work upon integration-->
+          <button id="add_item_button" class="btn btn-blue" ng-click="verify = true"> <!--will work upon integration-->
             Begin Verification
           </button>
         </a>
+      </div>
+    </div>
+  </div>
+
+  <div class = "row" ng-show="verify">
+    <div class = "col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
+      <h1>{{strings}}</h1>
+      <div class = "form-groups">
+        <label for="firstName">DOB:</label>
+        <input type="text" placeholder="DOB" class="form-control">
+      </div>
+
+      <div class = "form-groups">
+        <label for "SSN">SSN:</label>
+        <input type="text" placeholder="SSN" class = "form-control">
       </div>
     </div>
   </div>

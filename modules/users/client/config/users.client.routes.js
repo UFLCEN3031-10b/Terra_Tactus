@@ -80,11 +80,17 @@ angular.module('users').config(['$stateProvider',
         templateUrl: 'modules/users/client/views/portal/China.html'
       })
       .state('wholesale',{
-        url: '/wholesale',
+        url: '/wholesaleverify',
         templateUrl: 'modules/users/client/views/wholesaleverify.html',
         data:{
           priceRoles: ['wholesale'],
           roles: ['freeUser', 'admin']
+        },
+        controller: 'VerifyController',
+        resolve: {
+          userResolve: ['$stateParams', function ($stateParams) {
+            return $stateParams.userId;
+          }]
         }
       });
   }
