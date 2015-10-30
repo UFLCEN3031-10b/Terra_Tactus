@@ -22,12 +22,25 @@ exports.remove = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    req.session.cart.push({
-        product: req.product,
-        quantity: req.body.quantity
+    var alreadInCart = false;
+    req.session.cart.forEach(function (pw) {
+        if (String(req.product._id) === pw.product._id) {
+            alreadInCart = true;
+        }
     });
 
-    res.json(req.session.cart);
+    if (alreadInCart) {
+        return res.status(400).send({
+            message: errorHandler.getErrorMessage('Item already in cart')
+        });
+    } else {
+        req.session.cart.push({
+            product: req.product,
+            quantity: req.body.quantity
+        });
+
+        res.json(req.session.cart);
+    }
 };
 
 exports.removeProduct = function (req, res) {
