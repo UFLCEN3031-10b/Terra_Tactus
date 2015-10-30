@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
-    proType: Boolean,
+    proType: Boolean, //false = geological, true = cultural
     proTitle: {
         type: String,
         default: '',
