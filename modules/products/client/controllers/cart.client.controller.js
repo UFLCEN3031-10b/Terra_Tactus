@@ -3,11 +3,13 @@
 angular.module('products').controller('CartController', ['$scope', '$rootScope', '$http', 'Authentication', function($scope, $rootScope, $http, Authentication) {
     $scope.cart = [];
     $scope.totalPrice = 0.0;
-    $scope.editable = false;
 
     var updatePrice = function () {
         $scope.totalPrice = 0.0;
         $scope.cart.forEach(function (prodWrap) {
+            //to keep editQuantity value up to date also
+            prodWrap.editQuantity = prodWrap.quantity;
+
             var tempPrice = -1;
 
             for (var i = 0; i < Authentication.user.roles.length; i++) {
@@ -32,9 +34,9 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
 
     $scope.updateQuantity = function (prodWrap) {
         var id = prodWrap.product._id,
-            quan = prodWrap.quantity;
+            quan = prodWrap.editQuantity;
 
-        if (quan === 0) {
+        if (quan === '0') {
             $http.delete('/api/cart/product/' + id).success(function (res) {
                 $scope.cart = res;
                 updatePrice();
