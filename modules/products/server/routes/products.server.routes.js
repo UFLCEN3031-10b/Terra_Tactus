@@ -10,6 +10,7 @@ module.exports = function (app) {
         .delete(cart.remove);
 
     app.route('/api/cart/product/:productId').all(cart.cartChecker)
+        .post(cart.add)
         .put(cart.update)
         .delete(cart.removeProduct);
 

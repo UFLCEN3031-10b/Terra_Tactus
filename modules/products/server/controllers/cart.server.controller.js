@@ -22,14 +22,32 @@ exports.remove = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    var alreadInCart = false;
-    req.session.cart.forEach(function (pw) {
+    var ind = -1;
+    req.session.cart.forEach(function (pw, i) {
         if (String(req.product._id) === pw.product._id) {
-            alreadInCart = true;
+            ind = i;
         }
     });
 
-    if (alreadInCart) {
+    if (ind === -1) {
+        return res.status(400).send({
+            message: 'Item not in cart'
+        });
+    } else {
+        req.session.cart[ind].quantity = req.body.quantity;
+        res.json(req.session.cart);
+    }
+};
+
+exports.add = function (req, res) {
+    var alreadyInCart = false;
+    req.session.cart.forEach(function (pw) {
+        if (String(req.product._id) === pw.product._id) {
+            alreadyInCart = true;
+        }
+    });
+
+    if (alreadyInCart) {
         return res.status(400).send({
             message: errorHandler.getErrorMessage('Item already in cart')
         });

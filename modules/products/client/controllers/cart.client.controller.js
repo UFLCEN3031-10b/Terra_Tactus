@@ -34,13 +34,18 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
         var id = prodWrap.product._id,
             quan = prodWrap.quantity;
 
-        $http.delete('/api/cart/product/' + id).success(function (res) {
-            $http.put('/api/cart/product/' + id, {quantity: quan}).success(function (res) {
+        if (quan === 0) {
+            $http.delete('/api/cart/product/' + id).success(function (res) {
                 $scope.cart = res;
                 updatePrice();
                 $rootScope.$broadcast('cartChange');
             });
-        });
+        } else {
+            $http.put('/api/cart/product/' + id, {quantity: quan}).success(function (res) {
+                $scope.cart = res;
+                updatePrice();
+            });
+        }
     };
 
     $scope.toggleInfo = function (prodWrap) {
