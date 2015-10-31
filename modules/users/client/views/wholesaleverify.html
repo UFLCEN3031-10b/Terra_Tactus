@@ -18,35 +18,46 @@
     <h1 class = "text-center">Enter all of your information here.</h1>
     <div class = "col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
       <form name="userForm" ng-submit="submit(userForm.$valid)" novalidate> <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
-
+        <fieldset>
         <!-- NAME -->
 
-        <div class = "form-group">
-          <label>First Name</label>
-          <input type="text" name="firstName" class="form-control" ng-model="user.firstName" required>
-        </div>
+          <label>DOB</label>
+          <div class="form-group row" show-errors>
+              <div class="col-xs-4">
+                <input type="text" name="month" class="form-control" ng-model ="credentials.month" required>
+              </div>
+              <div class="col-xs-4">
+                <input type="text" name="day" class="form-control" ng-model ="credentials.day"  required>
+              </div>
+              <div class="col-xs-4">
+                <input type="text" name="year" class="form-control" ng-model ="credentials.year"  required>
+              </div>
+              <div ng-messages="userForm.month.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Month is required.</p>
+              </div>
+              <div ng-messages="userForm.day.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Day is required.</p>
+              </div>
+              <div ng-messages="userForm.year.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Year is required.</p>
+              </div>
 
-        <div class = "form-group">
-          <label>First Name</label>
-          <input type="text" name="lastName" class="form-control" ng-model="user.lastName" required>
-        </div>
+          </div>
 
-        <div class="form-group">
-            <label>DOB</label>
-            <input type="text" name="name" class="form-control" ng-model="number" required>
-        </div>
+          <div class = "form-group" show-errors>
+            <label>SSN</label>
+            <input type = "text" name="SSN" class="form-control" ng-model="credentials.SSN" required>
+            <div ng-messages="userForm.SSN.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">SSN is required.</p>
+            </div>
+          </div>
 
-
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" ng-model="user.email" required>
-        </div>
 
         <!-- SUBMIT BUTTON -->
-        <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
 
-        <p>valid = {{userForm.$valid}}</p>
-
+          <p>valid = {{userForm.$valid}}</p>
+        </fieldset>
     </form>
     </div>
   </div>
