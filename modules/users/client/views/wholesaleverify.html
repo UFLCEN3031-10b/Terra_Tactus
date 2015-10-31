@@ -7,27 +7,47 @@
       <p>Please note that this will NOT save your work, so ensure that you are able to complete the process in one sitting.</p>
       <p>Once you're ready to begin, click the button below to start.</p>
       <div>
-        <a ui-sref="wholesale.verify">
-          <button id="add_item_button" class="btn btn-blue" ng-click="verify = true"> <!--will work upon integration-->
-            Begin Verification
-          </button>
-        </a>
+        <button id="add_item_button" class="btn btn-blue" ng-click="verify = true"> <!--will work upon integration-->
+          Begin Verification
+        </button>
       </div>
     </div>
   </div>
 
   <div class = "row" ng-show="verify">
+    <h1 class = "text-center">Enter all of your information here.</h1>
     <div class = "col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
-      <h1>{{strings}}</h1>
-      <div class = "form-groups">
-        <label for="firstName">DOB:</label>
-        <input type="text" placeholder="DOB" class="form-control">
-      </div>
+      <form name="userForm" ng-submit="submit(userForm.$valid)" novalidate> <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
 
-      <div class = "form-groups">
-        <label for "SSN">SSN:</label>
-        <input type="text" placeholder="SSN" class = "form-control">
-      </div>
+        <!-- NAME -->
+
+        <div class = "form-group">
+          <label>First Name</label>
+          <input type="text" name="firstName" class="form-control" ng-model="user.firstName" required>
+        </div>
+
+        <div class = "form-group">
+          <label>First Name</label>
+          <input type="text" name="lastName" class="form-control" ng-model="user.lastName" required>
+        </div>
+
+        <div class="form-group">
+            <label>DOB</label>
+            <input type="text" name="name" class="form-control" ng-model="number" required>
+        </div>
+
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" ng-model="user.email" required>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <p>valid = {{userForm.$valid}}</p>
+
+    </form>
     </div>
   </div>
 </div>
