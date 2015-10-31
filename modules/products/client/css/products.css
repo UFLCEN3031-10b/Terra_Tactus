@@ -25,27 +25,75 @@
     
 }
 /*Code for the format of the tabs*/
-#ul-tab {
+#ul-tab{
     list-style: none;
     padding: 0;
     margin: 0;
 }
 /*Code for div held by current tab*/
-#mainView {
-    border: 0 solid black;
+#mainView{
+    border: 0px solid black;
     clear: both;
     padding: 0 1em;
 }
 
-
+/* code for the styling of the cultural/geological product buttons*/
 .tab-btn{
-    border: 1px solid #00DD00;
+    border: 1px solid #0faf38;
     background-color: transparent;
-    color: #00DD00;
+    color: #0faf38;
 }
 
 /*changes the color of the current tab*/
 .activetab {
-    background-color: #00c9dd;
-    color: #FFFFFF;
+    background-color: #0b2077;
+    color: #0faf38;
+}
+
+/*code that dictates what happens when you hover over the cultural/geological button tabs*/
+.tab-btn:hover{
+    background-image:none !important;
+    background-color:#0faf38 !important;
+    color: white !important;
+}
+
+/*css for the background of each product title*/
+.label-info{
+    background-color:#0faf38;
+    -moz-border-radius: 5px;
+    border-radius: 10px;
+    
+}
+
+/*css for the title of the product*/
+.label-info h2{
+    color:white;
+    font-weight: bold;
+    text-align: center;  
+}
+
+/* css for the product image*/
+.product-img{
+    height: 50vh; 
+    width: 70vh;
+    -moz-border-radius: 5px;
+    border-radius: 10px;
+}
+
+/*css for the thumbnail or container holding all the product block info*/
+.product-thumb{
+    background-color : #2e2f33; 
+    border-color:transparent; 
+    border-radius: 20px;
+}
+
+/*css for the "about product" header text*/
+.about-label{
+    color:white;
+    font-weight: bold;
+}
+
+/*css for the short description of the product*/
+.about-text{
+    color:white;
 }
