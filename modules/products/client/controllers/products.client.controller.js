@@ -66,6 +66,34 @@ angular.module('core').controller('ProductsController', ['$scope', '$stateParams
   function ($scope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
 
+/*
+    // Create new Product
+    $scope.create = function () {
+
+      // Create new Product object
+      var announcement = new Products({
+        proType: this.proType,
+        proTitle: this.proTitle,
+        longDes: this.longDes,
+        shortDes: this.shortDes,
+        imageUrl: this.imageUrl,
+        imageOne: this.imageOne,
+        imageTwo: this.imageTwo,
+        imageThree: this.imageThree,
+        imageFour: this.imageFour,
+        indvPrice: this.indvPrice,
+        eduPrice: this.eduPrice,
+        wholePrice: this.wholePrice
+      });
+
+      // Redirect after save
+      product.$save(function (response) {
+        //$location.path('announcements/' + response._id);
+
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
+      });
+    };*/
 
     // Find a list of Products
     $scope.find = function () {
