@@ -16,32 +16,30 @@
 
 </head>
 <body>
+<section ng-controller="ProductsController">
   <div>
     <h2>Teacher's Picks</h2>
     <section id="teacher-section">
       <div class="row">
-        <div class="col-sm-3 center">
-          <h3>Product 1</h3>
-          <div class="col-md-4">
+        <ng-repeat = "product in products">
+          <div class = "col-sm-3">
+            <img src ="{{product.imageUrl}}" class="img-responsive product-img">
           </div>
-        </div>
-        <div class="col-sm-3 center">
-          <h3>Product 2</h3>
-          <div class="col-md-4">
+      </div>
+      <div class="row">
+        <ng-repeat = "product in products">
+          <div class = "col-sm-3">
+            <h3>{{product.wholePrice}}</h3>
           </div>
-        </div>
-        <div class="col-sm-3 center">
-          <h3>Product 3</h3>
-          <div class="col-md-4">
+      </div>
+      <div class = "row">
+        <ng-repeat = "product in products">
+          <div class = "col-sm-3">
+            <a class="btn btn-blue btn-lg" href="/subscriptions" role="button">Learn more</a>
           </div>
-        </div>
-        <div class="col-sm-3 center">
-          <h3>Product 4</h3>
-          <div class="col-md-4">
-          </div>
-        </div>
       </div>
     </section>
   </div>
+</section>
 </body>
 </section>
