@@ -5,29 +5,11 @@
 angular.module('core').controller('CommercialProdController', function ($scope, $http) {
     $http.get('/api/products').success(function (res) {
         console.log(res);
+        //res.find()
+        //for(var obj in res) {
+        //    console.log(obj.teacher);
+        //}
     });
-
-    $scope.commProducts = [{
-        title: '',
-        image: '',
-        text: '' ,
-        price: ''
-    }, {
-        title: '',
-        image: '',
-        text: '' ,
-        price: ''
-    },{
-        title: '',
-        image: '',
-        text: '' ,
-        price: ''
-    },{
-        title: '',
-        image: '',
-        text: '' ,
-        price: ''
-    }];
 
     $scope.addProduct = function (newTitle,newImage, newText, newPrice) {
         $scope.products.push({

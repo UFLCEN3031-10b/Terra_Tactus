@@ -58,7 +58,13 @@ var ProductSchema = new Schema({
         type: String,
         default: '',
         trim: true
+    },
+    teacher: {
+        type: Boolean,
+        default: false,
+        trim: true
     }
+
 
 });
 
