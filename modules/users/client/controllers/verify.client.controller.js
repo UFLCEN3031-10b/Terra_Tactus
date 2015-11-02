@@ -10,8 +10,13 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
         $scope.$broadcast('show-errors-check-validity', 'userForm');
         return false;
       }
-
-      console.log("Submitted successfully!");
+      $scope.vRequest = {validRequest: true, user: $scope.user};
+      $http.post('/api/auth/verify', $scope.vRequest).success(function(response){
+        console.log("Submitted successfully!");
+        $state.go('home');
+      }).error(function (response){
+        $scope.error = response.message;
+      });
     };
   }
 ]);

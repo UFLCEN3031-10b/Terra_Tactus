@@ -98,14 +98,15 @@ var UserSchema = new Schema({
   },
   verified:{
     type: Boolean,
-    default: true
-  },
-  verificationRequest: {
+    default: false
+  }
+});
+
+  var VerifySchema = new Schema({
     validRequest: {
       type: Boolean,
-      default: false
-    }
-  }
+    },
+    user: [UserSchema]
 });
 
 /**
@@ -176,3 +177,4 @@ UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
 };
 
 mongoose.model('User', UserSchema);
+mongoose.model('VerifyRequest', VerifySchema);

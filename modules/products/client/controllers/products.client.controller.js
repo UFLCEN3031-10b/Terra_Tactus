@@ -75,7 +75,7 @@ angular.module('core').controller('TabsCtrl', ['$scope', function ($scope) {
     $scope.onClickTab = function (tab) {
         $scope.currentTab = tab.url;
     };
-    
+
     $scope.isActiveTab = function(tabUrl) {
         return tabUrl === $scope.currentTab;
     };
