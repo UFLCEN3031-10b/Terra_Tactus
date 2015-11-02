@@ -7,6 +7,10 @@ angular.module('products').config(['$stateProvider',
                 url: '/products',
                 templateUrl: 'modules/products/client/views/products.client.view.html'
             })
+            .state('products-edit', {
+                url: '/products-edit',
+                templateUrl: 'modules/products/client/views/products-edit.html'
+            })
             .state('subscriptions', {
                 url: '/subscriptions',
                 templateUrl: 'modules/products/client/views/subscriptions.html'
