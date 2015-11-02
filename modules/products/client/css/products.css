@@ -22,7 +22,7 @@
     min-height: 120px;
     -moz-border-radius: 5px;
     border-radius: 10px;
-    
+
 }
 /*Code for the format of the tabs*/
 #ul-tab{
@@ -46,7 +46,7 @@
 
 /*changes the color of the current tab*/
 .activetab {
-    background-color: #00c9dd;
+    background-color: #0b2077;
     color: #0faf38;
 }
 
@@ -96,4 +96,7 @@
 /*css for the short description of the product*/
 .about-text{
     color:white;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
