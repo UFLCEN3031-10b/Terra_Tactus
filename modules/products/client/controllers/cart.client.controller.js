@@ -12,12 +12,14 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
 
             var tempPrice = -1;
 
-            for (var i = 0; i < Authentication.user.roles.length; i++) {
-                var r = Authentication.user.roles[i];
-                if (r === 'wholesale') {
-                    tempPrice = prodWrap.product.wholePrice;
-                } else if (r === 'education') {
-                    tempPrice = prodWrap.product.eduPrice;
+            if (undefined !== Authentication.user.roles.length) {
+                for (var i = 0; i < Authentication.user.roles.length; i++) {
+                    var r = Authentication.user.roles[i];
+                    if (r === 'wholesale') {
+                        tempPrice = prodWrap.product.wholePrice;
+                    } else if (r === 'education') {
+                        tempPrice = prodWrap.product.eduPrice;
+                    }
                 }
             }
 
@@ -25,6 +27,10 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
                 tempPrice = prodWrap.product.indvPrice;
             }
 
+            if (tempPrice === "") {
+                tempPrice = "0.00";
+            }
+            
             prodWrap.price = tempPrice;
             $scope.totalPrice += parseFloat(prodWrap.quantity)*parseFloat(tempPrice);
         });
