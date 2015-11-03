@@ -66,25 +66,25 @@ angular.module('core').controller('ProductsController', ['$scope', '$stateParams
   function ($scope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
 
-    var prodType = null;
+
 
     // Create new Product
     $scope.create = function (isValid) {
 
-    $scope.error = null;
+      var prodType = null;
+      $scope.error = null;
 
-    if (!isValid) {
-      $scope.$broadcast('show-errors-check-validity', 'productForm');
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'productForm');
+        return false;
+      }
 
-      return false;
-    }
-
-    if(document.getElementById("proType-cb").checked) {
-    prodType = true;
-}
-else {
-  prodType = false;
-}
+      if(document.getElementById("proType-cb").checked) {
+        prodType = true;
+      }
+      else {
+        prodType = false;
+      }
 
 
       // Create new Product object
@@ -105,11 +105,13 @@ else {
 
       // Redirect after save
       product.$save(function (response) {
-        //$location.path('announcements/' + response._id);
+      $location.path('products');
 
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
+
+      console.log('Product has been created');
     };
 
     //editting shows

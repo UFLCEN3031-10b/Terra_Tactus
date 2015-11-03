@@ -13,7 +13,10 @@ angular.module('products').config(['$stateProvider',
             })
             .state('create-product', {
                 url: '/create-product',
-                templateUrl: 'modules/products/client/views/create-product.client.view.html'
+                templateUrl: 'modules/products/client/views/create-product.client.view.html',
+                data: {
+                  roles: ['admin']
+                }
             })
             .state('subscriptions', {
                 url: '/subscriptions',

@@ -1,4 +1,3 @@
-<h1> hi bro</h1>
 <style>
 .product-create-header {
     padding-bottom: 9px;
@@ -14,8 +13,16 @@
   margin-top: 1px;
 }
 
+#teacher-cb{
+  height: 20px;
+  width: 20px;
+  padding-left: 1px;
+  margin-left: -30px;
+  margin-top: 1px;
+}
+
 </style>
-<!--<section ng-controller="ProductsController">-->
+
 <section ng-controller="ProductsController">
   <div class="product-create-header">
     <h1>New Product</h1>
@@ -26,51 +33,101 @@
         <div class="checkbox">
           <label><input type="checkbox" ng-model = "proType" id = "proType-cb"><b> Product Type (Cultural=Checked / Geological = Unchecked)</b></label>
         </div>
+        <br>
         <div class="form-group" show-errors>
-          <label for="proTitle">Title</label>
+          <label for="proTitle">Product Title</label>
           <input name="proTitle" type="text" ng-model="proTitle" id="protitle" class="form-control" placeholder="Title" required>
           <div ng-messages="productForm.proTitle.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Product title is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label for="imageUrl">imageUrl</label>
-          <input name="imageUrl" type="text" ng-model="imageUrl" id="imageUrl-tb" class="form-control" placeholder="Representitive Image of Kit" required>
+          <label for="imageUrl">Representative Image</label>
+          <input name="imageUrl" type="text" ng-model="imageUrl" id="imageUrl-tb" class="form-control" placeholder="Representative Image of Kit" required>
           <div ng-messages="productForm.imageUrl.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Need an image to represent this product.</p>
           </div>
         </div>
-        <div class="form-group">
+
+        <div class="form-group" show-errors>
+          <label for="imageOne">Main Kit Image</label>
+          <input name="imageOne" type="text" ng-model="imageOne" id="imageOne-tb" class="form-control" placeholder="Main Image of Kit for Specific Product Page" required>
+          <div ng-messages="productForm.imageOne.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Need a main image of the actual kit.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="imageTwo">Left Image</label>
+          <input name="imageTwo" type="text" ng-model="imageTwo" id="imageTwo-tb" class="form-control" placeholder="Supplementary Image of Kit for Specific Product Page" required>
+          <div ng-messages="productForm.imageTwo.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Need second image to show contents of kit.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="imageThree">Middle Image</label>
+          <input name="imageThree" type="text" ng-model="imageThree" id="imageThree-tb" class="form-control" placeholder="Supplementary Image of Kit for Specific Product Page" required>
+          <div ng-messages="productForm.imageThree.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Need third image to show contents of kit.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="imageFour">Right Image</label>
+          <input name="imageFour" type="text" ng-model="imageFour" id="imageFour-tb" class="form-control" placeholder="Supplementary Image of Kit for Specific Product Page" required>
+          <div ng-messages="productForm.imageFour.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Need fourth image to show contents of kit.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
           <label for="shortDes">Short Description</label>
           <textarea name="shortDes" ng-model="shortDes" id="shortDes-ta" class="form-control" cols="30" rows="5" placeholder="Short Description of what kit will acheive or teach" required></textarea>
+          <div ng-messages="productForm.shortDes.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Need a short description for this product.</p>
+          </div>
         </div>
-        <div ng-messages="productForm.shortDes.$error" role="alert">
-          <p class="help-block error-text" ng-message="required">Need a short description for this product.</p>
+
+        <div class="form-group" show-errors>
+          <label for="longDes">Long Description</label>
+          <textarea name="longDes" ng-model="longDes" id="longDes-ta" class="form-control" cols="30" rows="5" placeholder="Long Description of what kit will contain in it and other specific details" required></textarea>
+          <div ng-messages="productForm.longDes.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Need a long description for this product.</p>
+          </div>
         </div>
+
+        <div class="form-group" show-errors>
+          <label for="indvPrice">Individual Price</label>
+          <input name="indvPrice" type="text" ng-model="indvPrice" id="indvPrice-tb" class="form-control" placeholder="Individual Price seen by guest users (ex. 9.99)" required>
+          <div ng-messages="productForm.indvPrice.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Individual Price is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="eduPrice">Educational Price</label>
+          <input name="eduPrice" type="text" ng-model="eduPrice" id="eduPrice-tb" class="form-control" placeholder="Educational Price seen by Educational Users (ex. 9.99)" required>
+          <div ng-messages="productForm.eduPrice.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Educational Price is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="wholePrice">Wholesale Price</label>
+          <input name="wholePrice" type="text" ng-model="wholePrice" id="wholePrice-tb" class="form-control" placeholder="Wholesale Price seen by Wholesale Users (ex. 9.99)" required>
+          <div ng-messages="productForm.wholePrice.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Wholesale Price is required.</p>
+          </div>
+        </div>
+
+        <div class="checkbox">
+          <label><input type="checkbox" ng-model = "teacher" id = "teacher-cb"><b> This product is a Teacher's Favorite </b></label>
+        </div>
+        <br>
+
         <div class="form-group">
-          <input type="submit" class="btn btn-default">
-        </div>
-        <div ng-show="error" class="text-danger">
-          <strong ng-bind="error"></strong>
-        </div>
-      </fieldset>
-    </form>
-  </div>
-</section>        <!--
-        <div class="form-group">
-          <label for="link">Link</label>
-          <input name="link" type="text" ng-model="link" id="link" class="form-control" placeholder="Link Optional">
-        </div>
-        <div class="form-group">
-          <label for="picture">Picture Link</label>
-          <input name="picture" type="text" ng-model="picture" id="picture" class="form-control" placeholder="Picture Optional">
-        </div>
-        <div class="form-group">
-          <label for="content">Content</label>
-          <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
-        </div>
-        <div class="form-group">
-          <input type="submit" class="btn btn-default">
+          <input type="submit" value="Create Product" class="btn btn-default">
         </div>
         <div ng-show="error" class="text-danger">
           <strong ng-bind="error"></strong>
@@ -79,4 +136,3 @@
     </form>
   </div>
 </section>
--->
