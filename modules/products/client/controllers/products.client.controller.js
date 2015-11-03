@@ -66,13 +66,30 @@ angular.module('core').controller('ProductsController', ['$scope', '$stateParams
   function ($scope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
 
-/*
+    var prodType = null;
+
     // Create new Product
-    $scope.create = function () {
+    $scope.create = function (isValid) {
+
+    $scope.error = null;
+
+    if (!isValid) {
+      $scope.$broadcast('show-errors-check-validity', 'productForm');
+
+      return false;
+    }
+
+    if(document.getElementById("proType-cb").checked) {
+    prodType = true;
+}
+else {
+  prodType = false;
+}
+
 
       // Create new Product object
-      var announcement = new Products({
-        proType: this.proType,
+      var product = new Products({
+        proType: prodType,
         proTitle: this.proTitle,
         longDes: this.longDes,
         shortDes: this.shortDes,
@@ -93,7 +110,11 @@ angular.module('core').controller('ProductsController', ['$scope', '$stateParams
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
-    };*/
+    };
+
+    //editting shows
+    $scope.isEditing = false;
+
 
     // Find a list of Products
     $scope.find = function () {
