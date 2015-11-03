@@ -34,7 +34,7 @@
       <h2>Teacher's Picks</h2>
       <section id="teacher-section">
         <div class="row">
-            <div class = "col-sm-3" ng-repeat = "product in products">
+            <div class = "col-sm-3" ng-repeat = "product in products | filter: {'teacher':true}">
               <img src ="{{product.imageUrl}}" class="img-responsive product-img">
               <h3 align = "center">${{product.eduPrice}}</h3>
               <h3 align = "center">{{product.proTitle}}</h3>
