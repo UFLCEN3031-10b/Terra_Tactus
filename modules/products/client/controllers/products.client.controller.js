@@ -72,6 +72,7 @@ angular.module('core').controller('ProductsController', ['$scope', '$stateParams
     $scope.create = function (isValid) {
 
       var prodType = null;
+      var teachType = null;
       $scope.error = null;
 
       if (!isValid) {
@@ -84,6 +85,13 @@ angular.module('core').controller('ProductsController', ['$scope', '$stateParams
       }
       else {
         prodType = false;
+      }
+
+      if(document.getElementById("teacher-cb").checked) {
+        teachType = true;
+      }
+      else {
+        teachType = false;
       }
 
 
@@ -100,7 +108,8 @@ angular.module('core').controller('ProductsController', ['$scope', '$stateParams
         imageFour: this.imageFour,
         indvPrice: this.indvPrice,
         eduPrice: this.eduPrice,
-        wholePrice: this.wholePrice
+        wholePrice: this.wholePrice,
+        teacher: teachType
       });
 
       // Redirect after save
