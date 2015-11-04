@@ -61,22 +61,50 @@ angular.module('core').controller('geoProductsController', function ($scope) {
 });
 
 
-angular.module('core').controller('TabsCtrl', ['$scope', function ($scope) {
-    $scope.tabs = [{
-            title: 'Cultural Products',
-            url: 'one.tpl.html'
-        }, {
-            title: 'Geological Products',
-            url: 'two.tpl.html'
-    }];
+// Products controller
+angular.module('core').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Products',
+  function ($scope, $stateParams, $location, Authentication, Products) {
+    $scope.authentication = Authentication;
 
-    $scope.currentTab = 'one.tpl.html';
+/*
+    // Create new Product
+    $scope.create = function () {
 
-    $scope.onClickTab = function (tab) {
-        $scope.currentTab = tab.url;
+      // Create new Product object
+      var announcement = new Products({
+        proType: this.proType,
+        proTitle: this.proTitle,
+        longDes: this.longDes,
+        shortDes: this.shortDes,
+        imageUrl: this.imageUrl,
+        imageOne: this.imageOne,
+        imageTwo: this.imageTwo,
+        imageThree: this.imageThree,
+        imageFour: this.imageFour,
+        indvPrice: this.indvPrice,
+        eduPrice: this.eduPrice,
+        wholePrice: this.wholePrice
+      });
+
+      // Redirect after save
+      product.$save(function (response) {
+        //$location.path('announcements/' + response._id);
+
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
+      });
+    };*/
+
+    // Find a list of Products
+    $scope.find = function () {
+      $scope.products = Products.query();
     };
-    
-    $scope.isActiveTab = function(tabUrl) {
-        return tabUrl === $scope.currentTab;
+
+    // Find existing Products
+    $scope.findOne = function () {
+      $scope.product = Products.get({
+        productId: $stateParams.productId
+      });
     };
-}]);
+  }
+]);
