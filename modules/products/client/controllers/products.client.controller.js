@@ -8,11 +8,11 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
 
     $scope.displayCultural = function () {
       $scope.displayType = true;
-    }
+    };
 
     $scope.displayGeological = function () {
       $scope.displayType = false;
-    }
+    };
 
     // Create new Product
     $scope.create = function (isValid) {
