@@ -1,82 +1,99 @@
-'use strict';
+<!-- Begining of Code starts with the Tabs-->
+    <div id="tabs" ng-controller="TabsCtrl">
 
-angular.module('core').controller('cltProductsController', function ($scope) {
+       <div class="btn-group" role="group" >
+            <button id = "tab-li" type="button" class="btn tab-btn" ng-repeat = "tab in tabs" ng-class="{activetab:isActiveTab(tab.url)}"
+                ng-click="onClickTab(tab)"><b>{{tab.title}}</b></button>
+        </div>
 
-    $scope.cltproducts = [{
-        title: 'Exploring The Swamp',
-        image: 'http://1.bp.blogspot.com/-QuICtWHygN0/UoAlMMR9UNI/AAAAAAABYfc/rfcld52y97M/s1600/Gaineville+Trip+136.JPG',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        <div id="mainView">
+            <div ng-include="currentTab"></div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="one.tpl.html">
+        <div id="viewOne">
+<!-- Make a Division for the Initial Header Stating our Cultural products -->
+<div>
+    <h1 align = "center"><b> Cultural Explorer Kits </b></h1>
+</div>
 
-    }, {
-        title: 'Exploring Gator Football',
-        image: 'http://www.gatortailgating.com/files/imagecache/gt7_full_580/mike/2012/03/gators-usf.jpg',
-        text: 'Solum liber postulant duo ex. Qui id eleifend imperdiet deterruisset, enim reque albucius duo in, ei nostro conceptam eam. Nec te partiendo tincidunt, ne eum cibo nobis oporteat. Ne eos nisl graeco, ex possim periculis nec. Laudem salutatus te mea. Elitr graeci ei nam, vidisse erroribus cum ex, id atqui mundi percipit est.'
-    },{
-        title: 'Taking a look at Century Tower',
-        image: 'http://cdn.webservices.ufhealth.org/wp-content/blogs.dir/350/files/2012/05/UFCampus.jpg',
-        text: 'Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.'
-    },{
-        title: 'Its Great to be a Florida Gator!',
-        image: 'http://thumb.usatodaysportsimages.com/image/thumb/650-510nw/8805035.jpg',
-        text: 'Florida, our Alma Mater, thy glorious name we praise. All thy loyal sons and daughters, a joyous song shall raise. Where palm and pine are blowing, where southern seas are flowing, Shine forth thy noble gothic walls, thy lovely vine clad halls.Neath the orange and blue victorious,our love shall never fail. Theres no other name so glorious,all hail, Florida, hail!'
-    }];
+<section ng-controller="cltProductsController">
 
-    $scope.addCltProduct = function (newTitle,newImage, newText) {
-        $scope.products.push({
-            title: newTitle,
-            image: newImage,
-            text: newText
-        });
-    };
-});
+        <!-- Division that will be used to repeat the product blocks -->
+        <!-- Product blocks contain {Product Name, Product Thumbnail, Short Description, Price, see more link}-->
+         <div class="row" >
+        <div class="col-lg-10 " >
+            <div class=" col-lg-12 col-lg-offset-1" ng-repeat="clt in cltproducts" >
+                <div class="thumbnail" style = "background-color : #2e2f33; border-color:transparent; border-radius: 20px;">
+                    <h2 class="text-center" style = "color:white"><span class="label label-info" style = "background-color:#00DD00"><b>{{clt.title}}</b></span></h2>
+                    <img src ="{{clt.image}}" class="img-responsive" style="height: 50vh; width: 70vh; -moz-border-radius: 5px;
+    border-radius: 10px;">
+                    <div class="caption">
+                        <div class="row text-center">
+                            <div class="col-md-12 col-xs-12">
+                                <h4 style = "color:white"><b>About Product</b></h4>
+                            </div>
+                        </div>
+                        <p style = "color:white">{{clt.text}}</p>
+                        <div class="row text-center">
+                            <div class="col-md-6">
+                                <a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-triangle-right"></span>Learn More</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a></div>
+                            </div>
 
-angular.module('core').controller('geoProductsController', function ($scope) {
-
-    $scope.geoproducts = [{
-        title: 'Taking a Look at Mt. Saint Helens',
-        image: 'https://volcanoes.usgs.gov/observatories/cvo/Historical/LewisClark/Historical/corps-engineers-archives_mount_st_helens_1978.jpg',
-        text: 'Mount St. Helens or Louwala-Clough (known as Lawetlat la to the indigenous Cowlitz people, and Loowit to the Klickitat) is an active stratovolcano located in Skamania County, Washington, in the Pacific Northwest region of the United States. It is 96 miles (154 km) south of Seattle, Washington, and 50 miles (80 km) northeast of Portland, Oregon. Mount St. Helens takes its English name from the British diplomat Lord St Helens, a friend of explorer George Vancouver who made a survey of the area in the late 18th century.'
-
-    }, {
-        title: 'Analyzing the Crater in Northern Airzona',
-        image: 'http://160knots.com/images/Winslow/mc3.JPG',
-        text: 'Meteor Crater is a meteorite impact crater approximately 37 miles (60 km) east of Flagstaff and 18 miles (29 km) west of Winslow in the northern Arizona desert of the United States. Because the United States Board on Geographic Names commonly recognizes names of natural features derived from the nearest post office, the feature acquired the name of "Meteor Crater" from the nearby post office named Meteor.[2] The site was formerly known as the Canyon Diablo Crater and fragments of the meteorite are officially called the Canyon Diablo Meteorite.[3] Scientists refer to the crater as Barringer Crater in honor of Daniel Barringer, who was first to suggest that it was produced by meteorite impact.'
-    },{
-        title: 'Explore the Grand Canyon',
-        image: 'http://www.thecanyon.com/assets/css/images/grandcanyon1.jpg',
-        text: 'The Grand Canyon (Hopi: Ongtupqa; Yavapai: Wi:kaʼi:la, Spanish: Gran Cañón), is a steep-sided canyon carved by the Colorado River in the state of Arizona in the United States. It is contained within and managed by Grand Canyon National Park, the Kaibab National Forest, Grand Canyon-Parashant National Monument, the Hualapai Tribal Nation, the Havasupai people and the Navajo Nation. President Theodore Roosevelt was a major proponent of preservation of the Grand Canyon area, and visited it on numerous occasions to hunt and enjoy the scenery.'
-    },{
-        title: 'Discovering Stonehenge',
-        image: 'http://www.english-heritage.org.uk/remote/www.english-heritage.org.uk/content/properties/stonehenge/hero-carousel/stonehenge-circle-pink-sky?w=1440&h=750&mode=crop&scale=both&cache=always&quality=60&anchor=bottomcenter',
-        text: 'Stonehenge is a prehistoric monument located in Wiltshire, England, about 2 miles (3 km) west of Amesbury and 8 miles (13 km) north of Salisbury. One of the most famous sites in the world, Stonehenge is the remains of a ring of standing stones set within earthworks. It is in the middle of the most dense complex of Neolithic and Bronze Age monuments in England, including several hundred burial mounds'
-    }];
-
-    $scope.addGeoProduct = function (newTitle,newImage, newText) {
-        $scope.products.push({
-            title: newTitle,
-            image: newImage,
-            text: newText
-        });
-    };
-});
+                        <p> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-angular.module('core').controller('TabsCtrl', ['$scope', function ($scope) {
-    $scope.tabs = [{
-            title: 'Cultural Products',
-            url: 'one.tpl.html'
-        }, {
-            title: 'Geological Products',
-            url: 'two.tpl.html'
-    }];
+</section>
+        </div>
+    </script>
 
-    $scope.currentTab = 'one.tpl.html';
+    <script type="text/ng-template" id="two.tpl.html">
+        <div id="viewTwo">
+        <!-- Make a Division for the Initial Header Stating our Geological products -->
+<div>
+    <h1 align = "center"><b> Geological Explorer Kits </b></h1>
+</div>
 
-    $scope.onClickTab = function (tab) {
-        $scope.currentTab = tab.url;
-    };
+            <section ng-controller="geoProductsController">
+   <!-- Division that will be used to repeat the product blocks -->
+        <!-- Product blocks contain {Product Name, Product Thumbnail, Short Description, Price, see more link}-->
+         <div class="row" >
+        <div class="col-lg-10 " >
+            <div class=" col-lg-12 col-lg-offset-1" ng-repeat="geo in geoproducts" >
+                <div class="thumbnail" style = "background-color : #2e2f33; border-color:transparent; border-radius: 20px;">
+                    <h2 class="text-center" style = "color:white"><span class="label label-info" style = "background-color:#00DD00"><b>{{geo.title}}</b></span></h2>
+                    <img src ="{{geo.image}}" class="img-responsive" style="height: 50vh; width: 70vh; -moz-border-radius: 5px;
+    border-radius: 10px;">
+                    <div class="caption">
+                        <div class="row text-center">
+                            <div class="col-md-12 col-xs-12">
+                                <h4 style = "color:white"><b>About Product</b></h4>
+                            </div>
+                        </div>
+                        <p style = "color:white">{{geo.text}}</p>
+                        <div class="row text-center">
+                            <div class="col-md-6">
+                                <a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-triangle-right"></span>Learn More</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a></div>
+                            </div>
 
-    $scope.isActiveTab = function(tabUrl) {
-        return tabUrl === $scope.currentTab;
-    };
-}]);
+                        <p> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+        </div>
+    </script>
+
+
+<!-- Credit Given to Piotr (https://twitter.com/zalun) and Oskar (https://twitter.com/oskar) @ JFiddle for the use of the code which allowed me to create the tabs -->
