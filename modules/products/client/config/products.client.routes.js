@@ -7,8 +7,8 @@ angular.module('products').config(['$stateProvider',
                 url: '/products',
                 templateUrl: 'modules/products/client/views/list-products.client.view.html'
             })
-            .state('product', {
-                url: '/product',
+            .state('product.view', {
+                url: '/:productId',
                 templateUrl: 'modules/products/client/views/individual-product.client.view.html'
             })
             .state('products-edit', {
