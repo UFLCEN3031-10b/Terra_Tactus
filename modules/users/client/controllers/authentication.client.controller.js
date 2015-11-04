@@ -58,6 +58,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       });
     };
 
+/*
     // OAuth provider request
     $scope.callOauthProvider = function (url) {
       if ($state.previous && $state.previous.href) {
@@ -66,6 +67,6 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       // Effectively call OAuth authentication route:
       $window.location.href = url;
-    };
+    }; */
   }
 ]);
