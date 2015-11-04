@@ -5,7 +5,10 @@ module.exports = {
     lib: {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css'
+        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css',
+        'bootstrap-override.css'
+
       ],
       js: [
         'public/lib/angular/angular.js',
