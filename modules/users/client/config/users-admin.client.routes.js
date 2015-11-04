@@ -9,11 +9,15 @@ angular.module('users.admin.routes').config(['$stateProvider',
         templateUrl: 'modules/users/client/views/admin/list-users.client.view.html',
         controller: 'UserListController'
       })
-      .state('admin.verify', {
+      .state('admin.requests', {
         url: '/verifications',
         templateUrl: 'modules/users/client/views/admin/list-vRequests.client.view.html',
         data:{roles:['admin']}
       })
+      .state('admin.request', {
+        url: '/verifications/:vReqId',
+        templateUrl: 'modules/users/client/views/admin/view-vRequest.client.view.html',
+      }
       .state('admin.user', {
         url: '/users/:userId',
         templateUrl: 'modules/users/client/views/admin/view-user.client.view.html',
