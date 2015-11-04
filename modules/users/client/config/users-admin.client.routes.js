@@ -16,8 +16,8 @@ angular.module('users.admin.routes').config(['$stateProvider',
       })
       .state('admin.request', {
         url: '/verifications/:vReqId',
-        templateUrl: 'modules/users/client/views/admin/view-vRequest.client.view.html',
-      }
+        templateUrl: 'modules/users/client/views/admin/view-vRequest.client.view.html'
+      })
       .state('admin.user', {
         url: '/users/:userId',
         templateUrl: 'modules/users/client/views/admin/view-user.client.view.html',
