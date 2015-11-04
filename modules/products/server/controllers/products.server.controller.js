@@ -23,6 +23,7 @@ exports.update = function (req, res) {
     d.indvPrice = req.body.indvPrice;
     d.eduPrice = req.body.eduPrice;
     d.wholePrice = req.body.wholePrice;
+    d.teacher = req.body.teacher;
 
     d.save(function (err) {
         if (err) {
@@ -66,11 +67,12 @@ exports.productByID = function (req, res, next, id) {
     d.imageUrl = req.body.imageUrl;
     d.imageOne = req.body.imageOne;
     d.imageTwo = req.body.imageTwo;
-    d.imageFour = req.body.imageThree;
+    d.imageThree = req.body.imageThree;
     d.imageFour = req.body.imageFour;
     d.indvPrice = req.body.indvPrice;
     d.eduPrice = req.body.eduPrice;
     d.wholePrice = req.body.wholePrice;
+    d.teacher = req.body.teacher;
 
     d.save(function (err) {
         if (err) {

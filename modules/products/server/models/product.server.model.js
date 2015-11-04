@@ -4,6 +4,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
+    created: {
+      type: Date,
+      default: Date.now
+    },
     proType: Boolean, //false = geological, true = cultural
     proTitle: {
         type: String,
@@ -13,11 +17,12 @@ var ProductSchema = new Schema({
     longDes: {
         type: String,
         default: '',
-        required: 'Product must have a description'
+        //required: 'Product must have a description'
     },
     shortDes: {
         type: String,
-        default: ''
+        default: '',
+       required: 'Product must have a short description'
     },
     imageUrl: {
         type: String,
@@ -60,11 +65,10 @@ var ProductSchema = new Schema({
         trim: true
     },
     teacher: {
-        type: Boolean,
-        default: false,
-        trim: true
+      type: Boolean,
+      default: false,
+      trim: true
     }
-
 
 });
 
