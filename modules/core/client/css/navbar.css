@@ -29,13 +29,13 @@
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #1ade4c;
+    color: #FFFFFF;
     background-color: #00c9dd;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-    color: #1ade4c;
+    color: #FFFFFF;
     background-color: #00c9dd;
     background-image: none;
 }
@@ -80,18 +80,18 @@
 /* secondary navbar coloring */
 /* link */
 .secondary-nav .navbar-nav > li > a {
-    color: white;
+    color: #00DD00;
 }
 .secondary-nav .navbar-nav > li > a:hover,
 .secondary-nav .navbar-nav > li > a:focus {
-    color: white;
+    color: #FFFFFF;
     font-weight: bold;
     background-color: #00c9dd;
 }
 .secondary-nav .navbar-nav > .active > a,
 .secondary-nav .navbar-nav > .active > a:hover,
 .secondary-nav .navbar-nav > .active > a:focus {
-    color: white;
+    color: #FFFFFF;
     font-weight: bold;
     background-color: #00c9dd;
     background-image: none;
@@ -99,14 +99,14 @@
 .secondary-nav .navbar-nav > .open > a,
 .secondary-nav .navbar-nav > .open > a:hover,
 .secondary-nav .navbar-nav > .open > a:focus {
-    color: white;
+    color: #00DD00;
     background-color: #00c9dd;
     background-image: none;
 }
 
 .secondary-nav .form-control {
     background-color: black;
-    border-color: #1ade4c;
+    border-color: #00DD00;
     color: white;
 }
 

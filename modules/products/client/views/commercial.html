@@ -1,0 +1,50 @@
+<section ng-controller="CommercialProdController">
+  <head>
+  <section id="section-commercial">
+    <div class="container">
+      <div class="row">
+        <div class="banner-content text-center">
+          <h2 class="title">
+            <div class="line-top"></div>
+            *Insert quote about inspiring children to learn here*
+            <div class="line-btm"></div>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  </head>
+
+  <body>
+
+    <div class = "center">
+      <h2>As an educator...</h2>
+    </div>
+    <div class="commercialInfo">
+      <h3>These are the perks you get.</h3>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+      <li>Aliquam semper viverra eros ac vulputate.</li>
+      <li>Morbi porttitor ullamcorper sem in pellentesque.</li>
+      <li>Proin et ullamcorper sem, varius dapibus lacus.</li>
+      <li>Sed erat quam, volutpat sit amet nibh eget, lobortis fringilla lorem.</li></p>
+  </div><br>
+
+  <section ng-controller="ProductsController" ng-init="find()">
+    <div>
+      <h2>Teacher's Picks</h2>
+      <section id="teacher-section">
+        <div class="row">
+            <div class = "col-sm-3" ng-repeat = "product in products | filter: {'teacher':true}">
+              <img src ="{{product.imageUrl}}" class="img-responsive product-img">
+              <h3 align = "center">${{product.eduPrice}}</h3>
+              <h3 align = "center">{{product.proTitle}}</h3>
+              <div class="wrapper">
+                <a class="btn btn-blue btn-lg" href="/authentication/signin" role="button">Learn more</a>
+              </div>
+            </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  </body>
+</section>
