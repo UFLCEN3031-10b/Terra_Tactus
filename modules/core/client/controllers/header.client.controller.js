@@ -36,5 +36,11 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$htt
     $http.get('/api/cart/length').success(function (res) {
         $scope.cartLength = res.length;
     });
+
+    $scope.$on('cartChange', function (event) {
+        $http.get('/api/cart/length').success(function (res) {
+            $scope.cartLength = res.length;
+        });
+    });
   }
 ]);

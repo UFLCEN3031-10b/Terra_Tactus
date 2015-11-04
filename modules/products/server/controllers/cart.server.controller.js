@@ -6,31 +6,7 @@ var path = require('path'),
 
 exports.cartChecker = function (req, res, next) {
     if (!req.session.cart) {
-        req.session.cart = [{
-            product: {
-                _id: '1',
-                title: 'test',
-                imageUrl: 'http://1.bp.blogspot.com/-QuICtWHygN0/UoAlMMR9UNI/AAAAAAABYfc/rfcld52y97M/s1600/Gaineville+Trip+136.JPG',
-                priceSet: {
-                    individual: '1.00',
-                    wholesale: '0.50',
-                    educational: '2.00'
-                }
-            },
-            quantity: 2
-        }, {
-            product: {
-                _id: '2',
-                title: 'test2',
-                imageUrl: 'http://www.gatortailgating.com/files/imagecache/gt7_full_580/mike/2012/03/gators-usf.jpg',
-                priceSet: {
-                    individual: '2.00',
-                    wholesale: '1.00',
-                    educational: '4.00'
-                }
-            },
-            quantity: 1
-        }];
+        req.session.cart = [];
     }
 
     next();
@@ -46,16 +22,59 @@ exports.remove = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    req.session.cart.push({
-        product: req.product,
-        quantity: req.body.quantity
+    var ind = -1;
+    req.session.cart.forEach(function (pw, i) {
+        if (String(req.product._id) === pw.product._id) {
+            ind = i;
+        }
     });
 
-    res.json(req.session.cart);
+    if (ind === -1) {
+        return res.status(400).send({
+            message: 'Item not in cart'
+        });
+    } else {
+        req.session.cart[ind].quantity = req.body.quantity;
+        res.json(req.session.cart);
+    }
+};
+
+exports.add = function (req, res) {
+    var alreadyInCart = false;
+    req.session.cart.forEach(function (pw) {
+        if (String(req.product._id) === pw.product._id) {
+            alreadyInCart = true;
+        }
+    });
+
+    if (alreadyInCart) {
+        return res.status(400).send({
+            message: errorHandler.getErrorMessage('Item already in cart')
+        });
+    } else {
+        req.session.cart.push({
+            product: req.product,
+            quantity: req.body.quantity
+        });
+
+        res.json(req.session.cart);
+    }
 };
 
 exports.removeProduct = function (req, res) {
-    var index = req.session.cart.indexOf(req.body.toRemove);
+    var index = -1;
+    req.session.cart.forEach(function (prodWrap, i) {
+        if (String(req.product._id) === prodWrap.product._id) {
+            index = i;
+        }
+    });
+
+    if (index === -1) {
+        return res.status(400).send({
+            message: errorHandler.getErrorMessage('Cannot remove product from cart')
+        });
+    }
+
     req.session.cart.splice(index, 1);
 
     res.json(req.session.cart);

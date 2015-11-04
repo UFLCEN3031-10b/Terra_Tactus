@@ -1,33 +1,83 @@
 <section ng-controller="CartController">
     <div class="page-header">
-        <h1>Cart</h1>
+        <h1><i class="fa fa-shopping-cart"></i> Cart</h1>
     </div>
-    <div class="row" style="margin-bottom: 10px;" ng-repeat="prodWrap in cart">
-        <div class="col-md-3 col-xs-12">
-            <img class="img-responsive" src="{{prodWrap.product.imageUrl}}">
+    <div class="product-group">
+        <div class="row">
+            <div class="col-md-7 col-xs-12">
+                <span class="product-group-title">Product</span>
+            </div>
+            <div class="col-md-2 col-xs-6 text-center">
+                Quantity
+            </div>
+            <div class="col-md-2 col-xs-6 text-center">
+                Price
+            </div>
+            <div class="col-md-1 col-xs-12 text-center">
+                More
+            </div>
         </div>
-        <div class="col-md-9 col-xs-12 text-center">
-            <h3>{{prodWrap.product.title}}</h3>
-            <div class="row" style="vertical-align: bottom;">
-                <div class="col-md-6 col-xs-12"></div>
-                <div class="col-md-3 col-xs-6">
-                    <p>Quantity: {{prodWrap.quantity}}</p>
+        <hr>
+    </div>
+    <div class="product-group" ng-repeat="prodWrap in cart">
+        <div class="row">
+            <div class="col-md-7 col-xs-12">
+                <span class="product-group-title">{{prodWrap.product.proTitle}}</span>
+            </div>
+            <div class="col-md-2 col-xs-6 text-center">
+                {{prodWrap.quantity}}
+            </div>
+            <div class="col-md-2 col-xs-6 text-center">
+                ${{prodWrap.price}}
+            </div>
+            <div class="col-md-1 col-xs-12 text-center">
+                <button class="product-group-button" ng-click="toggleInfo(prodWrap)">
+                    <i ng-hide="prodWrap.showDesc" class="glyphicon glyphicon-chevron-down"></i>
+                    <i ng-show="prodWrap.showDesc" class="glyphicon glyphicon-chevron-up"></i>
+                </button>
+            </div>
+        </div>
+        <hr ng-show="prodWrap.showDesc">
+        <div class="row" ng-show="prodWrap.showDesc">
+            <div class="col-md-3 col-xs-12">
+                <img class="img-responsive" src="{{prodWrap.product.imageUrl}}">
+            </div>
+            <div class="col-md-9 col-xs-12">
+                <h4>Description</h4><hr>
+                <p>{{prodWrap.product.longDes}}</p>
+                <div class="text-center col-md-6 col-xs-6">
+                    <form class="" name="quantityChanger" ng-submit="updateQuantity(prodWrap)" novalidate>
+                        <fieldset>
+                            <div class="input-group quantity-input">
+                                <span class="input-group-addon">
+                                    Quantity
+                                </span>
+                                <input name="quan" type="text" ng-model="prodWrap.editQuantity" class=" form-control pull-left" placeholder="0" required>
+                                <span class="input-group-btn">
+                                    <input name="submit" type="submit" value="Update" class="btn btn-primary pull-right">
+                                </span>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-                <div class="col-md-3 col-xs-6">
-                    <p>Price: ${{prodWrap.price}}<p>
+                <div class="text-center col-md-6 col-xs-6">
+                    <button class="btn btn-danger" ng-click="deleteProd(prodWrap)">
+                        <i class="glyphicon glyphicon-trash"></i> Remove From Cart
+                    </button>
                 </div>
             </div>
         </div>
+        <hr>
     </div>
-    <hr>
     <div class="row">
-        <div class="col-md-3 col-xs-6 text-center">
+        <div class="col-md-3 col-xs-12 text-center">
             <div ng-click="clearCart()" class="btn btn-danger">Clear Cart</div>
-            <div ng-click="setEditable()" class="btn btn-primary">Edit Cart</div>
         </div>
-        <div class="col-md-9 col-xs-6 text-center">
+        <div class="col-md-6 col-xs-12 text-center">
             <div ng-click="checkout()" class="btn btn-primary">Checkout!</div>
-            <p class="pull-right">Total: ${{totalPrice.toFixed(2)}}</p>
+        </div>
+        <div class="col-md-3 col-xs-12 text-center">
+            <p>Total: ${{totalPrice.toFixed(2)}}</p>
         </div>
     </div>
 </section>
