@@ -18,23 +18,7 @@ exports.find = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    socialmedia.findOne().exec(function (err, data) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            data.remove(function (err) {
-                if (err) {
-                    return res.status(400).send({
-                        message: errorHandler.getErrorMessage(err)
-                    });
-                }
-            });
-        }
-    });
-
-    var i = new socialmedia();
+    var i = req.socialmedia;
     i.facebook = req.body.facebook;
     i.twitter = req.body.twitter;
     i.linkedin = req.body.linkedin;

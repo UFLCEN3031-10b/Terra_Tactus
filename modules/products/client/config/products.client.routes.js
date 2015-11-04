@@ -5,7 +5,7 @@ angular.module('products').config(['$stateProvider',
         $stateProvider
             .state('products', {
                 url: '/products',
-                templateUrl: 'modules/products/client/views/products.html'
+                templateUrl: 'modules/products/client/views/products.client.view.html'
             })
             .state('subscriptions', {
                 url: '/subscriptions',
@@ -14,12 +14,10 @@ angular.module('products').config(['$stateProvider',
             .state('commercial', {
                 url: '/commercial',
                 templateUrl: 'modules/products/client/views/commercial.html',
-                controller: 'CommercialController',
             })
             .state('retail', {
                 url: '/retail',
-                templateUrl: 'modules/products/client/views/reatil.html',
-                controller: 'RetailController',
+                templateUrl: 'modules/products/client/views/retail.html',
             });
     }
 ]);

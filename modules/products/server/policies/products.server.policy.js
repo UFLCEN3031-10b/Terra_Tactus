@@ -8,34 +8,19 @@ exports.invokeRolesPolicies = function () {
     acl.allow([{
         roles: ['admin'],
         allows: [{
-            resources: '/api/homepage/data',
+            resources: '/api/product/:productId',
             permissions: '*'
         }, {
-            resources: '/api/homepage/contact',
-            permissions: '*'
-        }, {
-            resources: '/api/homepage/socialmedia',
-            permissions: '*'
-        }, {
-            resources: '/api/homepage/carousel',
-            permissions: '*'
-        }, {
-            resources: '/api/homepage/carousel/:slideId',
+            resources: '/api/products',
             permissions: '*'
         }]
     }, {
         roles: ['user', 'guest', 'freeUser'],
         allows: [{
-            resources: '/api/homepage/data',
+            resources: '/api/product/:productId',
             permissions: ['get']
         }, {
-            resources: '/api/homepage/contact',
-            permissions: ['get']
-        }, {
-            resources: '/api/homepage/socialmedia',
-            permissions: ['get']
-        }, {
-            resources: '/api/homepage/carousel',
+            resources: '/api/products',
             permissions: ['get']
         }]
     }]);
