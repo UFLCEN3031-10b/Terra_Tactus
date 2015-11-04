@@ -74,6 +74,14 @@ var UserSchema = new Schema({
     default: ['freeUser'],
     required: 'Please provide at least one role'
   },
+  priceRoles: {
+    type: [{
+      type: String,
+      enum: ['individual', 'education', 'wholesale']
+    }],
+    default: ['individual'],
+    required: 'Please select at least one role'
+  },
   updated: {
     type: Date
   },
@@ -87,7 +95,18 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
+  },
+  verified:{
+    type: Boolean,
+    default: false
   }
+});
+
+  var VerifySchema = new Schema({
+    validRequest: {
+      type: Boolean,
+    },
+    user: [UserSchema]
 });
 
 /**
@@ -158,3 +177,4 @@ UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
 };
 
 mongoose.model('User', UserSchema);
+mongoose.model('VerifyRequest', VerifySchema);

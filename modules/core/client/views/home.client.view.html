@@ -9,7 +9,7 @@
                     <img ng-src="{{slide.imglink}}">
                     <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius: 10px;">
                       <h4>{{slide.content}}</h4>
-                      <p><a ng-show="slide.iflink" class="btn btn-primary btn-lg" href="{{slide.linktext}}" role="button">Learn more</a></p>
+                      <p><a class="btn btn-blue btn-lg" ng-show="slide.iflink" href="{{slide.linktext}}" role="button">Learn more</a></p>
                     </div>
                   </slide>
                 </carousel>
@@ -21,7 +21,7 @@
                 <div class="col-md-8">
                     <h3>About Us</h3><hr>
                     <p>{{aboutUsText}}</p>
-                    <h4 class="text-center"><a href="#product-section"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a></h4>
+                    <!--<h4 class="text-center"><a href="#product-section"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a></h4>-->
                 </div>
 
                 <div class="col-md-4 vcenter" style="height: 37vh;">
@@ -88,22 +88,38 @@
 
     <section id="product-section">
         <div class="row">
-            <div class="col-md-6 product-info" id="product-info-blue">
-                <h3>Thinking About Subscribing?</h3>
+            <div class="col-sm-3 product-info" id="product-info-blue">
+                <h3>Targeting Educators?</h3>
                 <div class="col-md-4">
                     <img class="img-responsive" src="{{subscribeImage}}" alt="Oops.">
                 </div>
                 <p>{{subscribeText}}</p>
-                <p class="text-center"><a class="btn btn-primary btn-lg" href="/subscriptions" role="button">Learn more</a></p>
+                <p class="text-center"><a class="btn btn-green btn-lg" ui-sref="commercial" role="button">Learn more</a></p>
             </div>
-            <div class="col-md-6 product-info" id="product-info-green">
-                <h3>Or Maybe an Individual Product?</h3>
+            <div class="col-sm-3 product-info" id="product-info-green">
+                <h3>Home Schoolers?</h3>
                 <div class="col-md-4">
                     <img class="img-responsive" src="{{individualProdImage}}" alt="Oops.">
                 </div>
                 <p>{{individualProdText}}</p>
-                <p class="text-center"><a class="btn btn-primary btn-lg" href="/products" role="button">Learn more</a></p>
+                <p class="text-center"><a class="btn btn-blue btn-lg" href="/subscriptions" role="button">Learn more</a></p>
             </div>
+          <div class="col-sm-3 product-info" id="product-info-blue">
+            <h3>Possibly gift shops?</h3>
+            <div class="col-md-4">
+              <img class="img-responsive" src="{{subscribeImage}}" alt="Oops.">
+            </div>
+            <p>{{subscribeText}}</p>
+            <p class="text-center"><a class="btn btn-green btn-lg" ui-sref="retail" role="button">Learn more</a></p>
+          </div>
+          <div class="col-sm-3 product-info" id="product-info-green">
+            <h3>An Individual Product?</h3>
+            <div class="col-md-4">
+              <img class="img-responsive" src="{{individualProdImage}}" alt="Oops.">
+            </div>
+            <p>{{individualProdText}}</p>
+            <p class="text-center"><a class="btn btn-blue btn-lg" href="/products" role="button">Learn more</a></p>
+          </div>
         </div>
     </section>
 </section><!-- home controller -->
