@@ -4,8 +4,15 @@
 angular.module('core').controller('ProductsController', ['$window','$http','$scope','$rootScope', '$stateParams', '$location', 'Authentication', 'Products',
   function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
+    $scope.displayType = false; //initialized cultural
 
+    $scope.displayCultural = function () {
+      $scope.displayType = true;
+    }
 
+    $scope.displayGeological = function () {
+      $scope.displayType = false;
+    }
 
     // Create new Product
     $scope.create = function (isValid) {
