@@ -34,9 +34,12 @@
       <li class="dropdown" dropdown>
         <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
           <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
-          <span ng-bind="authentication.user.username"></span> <b class="caret"></b>
+          <span ng-bind="authentication.user.username"></span> <b class="caret"></b><br>
         </a>
         <ul class="dropdown-menu" role="menu">
+          <li ui-sref-active="active" class="text-center" style="color:black">
+            User Type: {{authentication.user.priceRoles.toString()}}
+          </li>
           <li ui-sref-active="active">
             <a ui-sref="settings.profile">Edit Profile</a>
           </li>
