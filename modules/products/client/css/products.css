@@ -22,7 +22,7 @@
     min-height: 120px;
     -moz-border-radius: 5px;
     border-radius: 10px;
-    
+
 }
 /*Code for the format of the tabs*/
 #ul-tab{
@@ -62,19 +62,19 @@
     background-color:#0faf38;
     -moz-border-radius: 5px;
     border-radius: 10px;
-    
+
 }
 
 /*css for the title of the product*/
 .label-info h2{
     color:white;
     font-weight: bold;
-    text-align: center;  
+    text-align: center;
 }
 
 /* css for the product image*/
 .product-img{
-    height: 50vh; 
+    height: 50vh;
     width: 70vh;
     -moz-border-radius: 5px;
     border-radius: 10px;
@@ -82,8 +82,8 @@
 
 /*css for the thumbnail or container holding all the product block info*/
 .product-thumb{
-    background-color : #2e2f33; 
-    border-color:transparent; 
+    background-color : #2e2f33;
+    border-color:transparent;
     border-radius: 20px;
 }
 
@@ -96,4 +96,7 @@
 /*css for the short description of the product*/
 .about-text{
     color:white;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto
 }
