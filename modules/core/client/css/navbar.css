@@ -29,7 +29,7 @@
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #1ade4c;
+    color: #FFFFFF;
     background-color: #00c9dd;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -80,7 +80,7 @@
 /* secondary navbar coloring */
 /* link */
 .secondary-nav .navbar-nav > li > a {
-    color: white;
+    color: #00DD00;
 }
 .secondary-nav .navbar-nav > li > a:hover,
 .secondary-nav .navbar-nav > li > a:focus {

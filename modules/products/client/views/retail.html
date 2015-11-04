@@ -34,7 +34,7 @@
       <h2>Popular Picks</h2>
       <section id="teacher-section">
         <div class="row">
-          <div class = "col-sm-3" ng-repeat = "product in products">
+          <div class = "col-sm-3" ng-repeat = "product in products | filter: {'proType': false}">
             <img src ="{{product.imageUrl}}" class="img-responsive product-img">
             <h3 align = "center">${{product.wholePrice}}</h3>
             <h3 align = "center">{{product.proTitle}}</h3>
