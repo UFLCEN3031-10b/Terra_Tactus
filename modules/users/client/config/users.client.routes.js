@@ -81,17 +81,15 @@ angular.module('users').config(['$stateProvider',
       })
       .state('wholesale',{
         url: '/wholesaleverify',
-        templateUrl: 'modules/users/client/views/wholesaleverify.html',
+        templateUrl: 'modules/users/client/views/verification/wholesaleverify.html',
         data:{
           priceRoles: ['wholesale'],
           roles: ['freeUser', 'admin']
-        },
-        controller: 'VerifyController',
-        resolve: {
-          userResolve: ['$stateParams', function ($stateParams) {
-            return $stateParams.userId;
-          }]
         }
+      })
+      .state('verificationSuccess', {
+        url: '/success',
+        templateUrl: 'modules/users/client/views/verification/verifysuccess.html'
       });
   }
 ]);
