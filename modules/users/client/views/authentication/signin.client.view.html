@@ -16,28 +16,32 @@
             <h1>Login</h1>          
             <div class="form-group" show-erros>  
               <input type="text" id="username" placeholder="Username" class="form-control" ng-model="credentials.username" lowercase required/>
-
               <div ng-messages="userForm.username.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Username is required.</p>
               </div>
-            </div>
-
-            <div class="form-group" show-erros>
-              <input type="password" id="password" placeholder="Password" class="form-control" ng-model="credentials.password" required/>
             
+              <input type="password" id="password" placeholder="Password" class="form-control" ng-model="credentials.password" required/>       
               <div ng-messages="userForm.password.$error" role="alert">
                <p class="help-block error-text" ng-message="required">Password is required.</p>
               </div>
-
-            </div>
-
-            <div class="form-group"> 
+ 
               <div class="row"> 
                   <button type="submit" class="col-md-6">Sign In</button>
-                  <button class="col-md-6">Sign Up</button>
+                  <button a ui-sref="signup" class="col-md-6">Sign Up</button>
+
               </div>
+
+              <div class="row"> 
+                <div class="text-center forgot-password">
+                  <a ui-sref="password.forgot">Forgot your password?</a>
+                </div>
+                <alert type="danger" ng-show="error" class="text-center text-danger">
+                  <span ng-bind="error"></span>
+                </alert>
+              </div>
+              
             </div>
-            
+
           </div>
    
         </div>
@@ -50,8 +54,6 @@
 </form>
 
 </section>
-
-
 
 
 
