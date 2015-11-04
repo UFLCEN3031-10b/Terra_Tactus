@@ -6,6 +6,8 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$htt
     $scope.$state = $state;
     $scope.authentication = Authentication;
 
+    $scope.cartLength = 0;
+
     // Get the topbar menu
     $scope.menu = Menus.getMenu('topbar');
 
@@ -29,6 +31,16 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$htt
             sm.linkedin = res.linkedin;
             sm.googleplus = res.googleplus;
         }
+    });
+
+    $http.get('/api/cart/length').success(function (res) {
+        $scope.cartLength = res.length;
+    });
+
+    $scope.$on('cartChange', function (event) {
+        $http.get('/api/cart/length').success(function (res) {
+            $scope.cartLength = res.length;
+        });
     });
   }
 ]);
