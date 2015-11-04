@@ -32,7 +32,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         ignoreState: true
       }
     })
-    //adding an edit-article
+    //adding an edit-announcement
     .state('announcements.edit', {
       url: '/:announcementId/edit',
       templateUrl: 'modules/core/client/views/edit-announcement.client.view.html',
