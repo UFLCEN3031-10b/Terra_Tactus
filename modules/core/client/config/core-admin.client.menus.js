@@ -24,5 +24,9 @@ angular.module('core.admin').run(['Menus',
         title: 'Create Product',
         state: 'create-product'
     });
+    Menus.addSubMenuItem('topbar', 'admin', {
+        title: 'Edit Products',
+        state: 'products-edit'
+    });
   }
 ]);

@@ -126,7 +126,6 @@ angular.module('core').controller('ProductsController', ['$scope', '$stateParams
     //editting shows
     $scope.isEditing = false;
 
-
     // Find a list of Products
     $scope.find = function () {
       $scope.products = Products.query();

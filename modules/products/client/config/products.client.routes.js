@@ -9,7 +9,10 @@ angular.module('products').config(['$stateProvider',
             })
             .state('products-edit', {
                 url: '/products-edit',
-                templateUrl: 'modules/products/client/views/products-edit.html'
+                templateUrl: 'modules/products/client/views/products-edit.html',
+                data: {
+                  roles: ['admin']
+                }
             })
             .state('create-product', {
                 url: '/create-product',
