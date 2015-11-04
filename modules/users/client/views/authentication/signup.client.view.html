@@ -11,6 +11,7 @@
                 <p class="help-block error-text" ng-message="required">First name is required.</p>
               </div>
             </div>
+
             <div class="form-group" show-errors>
               <label for="lastName">Last Name</label>
               <input type="text" id="lastName" name="lastName" class="form-control" ng-model="credentials.lastName" placeholder="Last Name" required>
@@ -35,13 +36,22 @@
             </div>
             <div class="form-group" show-errors>
               <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
+                <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required >
               <div ng-messages="userForm.password.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Password is required.</p>
                 <div ng-repeat="passwordError in passwordErrors">
                   <p class="help-block error-text" ng-show="userForm.password.$error.strength">{{passwordError}}</p>
                 </div>
               </div>
+            </div>
+            <div class = "form-group" show-errors>
+              <label for="priceRoles">Select User Type</label>
+              <br>
+              <select style="color: black; width:100%" ng-model="credentials.priceRoles">
+                <option value="individual">Individual</option>
+                <option value="education">Educational</option>
+                <option value="wholesale">Wholesaler</option>
+              </select>
             </div>
             <div class="form-group" ng-show="!userForm.password.$pristine">
               <label>Password Strength</label>

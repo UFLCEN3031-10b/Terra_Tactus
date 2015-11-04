@@ -72,12 +72,24 @@ angular.module('users').config(['$stateProvider',
         url: '/portal',
         templateUrl: 'modules/users/client/views/portal/portal.html',
         data:{
-          roles: ['user', 'admin', 'freeUser']
+          roles: ['freeUser', 'paidUser', 'admin']
         }
       })
       .state('China',{
         url: '/portal/China',
         templateUrl: 'modules/users/client/views/portal/China.html'
+      })
+      .state('wholesale',{
+        url: '/wholesaleverify',
+        templateUrl: 'modules/users/client/views/verification/wholesaleverify.html',
+        data:{
+          priceRoles: ['wholesale'],
+          roles: ['freeUser', 'admin']
+        }
+      })
+      .state('verificationSuccess', {
+        url: '/success',
+        templateUrl: 'modules/users/client/views/verification/verifysuccess.html'
       });
   }
 ]);
