@@ -1,0 +1,21 @@
+.product-group {
+    margin-bottom: 10px;
+}
+
+.product-group-title {
+    font-size: 16px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.product-group-button {
+    background-color: black;
+    border: none;
+    text-align: center;
+    vertical-align: center;
+}
+
+.quantity-input {
+    max-width: 250px;
+    margin: auto;
+}

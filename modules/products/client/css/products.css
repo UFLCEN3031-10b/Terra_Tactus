@@ -47,7 +47,7 @@
 /*changes the color of the current tab*/
 .activetab {
     background-color: #00c9dd;
-    color: #00DD00;
+    color: white;
 }
 
 /*individual product code*/
@@ -214,4 +214,10 @@
 /*css for the short description of the product*/
 .about-text{
     color:white;
+<<<<<<< HEAD
+=======
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto
+>>>>>>> master
 }

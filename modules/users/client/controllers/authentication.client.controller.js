@@ -27,7 +27,12 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
+        if($scope.authentication.user.priceRoles.toString() === 'individual'){
+          $state.go($state.previous.state.name || 'home', $state.previous.params);
+        }
+        else if($scope.authentication.user.priceRoles.toString() === 'wholesale'){
+          $state.go('wholesale', $state.previous.params);
+        }
       }).error(function (response) {
         $scope.error = response.message;
       });

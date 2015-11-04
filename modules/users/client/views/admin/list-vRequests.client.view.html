@@ -1,0 +1,18 @@
+<section>
+  <div ng-controller = "VerifyListController">
+    <div class="page-header">
+      <div class="row">
+        <div class="col-md-4">
+          <h1>Verification Requests</h1>
+        </div>
+      </div>
+    </div>
+    <div class="list-group">
+      <a ng-repeat="vReq in vRequests" class="list-group-item">
+        <h4 class="list-group-item-heading" ng-bind="vReq.user[0].username"></h4>
+        <p class="list-group-item-text pull-right small" ng-bind="vReq.user[0].priceRoles"></p>
+        <p class="list-group-item-text" ng-bind="vReq.user[0].email"></p>
+      </a>
+    </div>
+  </div>
+</section>
