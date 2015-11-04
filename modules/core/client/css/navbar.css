@@ -35,7 +35,7 @@
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-    color: #1ade4c;
+    color: #FFFFFF;
     background-color: #00c9dd;
     background-image: none;
 }
@@ -84,14 +84,14 @@
 }
 .secondary-nav .navbar-nav > li > a:hover,
 .secondary-nav .navbar-nav > li > a:focus {
-    color: #00DD00;
+    color: #FFFFFF;
     font-weight: bold;
     background-color: #00c9dd;
 }
 .secondary-nav .navbar-nav > .active > a,
 .secondary-nav .navbar-nav > .active > a:hover,
 .secondary-nav .navbar-nav > .active > a:focus {
-    color: #00DD00;
+    color: #FFFFFF;
     font-weight: bold;
     background-color: #00c9dd;
     background-image: none;
