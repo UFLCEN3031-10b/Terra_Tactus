@@ -8,7 +8,7 @@
                   <slide class="home-slide" ng-repeat="slide in slides" active="slide.active">
                     <img ng-src="{{slide.imglink}}">
                     <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius: 10px;">
-                      <h4>{{slide.text}}</h4>
+                      <h4>{{slide.content}}</h4>
                       <p><a class="btn btn-blue btn-lg" ng-show="slide.iflink" href="{{slide.linktext}}" role="button">Learn more</a></p>
                     </div>
                   </slide>
