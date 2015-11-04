@@ -9,7 +9,7 @@ angular.module('users.admin').run(['Menus',
     });
     Menus.addSubMenuItem('topbar', 'admin', {
       title: 'Manage Verification Requests',
-      state: 'admin.verify'
+      state: 'admin.requests'
     });
   }
 ]);
