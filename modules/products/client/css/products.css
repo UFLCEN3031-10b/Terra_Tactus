@@ -1,5 +1,5 @@
 /* Code for the styling of this section*/
- .p-img img{
+.p-img img{
     float: bottom;
     background-color:white; /*frame color*/
     padding: 6px; /*frame edge size*/
@@ -39,15 +39,15 @@
 
 /* code for the styling of the cultural/geological product buttons*/
 .tab-btn{
-    border: 1px solid #0faf38;
+    border: 1px solid #00DD00;
     background-color: transparent;
-    color: #0faf38;
+    color: #00DD00;
 }
 
 /*changes the color of the current tab*/
 .activetab {
-    background-color: #0b2077;
-    color: #0faf38;
+    background-color: #00c9dd;
+    color: white;
 }
 
 /*code that dictates what happens when you hover over the cultural/geological button tabs*/
@@ -99,4 +99,5 @@
     width: 75%;
     margin-left: auto;
     margin-right: auto
+
 }
