@@ -41,6 +41,10 @@ exports.update = function (req, res) {
     d.subscribeImage = req.body.subscribeImage;
     d.individualProdText = req.body.individualProdText;
     d.individualProdImage = req.body.individualProdImage;
+    d.commercialText = req.body.commercialText;
+    d.commercialImage = req.body.commercialImage;
+    d.retailText = req.body.retailText;
+    d.retailImage = req.body.retailImage;
 
     d.save(function (err) {
         if (err) {

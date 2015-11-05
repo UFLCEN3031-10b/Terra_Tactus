@@ -24,6 +24,10 @@ db.once('open', function () {
     nd.subscribeImage = 'http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg';
     nd.individualProdText = filler_text;
     nd.individualProdImage = 'http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg';
+    nd.commercialText = filler_text;
+    nd.commercialImage = 'http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg';
+    nd.retailText = filler_text;
+    nd.retailImage = 'http://rock100diz.com/wp-content/uploads/2015/04/galets-5.jpg';
 
     nd.save(function (err) {
         if (err) {

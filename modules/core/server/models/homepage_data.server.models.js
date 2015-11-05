@@ -33,6 +33,26 @@ var HomepageDataSchema = new Schema({
         type: String,
         default: '',
         trim: true
+    },
+    commercialText: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    commercialImage: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    retailText: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    retailImage: {
+        type: String,
+        default: '',
+        trim: true
     }
 });
 
