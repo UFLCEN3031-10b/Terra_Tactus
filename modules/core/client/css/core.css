@@ -199,6 +199,10 @@ body {
   overflow-y: auto;
 }
 
+.half-section::-webkit-scrollbar {
+    display: none;
+}
+
 .clear-margins {
   margin-top: 0;
   margin-left: 0;
