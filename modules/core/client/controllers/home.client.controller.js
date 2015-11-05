@@ -13,6 +13,10 @@ angular.module('core').controller('HomeController', ['$scope', '$http', 'Authent
     $scope.subscribeImage = loader;
     $scope.individualProdText = '';
     $scope.individualProdImage = loader;
+    $scope.commercialText = '';
+    $scope.commercialImage = loader;
+    $scope.retailText = '';
+    $scope.retailImage = loader;
 
     $http.get('/api/homepage/data').success(function (res) {
         if (res === null) console.log('[ERROR] homepage-data does not exist yet.');
@@ -23,6 +27,10 @@ angular.module('core').controller('HomeController', ['$scope', '$http', 'Authent
             $scope.subscribeImage = res.subscribeImage;
             $scope.individualProdText = res.individualProdText;
             $scope.individualProdImage = res.individualProdImage;
+            $scope.commercialText = res.commercialText;
+            $scope.commercialImage = res.commercialImage;
+            $scope.retailText = res.retailText;
+            $scope.retailImage = res.retailImage;
         }
     });
   }
