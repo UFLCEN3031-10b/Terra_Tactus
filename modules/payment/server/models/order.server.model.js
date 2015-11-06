@@ -17,6 +17,10 @@ var OrderSchema = new Schema({
     },
     paypal_create_res: {
         type: []
+    },
+    status: {
+        type: String,
+        default: 'PENDING'
     }
 });
 

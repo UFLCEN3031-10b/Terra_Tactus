@@ -14,6 +14,7 @@ paypal.configure({
 
 exports.openOrder = function (req, res) {
     var newOrder = new Order();
+    req.session.openOrder = String(newOrder._id);
     newOrder.cart = req.session.cart;
     if (req.user) {
         newOrder.user = req.user._id;
@@ -53,8 +54,8 @@ exports.openOrder = function (req, res) {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "https://localhost:3000/order/" + String(newOrder._id),
-            "cancel_url": "https://localhost:3000/order/cancel/" + String(newOrder._id)
+            "return_url": "http://" + req.get('host') + "/api/order/execute",
+            "cancel_url": "http://" + req.get('host') + "/api/order/cancel"
         },
         "transactions": [{
             "amount": {
@@ -95,9 +96,13 @@ exports.openOrder = function (req, res) {
     });
 };
 
-exports.executeOrder = function (req, res) {};
+exports.executeOrder = function (req, res) {
+    res.redirect('/order/complete');
+};
 
-exports.cancelOrder = function (req, res) {};
+exports.cancelOrder = function (req, res) {
+    res.redirect('/order/canceled');
+};
 
 exports.orderById = function (req, res, next, id) {
     if (!mongoose.Types.ObjectId.isValid(id)) {
