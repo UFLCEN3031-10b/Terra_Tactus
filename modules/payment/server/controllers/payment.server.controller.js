@@ -16,7 +16,7 @@ exports.openOrder = function (req, res) {
     var newOrder = new Order();
     newOrder.cart = req.session.cart;
     if (req.user) {
-        newOrder.user = req.user;
+        newOrder.user = req.user._id;
     }
 
     var total = 0.0;
