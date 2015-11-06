@@ -14,6 +14,9 @@ var OrderSchema = new Schema({
     },
     cart: {
         type: []
+    },
+    paypal_create_res: {
+        type: []
     }
 });
 

@@ -1,8 +1,10 @@
 'use strict';
 
-var paypal = require('paypal-rest-sdk'),
+var path = require('path'),
+    paypal = require('paypal-rest-sdk'),
     mongoose = require('mongoose'),
-    Order = mongoose.model('Order');
+    Order = mongoose.model('Order'),
+    errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 paypal.configure({
     'mode': 'sandbox',
@@ -77,7 +79,18 @@ exports.openOrder = function (req, res) {
                     rurl = resp.links[i].href;
                 }
             }
-            res.json({ redirect_url: rurl  });
+
+            newOrder.paypal_create_res = resp;
+
+            newOrder.save(function (err) {
+                if (err) {
+                    return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                } else {
+                    res.json({redirect_url: rurl });
+                }
+            });
         }
     });
 };
