@@ -13,12 +13,15 @@ paypal.configure({
 });
 
 exports.getCompletedOrder = function (req, res) {
-    if (req.session.order) {
-        var t = req.session.order;
-        req.session.order = null;
-        res.json(t);
-    } else {
+    console.log(req.session.orderViewed);
+    console.log(req.session.order);
+
+    if (req.session.orderViewed || undefined === req.session.orderViewed) {
         res.json(null);
+    } else {
+        req.session.orderViewed = true;
+        req.session.save();
+        res.json(req.session.order);
     }
 };
 
@@ -118,14 +121,15 @@ exports.executeOrder = function (req, res) {
         } else {
             req.order.status = "COMPLETE";
             req.order.paypal_execute_res = resp;
+            req.session.cart = [];
+            req.session.order = req.order;
+            req.session.orderViewed = false;
             req.order.save(function (err) {
                 if (err) {
                     return res.status(400).send({
                         message: errorHandler.getErrorMessage(err)
                     });
                 } else {
-                    req.session.cart = [];
-                    req.session.order = req.order;
                     res.redirect('/order/complete');
                 }
             });

@@ -3,8 +3,9 @@
 angular.module('payment').controller('OrderCompleteController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
     $scope.order = null;
 
-    $http.get('/api/order').success(function (res) {
-        if (!res) {
+    $http.put('/api/order').success(function (res) {
+        console.log(res);
+        if (res === null) {
             $location.path('/');
         } else {
             $scope.order = res;

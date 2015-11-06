@@ -20,11 +20,11 @@
 
             <div class="col-md-6">
                 <h4>Shipping Address</h4>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p>{{order.paypal_execute_res[0].transactions[0].item_list.shipping_address.line1}}<br>
+                <p>{{order.paypal_execute_res[0].transactions[0].item_list.shipping_address.city}}<br>
+                <p>{{order.paypal_execute_res[0].transactions[0].item_list.shipping_address.state}}<br>
+                <p>{{order.paypal_execute_res[0].transactions[0].item_list.shipping_address.postal_code}}<br>
+                <p>{{order.paypal_execute_res[0].transactions[0].item_list.shipping_address.country_code}}</p>
             </div>
         </div>
     </div>
