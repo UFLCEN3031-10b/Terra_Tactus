@@ -12,6 +12,16 @@ paypal.configure({
     'client_secret': 'EElDdbQueMks39P-1ujM-fl2ib-ssenSWic5API8Vf7_FVeXRSyFZxMGS-qZGN6Gh9JorIxqAs1W17Ti'
 });
 
+exports.getCompletedOrder = function (req, res) {
+    if (req.session.order) {
+        var t = req.session.order;
+        req.session.order = null;
+        res.json(t);
+    } else {
+        res.json(null);
+    }
+};
+
 exports.openOrder = function (req, res) {
     var newOrder = new Order();
     newOrder.cart = req.session.cart;
@@ -46,6 +56,10 @@ exports.openOrder = function (req, res) {
         total += parseFloat(prodWrap.quantity)*parseFloat(tempPrice);
         desc += (String(prodWrap.quantity) + "x " + prodWrap.product.proTitle + ", ");
     });
+
+    desc = desc.substring(0, desc.length - 2);
+    newOrder.total = total;
+    newOrder.description = desc;
 
     var payment = {
         "intent": "sale",
@@ -88,7 +102,7 @@ exports.openOrder = function (req, res) {
                         message: errorHandler.getErrorMessage(err)
                     });
                 } else {
-                    res.json({redirect_url: rurl });
+                    res.json({ redirect_url: rurl });
                 }
             });
         }
@@ -111,6 +125,7 @@ exports.executeOrder = function (req, res) {
                     });
                 } else {
                     req.session.cart = [];
+                    req.session.order = req.order;
                     res.redirect('/order/complete');
                 }
             });

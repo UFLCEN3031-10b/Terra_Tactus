@@ -4,7 +4,9 @@ var payment = require('../controllers/payment.server.controller');
 
 module.exports = function (app) {
     // route for creating a new order, makes call to paypal api
-    app.route('/api/order').post(payment.openOrder);
+    // and for pulling order from session data
+    app.route('/api/order').get(payment.getCompletedOrder)
+        .post(payment.openOrder);
 
     // route that handles execution of paypal order
     app.route('/api/order/execute/:orderId').get(payment.executeOrder);

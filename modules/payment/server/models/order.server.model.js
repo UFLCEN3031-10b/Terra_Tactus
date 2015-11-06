@@ -24,6 +24,14 @@ var OrderSchema = new Schema({
     status: {
         type: String,
         default: 'PENDING'
+    },
+    description: {
+        type: String,
+        default: ''
+    },
+    total: {
+        type: String,
+        default: '0.00'
     }
 });
 
