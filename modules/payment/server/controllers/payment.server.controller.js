@@ -96,7 +96,25 @@ exports.openOrder = function (req, res) {
 };
 
 exports.executeOrder = function (req, res) {
-    res.redirect('/order/complete');
+    paypal.payment.execute(req.session.paymentId, {'payer_id': req.param('PayerID')}, function (err, resp) {
+        if (err) {
+            return res.status(400).send({
+                message: "execution failed"
+            });
+        } else {
+            req.order.status = "COMPLETE";
+            req.order.save(function (err) {
+                if (err) {
+                    return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                } else {
+                    req.session.cart = [];
+                    res.redirect('/order/complete');
+                }
+            });
+        }
+    });
 };
 
 exports.cancelOrder = function (req, res) {
