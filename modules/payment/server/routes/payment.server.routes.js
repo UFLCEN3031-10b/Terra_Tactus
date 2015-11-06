@@ -7,7 +7,7 @@ module.exports = function (app) {
     app.route('/api/order').post(payment.openOrder);
 
     // route that paypal redirects to on success
-    app.route('/api/order/:orderId').get(payment.executeOrder);
+    app.route('/api/order/execute/:orderId').get(payment.executeOrder);
 
     // route that paypal redirects to on cancel
     app.route('/api/order/cancel/:orderId').get(payment.cancelOrder);

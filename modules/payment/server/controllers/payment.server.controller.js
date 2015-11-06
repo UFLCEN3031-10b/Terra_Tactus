@@ -18,6 +18,7 @@ exports.openOrder = function (req, res) {
     }
 
     var total = 0.0;
+    var desc = "";
     newOrder.cart.forEach(function (prodWrap) {
         var tempPrice = -1;
 
@@ -41,6 +42,7 @@ exports.openOrder = function (req, res) {
         }
 
         total += parseFloat(prodWrap.quantity)*parseFloat(tempPrice);
+        desc += (String(prodWrap.quantity) + "x " + prodWrap.product.proTitle + ", ");
     });
 
     var payment = {
@@ -49,9 +51,35 @@ exports.openOrder = function (req, res) {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-
-        }
+            "return_url": "https://localhost:3000/order/" + String(newOrder._id),
+            "cancel_url": "https://localhost:3000/order/cancel/" + String(newOrder._id)
+        },
+        "transactions": [{
+            "amount": {
+                "currency": "USD",
+                "total": total
+            },
+            "description": desc
+        }]
     };
+
+    paypal.payment.create(payment, function (err, resp) {
+        if (err) {
+            console.log(err);
+            return res.status(400).send({
+                message: "payment failed"
+            });
+        } else if (resp) {
+            req.session.paymentId = resp.id;
+            var rurl;
+            for (var i = 0; i < resp.links.length; i++) {
+                if (resp.links[i].method === 'REDIRECT') {
+                    rurl = resp.links[i].href;
+                }
+            }
+            res.json({ redirect_url: rurl  });
+        }
+    });
 };
 
 exports.executeOrder = function (req, res) {};
