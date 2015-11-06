@@ -16,7 +16,7 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
 
             var tempPrice = -1;
 
-            if (undefined !== Authentication.user.roles.length) {
+            if (undefined !== Authentication.user.roles) {
                 for (var i = 0; i < Authentication.user.roles.length; i++) {
                     var r = Authentication.user.roles[i];
                     if (r === 'wholesale') {
