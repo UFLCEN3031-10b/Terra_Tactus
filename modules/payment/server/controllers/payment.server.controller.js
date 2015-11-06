@@ -14,7 +14,6 @@ paypal.configure({
 
 exports.openOrder = function (req, res) {
     var newOrder = new Order();
-    req.session.openOrder = String(newOrder._id);
     newOrder.cart = req.session.cart;
     if (req.user) {
         newOrder.user = req.user._id;
@@ -54,8 +53,8 @@ exports.openOrder = function (req, res) {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://" + req.get('host') + "/api/order/execute",
-            "cancel_url": "http://" + req.get('host') + "/api/order/cancel"
+            "return_url": "http://" + req.get('host') + "/api/order/execute/" + String(newOrder._id),
+            "cancel_url": "http://" + req.get('host') + "/api/order/cancel/" + String(newOrder._id)
         },
         "transactions": [{
             "amount": {
@@ -101,7 +100,16 @@ exports.executeOrder = function (req, res) {
 };
 
 exports.cancelOrder = function (req, res) {
-    res.redirect('/order/canceled');
+    req.order.status = 'CANCELED';
+    req.order.save(function (err) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.redirect('/cart');
+        }
+    });
 };
 
 exports.orderById = function (req, res, next, id) {

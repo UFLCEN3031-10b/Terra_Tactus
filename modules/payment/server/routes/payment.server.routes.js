@@ -7,10 +7,10 @@ module.exports = function (app) {
     app.route('/api/order').post(payment.openOrder);
 
     // route that handles execution of paypal order
-    app.route('/api/order/execute').get(payment.executeOrder);
+    app.route('/api/order/execute/:orderId').get(payment.executeOrder);
 
     // route that handles cancelation of paypal order
-    app.route('/api/order/cancel').get(payment.cancelOrder);
+    app.route('/api/order/cancel/:orderId').get(payment.cancelOrder);
 
     app.param('orderId', payment.orderById);
 };
