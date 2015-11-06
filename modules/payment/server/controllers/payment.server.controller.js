@@ -24,7 +24,7 @@ exports.openOrder = function (req, res) {
     newOrder.cart.forEach(function (prodWrap) {
         var tempPrice = -1;
 
-        if (undefined !== req.user.roles.length) {
+        if (undefined !== req.user) {
             for (var i = 0; i < req.user.roles.length; i++) {
                 var r = req.user.roles[i];
                 if (r === 'wholesale') {
