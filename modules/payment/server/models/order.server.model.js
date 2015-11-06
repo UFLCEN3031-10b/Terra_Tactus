@@ -11,6 +11,9 @@ var OrderSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         default: null
+    },
+    cart: {
+        type: []
     }
 });
 
