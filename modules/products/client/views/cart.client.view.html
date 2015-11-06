@@ -74,7 +74,8 @@
             <div ng-click="clearCart()" class="btn btn-danger">Clear Cart</div>
         </div>
         <div class="col-md-6 col-xs-12 text-center">
-            <div ng-click="checkout()" class="btn btn-primary">Checkout!</div>
+            <div ng-hide="checkoutDisabled" ng-click="checkout()" class="btn btn-primary">{{checkoutText}}</div>
+            <div ng-show="checkoutDisabled" ng-click="checkout()" class="btn btn-primary disabled">Checkout!</div>
         </div>
         <div class="col-md-3 col-xs-12 text-center">
             <p>Total: ${{totalPrice.toFixed(2)}}</p>

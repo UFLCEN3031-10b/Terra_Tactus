@@ -1,10 +1,14 @@
 'use strict';
 
-angular.module('products').controller('CartController', ['$scope', '$rootScope', '$http', 'Authentication', function($scope, $rootScope, $http, Authentication) {
+angular.module('products').controller('CartController', ['$scope', '$rootScope', '$http', 'Authentication', '$window', function($scope, $rootScope, $http, Authentication, $window) {
     $scope.cart = [];
     $scope.totalPrice = 0.0;
+    $scope.checkoutDisabled = true;
+    $scope.checkoutText = 'Checkout!';
 
     var updatePrice = function () {
+        $scope.checkoutDisabled = ($scope.cart.length === 0);
+
         $scope.totalPrice = 0.0;
         $scope.cart.forEach(function (prodWrap) {
             //to keep editQuantity value up to date also
@@ -30,13 +34,18 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
             if (tempPrice === "") {
                 tempPrice = "0.00";
             }
-            
+
             prodWrap.price = tempPrice;
             $scope.totalPrice += parseFloat(prodWrap.quantity)*parseFloat(tempPrice);
         });
     };
 
-    $scope.checkout = function () {};
+    $scope.checkout = function () {
+        $scope.checkoutText = 'Processing...';
+        $http.post('/api/order').success(function (res) {
+            $window.location.href = res.redirect_url;
+        });
+    };
 
     $scope.updateQuantity = function (prodWrap) {
         var id = prodWrap.product._id,
