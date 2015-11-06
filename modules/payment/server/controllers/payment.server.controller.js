@@ -103,6 +103,7 @@ exports.executeOrder = function (req, res) {
             });
         } else {
             req.order.status = "COMPLETE";
+            req.order.paypal_execute_res = resp;
             req.order.save(function (err) {
                 if (err) {
                     return res.status(400).send({
