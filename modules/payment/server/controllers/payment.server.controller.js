@@ -12,22 +12,10 @@ paypal.configure({
     'client_secret': 'EElDdbQueMks39P-1ujM-fl2ib-ssenSWic5API8Vf7_FVeXRSyFZxMGS-qZGN6Gh9JorIxqAs1W17Ti'
 });
 
-exports.getCompletedOrder = function (req, res) {
-    console.log(req.session.orderViewed);
-    console.log(req.session.order);
-
-    if (req.session.orderViewed || undefined === req.session.orderViewed) {
-        res.json(null);
-    } else {
-        req.session.orderViewed = true;
-        req.session.save();
-        res.json(req.session.order);
-    }
-};
-
 exports.openOrder = function (req, res) {
     var newOrder = new Order();
     newOrder.cart = req.session.cart;
+    newOrder.open = true;
     if (req.user) {
         newOrder.user = req.user._id;
     }
@@ -112,8 +100,19 @@ exports.openOrder = function (req, res) {
     });
 };
 
+exports.confirm = function (req, res) {
+    if (req.order) {
+        req.session.payerId = req.param('PayerID');
+        res.redirect('/order/review/' + req.order._id);
+    } else {
+        return res.status(400).send({
+            message: 'order does not exist'
+        });
+    }
+};
+
 exports.executeOrder = function (req, res) {
-    paypal.payment.execute(req.session.paymentId, {'payer_id': req.param('PayerID')}, function (err, resp) {
+    paypal.payment.execute(req.session.paymentId, { 'payer_id': req.session.payerId }, function (err, resp) {
         if (err) {
             return res.status(400).send({
                 message: "execution failed"
@@ -121,16 +120,15 @@ exports.executeOrder = function (req, res) {
         } else {
             req.order.status = "COMPLETE";
             req.order.paypal_execute_res = resp;
+            req.order.open = false;
             req.session.cart = [];
-            req.session.order = req.order;
-            req.session.orderViewed = false;
             req.order.save(function (err) {
                 if (err) {
                     return res.status(400).send({
                         message: errorHandler.getErrorMessage(err)
                     });
                 } else {
-                    res.redirect('/order/complete');
+                    res.json({ redirect_url: '/order/complete' });
                 }
             });
         }
@@ -139,6 +137,7 @@ exports.executeOrder = function (req, res) {
 
 exports.cancelOrder = function (req, res) {
     req.order.status = 'CANCELED';
+    req.order.open = false;
     req.order.save(function (err) {
         if (err) {
             return res.status(400).send({
@@ -148,6 +147,14 @@ exports.cancelOrder = function (req, res) {
             res.redirect('/cart');
         }
     });
+};
+
+exports.read = function (req, res) {
+    if (req.order && req.order.open) {
+        res.json(req.order);
+    } else {
+        res.json(null);
+    }
 };
 
 exports.orderById = function (req, res, next, id) {

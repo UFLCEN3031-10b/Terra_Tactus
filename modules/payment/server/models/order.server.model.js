@@ -32,7 +32,8 @@ var OrderSchema = new Schema({
     total: {
         type: String,
         default: '0.00'
-    }
+    },
+    open: Boolean
 });
 
 mongoose.model('Order', OrderSchema);
