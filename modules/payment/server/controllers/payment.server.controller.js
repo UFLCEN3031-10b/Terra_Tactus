@@ -145,7 +145,7 @@ exports.close = function (req, res) {
             } else {
                 res.json({ status: 'OK' });
             }
-        })
+        });
     } else {
         return res.status(400).send({
             message: 'order not found'
