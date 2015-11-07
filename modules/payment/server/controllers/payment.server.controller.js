@@ -58,7 +58,7 @@ exports.openOrder = function (req, res) {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://" + req.get('host') + "/api/order/execute/" + String(newOrder._id),
+            "return_url": "http://" + req.get('host') + "/api/order/confirm/" + String(newOrder._id),
             "cancel_url": "http://" + req.get('host') + "/api/order/cancel/" + String(newOrder._id)
         },
         "transactions": [{
@@ -120,7 +120,6 @@ exports.executeOrder = function (req, res) {
         } else {
             req.order.status = "COMPLETE";
             req.order.paypal_execute_res = resp;
-            req.order.open = false;
             req.session.cart = [];
             req.order.save(function (err) {
                 if (err) {
@@ -128,11 +127,30 @@ exports.executeOrder = function (req, res) {
                         message: errorHandler.getErrorMessage(err)
                     });
                 } else {
-                    res.json({ redirect_url: '/order/complete' });
+                    res.json({ redirect_url: '/order/complete/' + req.order._id });
                 }
             });
         }
     });
+};
+
+exports.close = function (req, res) {
+    if (req.order) {
+        req.order.open = false;
+        req.order.save(function (err) {
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+            } else {
+                res.json({ status: 'OK' });
+            }
+        })
+    } else {
+        return res.status(400).send({
+            message: 'order not found'
+        });
+    }
 };
 
 exports.cancelOrder = function (req, res) {
