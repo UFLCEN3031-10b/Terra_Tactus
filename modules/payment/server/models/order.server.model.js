@@ -18,6 +18,9 @@ var OrderSchema = new Schema({
     paypal_create_res: {
         type: []
     },
+    paypal_get_res: {
+        type: []
+    },
     paypal_execute_res: {
         type: []
     },

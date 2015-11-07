@@ -49,7 +49,7 @@ exports.openOrder = function (req, res) {
     });
 
     desc = desc.substring(0, desc.length - 2);
-    newOrder.total = total;
+    newOrder.total = total.toFixed(2);
     newOrder.description = desc;
 
     var payment = {
@@ -64,7 +64,7 @@ exports.openOrder = function (req, res) {
         "transactions": [{
             "amount": {
                 "currency": "USD",
-                "total": total
+                "total": total.toFixed(2)
             },
             "description": desc
         }]
@@ -102,8 +102,13 @@ exports.openOrder = function (req, res) {
 
 exports.confirm = function (req, res) {
     if (req.order) {
-        req.session.payerId = req.param('PayerID');
-        res.redirect('/order/review/' + req.order._id);
+        paypal.payment.get(req.session.paymentId, function (err, payment) {
+            req.session.payerId = req.param('PayerID');
+            req.order.paypal_get_res = payment;
+            req.order.save(function (err) {
+                res.redirect('/order/review/' + req.order._id);
+            });
+        });
     } else {
         return res.status(400).send({
             message: 'order does not exist'
