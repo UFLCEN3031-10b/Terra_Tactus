@@ -1,8 +1,8 @@
 'use strict';
 
 // Announcements controller
-angular.module('core').controller('AnnouncementsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Announcements', '$filter',
-  function ($scope, $stateParams, $location, Authentication, Announcements, $filter) {
+angular.module('core').controller('AnnouncementsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Announcements',
+  function ($scope, $stateParams, $location, Authentication, Announcements) {
     $scope.authentication = Authentication;
 
     //check for a link
@@ -32,13 +32,13 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
         title: this.title,
         username: this.username,
         content: this.content,
-        link: $filter('linky')(this.link),
+        link: this.link,
         picture: this.picture
       });
 
       // Redirect after save
       announcement.$save(function (response) {
-        $location.path('announcements/' + response._id);
+        $location.path('');
 
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
