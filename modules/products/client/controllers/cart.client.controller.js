@@ -3,11 +3,14 @@
 angular.module('products').controller('CartController', ['$scope', '$rootScope', '$http', 'Authentication', '$window', function($scope, $rootScope, $http, Authentication, $window) {
     $scope.cart = [];
     $scope.totalPrice = 0.0;
-    $scope.checkoutDisabled = true;
-    $scope.checkoutText = 'Checkout!';
+    $scope.checkoutState = 0;
 
     var updatePrice = function () {
-        $scope.checkoutDisabled = ($scope.cart.length === 0);
+        if ($scope.cart.length !== 0) {
+            $scope.checkoutState = 1;
+        } else {
+            $scope.checkoutState = 0;
+        }
 
         $scope.totalPrice = 0.0;
         $scope.cart.forEach(function (prodWrap) {
@@ -41,8 +44,7 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
     };
 
     $scope.checkout = function () {
-        $scope.checkoutDisabled = true;
-        $scope.checkoutText = 'Processing...';
+        $scope.checkoutState = 2;
         $http.post('/api/order').success(function (res) {
             $window.location.href = res.redirect_url;
         });
