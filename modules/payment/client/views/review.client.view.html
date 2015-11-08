@@ -24,11 +24,19 @@
 
             <div class="col-md-6">
                 <h4>Shipping Address</h4>
-                <p>{{order.paypal_get_res[0].transactions[0].item_list.shipping_address.recipient_name}}<br>{{order.paypal_get_res[0].transactions[0].item_list.shipping_address.line1}}<br>{{order.paypal_get_res[0].transactions[0].item_list.shipping_address.city}}, {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.state}} {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.postal_code}}<br>{{order.paypal_get_res[0].transactions[0].item_list.shipping_address.country_code}}</p>
+                <p>{{order.paypal_get_res[0].transactions[0].item_list.shipping_address.recipient_name}}<br>
+                    {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.line1}}<br>
+                    {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.city}}, {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.state}} {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.postal_code}}<br>
+                    {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.country_code}}</p>
             </div>
 
             <div class="col-md-12 text-center">
-                <button ng-click="confirmButton()" class="btn btn-primary">Confirm</button>
+                <button ng-hide="disabledConfirm" ng-click="confirmButton()" class="btn btn-primary">
+                    Confirm
+                </button>
+                <button ng-show="disabledConfirm" ng-click="confirmButton()" class="btn btn-primary disabled">
+                    <i class="fa fa-cog fa-spin"></i> Processing...
+                </button>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 angular.module('payment').controller('OrderReviewController', ['$scope', '$http', '$location', '$stateParams', '$rootScope', function ($scope, $http, $location, $stateParams, $rootScope) {
     $scope.order = null;
+    $scope.disabledConfirm = false;
 
     $http.get('/api/order/find/' + $stateParams.orderId).success(function (res) {
         if (res === null) {
@@ -18,6 +19,7 @@ angular.module('payment').controller('OrderReviewController', ['$scope', '$http'
     });
 
     $scope.confirmButton = function () {
+        $scope.disabledConfirm = true;
         $http.get('/api/order/execute/' + $stateParams.orderId).success(function (res) {
             if (res.redirect_url) {
                 $location.path(res.redirect_url);
