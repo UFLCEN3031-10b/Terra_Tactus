@@ -140,7 +140,7 @@ exports.executeOrder = function (req, res) {
 };
 
 exports.close = function (req, res) {
-    if (req.order) {
+    if (req.order && req.order.open) {
         req.order.open = false;
         req.order.save(function (err) {
             if (err) {
