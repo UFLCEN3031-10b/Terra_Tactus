@@ -1,8 +1,8 @@
 'use strict';
 
 // Announcements controller
-angular.module('core').controller('AnnouncementsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Announcements',
-  function ($scope, $stateParams, $location, Authentication, Announcements) {
+angular.module('core').controller('AnnouncementsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Announcements', '$filter',
+  function ($scope, $stateParams, $location, Authentication, Announcements, $filter) {
     $scope.authentication = Authentication;
 
     //check for a link
@@ -32,7 +32,7 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
         title: this.title,
         username: this.username,
         content: this.content,
-        link: this.link,
+        link: $filter('linky')(this.link),
         picture: this.picture
       });
 
