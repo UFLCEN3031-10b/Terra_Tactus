@@ -38,7 +38,7 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
 
       // Redirect after save
       announcement.$save(function (response) {
-        //$location.path('announcements/' + response._id);
+        $location.path('announcements/' + response._id);
 
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
