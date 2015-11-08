@@ -41,6 +41,7 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
     };
 
     $scope.checkout = function () {
+        $scope.checkoutDisabled = true;
         $scope.checkoutText = 'Processing...';
         $http.post('/api/order').success(function (res) {
             $window.location.href = res.redirect_url;
