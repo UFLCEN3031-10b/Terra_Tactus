@@ -1,0 +1,51 @@
+<div ng-init="vRequestsList()">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 ng-bind="vRequest.user[0].username"></h1>
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-success" ui-sref="admin.requests">
+          Approve  <i class="glyphicon glyphicon-ok"></i>
+        </a>
+        <a class="btn btn-danger" ui-sref="admin.requests">
+          Deny  <i class="glyphicon glyphicon-remove"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-3"><strong>First Name</strong></div>
+        <div class="col-md-6" ng-bind="vRequest.user[0].firstName"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><strong>Last Name</strong></div>
+        <div class="col-md-6" ng-bind="vRequest.user[0].lastName"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><strong>Email</strong></div>
+        <div class="col-md-6" ng-bind="vRequest.user[0].email"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><strong>Provider</strong></div>
+        <div class="col-md-6" ng-bind="vRequest.user[0].provider"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><strong>Created</strong></div>
+        <div class="col-md-6" ng-bind="vRequest.user[0].created"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><strong>Roles</strong></div>
+        <div class="col-md-6" ng-bind="vRequest.user[0].roles"></div>
+      </div>
+    </div>
+  </div>
+</div>

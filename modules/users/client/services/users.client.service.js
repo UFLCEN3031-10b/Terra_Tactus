@@ -23,3 +23,11 @@ angular.module('users.admin').factory('Admin', ['$resource',
     });
   }
 ]);
+
+angular.module('users.admin').factory('AdminVReq', ['$resource',
+  function ($resource) {
+    return $resource('api/users/:vReqID', {
+      vReqId: '@_id'
+    });
+  }
+]);
