@@ -218,3 +218,16 @@
     margin-left: auto;
     margin-right: auto
 }
+
+.cart {
+  width: 60%;
+  padding-top: 2%;
+}
+
+.cart-btn {
+  width: 100%;
+}
+
+.pane-titles {
+  font-size: initial;
+}
