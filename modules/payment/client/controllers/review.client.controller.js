@@ -13,7 +13,7 @@ angular.module('payment').controller('OrderReviewController', ['$scope', '$http'
     });
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        if (fromState.name === 'order-review') {
+        if (fromState.name === 'order-review' && toState.name !== 'order-complete') {
             $http.get('/api/order/cancel/' + $stateParams.orderId);
         }
     });
