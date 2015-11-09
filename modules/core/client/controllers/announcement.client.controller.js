@@ -7,7 +7,6 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
 
     //check for a link
     $scope.isThere = function (item) {
-      console.log(item);
       if (item !== "") {
         return true;
       }
