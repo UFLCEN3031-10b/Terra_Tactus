@@ -93,22 +93,11 @@
     background-size: 16px 80px;
 }
 
-/* If clicked on do this
-.login-block input#username:focus {
-    background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px bottom no-repeat;
-    background-size: 16px 80px;
-} */
 
 .login-block input#password {
     background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px top no-repeat;
     background-size: 16px 80px;
 }
-
-/* If clicked on... do this
-.login-block input#password:focus {
-    background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px bottom no-repeat;
-    background-size: 16px 80px;
-} */
 
 .login-block input:active, .login-block input:focus {
     border: 1px solid #00c9dd;
