@@ -1,6 +1,7 @@
 'use strict';
 
-var payment = require('../controllers/payment.server.controller');
+var payment = require('../controllers/payment.server.controller'),
+    userOrder = require('../controllers/user-order.server.controller');
 
 module.exports = function (app) {
     // route for creating a new order, makes call to paypal api
@@ -20,6 +21,9 @@ module.exports = function (app) {
 
     // route for reading order
     app.route('/api/order/find/:orderId').get(payment.read);
+
+    // route for listing open orders for a user
+    app.route('/api/order/list').get(userOrder.list);
 
     app.param('orderId', payment.orderById);
 };
