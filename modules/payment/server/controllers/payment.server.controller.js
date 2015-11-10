@@ -123,7 +123,7 @@ exports.executeOrder = function (req, res) {
                 message: "execution failed"
             });
         } else {
-            req.order.status = "COMPLETE";
+            req.order.status = "Awaiting shipper confirmation";
             req.order.paypal_execute_res = resp;
             req.session.cart = [];
             req.order.save(function (err) {
@@ -159,7 +159,7 @@ exports.close = function (req, res) {
 };
 
 exports.cancelOrder = function (req, res) {
-    req.order.status = 'CANCELED';
+    req.order.status = 'Canceled';
     req.order.open = false;
     req.order.save(function (err) {
         if (err) {

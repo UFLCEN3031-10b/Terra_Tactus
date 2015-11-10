@@ -26,7 +26,7 @@ var OrderSchema = new Schema({
     },
     status: {
         type: String,
-        default: 'PENDING'
+        default: 'Pending...'
     },
     description: {
         type: String,
