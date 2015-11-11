@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: #333333;
     color: white;
 }
 
@@ -11,10 +11,10 @@ body {
     -moz-border-radius: 15px;
 }
 .col-premium .checked {
-    color: #00DD00;
+    color: #00AA00;
 }
 .col-free .checked {
-    color: #00DD00;
+    color: #00AA00;
 }
 
 .col-offers .offers {
@@ -43,14 +43,14 @@ h2.title{
     font-size: 60px;
     line-height:60px;
     color: #fff;
-    border-color: #00DD00;
+    border-color: #00AA00;
     border-radius: 10%;
     font-weight: 700;
     text-transform: uppercase;
 }
 
 h2 {
-    color: #00DD00;
+    color: #00AA00;
 }
 .line-top{
     width: 930px;

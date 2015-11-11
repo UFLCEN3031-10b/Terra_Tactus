@@ -39,14 +39,14 @@
 
 /* code for the styling of the cultural/geological product buttons*/
 .tab-btn{
-    border: 1px solid #00DD00;
+    border: 1px solid #00AA00;
     background-color: transparent;
-    color: #00DD00;
+    color: #00AA00;
 }
 
 /*changes the color of the current tab*/
 .activetab {
-    background-color: #00c9dd;
+    background-color: #00889c;
     color: white;
 }
 
