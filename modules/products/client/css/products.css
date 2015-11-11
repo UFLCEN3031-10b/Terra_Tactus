@@ -70,7 +70,8 @@
 }
 
 .product>img{
-	max-width: 230px;
+	width: 100%;
+  height: 100%;
 }
 
 .product-rating{
@@ -230,4 +231,9 @@
 
 .pane-titles {
   font-size: initial;
+}
+
+.img-full {
+  height: 100%;
+  width: 100%;
 }
