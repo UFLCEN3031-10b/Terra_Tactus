@@ -70,7 +70,8 @@
 }
 
 .product>img{
-	max-width: 230px;
+	width: 100%;
+  height: 100%;
 }
 
 .product-rating{
@@ -180,7 +181,7 @@
     background-color:#0faf38;
     -moz-border-radius: 5px;
     border-radius: 10px;
-
+    text-align: center;
 }
 
 /*css for the title of the product*/
@@ -217,4 +218,22 @@
     width: 75%;
     margin-left: auto;
     margin-right: auto
+}
+
+.cart {
+  width: 60%;
+  padding-top: 2%;
+}
+
+.cart-btn {
+  width: 100%;
+}
+
+.pane-titles {
+  font-size: initial;
+}
+
+.img-full {
+  height: 100%;
+  width: 100%;
 }

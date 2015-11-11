@@ -7,7 +7,6 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
 
     //check for a link
     $scope.isThere = function (item) {
-      console.log(item);
       if (item !== "") {
         return true;
       }
@@ -38,7 +37,7 @@ angular.module('core').controller('AnnouncementsController', ['$scope', '$stateP
 
       // Redirect after save
       announcement.$save(function (response) {
-        //$location.path('announcements/' + response._id);
+        $location.path('');
 
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;

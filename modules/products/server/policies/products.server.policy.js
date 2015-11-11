@@ -8,7 +8,7 @@ exports.invokeRolesPolicies = function () {
     acl.allow([{
         roles: ['admin'],
         allows: [{
-            resources: '/api/product/:productId',
+            resources: '/api/products/:productId',
             permissions: '*'
         }, {
             resources: '/api/products',
@@ -17,7 +17,7 @@ exports.invokeRolesPolicies = function () {
     }, {
         roles: ['user', 'guest', 'freeUser'],
         allows: [{
-            resources: '/api/product/:productId',
+            resources: '/api/products/:productId',
             permissions: ['get']
         }, {
             resources: '/api/products',
