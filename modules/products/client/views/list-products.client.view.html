@@ -21,13 +21,13 @@
                           <i class="fa fa-star-half-o"></i>
                       </div>
                       <div class="store-item-image">
-                          <a ui-sref="product">
+                          <a ui-sref="product.view({productId: product._id})">
                               <img src="{{product.imageUrl}}" alt="" class="img-responsive">
                           </a>
                       </div>
                       <div class="store-item-info clearfix">
                           <span class="store-item-price themed-color-dark pull-right">$ {{product.wholePrice}}</span>
-                          <a ui-sref="product"><strong>{{product.proTitle}}</strong></a><br>
+                          <a ui-sref="product.view({productId: product._id})"><strong>{{product.proTitle}}</strong></a><br>
                           <small><i class="fa fa-shopping-cart text-muted"></i>
                           <a href="#" class="text-muted" ng-click="addOnetoCart(product._id)">Add to cart</a></small><br>
                           <b class="item-description">Description: </b><span class="item-description">{{product.shortDes}}</span>

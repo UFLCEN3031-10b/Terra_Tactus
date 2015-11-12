@@ -11,6 +11,10 @@ angular.module('products').config(['$stateProvider',
                 url: '/product',
                 templateUrl: 'modules/products/client/views/individual-product.client.view.html'
             })
+            .state('product.view', {
+                url: '/:productId',
+                templateUrl: 'modules/products/client/views/individual-product.client.view.html'
+            })
             .state('products-edit', {
                 url: '/products-edit',
                 templateUrl: 'modules/products/client/views/products-edit.html',

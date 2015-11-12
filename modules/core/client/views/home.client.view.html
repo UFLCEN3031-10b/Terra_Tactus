@@ -42,7 +42,7 @@
                         <p class="list-group-item-text" ng-bind="announcement.content"></p>
                       </div>
                       <div ng-show="isThere(announcement.link)">
-                        <a href="http://{{announcement.link}}">Link here!</a>
+                        <a ng-href="{{announcement.link}}">Link!</a>
                       </div>
                       <div ng-show="isThere(announcement.picture)">
                         <img class="img-responsive" src="{{announcement.picture}}">
