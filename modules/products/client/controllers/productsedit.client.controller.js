@@ -12,18 +12,10 @@ angular.module('core').controller('editProductsController', ['$window','$http','
       var conf = confirm("Are you sure you want to delete this product?");
       console.log(conf);
       if(conf){
-        $http.delete('/api/product/' + productID).success(function (res) {
+        $http.delete('/api/products/' + productID).success(function (res) {
             $window.location.reload();
         });
       }
-    };
-
-    $scope.takeToEdit = function(eProduct){
-      $scope.editProduct = eProduct;
-      $location.path('product-edit');
-      console.log('changed edit product!');
-      //console.log(eProduct.proTitle);
-      //console.log($scope.editProduct.proTitle);
     };
 
     //editting shows

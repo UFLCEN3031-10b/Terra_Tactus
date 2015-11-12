@@ -69,16 +69,6 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       console.log('Product has been created');
     };
 
-    $scope.delete = function (productID) {
-      var conf = confirm("Are you sure you want to delete this product?");
-      console.log(conf);
-      if(conf){
-        $http.delete('/api/product/' + productID).success(function (res) {
-            $window.location.reload();
-        });
-      }
-    };
-
     //editting shows
     $scope.isEditing = false;
 
