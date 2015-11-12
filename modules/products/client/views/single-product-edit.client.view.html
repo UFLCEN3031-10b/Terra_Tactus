@@ -1,0 +1,31 @@
+<H1> HELLO MY WORLD </H1>
+
+<section ng-controller="editProductsController" ng-init="findOne()">
+    <!-- Division that will be used to repeat the product blocks -->
+    <div class="row" >
+        <div class="col-lg-10 " >
+            <div class=" col-lg-4 col-md-4 col-sm-4">
+                <div class="thumbnail product-thumb" >
+                    <div class = "label-info">
+                        <h3>{{product.proTitle}}</h3>
+                    </div>
+                    <img src ="{{product.imageUrl}}" class="img-responsive product-img" style="width:250px; height:250px;">
+                        <br>
+                        <div class="row text-center">
+                            <div class="col-md-6 col-sm-6">
+                                <a class="btn btn-primary btn-sm btn-product-edit"><span class="glyphicon glyphicon-edit">
+                                </span> Edit Product</a>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <a class="btn btn-danger btn-sm btn-product-delete">
+                                    <span class="glyphicon glyphicon-trash">
+                                    </span> Delete Product
+                                </a>
+                            </div>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+      </div>
+</section>
