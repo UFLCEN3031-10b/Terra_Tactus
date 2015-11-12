@@ -25,6 +25,13 @@ angular.module('products').config(['$stateProvider',
                   roles: ['admin']
                 }
             })
+            .state('product-edit', {
+                url: '/product-edit/:productId',
+                templateUrl: 'modules/products/client/views/single-product-edit.client.view.html',
+                data: {
+                  roles: ['admin']
+                }
+            })
             .state('subscriptions', {
                 url: '/subscriptions',
                 templateUrl: 'modules/products/client/views/subscriptions.html'
