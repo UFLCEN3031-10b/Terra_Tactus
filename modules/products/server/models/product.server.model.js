@@ -68,6 +68,10 @@ var ProductSchema = new Schema({
       type: Boolean,
       default: false,
       trim: true
+    },
+    features: {
+      type: [String],
+      default: []
     }
 
 });

@@ -24,6 +24,7 @@ exports.update = function (req, res) {
     d.eduPrice = req.body.eduPrice;
     d.wholePrice = req.body.wholePrice;
     d.teacher = req.body.teacher;
+    d.features = req.body.features;
 
     d.save(function (err) {
         if (err) {
@@ -73,6 +74,7 @@ exports.productByID = function (req, res, next, id) {
     d.eduPrice = req.body.eduPrice;
     d.wholePrice = req.body.wholePrice;
     d.teacher = req.body.teacher;
+    d.features = req.body.features;
 
     d.save(function (err) {
         if (err) {
