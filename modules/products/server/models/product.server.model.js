@@ -68,6 +68,12 @@ var ProductSchema = new Schema({
       type: Boolean,
       default: false,
       trim: true
+    },
+    reviews: {
+      username: {type: String, default:'', trim: true},
+      verified: {type: Boolean, default: false, trim:true},
+      review: {type: String, default:'', trim: true},
+      rating: {type: Number, default:5, trim: true}
     }
 
 });

@@ -103,6 +103,15 @@
 			<tab>
 				<tab-heading class="pane-titles">REVIEWS</tab-heading>
 				<leavereview></leavereview>
+
+				<form name="reviewForm" ng-submit="submitReview(product)"> <!-- Leave a review with this form -->
+		      <div class="form-group" show-errors>
+		        <label for="comment">Your Comment</label>
+		        <textarea name="comment" class="form-control" place-holder="Leave a Review!" rows="3" ng-model="product.reviews.review" required></textarea>
+		      </div>
+		      <button type="submit" class="btn btn-default">Send</button>
+		    </form>
+
 			</tab>
 		</tabset>
 	</div>

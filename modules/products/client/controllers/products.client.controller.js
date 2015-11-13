@@ -83,6 +83,14 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     //editting shows
     $scope.isEditing = false;
 
+    $scope.submitReview = function(product) {
+
+      product.$update(function () {
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
+      });
+    };
+
     // Find a list of Products
     $scope.find = function () {
       $scope.products = Products.query();
