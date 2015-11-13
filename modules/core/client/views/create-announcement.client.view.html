@@ -19,9 +19,12 @@
             <p class="help-block error-text" ng-message="required">Username is required.</p>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" show-errors>
           <label for="link">Link</label>
-          <input name="link" type="text" ng-model="link" id="link" class="form-control" placeholder="Link Optional">
+          <input name="link" type="url" ng-model="link" id="link" class="form-control" placeholder="http://google.com">
+          <div ng-messages="announcementForm.link.$error" role="alert">
+            <p class="help-block error-text" ng-message="url">Not a valid URL.</p>
+          </div>
         </div>
         <div class="form-group">
           <label for="picture">Picture Link</label>
@@ -29,7 +32,10 @@
         </div>
         <div class="form-group">
           <label for="content">Content</label>
-          <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+          <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content" maxlength="500"></textarea>
+          <div ng-messages="announcementForm.content.$error" role="alert">
+            <p class="help-block error-text" ng-message="maxlength">Content must be between 0 and 500 characters.</p>
+          </div>
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-default">
