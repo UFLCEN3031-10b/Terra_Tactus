@@ -7,6 +7,10 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $scope.displayType = false; //initialized cultural
     $scope.selection = 'imageOne';
 
+    setInterval(function () {
+      console.log($scope.authentication.user);
+    }, 10000);
+
     $scope.displayCultural = function () {
       $scope.displayType = true;
     };

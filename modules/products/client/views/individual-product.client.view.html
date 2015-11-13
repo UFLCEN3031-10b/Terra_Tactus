@@ -102,9 +102,29 @@
 			</tab>
 			<tab>
 				<tab-heading class="pane-titles">REVIEWS</tab-heading>
-				<leavereview></leavereview>
 
-				<form name="reviewForm" ng-submit="submitReview(product)"> <!-- Leave a review with this form -->
+				<div class="container">
+			    <div class="row" style="padding-top: 10px;" ng-repeat="ind_review in product.reviews">
+			      <div class="col-md-1 col-sm-2 col-xs-3">
+			        <div class="thumbnail">
+			          <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+			        </div>
+			      </div>
+
+			      <div class="col-md-11 col-sm-11 col-xs-9">
+			        <div class="panel panel-default">
+			          <div class="panel-heading">
+			          <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
+			          <div class="pull-right"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
+			          </div>
+			          <div class="panel-body text-primary">
+			          {{ind_review.review}}
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+
+				<form name="reviewForm" ng-submit="submitReview(product)" ng-if="authentication.user !== ''"> <!-- Leave a review with this form -->
 		      <div class="form-group" show-errors>
 		        <label for="comment">Your Comment</label>
 		        <textarea name="comment" class="form-control" place-holder="Leave a Review!" rows="3" ng-model="product.reviews[product.__v].review" required></textarea>
