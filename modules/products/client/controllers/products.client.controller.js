@@ -85,6 +85,8 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
 
     $scope.submitReview = function(product) {
 
+      //product.reviews.push(product.reviews);
+      console.log(product);
       product.$update(function () {
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
