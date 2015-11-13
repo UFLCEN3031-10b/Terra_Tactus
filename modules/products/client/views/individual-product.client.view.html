@@ -3,22 +3,28 @@
 <div class="item-container">
 	<div class="container">
 		<div class="col-md-12">
-			<div class="product col-md-3">
+			<div class="product col-md-3" ng-switch on="selection">
 
-					<img src="{{product.imageUrl}}" alt="" class="img-fill"></img>
+					<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-default></img>
+					<img src="{{product.imageTwo}}" alt="" ng-switch-when="imageTwo"></img>
+					<img src="{{product.imageThree}}" alt="" ng-switch-when="imageThree"></img>
+					<img src="{{product.imageFour}}" alt="" ng-switch-when="imageFour"></img>
 
 			</div>
 
 			<div class="container service1-items col-sm-2 col-md-2 pull-left">
 				<center>
-					<a id="item-1" class="service1-item">
-						<img src="{{product.imageUrl}}" alt=""></img>
+					<a id="item-1" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageTwo';">
+						<img src="{{product.imageTwo}}" alt="" ng-switch-default></img>
+						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageTwo"></img>
 					</a>
-					<a id="item-2" class="service1-item">
-						<img src="{{product.imageUrl}}" alt=""></img>
+					<a id="item-2" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageThree';">
+						<img src="{{product.imageThree}}" alt="" ng-switch-default></img>
+						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageThree"></img>
 					</a>
-					<a id="item-3" class="service1-item">
-						<img src="{{product.imageUrl}}" alt=""></img>
+					<a id="item-3" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageFour';">
+						<img src="{{product.imageFour}}" alt="" ng-switch-default></img>
+						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageFour"></img>
 					</a>
 				</center>
 			</div>
