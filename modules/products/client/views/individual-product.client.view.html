@@ -129,8 +129,10 @@
 		        <label for="comment">Your Comment</label>
 		        <textarea name="comment" class="form-control" place-holder="Leave a Review!" rows="3" ng-model="product.reviews[product.__v].review" required></textarea>
 		      </div>
+
 		      <button type="submit" class="btn btn-default">Send</button>
 		    </form>
+				<rating max="5" ng-model="product.reviews[product.__v].rating" class="pull-right"></rating>
 
 			</tab>
 		</tabset>

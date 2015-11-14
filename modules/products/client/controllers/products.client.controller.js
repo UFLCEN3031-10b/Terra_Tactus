@@ -7,7 +7,6 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $scope.displayType = false; //initialized cultural
     $scope.selection = 'imageOne';
 
-
     $scope.displayCultural = function () {
       $scope.displayType = true;
     };
