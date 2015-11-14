@@ -6,6 +6,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $scope.authentication = Authentication;
     $scope.displayType = false; //initialized cultural
     $scope.selection = 'imageOne';
+    $scope.displayError = "";
 
     $scope.displayCultural = function () {
       $scope.displayType = true;
@@ -83,10 +84,14 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     //editting shows
     $scope.isEditing = false;
 
-    $scope.submitReview = function(product) {
-
+    $scope.submitReview = function(isValid ,product) {
+      $scope.error = null;
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'reviewForm');
+        return false;
+      }
+      console.log("submitted review!");
       product.reviews[product.__v].username = $scope.authentication.user.username;
-      console.log(product);
       product.$update(function () {
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;

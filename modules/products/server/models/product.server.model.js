@@ -4,8 +4,12 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ReviewSchema = new Schema({
+  created: {
+    type: Date,
+    default: Date.now
+  },
   username: {type: String, default:'', trim: true},
-  verified: {type: Boolean, default: false, trim:true},
+  verified: {type: Boolean, default: true, trim:true},
   review: {type: String, default:'', trim: true},
   rating: {type: Number, default:5, trim: true}
 });
