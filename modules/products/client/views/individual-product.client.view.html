@@ -104,7 +104,7 @@
 				<tab-heading class="pane-titles">REVIEWS</tab-heading>
 
 				<div class="container">
-			    <div class="row" style="padding-top: 10px;" ng-repeat="ind_review in product.reviews">
+			    <div class="row" style="padding-top: 10px;" ng-repeat="ind_review in product.reviews" ng-if="product.reviews[$index].verified">
 			      <div class="col-md-1 col-sm-2 col-xs-3">
 			        <div class="thumbnail">
 			          <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
@@ -124,7 +124,7 @@
 			      </div>
 			    </div>
 
-				<form name="reviewForm" ng-submit="submitReview(product)" ng-if="authentication.user !== ''"> <!-- Leave a review with this form -->
+				<form name="reviewForm" ng-submit="submitReview(product)" ng-if="authentication.user !== ''" novalidate> <!-- Leave a review with this form -->
 		      <div class="form-group" show-errors>
 		        <label for="comment">Your Comment</label>
 		        <textarea name="comment" class="form-control" place-holder="Leave a Review!" rows="3" ng-model="product.reviews[product.__v].review" required></textarea>
