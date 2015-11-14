@@ -84,13 +84,15 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     //editting shows
     $scope.isEditing = false;
 
+    //submit a review to be.. reviewed
     $scope.submitReview = function(isValid ,product) {
       $scope.error = null;
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'reviewForm');
         return false;
       }
-      console.log("submitted review!");
+      var average = ((product.rating * (product.__v)) + product.reviews[product.__v].rating) / (product.__v + 1)
+      product.rating = average;
       product.reviews[product.__v].username = $scope.authentication.user.username;
       product.reviews[product.__v].userPicture = $scope.authentication.user.profileImageURL;
       product.$update(function () {
@@ -98,6 +100,12 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         $scope.error = errorResponse.data.message;
       });
     };
+
+    //find the new average of the review of the product
+    $scope.findAverage = function(product) {
+      return
+    };
+
 
     // Find a list of Products
     $scope.find = function () {

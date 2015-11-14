@@ -25,6 +25,7 @@ exports.update = function (req, res) {
     d.wholePrice = req.body.wholePrice;
     d.teacher = req.body.teacher;
     d.reviews = req.body.reviews;
+    d.rating = req.body.rating;
 
     d.save(function (err) {
         if (err) {

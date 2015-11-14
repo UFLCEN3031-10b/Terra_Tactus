@@ -39,3 +39,8 @@
 	border-right-color:#ddd;
 	border-width:8px;
 }
+
+.glyphicon-star-lg {
+  font-size: x-large;
+  color: #1bbae1; 
+}

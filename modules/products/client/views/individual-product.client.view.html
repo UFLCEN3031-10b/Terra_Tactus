@@ -32,7 +32,7 @@
 		<div class="col-md-7">
 			<div class="product-title" ng-bind="product.proTitle"></div>
 			<div class="product-desc" ng-bind="product.shortDes"></div>
-			<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
+			<rating ng-model="product.rating" readonly="true" class="glyphicon-star-lg"></rating>
 			<hr>
 			<div class="product-price">${{product.indvPrice}}</div>
 			<div class="product-stock" ng-show="product.proType">Cultural Product</div>

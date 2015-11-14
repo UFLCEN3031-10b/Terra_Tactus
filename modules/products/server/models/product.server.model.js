@@ -81,6 +81,11 @@ var ProductSchema = new Schema({
       default: false,
       trim: true
     },
+    rating: {
+      type: Number,
+      default: 0,
+      trim: true
+    },
     reviews: {
       type: [ReviewSchema]
     }
