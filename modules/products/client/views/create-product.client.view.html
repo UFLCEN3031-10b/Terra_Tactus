@@ -83,9 +83,10 @@
 
         <div class="form-group" show-errors>
           <label for="shortDes">Short Description</label>
-          <textarea name="shortDes" ng-model="shortDes" id="shortDes-ta" class="form-control" cols="30" rows="5" placeholder="Short Description of what kit will acheive or teach" required></textarea>
+          <textarea name="shortDes" ng-maxlength="250" ng-model="shortDes" id="shortDes-ta" class="form-control" cols="30" rows="5" placeholder="Short Description of what kit will acheive or teach" required></textarea>
           <div ng-messages="productForm.shortDes.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Need a short description for this product.</p>
+            <p class="help-block error-text" ng-message="maxlength">Message must not exceed 250 characters</p>
           </div>
         </div>
 
