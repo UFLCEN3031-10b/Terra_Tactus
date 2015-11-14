@@ -107,7 +107,7 @@
 			    <div class="row" style="padding-top: 10px;" ng-repeat="ind_review in product.reviews" ng-if="product.reviews[$index].verified">
 			      <div class="col-md-1 col-sm-2 col-xs-3">
 			        <div class="thumbnail">
-			          <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+			          <img class="img-responsive user-photo" ng-src="{{ind_review.userPicture}}">
 			        </div>
 			      </div>
 
@@ -115,7 +115,7 @@
 			        <div class="panel panel-default">
 			          <div class="panel-heading">
 			          <strong>{{ind_review.username}}</strong> <span class="text-muted">commented {{ind_review.created | date:'mediumDate'}}</span>
-			          <div class="pull-right"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
+			          <rating ng-model="ind_review.rating" readonly="true" class="pull-right"></rating>
 			          </div>
 			          <div class="panel-body text-primary">
 			          {{ind_review.review}}

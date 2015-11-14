@@ -92,6 +92,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       }
       console.log("submitted review!");
       product.reviews[product.__v].username = $scope.authentication.user.username;
+      product.reviews[product.__v].userPicture = $scope.authentication.user.profileImageURL;
       product.$update(function () {
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
