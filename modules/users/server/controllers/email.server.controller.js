@@ -11,7 +11,8 @@ var transporter = nodemailer.createTransport({
       pass: 'Dameissogr8!'
   }
 });
-exports.sendVReq = function(req, res) {
+
+exports.sendVReqWholesale = function(req, res) {
 
     var data = req.body;
 
@@ -19,8 +20,21 @@ exports.sendVReq = function(req, res) {
         from: 'admin@terratactus.com',
         to: 'damian.larson@yahoo.com',
         subject: 'Terra Tactus - New Verification Request',
-        text: 'Hello! \n\nYou have a new verification request from ' + data.user.firstName + ' ' + data.user.lastName + '. \n\nDOB: ' + data.info.month + '/' + data.info.day + '/' + data.info.year + '\n\nSSN: ' + data.info.SSN + '\n\nPlease go to the website to review the information and approve or deny their request for reduced prices.'
+        text: 'Hello! \n\nYou have a new verification request from ' + data.user.firstName + ' ' + data.user.lastName + '. \n\nDOB: ' + data.DOB + '\n\nSSN: ' + data.SSN + '\n\nPlease go to the website to review the information and approve or deny their request for reduced prices.'
     });
 
     res.json(data);
+};
+
+exports.sendVReqTeacher = function(req, res){
+  var data = req.body;
+
+  transporter.sendMail({
+      from: 'admin@terratactus.com',
+      to: 'damian.larson@yahoo.com',
+      subject: 'Terra Tactus - New Verification Request',
+      text: 'Hello! \n\nYou have a new verification request from ' + data.user.firstName + ' ' + data.user.lastName + '. \n\nState: ' + data.state + '\n\nTID: ' + data.TID + '\n\nPlease go to the website to review the information and approve or deny their request for reduced prices.'
+  });
+
+  res.json(data);
 };

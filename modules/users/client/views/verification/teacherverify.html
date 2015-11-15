@@ -20,35 +20,17 @@
       <form name="userForm" ng-submit="submit(userForm.$valid)" novalidate> <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
         <fieldset>
         <!-- NAME -->
-
-          <label>DOB</label>
-          <div class="form-group row" show-errors>
-              <div class="col-xs-4">
-                <input type="text" name="month" class="form-control" ng-model ="credentials.month" required>
-              </div>
-              <div class="col-xs-4">
-                <input type="text" name="day" class="form-control" ng-model ="credentials.day"  required>
-              </div>
-              <div class="col-xs-4">
-                <input type="text" name="year" class="form-control" ng-model ="credentials.year"  required>
-              </div>
-              <div ng-messages="userForm.month.$error" role="alert">
-                <p class="help-block error-text" ng-message="required">Month is required.</p>
-              </div>
-              <div ng-messages="userForm.day.$error" role="alert">
-                <p class="help-block error-text" ng-message="required">Day is required.</p>
-              </div>
-              <div ng-messages="userForm.year.$error" role="alert">
-                <p class="help-block error-text" ng-message="required">Year is required.</p>
-              </div>
-
-          </div>
-
           <div class = "form-group" show-errors>
-            <label>SSN</label>
-            <input type = "text" name="SSN" class="form-control" ng-model="credentials.SSN" required>
-            <div ng-messages="userForm.SSN.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">SSN is required.</p>
+            <label>State</label>
+            <br>
+            <select ng-model="credentials.state" ng-options="o as o for o in options" style="color: black; width:100%"></select>
+            </select>
+          </div>
+          <div class = "form-group" show-errors>
+            <label>Teacher Identification Number</label>
+            <input type = "text" name="TID" class="form-control" ng-model="credentials.TID" required>
+            <div ng-messages="userForm.TID.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">TID is required.</p>
             </div>
           </div>
 
