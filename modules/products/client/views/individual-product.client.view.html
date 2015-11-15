@@ -127,13 +127,13 @@
 				<form name="reviewForm" ng-submit="submitReview(reviewForm.$valid, product)" ng-if="authentication.user !== ''" novalidate> <!-- Leave a review with this form -->
 		      <div class="form-group" show-errors>
 		        <label for="comment">Your Review</label>
-		        <textarea name="review" id="review" class="form-control" place-holder="Leave a Review!" rows="3" ng-model="product.reviews[product.__v].review" required></textarea>
+		        <textarea name="review" id="review" class="form-control" place-holder="Leave a Review!" rows="3" ng-model="NewReview.review" required></textarea>
 		      </div>
 
 		      <button type="submit" class="btn btn-default">Send</button>
 					<span class="pull-right">Review Rating:</span>
 		    </form>
-				<rating max="5" ng-model="product.reviews[product.__v].rating" class="pull-right"></rating>
+				<rating max="5" ng-model="NewReview.rating" class="pull-right"></rating>
 
 			</tab>
 		</tabset>

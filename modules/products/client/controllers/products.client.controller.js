@@ -7,6 +7,10 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $scope.displayType = false; //initialized cultural
     $scope.selection = 'imageOne';
     $scope.isCollapsed = true;
+    $scope.NewReview = {
+      "review": "",
+      "rating": 0
+    };
 
     $scope.displayCultural = function () {
       $scope.displayType = true;
@@ -86,7 +90,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       var conf = confirm("Are you sure you want to delete this review?");
 
       if (conf) {
-        product.reviews.splice(ind_review_index, 1);
+        product.reviews.splice(ind_review_index,1);
         product.$update(function () {
         }, function (errorResponse) {
           $scope.error = errorResponse.data.message;
@@ -127,10 +131,13 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         $scope.$broadcast('show-errors-check-validity', 'reviewForm');
         return false;
       }
-      console.log(product);
+      if ($scope.NewReview.rating === 0) {
+        alert("Please rate 1-5!")
+        return false;
+      }
+      product.reviews.push($scope.NewReview);
         product.reviews[product.reviews.length - 1].username = $scope.authentication.user.username;
         product.reviews[product.reviews.length - 1].userPicture = $scope.authentication.user.profileImageURL;
-        console.log(product);
         product.$update(function () {
           console.log(product);
         }, function (errorResponse) {
