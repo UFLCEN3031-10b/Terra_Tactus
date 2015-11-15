@@ -102,7 +102,7 @@
 			</tab>
 			<tab>
 				<tab-heading class="pane-titles">REVIEWS</tab-heading>
-
+			<section ng-controller="ReviewsController">
 				<div class="container">
 			    <div class="row" style="padding-top: 10px;" ng-repeat="ind_review in product.reviews track by $index" ng-if="product.reviews[$index].verified">
 			      <div class="col-md-1 col-sm-2 col-xs-3">
@@ -124,19 +124,20 @@
 			      </div>
 			    </div>
 
-				<form name="reviewForm" ng-submit="submitReview(reviewForm.$valid, product)" ng-if="authentication.user !== ''" novalidate> <!-- Leave a review with this form -->
-		      <div class="form-group" show-errors>
-		        <label for="comment">Your Review</label>
-		        <textarea name="review" id="review" class="form-control" place-holder="Leave a Review!" rows="3" ng-model="NewReview.review" required></textarea>
-		      </div>
+					<form name="reviewForm" ng-submit="submitReview(reviewForm.$valid, product)" ng-if="authentication.user !== ''" novalidate> <!-- Leave a review with this form -->
+			      <div class="form-group" show-errors>
+			        <label for="comment">Your Review</label>
+			        <textarea name="review" id="review" class="form-control" place-holder="Leave a Review!" rows="3" ng-model="NewReview.review" required></textarea>
+			      </div>
 
-		      <button type="submit" class="btn btn-default">Send</button>
-					<span class="pull-right">Review Rating:</span>
-		    </form>
-				<rating max="5" ng-model="NewReview.rating" class="pull-right"></rating>
+			      <button type="submit" class="btn btn-default">Send</button>
+						<span class="pull-right">Review Rating:</span>
+			    </form>
+					<rating max="5" ng-model="NewReview.rating" class="pull-right"></rating>
 
 			</tab>
 		</tabset>
 	</div>
+</section>
 </div>
 </section>
