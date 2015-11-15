@@ -42,5 +42,13 @@
 
 .glyphicon-star-lg {
   font-size: x-large;
-  color: #1bbae1; 
+  color: #1bbae1;
+}
+
+.sm-pad-bottom {
+  padding-bottom: .5em;
+}
+
+.clear-bottom-margin {
+  margin-bottom: 2px;
 }

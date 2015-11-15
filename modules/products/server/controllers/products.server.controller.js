@@ -26,6 +26,7 @@ exports.update = function (req, res) {
     d.teacher = req.body.teacher;
     d.reviews = req.body.reviews;
     d.rating = req.body.rating;
+    d.numberVerified = req.body.numberVerified;
 
     d.save(function (err) {
         if (err) {

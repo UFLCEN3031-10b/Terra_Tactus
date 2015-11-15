@@ -8,9 +8,9 @@ var ReviewSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  username: {type: String, default:'', trim: true},
+  username: {type: String, default:'', required: 'Reviews must have a user associated!', trim: true},
   userPicture: {type: String, default: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png', trim: true},
-  verified: {type: Boolean, default: true, trim:true},
+  verified: {type: Boolean, default: false, trim:true},
   review: {type: String, default:'', trim: true},
   rating: {type: Number, default:5, trim: true}
 });
@@ -86,8 +86,13 @@ var ProductSchema = new Schema({
       default: 0,
       trim: true
     },
+    numberVerified: {
+      type: Number,
+      default: 0,
+      trim: true
+    },
     reviews: {
-      type: [ReviewSchema]
+      type: [ReviewSchema],
     }
 
 });

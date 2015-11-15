@@ -104,7 +104,7 @@
 				<tab-heading class="pane-titles">REVIEWS</tab-heading>
 
 				<div class="container">
-			    <div class="row" style="padding-top: 10px;" ng-repeat="ind_review in product.reviews" ng-if="product.reviews[$index].verified">
+			    <div class="row" style="padding-top: 10px;" ng-repeat="ind_review in product.reviews track by $index" ng-if="product.reviews[$index].verified">
 			      <div class="col-md-1 col-sm-2 col-xs-3">
 			        <div class="thumbnail">
 			          <img class="img-responsive user-photo" ng-src="{{ind_review.userPicture}}">
