@@ -20,7 +20,7 @@ module.exports = function (app) {
     .put(adminPolicy.isAllowed, admin.update)
     .delete(adminPolicy.isAllowed, admin.delete);
 
-  app.route('/api/users/:vReqID').get(admin.read);
+  app.route('/api/users/:saveUserID').put(admin.update);
   // Finish by binding the user middleware
   app.param('userId', admin.userByID);
 };

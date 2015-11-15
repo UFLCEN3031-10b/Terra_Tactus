@@ -5,10 +5,10 @@
         <h1 ng-bind="vRequest.user[0].username"></h1>
       </div>
       <div class="col-md-4">
-        <a class="btn btn-success" ui-sref="admin.requests">
+        <a class="btn btn-success" ng-click="userUpdate()">
           Approve  <i class="glyphicon glyphicon-ok"></i>
         </a>
-        <a class="btn btn-danger" ui-sref="admin.requests">
+        <a class="btn btn-danger" ng-click="deleteVReq()">
           Deny  <i class="glyphicon glyphicon-remove"></i>
         </a>
       </div>

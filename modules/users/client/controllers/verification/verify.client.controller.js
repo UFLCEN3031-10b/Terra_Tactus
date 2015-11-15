@@ -12,10 +12,22 @@ angular.module('users').controller('WholesaleVerifyController', ['$scope', '$sta
       }
       $scope.vRequest = {validRequest: true, user: $scope.user};
       $http.post('/api/auth/verify', $scope.vRequest).success(function(response){
+        $scope.sendMail();
         console.log("Submitted successfully!");
-        $state.go('verificationSuccess');
       }).error(function (response){
         $scope.error = response.message;
+      });
+
+    };
+
+    $scope.sendMail = function(){
+      var mailData = {
+        info: $scope.credentials,
+        user: $scope.vRequest.user
+      };
+
+      $http.post('/api/auth/mail', mailData).success(function(){
+        $state.go('verificationSuccess');
       });
     };
   }
