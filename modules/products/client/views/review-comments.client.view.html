@@ -1,0 +1,36 @@
+
+<section ng-Controller="ProductsController" ng-init="find()">
+<div ng-repeat="product in products" class="row">
+  <div class="col-md-4">
+    {{product.proTitle}}
+    <div class="container">
+      <img ng-src="{{product.imageOne}}" alt="" class="img-responsive" />
+    </div><br>
+    <button type="button" name="Toggle {{product.proTitle}} Reviews" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">{{product.proTitle}} Reviews</button>
+  <hr></div>
+  <div collapse="isCollapsed" class="col-md-8">
+    <alert type="danger" ng-show="checkAnyPending(product.reviews)">No pending reviews at this time!</alert>
+    <div class="container-fluid" ng-repeat="ind_review in product.reviews" ng-if="!ind_review.verified">
+      <div class="col-md-1 col-sm-2 col-xs-3">
+        <div class="thumbnail">
+          <img class="img-responsive user-photo" ng-src="{{ind_review.userPicture}}">
+        </div>
+      </div>
+
+      <div class="col-md-11 col-sm-11 col-xs-9 sm-pad-bottom">
+        <div class="clear-bottom-margin panel panel-default">
+          <div class="panel-heading">
+          <strong>{{ind_review.username}}</strong> <span class="text-muted">commented {{ind_review.created | date:'mediumDate'}}</span>
+          <rating ng-model="ind_review.rating" readonly="true" class="pull-right"></rating>
+          </div>
+          <div class="panel-body text-primary">
+          {{ind_review.review}}
+          </div>
+        </div>
+        <button type="button" class="btn btn-default glyphicon glyphicon-ok pull-right" ng-click="acceptReview(product, $index)"></button>
+        <button type="button" class="btn btn-default glyphicon glyphicon-remove pull-right" ng-click="removeReview(product, $index)"></button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
