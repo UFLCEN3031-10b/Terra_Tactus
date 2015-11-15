@@ -26,7 +26,7 @@ angular.module('users').controller('WholesaleVerifyController', ['$scope', '$sta
         user: $scope.vRequest.user
       };
 
-      $http.post('/api/auth/mail', mailData).success(function(){
+      $http.post('/api/mail/sendVReq', mailData).success(function(){
         $state.go('verificationSuccess');
       });
     };

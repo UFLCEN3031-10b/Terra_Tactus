@@ -22,7 +22,6 @@ module.exports = function (app) {
   app.route('/api/auth/verify').post(vRequest.add);
   app.route('/api/auth/vList').get(vRequest.list);
   app.route('/api/auth/vList/:vReqID').delete(vRequest.remove);
-  app.route('/api/auth/mail').post(vRequest.sendMail);
 
   // Setting the facebook oauth routes
   app.route('/api/auth/facebook').get(users.oauthCall('facebook', {
