@@ -26,6 +26,7 @@ angular.module('users').controller('VerifyListController', ['$scope', '$state', 
       saveUser.verified = true;
       $http.put('/api/users/' + saveUser._id, saveUser).success(function(res){
         $scope.deleteVReq();
+        alert('User approved! They will now place orders automatically.');
       }).error(function(res){
         $scope.error = res.message;
       });
@@ -33,7 +34,7 @@ angular.module('users').controller('VerifyListController', ['$scope', '$state', 
 
     $scope.deleteVReq = function(){
       $http.delete('/api/auth/vList/' + $scope.vRequest._id).success(function (res) {
-          $state.go('admin.requests');
+        $state.go('admin.requests');
       });
     };
   }
