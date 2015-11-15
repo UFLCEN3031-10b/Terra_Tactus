@@ -5,8 +5,20 @@ angular.module('users').controller('VerifyListController', ['$scope', '$state', 
     $scope.vRequestsList = function() {
       $http.get('/api/auth/vList').success(function (res){
         $scope.vRequests = res;
+        $scope.wholesales = [];
+        $scope.educations = [];
+        $scope.showWholesale = true;
+        $scope.showEducation = true;
         if($stateParams.vReqID === undefined){
           console.log("should be empty");
+          for(var j = 0; j < $scope.vRequests.length; j++){
+            if($scope.vRequests[j].user[0].priceRoles.toString() === 'wholesale'){
+              $scope.wholesales.push($scope.vRequests[j]);
+            }
+            else if($scope.vRequests[j].user[0].priceRoles.toString() === 'education'){
+              $scope.educations.push($scope.vRequests[j]);
+            }
+          }
         }
         else{
           for(var i = 0; i < $scope.vRequests.length; i++){
