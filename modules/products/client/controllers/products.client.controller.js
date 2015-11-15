@@ -139,7 +139,6 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         product.reviews[product.reviews.length - 1].username = $scope.authentication.user.username;
         product.reviews[product.reviews.length - 1].userPicture = $scope.authentication.user.profileImageURL;
         product.$update(function () {
-          console.log(product);
         }, function (errorResponse) {
           $scope.error = errorResponse.data.message;
         });
