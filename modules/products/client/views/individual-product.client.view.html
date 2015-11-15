@@ -134,6 +134,7 @@
 						<span class="pull-right">Review Rating:</span>
 			    </form>
 					<rating max="5" ng-model="NewReview.rating" class="pull-right" ng-if="authentication.user !== ''"></rating>
+					<center ng-hide="authentication.user !== ''"><alert type="danger"><a href="/authentication/signin">Log in</a> to review a product!</alert></center>
 
 			</tab>
 		</tabset>
