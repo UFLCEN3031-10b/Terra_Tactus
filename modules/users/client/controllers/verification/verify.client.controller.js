@@ -30,10 +30,16 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
 
     $scope.sendMail = function(){
       var mailData = $scope.vRequest;
-
-      $http.post('/api/mail/sendVReqW', mailData).success(function(){
-        $state.go('verificationSuccess');
-      });
+      if(mailData.user.priceRoles.toString() === 'wholesale'){
+        $http.post('/api/mail/sendVReqW', mailData).success(function(){
+          $state.go('verificationSuccess');
+        });
+      }
+      else if(mailData.user.priceRoles.toString() === 'education'){
+        $http.post('/api/mail/sendVReqT', mailData).success(function(){
+          $state.go('verificationSuccess');
+        });
+      }
     };
   }
 ]);

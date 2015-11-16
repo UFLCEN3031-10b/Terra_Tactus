@@ -24,6 +24,14 @@ angular.module('users').controller('VerifyListController', ['$scope', '$state', 
           for(var i = 0; i < $scope.vRequests.length; i++){
             if($stateParams.vReqID === $scope.vRequests[i]._id){
               $scope.vRequest = $scope.vRequests[i];
+              if($scope.vRequest.user[0].priceRoles.toString() === 'wholesale'){
+                $scope.showWholesale = true;
+                $scope.showEducation = false;
+              }
+              else if($scope.vRequest.user[0].priceRoles.toString() === 'education'){
+                $scope.showWholesale = false;
+                $scope.showEducation = true;
+              }
             }
             else{continue;}
           }
