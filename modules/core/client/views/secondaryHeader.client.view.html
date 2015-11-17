@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <div class="navbar secondary-nav" ng-controller="SecondaryHeaderController">
     <ul class="nav navbar-nav">
         <li role="presentation" ui-sref-active="active"><a ui-sref="home">Home</a></li>
@@ -15,7 +16,21 @@
     <form class="navbar-form navbar-right" role="search">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search..." name="searchValue">
+            <script>
+              (function() {
+                var cx = '017789545688394528597:njaeen8i3_y';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                  '//cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+              })();
+            </script>
+            <!--<gcse:search></gcse:search>-->
             <div class="input-group-btn">
+
                 <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>

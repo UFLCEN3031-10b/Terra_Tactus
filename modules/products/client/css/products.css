@@ -9,7 +9,7 @@
 }
 /*code to give each product block some padding and color as well as round edges*/
 #temp-div{
-    background-color: #2e2f33;
+    background-color: #996633;
     padding-bottom: 30px;
     -moz-border-radius: 5px;
     border-radius: 20px;
@@ -39,14 +39,14 @@
 
 /* code for the styling of the cultural/geological product buttons*/
 .tab-btn{
-    border: 1px solid #00AA00;
+    border: 1px solid #339933;
     background-color: transparent;
-    color: #00AA00;
+    color: #339933;
 }
 
 /*changes the color of the current tab*/
 .activetab {
-    background-color: #00889c;
+    background-color: #3366cc;
     color: white;
 }
 
@@ -201,7 +201,7 @@
 
 /*css for the thumbnail or container holding all the product block info*/
 .product-thumb{
-    background-color : #2e2f33;
+    background-color : #996633;
     border-color:transparent;
     border-radius: 20px;
 }

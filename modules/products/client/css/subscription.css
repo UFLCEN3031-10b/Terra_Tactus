@@ -4,21 +4,21 @@ body {
 }
 
 .col-premium {
-    background-color: #2e2f33;
+    background-color: #996633;
     color: white;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
 }
 .col-premium .checked {
-    color: #00AA00;
+    color: #339933;
 }
 .col-free .checked {
-    color: #00AA00;
+    color: #339933;
 }
 
 .col-offers .offers {
-    background-color: #2e2f33;
+    background-color: #996633;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -43,14 +43,14 @@ h2.title{
     font-size: 60px;
     line-height:60px;
     color: #fff;
-    border-color: #00AA00;
+    border-color: #339933;
     border-radius: 10%;
     font-weight: 700;
     text-transform: uppercase;
 }
 
 h2 {
-    color: #00AA00;
+    color: #339933;
 }
 .line-top{
     width: 930px;

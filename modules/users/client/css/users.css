@@ -62,7 +62,7 @@
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    border-top: 5px solid #00AA00;
+    border-top: 5px solid #339933;
     margin: 0 auto;
 }
 
@@ -80,7 +80,7 @@
     height: 42px;
     box-sizing: border-box;
     border-radius: 5px;
-    border: 1px solid #1ade4c;
+    border: 1px solid #339933;
     margin-bottom: 20px;
     font-size: 14px;
     font-family: Montserrat;
@@ -111,16 +111,16 @@
 } */
 
 .login-block input:active, .login-block input:focus {
-    border: 1px solid #00889c;
+    border: 1px solid #3366cc;
 }
 
 .login-block button {
     width: 25%;
     height: 40px;
-    background: #00889c;
+    background: #3366cc;
     box-sizing: content-box;
     border-radius: 5px;
-    border: 1px solid #00889c;
+    border: 1px solid #3366cc;
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
@@ -132,5 +132,5 @@
 }
 
 .login-block button:hover {
-    background: #1ade4c;
+    background: #339933;
 }
