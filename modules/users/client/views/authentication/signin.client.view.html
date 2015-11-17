@@ -15,7 +15,7 @@
             <h1>Login</h1> 
 
             <div class="form-group" show-erros>  
-              <input type="text" id="username" placeholder="Username" class="form-control" ng-model="credentials.username" lowercase required/>
+              <input type="text" id="username" placeholder="Username" class="form-control ng-dirty ng-valid-parse ng-touched ng-invalid ng-invalid-required" ng-model="credentials.username" lowercase required/>
               <div ng-messages="userForm.username.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Username is required.</p>
               </div>
