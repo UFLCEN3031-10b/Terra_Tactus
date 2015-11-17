@@ -10,7 +10,11 @@ angular.module('core').controller('editProductsController', ['$window','$http','
       console.log(conf);
       if(conf){
         $http.delete('/api/products/' + productID).success(function (res) {
-        $window.location.reload();
+          for (var i in $scope.products) {
+            if ($scope.products[i]._id === productID) {
+              $scope.products.splice(i, 1);
+            }
+          }
         });
       }
     };
