@@ -127,6 +127,25 @@
         </div>
         <br>
 
+        <label class="form-group">Features</label>
+        <div class="form-group input-group">
+        <input id="add_feature_text" type="text" class="form-control" placeholder="New feature" ng-model="newFt">
+          <span class="input-group-btn">
+            <button id="add_feature_button" class="btn btn-default" type="button" ng-click="addFeature()">
+                Add
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+          </span>
+        </div>
+
+        <ul class="list-group">
+        <!-- http://www.w3schools.com/css/css_float.asp -->
+        <li class="list-group-item clearfix" ng-repeat="do in tempFeatures">
+          {{do}}
+        </li>
+      </ul>
+
+
         <div class="form-group">
           <input type="submit" value="Create Product" class="btn btn-default">
         </div>

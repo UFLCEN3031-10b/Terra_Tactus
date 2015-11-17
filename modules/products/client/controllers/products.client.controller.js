@@ -92,5 +92,22 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       });
     };
 
+    $scope.tempFeatures = [];
+
+    $scope.addFeature = function(){
+      var itemCopy = {};
+      console.log($scope.newFt);
+      if ($scope.newFt !== ""){
+      itemCopy = $scope.newFt;
+      $scope.tempFeatures.push(itemCopy);
+      $scope.newFt = "";
+    }
+    else {
+      alert("Please enter a feature");
+    }
+    };
+
+
+
   }
 ]);
