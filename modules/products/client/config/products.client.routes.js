@@ -41,6 +41,13 @@ angular.module('products').config(['$stateProvider',
                 url: '/commercial',
                 templateUrl: 'modules/products/client/views/commercial.html',
             })
+            .state('review-comments', {
+              url: '/review-comments',
+              templateUrl: '/modules/products/client/views/review-comments.client.view.html',
+              data: {
+                roles: ['admin']
+              }
+            })
             .state('retail', {
                 url: '/retail',
                 templateUrl: 'modules/products/client/views/retail.html',
