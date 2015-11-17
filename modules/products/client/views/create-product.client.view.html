@@ -21,6 +21,9 @@
   margin-top: 1px;
 }
 
+.feature-lt{
+  color: black;
+}
 </style>
 
 <section ng-controller="ProductsController">
@@ -140,7 +143,7 @@
 
         <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
-        <li class="list-group-item clearfix" ng-repeat="do in tempFeatures">
+        <li class="list-group-item clearfix feature-lt" ng-repeat="do in tempFeatures track by $index">
           {{do}}
         </li>
       </ul>
