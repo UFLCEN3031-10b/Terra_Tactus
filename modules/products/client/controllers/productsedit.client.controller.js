@@ -5,15 +5,12 @@ angular.module('core').controller('editProductsController', ['$window','$http','
   function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
 
-    $scope.products = [];
-    $scope.editProduct = null;
-
     $scope.delete = function (productID) {
       var conf = confirm("Are you sure you want to delete this product?");
       console.log(conf);
       if(conf){
         $http.delete('/api/products/' + productID).success(function (res) {
-            $window.location.reload();
+        $window.location.reload();
         });
       }
     };

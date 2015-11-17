@@ -14,6 +14,48 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       $scope.displayType = false;
     };
 
+    $scope.tempFeatures = [];
+
+    $scope.addFeature = function(){
+      var itemCopy = {};
+      console.log($scope.newFt);
+      if ($scope.newFt !== undefined ){
+      itemCopy = $scope.newFt;
+      $scope.tempFeatures.push(itemCopy);
+      $scope.newFt = undefined;
+    }
+    else {
+      alert("Please enter a feature");
+    }
+    };
+
+    $scope.deleteFeature = function(item){
+    console.log("in delete");
+    var index = $scope.tempFeatures.indexOf(item);
+    $scope.tempFeatures.splice(index, 1);
+  };
+
+  $scope.edits = false;
+
+  $scope.showEdits = function(item){
+    var index = $scope.tempFeatures.indexOf(item);
+    $scope.edits = true;
+    $scope.editItem = function(){
+        if($scope.editBox !== undefined){
+          $scope.tempFeatures[index] = $scope.editBox;
+          $scope.edits = false;
+          $scope.editBox = undefined;
+        }
+        else{
+          alert("Please enter a feature");
+        }
+    };
+  };
+
+  $scope.makeTempFtNull = function(){
+    $scope.tempFeatures = [];
+  };
+
     // Create new Product
     $scope.create = function (isValid) {
 
@@ -55,7 +97,8 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         indvPrice: this.indvPrice,
         eduPrice: this.eduPrice,
         wholePrice: this.wholePrice,
-        teacher: teachType
+        teacher: teachType,
+        features: this.tempFeatures
       });
 
       // Redirect after save
@@ -92,20 +135,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       });
     };
 
-    $scope.tempFeatures = [];
 
-    $scope.addFeature = function(){
-      var itemCopy = {};
-      console.log($scope.newFt);
-      if ($scope.newFt !== ""){
-      itemCopy = $scope.newFt;
-      $scope.tempFeatures.push(itemCopy);
-      $scope.newFt = "";
-    }
-    else {
-      alert("Please enter a feature");
-    }
-    };
 
 
 
