@@ -5,18 +5,32 @@ angular.module('payment').controller('AdminOrderController', ['$scope', '$http',
     $scope.isLoading = true;
     $scope.orders = [];
 
-    $scope.setActive = function (n) {
-        $scope.isLoading = true;
-        $scope.orders = [];
-        $scope.activeState = n;
-        $http.get('/api/order/list').success(function (res) {
+    var getList = function () {
+        var s = '';
+        switch ($scope.activeState) {
+            case 0:
+                s = 'Awaiting shipper confirmation';
+                break;
+            case 1:
+                s = 'Preparing for shipment';
+                break;
+            case 2:
+                s = 'Order shipped';
+                break;
+        }
+
+        $http.get('/api/order/adminctl', {activeState: s}).success(function (res) {
             $scope.orders = res;
             $scope.isLoading = false;
         });
     };
 
-    $http.get('/api/order/list').success(function (res) {
-        $scope.orders = res;
-        $scope.isLoading = false;
-    });
+    $scope.setActive = function (n) {
+        $scope.isLoading = true;
+        $scope.orders = [];
+        $scope.activeState = n;
+        getList();
+    };
+
+    getList();
 }]);
