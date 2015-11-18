@@ -3,30 +3,36 @@
 <div class="item-container">
 	<div class="container">
 		<div class="col-md-12">
-			<div class="product col-md-3">
+			<div class="product col-md-3" ng-switch on="selection">
 
-					<img src="{{product.imageUrl}}" alt="" class="img-fill">
+					<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-default></img>
+					<img src="{{product.imageTwo}}" alt="" ng-switch-when="imageTwo"></img>
+					<img src="{{product.imageThree}}" alt="" ng-switch-when="imageThree"></img>
+					<img src="{{product.imageFour}}" alt="" ng-switch-when="imageFour"></img>
 
 			</div>
 
 			<div class="container service1-items col-sm-2 col-md-2 pull-left">
 				<center>
-					<a id="item-1" class="service1-item">
-						<img src="{{product.imageUrl}}" alt="">
+					<a id="item-1" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageTwo';">
+						<img src="{{product.imageTwo}}" alt="" ng-switch-default></img>
+						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageTwo"></img>
 					</a>
-					<a id="item-2" class="service1-item">
-						<img src="{{product.imageUrl}}" alt="">
+					<a id="item-2" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageThree';">
+						<img src="{{product.imageThree}}" alt="" ng-switch-default></img>
+						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageThree"></img>
 					</a>
-					<a id="item-3" class="service1-item">
-						<img src="{{product.imageUrl}}" alt="">
-          </a>
+					<a id="item-3" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageFour';">
+						<img src="{{product.imageFour}}" alt="" ng-switch-default></img>
+						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageFour"></img>
+					</a>
 				</center>
 			</div>
 
 		<div class="col-md-7">
 			<div class="product-title" ng-bind="product.proTitle"></div>
 			<div class="product-desc" ng-bind="product.shortDes"></div>
-			<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
+			<rating ng-model="product.rating" readonly="true" class="glyphicon-star-lg"></rating>
 			<hr>
 			<div class="product-price">${{product.indvPrice}}</div>
 			<div class="product-stock" ng-show="product.proType">Cultural Product</div>
@@ -96,9 +102,43 @@
 			</tab>
 			<tab>
 				<tab-heading class="pane-titles">REVIEWS</tab-heading>
-				<leavereview></leavereview>
+			<section ng-controller="ReviewsController">
+				<div class="container">
+			    <div class="row" style="padding-top: 10px;" ng-repeat="ind_review in product.reviews track by $index" ng-if="product.reviews[$index].verified">
+			      <div class="col-md-1 col-sm-2 col-xs-3">
+			        <div class="thumbnail">
+			          <img class="img-responsive user-photo" ng-src="{{ind_review.userPicture}}">
+			        </div>
+			      </div>
+
+			      <div class="col-md-11 col-sm-11 col-xs-9">
+			        <div class="panel panel-default">
+			          <div class="panel-heading">
+			          <strong>{{ind_review.username}}</strong> <span class="text-muted">commented {{ind_review.created | date:'mediumDate'}}</span>
+			          <rating ng-model="ind_review.rating" readonly="true" class="pull-right"></rating>
+			          </div>
+			          <div class="panel-body text-primary">
+			          {{ind_review.review}}
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+
+					<form name="reviewForm" ng-submit="submitReview(reviewForm.$valid, product)" ng-if="authentication.user !== ''" novalidate> <!-- Leave a review with this form -->
+			      <div class="form-group" show-errors>
+			        <label for="comment">Your Review</label>
+			        <textarea name="review" id="review" class="form-control" place-holder="Leave a Review!" rows="3" ng-model="NewReview.review" required></textarea>
+			      </div>
+
+			      <button type="submit" class="btn btn-default">Send</button>
+						<span class="pull-right">Review Rating:</span>
+			    </form>
+					<rating max="5" ng-model="NewReview.rating" class="pull-right" ng-if="authentication.user !== ''"></rating>
+					<center ng-hide="authentication.user !== ''"><alert type="danger"><a href="/authentication/signin">Log in</a> to review a product!</alert></center>
+
 			</tab>
 		</tabset>
 	</div>
+</section>
 </div>
 </section>

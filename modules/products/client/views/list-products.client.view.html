@@ -14,11 +14,7 @@
               <div class="col-md-6 col-sm-6" ng-repeat="product in products" ng-show="{{product.proType}} === displayType">
                   <div class="store-item">
                       <div class="store-item-rating text-warning">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-half-o"></i>
+                          <rating ng-model="product.rating" readonly="true"></rating>
                       </div>
                       <div class="store-item-image">
                           <a ui-sref="product.view({productId: product._id})">
