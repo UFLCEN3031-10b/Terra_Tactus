@@ -10,6 +10,7 @@ var OrderSchema = new Schema({
     },
     user: {
         type: Schema.Types.ObjectId,
+        ref: 'User',
         default: null
     },
     cart: {
