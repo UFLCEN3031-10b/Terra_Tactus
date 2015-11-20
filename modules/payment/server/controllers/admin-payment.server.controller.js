@@ -8,7 +8,7 @@ var path = require('path'),
 exports.list = function (req, res) {
     var state = req.query.state;
 
-    Order.find({ status: state }).populate('user').exec(function (err, data) {
+    Order.find({ status: state }).populate('user').sort('-created').exec(function (err, data) {
         if (err) {
             return res.status(400).send({
                 message: 'could not query database'
