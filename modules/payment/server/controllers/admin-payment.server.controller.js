@@ -6,9 +6,7 @@ var path = require('path'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 exports.list = function (req, res) {
-    var state = req.body.activeState;
-
-    console.log(req.body);
+    var state = req.query.state;
 
     Order.find({ status: state }).exec(function (err, data) {
         if (err) {

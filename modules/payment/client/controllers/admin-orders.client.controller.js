@@ -6,20 +6,20 @@ angular.module('payment').controller('AdminOrderController', ['$scope', '$http',
     $scope.orders = [];
 
     var getList = function () {
-        var s = '';
+        var state = '';
         switch ($scope.activeState) {
             case 0:
-                s = 'Awaiting shipper confirmation';
+                state = 'Awaiting shipper confirmation';
                 break;
             case 1:
-                s = 'Preparing for shipment';
+                state = 'Preparing for shipment';
                 break;
             case 2:
-                s = 'Order shipped';
+                state = 'Order shipped';
                 break;
         }
 
-        $http.get('/api/order/adminctl', {activeState: s}).success(function (res) {
+        $http.get('/api/order/adminctl?state=' + state).success(function (res) {
             $scope.orders = res;
             $scope.isLoading = false;
         });
