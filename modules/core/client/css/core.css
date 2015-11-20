@@ -216,6 +216,8 @@ body {
 
 .clear-top-margin {
   margin-top: 0;
+  border-color: #996633;
+
 }
 .form-control {
     background-color: #222222;
@@ -225,6 +227,15 @@ body {
 .form-group {
     color: #339933;
 }
-.page-header{
+.page-header {
     color: #3366cc;
+    padding-bottom: 9px;
+    margin: 40px 0px 20px;
+    border-bottom: 1px solid #996633;
+}
+.marg-auto {
+    color: #3366cc;
+}
+.brown {
+    border-color: #996633;
 }
