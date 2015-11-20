@@ -113,7 +113,7 @@ body {
     align-items: center;
 }
 .bg-color-main {
-    background-color: black;
+    background-color: #333333;
 }
 .btn-blue {
     background-color: #3366cc;
@@ -127,7 +127,7 @@ body {
     /*font-weight: bold;*/
 }
 .bg-color-main {
-    background-color: black;
+    background-color: #333333;
 }
 .btn-green{
     -webkit-border-radius: 3px;
@@ -141,11 +141,11 @@ body {
     font-weight:bold;
     border:1px solid #339933;
     background: #339933;
-    background-image: -webkit-linear-gradient(top, #339933, #277a27);
-    background-image: -moz-linear-gradient(top, #339933, #277a27);
-    background-image: -ms-linear-gradient(top, #339933, #277a27);
-    background-image: -o-linear-gradient(top, #339933, #277a27);
-    background-image: linear-gradient(to bottom, #339933, #277a27);
+    background-image: -webkit-linear-gradient(top, #328f32, #266e26);
+    background-image: -moz-linear-gradient(top, #328f32, #266e26);
+    background-image: -ms-linear-gradient(top, #328f32, #266e26);
+    background-image: -o-linear-gradient(top, #328f32, #266e26);
+    background-image: linear-gradient(to bottom, #328f32, #266e26);
     text-decoration: none;
     color: white;
     font-size: medium;
@@ -154,12 +154,15 @@ body {
 .btn-green:hover{
     /*border:1px solid #3366cc;*/
     color: white;
-    background: #3366cc;
-    background-image: -webkit-linear-gradient(top, #3366cc, #2980b9);
-    background-image: -moz-linear-gradient(top, #3366cc, #2980b9);
-    background-image: -ms-linear-gradient(top, #3366cc, #2980b9);
-    background-image: -o-linear-gradient(top, #3366cc, #2980b9);
-    background-image: linear-gradient(to bottom, #3366cc, #2980b9);}
+
+    background: #339933;
+    background-image: -webkit-linear-gradient(top, #328f32, #266e26);
+    background-image: -moz-linear-gradient(top, #328f32, #266e26);
+    background-image: -ms-linear-gradient(top, #328f32, #266e26);
+    background-image: -o-linear-gradient(top, #328f32, #266e26);
+    background-image: linear-gradient(to bottom, #328f32, #266e26);
+    text-decoration: none;
+}
 
 
 .btn-blue{
@@ -186,13 +189,12 @@ body {
 
 .btn-blue:hover{
     /*border:1px solid #339933;*/
-    background: #339933;
-    background-image: -webkit-linear-gradient(top, #339933, #277a27);
-    background-image: -moz-linear-gradient(top, #339933, #277a27);
-    background-image: -ms-linear-gradient(top, #339933, #277a27);
-    background-image: -o-linear-gradient(top, #339933, #277a27);
-    background-image: linear-gradient(to bottom, #339933, #277a27);
-    text-decoration: none;
+    background: #3366cc;
+    background-image: -webkit-linear-gradient(top, #3361c2, #2977af);
+    background-image: -moz-linear-gradient(top, #3361c2, #2977af);
+    background-image: -ms-linear-gradient(top, #3361c2, #2977af);
+    background-image: -o-linear-gradient(top, #3361c2, #2977af);
+    background-image: linear-gradient(to bottom, #3361c2, #2977af);
     color: white;
 }
 
@@ -214,4 +216,15 @@ body {
 
 .clear-top-margin {
   margin-top: 0;
+}
+.form-control {
+    background-color: #222222;
+    color: #3366cc  ;
+    border-color: transparent;
+}
+.form-group {
+    color: #339933;
+}
+.page-header{
+    color: #3366cc;
 }

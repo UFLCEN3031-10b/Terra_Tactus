@@ -21,7 +21,7 @@
                 <div class="col-xs-8"><p>{{slide.content}}</p></div>
             </div>
             <div class="row">
-                <div class="col-xs-6 text-center"><button ng-click="setEditSlide(slide)" class="btn btn-primary">Edit</button></div>
+                <div class="col-xs-6 text-center"><button ng-click="setEditSlide(slide)" class="btn btn-blue">Edit</button></div>
                 <div class="col-xs-6 text-center"><button ng-click="delete(slide)" class="btn btn-danger">Delete</button></div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                         <textarea name="editcontent" ng-model="slide.content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
                     </div>
                     <div class="form-group text-center">
-                        <div class="col-xs-6"><input type="submit" class="btn btn-primary"></div>
+                        <div class="col-xs-6"><input type="submit" class="btn btn-blue"></div>
                         <div class="col-xs-6"><div ng-click="cancel()" class="btn btn-warning">Cancel</div></div>
                     </div>
                 </fieldset>
@@ -68,7 +68,7 @@
                     <textarea name="content" ng-model="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
                 </div>
                 <div class="form-group text-center">
-                    <input type="submit" class="btn btn-primary">
+                    <input type="submit" class="btn btn-blue">
                 </div>
             </fieldset>
         </form>

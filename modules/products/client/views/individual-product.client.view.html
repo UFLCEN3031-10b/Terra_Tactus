@@ -5,26 +5,26 @@
 		<div class="col-md-12">
 			<div class="product col-md-3" ng-switch on="selection">
 
-					<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-default></img>
-					<img src="{{product.imageTwo}}" alt="" ng-switch-when="imageTwo"></img>
-					<img src="{{product.imageThree}}" alt="" ng-switch-when="imageThree"></img>
-					<img src="{{product.imageFour}}" alt="" ng-switch-when="imageFour"></img>
+					<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-default>
+					< src="{{product.imageTwo}}" alt="" ng-switch-when="imageTwo">
+					<img src="{{product.imageThree}}" alt="" ng-switch-when="imageThree">
+					<img src="{{product.imageFour}}" alt="" ng-switch-when="imageFour">
 
 			</div>
 
 			<div class="container service1-items col-sm-2 col-md-2 pull-left">
 				<center>
 					<a id="item-1" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageTwo';">
-						<img src="{{product.imageTwo}}" alt="" ng-switch-default></img>
-						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageTwo"></img>
+						<img src="{{product.imageTwo}}" alt="" ng-switch-default>
+						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageTwo">
 					</a>
 					<a id="item-2" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageThree';">
-						<img src="{{product.imageThree}}" alt="" ng-switch-default></img>
-						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageThree"></img>
+						<img src="{{product.imageThree}}" alt="" ng-switch-default>
+						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageThree">
 					</a>
 					<a id="item-3" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageFour';">
-						<img src="{{product.imageFour}}" alt="" ng-switch-default></img>
-						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageFour"></img>
+						<img src="{{product.imageFour}}" alt="" ng-switch-default>
+						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageFour">
 					</a>
 				</center>
 			</div>
@@ -135,10 +135,10 @@
 			    </form>
 					<rating max="5" ng-model="NewReview.rating" class="pull-right" ng-if="authentication.user !== ''"></rating>
 					<center ng-hide="authentication.user !== ''"><alert type="danger"><a href="/authentication/signin">Log in</a> to review a product!</alert></center>
-
+      </div>
+        </section>
 			</tab>
 		</tabset>
 	</div>
-</section>
 </div>
 </section>

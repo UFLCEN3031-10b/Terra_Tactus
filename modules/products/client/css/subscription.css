@@ -1,6 +1,6 @@
 body {
     background-color: #333333;
-    color: white;
+    color: #3366cc;
 }
 
 .col-premium {
@@ -18,7 +18,7 @@ body {
 }
 
 .col-offers .offers {
-    background-color: #996633;
+    background-color: #3366cc;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
