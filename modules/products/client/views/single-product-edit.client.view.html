@@ -1,46 +1,79 @@
-<H1> HELLO MY WORLD </H1>
+<style>
+#editproType-cb{
+  height: 20px;
+  width: 20px;
+  padding-left: 1px;
+  margin-left: -30px;
+  margin-top: 1px;
+}
+
+#editteacher-cb{
+  height: 20px;
+  width: 20px;
+  padding-left: 1px;
+  margin-left: -30px;
+  margin-top: 1px;
+}
+
+.editfeature-lt{
+  color: black;
+}
+</style>
 
 <section ng-controller="editProductsController" ng-init="findOne()">
-    <!-- Division that will be used to repeat the product blocks -->
-    <div class="row" >
-        <div class="col-lg-10 " >
-            <div class=" col-lg-4 col-md-4 col-sm-4">
-                <div class="thumbnail product-thumb" >
-                    <div class = "label-info">
-                        <h3>{{product.proTitle}}</h3>
-                    </div>
-                    <img src ="{{product.imageUrl}}" class="img-responsive product-img" style="width:250px; height:250px;">
-                        <br>
-                        <div class="row text-center">
-                            <div class="col-md-6 col-sm-6">
-                                <a class="btn btn-primary btn-sm btn-product-edit"><span class="glyphicon glyphicon-edit">
-                                </span> Edit Product</a>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <a class="btn btn-danger btn-sm btn-product-delete">
-                                    <span class="glyphicon glyphicon-trash">
-                                    </span> Delete Product
-                                </a>
-                            </div>
-                        </div>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-      </div>
+
+      <H1> Editting [{{product.proTitle}}]  </H1>
 
       <div class="col-md-12" >
           <form name="updateProduct" class="form-horizontal" ng-submit="" novalidate>
               <fieldset>
+                <div class="checkbox">
+                  <label><input type="checkbox" ng-model="product.proType" id = "editproType-cb"><b> Product Type (Cultural=Checked / Geological = Unchecked)</b></label>
+                </div>
+                <br>
+
                 <div class="form-group">
                     <label>Product Title</label>
                     <input name="editproTitle" type="text" ng-model="product.proTitle" class="form-control" placeholder="product title">
                 </div>
                   <div class="form-group">
-                      <label>Image Url</label>
+                      <label>Representative Image</label>
                       <input name="editimageUrl" type="text" ng-model="product.imageUrl" class="form-control" placeholder="https://google.com/image.jpg" required>
                   </div>
-                  
+                  <div class="form-group">
+                      <label>Main Image</label>
+                      <input name="editimageOne" type="text" ng-model="product.imageOne" class="form-control" placeholder="https://google.com/image.jpg" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Top Left Image</label>
+                      <input name="editimageTwo" type="text" ng-model="product.imageTwo" class="form-control" placeholder="https://google.com/image.jpg" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Middle Image</label>
+                      <input name="editimageThree" type="text" ng-model="product.imageThree" class="form-control" placeholder="https://google.com/image.jpg" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Bottom Right Image</label>
+                      <input name="editimageFour" type="text" ng-model="product.imageFour" class="form-control" placeholder="https://google.com/image.jpg" required>
+                  </div>
+
+                  <div class="form-group" show-errors>
+                    <label>Short Description</label>
+                    <textarea name="editshortDes" ng-maxlength="250" ng-model="product.shortDes" class="form-control" cols="30" rows="5" placeholder="Short Description of what kit will acheive or teach" required></textarea>
+                    <div ng-messages="updateProduct.editshortDes.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Need a short description for this product.</p>
+                      <p class="help-block error-text" ng-message="maxlength">Message must not exceed 250 characters</p>
+                    </div>
+                  </div>
+
+                  <div class="form-group" show-errors>
+                    <label>Long Description</label>
+                    <textarea name="editlongDes" ng-model="product.longDes" class="form-control" cols="30" rows="5" placeholder="Long Description of what kit will contain in it and other specific details" required></textarea>
+                    <div ng-messages="updateProduct.editlongDes.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Need a long description for this product.</p>
+                    </div>
+                  </div>
+
                   <div class="form-group text-center">
                       <div class="col-xs-6"><input type="submit" class="btn btn-primary"></div>
                       <div class="col-xs-6"><div ng-click="" class="btn btn-warning">Cancel</div></div>
