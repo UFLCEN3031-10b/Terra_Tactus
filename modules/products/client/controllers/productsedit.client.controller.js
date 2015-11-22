@@ -88,38 +88,25 @@ angular.module('core').controller('editProductsController', ['$window','$http','
 
 
     //Code to Update Product
-  /*  $scope.update = function (edited_product) {
+   $scope.updateProd = function (edited_product,isValid) {
 
-      if($scope.editFeatures.length==0)
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'updateProductForm');
+        return false;
+      }
+
+      if($scope.editFeatures.length!==0)
       {
-      for (var i in $scope.product.features) {
-          $scope.editFeatures.push($scope.product.features[i]);
-      }
+      edited_product.features = $scope.editFeatures.slice();
       }
 
+      edited_product.$update(function () {
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
+      });
+      $location.path('products-edit');
 
-        var req = {
-            proType: edited_product.proType,
-            proTitle: edited_product.proTitle,
-            longDes: edited_product.longDes,
-            shortDes: edited_product.shortDes,
-            imageUrl: edited_product.imageUrl,
-            imageOne: edited_product.imageOne,
-            imageTwo: edited_product.imageTwo,
-            imageThree: edited_product.imageThree,
-            imageFour: edited_product.imageFour,
-            indvPrice: edited_product.indvPrice,
-            eduPrice: edited_product.eduPrice,
-            wholePrice: edited_product.wholePrice,
-            teacher: edited_product.teacher,
-            features: this.editFeatures
-        };
-
-        $http.put('/api/homepage/carousel/' + slide._id, req).success(function (res) {
-            makeNull();
-            $window.location.reload();
-        });
-    };*/
+    };
 
     //Get all the products
     $http.get('/api/products').success(function (res) {
