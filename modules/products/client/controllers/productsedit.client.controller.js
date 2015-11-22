@@ -105,6 +105,12 @@ angular.module('core').controller('editProductsController', ['$window','$http','
 
     };
 
+    $scope.cancelEdit = function(){
+    $location.path('products-edit');
+    };
+
+
+
     //Get all the products
     $http.get('/api/products').success(function (res) {
         $scope.products = res;
