@@ -15,8 +15,9 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       $scope.displayType = false;
     };
 
+    //Array used to hold features for a product we are creating
     $scope.tempFeatures = [];
-
+    //Function to add a feature to the tempFeature array
     $scope.addFeature = function(){
       var itemCopy = {};
       //console.log($scope.newFt);
@@ -29,15 +30,18 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       alert("Please enter a feature");
     }
     };
-
+    //Code to delete a feature from the tempFeature array
     $scope.deleteFeature = function(item){
     //console.log("in delete");
     var index = $scope.tempFeatures.indexOf(item);
     $scope.tempFeatures.splice(index, 1);
   };
 
+  //value used to hide the edit field for a feature in the create products GUI
   $scope.edits = false;
 
+  //function to show the edit field, within this function the Function
+  //to edit a feature is embedded (editItem)
   $scope.showEdits = function(item){
     var index = $scope.tempFeatures.indexOf(item);
     $scope.edits = true;
@@ -53,29 +57,25 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     };
   };
 
-  $scope.makeTempFtNull = function(){
-    $scope.tempFeatures = [];
-  };
-
     // Create new Product
     $scope.create = function (isValid) {
-
+      //Declare variables for correctly getting checkbox values
       var prodType = null;
       var teachType = null;
       $scope.error = null;
-
+      //Check if our producForm was valid, if not create function is canceled and errors show on GUI
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'productForm');
         return false;
       }
-
+      //set the correct value of the product type variable
       if(document.getElementById("proType-cb").checked) {
         prodType = true;
       }
       else {
         prodType = false;
       }
-
+      //set the correct value of the teacher variable
       if(document.getElementById("teacher-cb").checked) {
         teachType = true;
       }
