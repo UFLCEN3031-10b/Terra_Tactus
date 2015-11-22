@@ -28,5 +28,9 @@ angular.module('core.admin').run(['Menus',
         title: 'Edit Products',
         state: 'products-edit'
     });
+    Menus.addSubMenuItem('topbar', 'admin', {
+        title: 'Review Comments',
+        state: 'review-comments'
+    });
   }
 ]);

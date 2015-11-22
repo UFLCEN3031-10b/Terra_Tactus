@@ -67,10 +67,13 @@
 .product{
 	border: 1px solid #dddddd;
 	height: 321px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .product>img{
-	max-width: 230px;
+	width: 100%;
+  height: 100%;
 }
 
 .product-rating{
@@ -136,15 +139,14 @@
 	display: block;
 	float: left;
 	position: relative;
-	padding-right: 20px;
 	border-right: 1px solid #DDD;
 	border-top: 1px solid #DDD;
 	border-bottom: 1px solid #DDD;
 }
 
 .service1-item > img {
-	max-height: 110px;
-	max-width: 110px;
+	height: 100%;
+	width: 100%;
 	opacity: 0.6;
 	transition: all .2s ease-in;
 	-o-transition: all .2s ease-in;
@@ -180,7 +182,7 @@
     background-color:#0faf38;
     -moz-border-radius: 5px;
     border-radius: 10px;
-
+    text-align: center;
 }
 
 /*css for the title of the product*/
@@ -217,4 +219,22 @@
     width: 75%;
     margin-left: auto;
     margin-right: auto
+}
+
+.cart {
+  width: 60%;
+  padding-top: 2%;
+}
+
+.cart-btn {
+  width: 100%;
+}
+
+.pane-titles {
+  font-size: initial;
+}
+
+.img-full {
+  height: 100%;
+  width: 100%;
 }

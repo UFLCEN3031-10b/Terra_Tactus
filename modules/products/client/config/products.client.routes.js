@@ -11,6 +11,10 @@ angular.module('products').config(['$stateProvider',
                 url: '/product',
                 templateUrl: 'modules/products/client/views/individual-product.client.view.html'
             })
+            .state('product.view', {
+                url: '/:productId',
+                templateUrl: 'modules/products/client/views/individual-product.client.view.html'
+            })
             .state('products-edit', {
                 url: '/products-edit',
                 templateUrl: 'modules/products/client/views/products-edit.html',
@@ -21,6 +25,13 @@ angular.module('products').config(['$stateProvider',
             .state('create-product', {
                 url: '/create-product',
                 templateUrl: 'modules/products/client/views/create-product.client.view.html',
+                data: {
+                  roles: ['admin']
+                }
+            })
+            .state('product-edit', {
+                url: '/product-edit/:productId',
+                templateUrl: 'modules/products/client/views/single-product-edit.client.view.html',
                 data: {
                   roles: ['admin']
                 }
@@ -36,6 +47,13 @@ angular.module('products').config(['$stateProvider',
             .state('commercial', {
                 url: '/commercial',
                 templateUrl: 'modules/products/client/views/commercial.html',
+            })
+            .state('review-comments', {
+              url: '/review-comments',
+              templateUrl: '/modules/products/client/views/review-comments.client.view.html',
+              data: {
+                roles: ['admin']
+              }
             })
             .state('retail', {
                 url: '/retail',

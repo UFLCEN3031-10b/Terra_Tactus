@@ -5,6 +5,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
   function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
     $scope.displayType = false; //initialized cultural
+    $scope.selection = 'imageOne';
 
     $scope.displayCultural = function () {
       $scope.displayType = true;
@@ -14,25 +15,67 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       $scope.displayType = false;
     };
 
+    //Array used to hold features for a product we are creating
+    $scope.tempFeatures = [];
+    //Function to add a feature to the tempFeature array
+    $scope.addFeature = function(){
+      var itemCopy = {};
+      //console.log($scope.newFt);
+      if ($scope.newFt !== undefined ){
+      itemCopy = $scope.newFt;
+      $scope.tempFeatures.push(itemCopy);
+      $scope.newFt = undefined;
+    }
+    else {
+      alert("Please enter a feature");
+    }
+    };
+    //Code to delete a feature from the tempFeature array
+    $scope.deleteFeature = function(item){
+    //console.log("in delete");
+    var index = $scope.tempFeatures.indexOf(item);
+    $scope.tempFeatures.splice(index, 1);
+  };
+
+  //value used to hide the edit field for a feature in the create products GUI
+  $scope.edits = false;
+
+  //function to show the edit field, within this function the Function
+  //to edit a feature is embedded (editItem)
+  $scope.showEdits = function(item){
+    var index = $scope.tempFeatures.indexOf(item);
+    $scope.edits = true;
+    $scope.editItem = function(){
+        if($scope.editBox !== undefined){
+          $scope.tempFeatures[index] = $scope.editBox;
+          $scope.edits = false;
+          $scope.editBox = undefined;
+        }
+        else{
+          alert("Please enter a feature");
+        }
+    };
+  };
+
     // Create new Product
     $scope.create = function (isValid) {
-
+      //Declare variables for correctly getting checkbox values
       var prodType = null;
       var teachType = null;
       $scope.error = null;
-
+      //Check if our producForm was valid, if not create function is canceled and errors show on GUI
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'productForm');
         return false;
       }
-
+      //set the correct value of the product type variable
       if(document.getElementById("proType-cb").checked) {
         prodType = true;
       }
       else {
         prodType = false;
       }
-
+      //set the correct value of the teacher variable
       if(document.getElementById("teacher-cb").checked) {
         teachType = true;
       }
@@ -55,7 +98,8 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         indvPrice: this.indvPrice,
         eduPrice: this.eduPrice,
         wholePrice: this.wholePrice,
-        teacher: teachType
+        teacher: teachType,
+        features: this.tempFeatures
       });
 
       // Redirect after save
@@ -68,9 +112,6 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
 
       console.log('Product has been created');
     };
-
-    //editting shows
-    $scope.isEditing = false;
 
     // Find a list of Products
     $scope.find = function () {
@@ -91,6 +132,10 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
           $location.path('cart');
       });
     };
+
+
+
+
 
   }
 ]);
