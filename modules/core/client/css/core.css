@@ -242,3 +242,6 @@ body {
 .row > .col-md-8 > .h3 {
     color: #339933;
 }
+.customisable-border.thm.dark {
+    border-color: #996633;
+}

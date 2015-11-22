@@ -12,7 +12,7 @@
 .navbar-default {
     background-color: #333333;
     border-color: #996633;
-    border-bottom: 2px solid #996633s;
+    border-bottom: 2px solid #996633;
 
 
 }
@@ -62,11 +62,6 @@
     background-color: #339933;
 }
 
-@-moz-document url-prefix() {
-    .navbar-header > .navbar-brand {
-        margin-right: -125px;
-    }
-}
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #777;
