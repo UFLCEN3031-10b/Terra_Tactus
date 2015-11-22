@@ -41,9 +41,9 @@
           <div class="page-header clear-top-margin">
             <h1 class="clear-margins">Announcements</h1>
           </div>
-          <section ng-controller="AnnouncementsController" ng-init="find()" class="half-section brown">
+          <section ng-controller="AnnouncementsController" ng-init="find()" class="half-section">
                   <div class="list-group">
-                    <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item">
+                    <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item brown">
                       <div ng-hide="isEditing">
                       <h4 class="list-group-item-heading" ng-bind="announcement.title"></h4>
                       <div>

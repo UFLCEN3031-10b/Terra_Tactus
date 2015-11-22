@@ -226,6 +226,7 @@ body {
 }
 .form-group {
     color: #339933;
+    /*border-color: #996633;*/
 }
 .page-header {
     color: #3366cc;
@@ -242,6 +243,6 @@ body {
 .row > .col-md-8 > .h3 {
     color: #339933;
 }
-.customisable-border.thm.dark {
+.customisable-border.thm-dark, .thm-dark .customisable-border {
     border-color: #996633;
 }
