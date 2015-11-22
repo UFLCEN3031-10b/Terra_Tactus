@@ -81,6 +81,10 @@ var ProductSchema = new Schema({
       default: false,
       trim: true
     },
+    features: {
+      type: [String],
+      default: []
+    },
     rating: {
       type: Number,
       default: 0,
