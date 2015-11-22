@@ -25,9 +25,13 @@ exports.update = function (req, res) {
     d.wholePrice = req.body.wholePrice;
     d.teacher = req.body.teacher;
     d.features = req.body.features;
+    d.reviews = req.body.reviews;
+    d.rating = req.body.rating;
+    d.numberVerified = req.body.numberVerified;
 
     d.save(function (err) {
         if (err) {
+          console.log(d);
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
