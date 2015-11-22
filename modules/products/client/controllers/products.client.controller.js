@@ -19,7 +19,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
 
     $scope.addFeature = function(){
       var itemCopy = {};
-      console.log($scope.newFt);
+      //console.log($scope.newFt);
       if ($scope.newFt !== undefined ){
       itemCopy = $scope.newFt;
       $scope.tempFeatures.push(itemCopy);
@@ -31,7 +31,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     };
 
     $scope.deleteFeature = function(item){
-    console.log("in delete");
+    //console.log("in delete");
     var index = $scope.tempFeatures.indexOf(item);
     $scope.tempFeatures.splice(index, 1);
   };

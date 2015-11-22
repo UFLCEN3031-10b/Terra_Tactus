@@ -29,7 +29,6 @@ angular.module('core').controller('editProductsController', ['$window','$http','
       $scope.product = Products.get({
         productId: $stateParams.productId
       });
-
     };
 
     //editting features
@@ -38,20 +37,18 @@ angular.module('core').controller('editProductsController', ['$window','$http','
 
     $scope.startFeaturesEdit = function(product){
       //alert($scope.editFeatures.length);
-
-      alert(product.features);
+      //alert(product.features);
       for (var i in $scope.product.features) {
           $scope.editFeatures.push($scope.product.features[i]);
       }
       //alert($scope.editFeatures.length);
       $scope.editingFeatures = true;
       $scope.decideToEdit = false;
-
     };
 
     $scope.addFeature_edit = function(){
       var itemCopy = {};
-      console.log($scope.newFt_edit);
+      //console.log($scope.newFt_edit);
       if ($scope.newFt_edit !== undefined ){
       itemCopy = $scope.newFt_edit;
       $scope.editFeatures.push(itemCopy);
@@ -63,7 +60,7 @@ angular.module('core').controller('editProductsController', ['$window','$http','
     };
 
     $scope.deleteFeature_edit = function(item){
-    console.log("in delete");
+    //console.log("in delete");
     var index = $scope.editFeatures.indexOf(item);
     $scope.editFeatures.splice(index, 1);
     };
