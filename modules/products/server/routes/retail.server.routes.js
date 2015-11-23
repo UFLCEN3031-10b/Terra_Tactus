@@ -1,7 +1,7 @@
 /**
  * Created by memamdie on 11/23/15.
  */
-'use strict'
+'use strict';
 var retailData = require('../controllers/retail.server.controller');
 
 module.exports = function (app) {
