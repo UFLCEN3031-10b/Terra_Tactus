@@ -46,12 +46,12 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-5 text-center">
-                <button ng-hide="activeState === 0" ng-click="" class="btn btn-primary">Previous</button>
-                <button ng-show="activeState === 0" ng-click="" class="btn btn-primary disabled">Previous</button>
+                <button ng-hide="activeState === 0" ng-click="update(false, order)" class="btn btn-primary">Previous</button>
+                <button ng-show="activeState === 0" ng-click="update(false, order)" class="btn btn-primary disabled">Previous</button>
             </div>
             <div class="col-md-5 text-center">
-                <button ng-hide="activeState === 2" ng-click="" class="btn btn-primary">Next</button>
-                <button ng-show="activeState === 2" ng-click="" class="btn btn-primary disabled">Next</button>
+                <button ng-hide="activeState === 2" ng-click="update(true, order)" class="btn btn-primary">Next</button>
+                <button ng-show="activeState === 2" ng-click="update(true, order)" class="btn btn-primary disabled">Next</button>
             </div>
         </div>
         <hr>

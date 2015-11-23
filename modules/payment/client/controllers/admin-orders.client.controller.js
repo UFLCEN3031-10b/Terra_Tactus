@@ -32,5 +32,26 @@ angular.module('payment').controller('AdminOrderController', ['$scope', '$http',
         getList();
     };
 
+    $scope.update = function (upOrDown, order) {
+        var n = (upOrDown) ? $scope.activeState + 1: $scope.activeState - 1;
+
+        var state = '';
+        switch (n) {
+            case 0:
+                state = 'Awaiting shipper confirmation';
+                break;
+            case 1:
+                state = 'Preparing for shipment';
+                break;
+            case 2:
+                state = 'Order shipped';
+                break;
+        }
+
+        $http.put('/api/order/adminctl/' + order._id, { newStatus: state }).success(function (res) {
+            getList();
+        });
+    };
+
     getList();
 }]);

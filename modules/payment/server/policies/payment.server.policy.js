@@ -10,6 +10,9 @@ exports.invokeRolesPolicies = function () {
         allows: [{
             resources: '/api/order/adminctl',
             permissions: '*'
+        }, {
+            resources: '/api/order/adminctl/:orderId',
+            permissions: '*'
         }]
     }]);
 };
