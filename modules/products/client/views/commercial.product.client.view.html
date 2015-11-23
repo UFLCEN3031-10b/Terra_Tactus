@@ -1,12 +1,12 @@
 <section ng-controller="CommercialProdController">
   <head>
-  <section id="section-commercial">
+  <section id="section-commercial" style="background-image:url({{commercialData.pictureUrl}})">
     <div class="container">
       <div class="row">
         <div class="banner-content text-center">
           <h2 class="title">
             <div class="line-top"></div>
-            *Insert quote about inspiring children to learn here*
+            {{commercialData.quote}}
             <div class="line-btm"></div>
           </h2>
         </div>
@@ -22,11 +22,7 @@
     </div>
     <div class="commercialInfo">
       <h3>These are the perks you get.</h3>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-      <li>Aliquam semper viverra eros ac vulputate.</li>
-      <li>Morbi porttitor ullamcorper sem in pellentesque.</li>
-      <li>Proin et ullamcorper sem, varius dapibus lacus.</li>
-      <li>Sed erat quam, volutpat sit amet nibh eget, lobortis fringilla lorem.</li></p>
+      <p>{{commercialData.description}}</p>
   </div><br>
 
   <section ng-controller="ProductsController" ng-init="find()">

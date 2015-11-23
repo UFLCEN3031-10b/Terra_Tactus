@@ -40,6 +40,14 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         roles: ['admin']
       }
     })
+    //adding an edit-commercial page
+    .state('commercial-edit', {
+      url: '/commercial/edit',
+      templateUrl: 'modules/products/client/views/commercialedit.product.client.view.html',
+      data: {
+        roles: ['admin']
+      }
+    })
     .state('forbidden', {
       url: '/forbidden',
       templateUrl: 'modules/core/client/views/403.client.view.html',
