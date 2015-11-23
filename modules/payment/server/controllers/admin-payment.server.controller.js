@@ -19,4 +19,21 @@ exports.list = function (req, res) {
     });
 };
 
-exports.update = function (req, res) {};
+exports.update = function (req, res) {
+    if (!req.order) {
+        return res.status(400).send({
+            message: "Order undefined"
+        });
+    }
+
+    req.order.status = req.body.newStatus;
+    req.order.save(function (err) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.json(req.order);
+        }
+    });
+};
