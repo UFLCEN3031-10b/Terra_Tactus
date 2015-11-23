@@ -31,3 +31,38 @@ exports.list = function(req, res){
       }
   });
 };
+
+exports.remove = function(req, res){
+  var deleteVReq = req.vRequest;
+
+  deleteVReq.remove(function (err) {
+      if (err) {
+          return res.status(400).send({
+              message: errorHandler.getErrorMessage(err)
+          });
+      } else {
+          res.json(deleteVReq);
+      }
+  });
+};
+
+exports.vReqByID = function(req, res, next, id) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).send({
+            message: 'VReq is invalid'
+        });
+    }
+
+    VerificationRequest.findById(id).exec(function (err, vReq) {
+        if (err) {
+            return next(err);
+        } else if(!vReq) {
+            return res.status(404).send({
+                message: 'vReq ID not found'
+            });
+        }
+
+        req.vRequest = vReq;
+        next();
+    });
+};

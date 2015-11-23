@@ -54,7 +54,7 @@
                                 </span>
                                 <input name="quan" type="text" ng-model="prodWrap.editQuantity" class=" form-control pull-left" placeholder="0" required>
                                 <span class="input-group-btn">
-                                    <input name="submit" type="submit" value="Update" class="btn btn-blue pull-right">
+                                    <input name="submit" type="submit" value="Update" class="btn btn-primary pull-right">
                                 </span>
                             </div>
                         </fieldset>
@@ -74,7 +74,15 @@
             <div ng-click="clearCart()" class="btn btn-danger">Clear Cart</div>
         </div>
         <div class="col-md-6 col-xs-12 text-center">
-            <div ng-click="checkout()" class="btn btn-blue">Checkout!</div>
+            <div ng-show="checkoutState === 0" ng-click="checkout()" class="btn btn-primary disabled">
+                Checkout!
+            </div>
+            <div ng-show="checkoutState === 1" ng-click="checkout()" class="btn btn-primary">
+                Checkout!
+            </div>
+            <div ng-show="checkoutState === 2" ng-click="checkout()" class="btn btn-primary disabled">
+                <i class="fa fa-cog fa-spin"></i> Processing...
+            </div>
         </div>
         <div class="col-md-3 col-xs-12 text-center">
             <p>Total: ${{totalPrice.toFixed(2)}}</p>
