@@ -1,3 +1,11 @@
+<style>
+  @-moz-document url-prefix() {
+    .navbar-header > .navbar-brand {
+      margin-right: -128px;
+    }
+  }
+</style>
+
 <section ng-controller="HomeController">
     <section id="home-section" class="row">
         <div class="col-md-9">
@@ -19,13 +27,13 @@
 
             <div id="about" class="row">
                 <div class="col-md-8">
-                    <h3>About Us</h3><hr>
+                    <h3>About Us</h3><hr class = "brown">
                     <p>{{aboutUsText}}</p>
                     <!--<h4 class="text-center"><a href="#product-section"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a></h4>-->
                 </div>
 
                 <div class="col-md-4 vcenter" style="height: 37vh;">
-                    <img id="about-image" src="{{aboutUsImage}}" alt="Oops.">
+                    <img id="about-image" src="modules/core/client/img/brand/logo.png" alt="Oops.">
                 </div>
             </div>
         </div>
@@ -35,7 +43,7 @@
           </div>
           <section ng-controller="AnnouncementsController" ng-init="find()" class="half-section">
                   <div class="list-group">
-                    <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item">
+                    <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item brown">
                       <div ng-hide="isEditing">
                       <h4 class="list-group-item-heading" ng-bind="announcement.title"></h4>
                       <div>

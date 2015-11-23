@@ -1,24 +1,24 @@
 body {
-    background-color: black;
+    background-color: #333333;
     color: white;
 }
 
 .col-premium {
-    background-color: #2e2f33;
+    background-color: #222222;
     color: white;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
 }
 .col-premium .checked {
-    color: #00DD00;
+    color: #339933;
 }
 .col-free .checked {
-    color: #00DD00;
+    color: #339933;
 }
 
 .col-offers .offers {
-    background-color: #2e2f33;
+    background-color: #3366cc;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -32,7 +32,7 @@ body {
 
 /***SET THE BUTTON'S HOVER AND FOCUS STATES***/
 #section-banner{
-    background: url(http://www.premiumtours.co.uk/images/product/original/59_1.jpg);
+    background: url(http://pre14.deviantart.net/293d/th/pre/f/2007/205/d/3/black_rocks_by_vraxor22.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -43,26 +43,26 @@ h2.title{
     font-size: 60px;
     line-height:60px;
     color: #fff;
-    border-color: #00DD00;
+    border-color: #339933;
     border-radius: 10%;
     font-weight: 700;
     text-transform: uppercase;
 }
 
 h2 {
-    color: #00DD00;
+    color: #339933;
 }
 .line-top{
     width: 930px;
-    color: #fff;
-    background: #fff;
+    color: #996633;
+    background: #996633;
     height: 2px;
     margin: 32px auto;
 }
 .line-btm{
     width: 930px;
-    color: #fff;
-    background: #fff;
+    color: #996633;
+    background: #996633;
     height: 2px;
     margin: 32px auto;
 }

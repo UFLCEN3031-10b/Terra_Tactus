@@ -1,8 +1,8 @@
 #teacher-section {
-    background-color: #2e2f33;
+    background-color: #222222;
     padding: 2%;
     border-radius: 25px;
-    color: #00DD00;
+    color: #339933;
 
 }
 .center{
@@ -12,13 +12,12 @@
     text-align: center;
 }
 .commercialInfo {
-    background-color: #2e2f33;
+    background-color: #222222;
     padding: 1%;
     border-radius: 25px;
     font-size: 125%;
 }
 #section-commercial{
-    background: url(http://www.premiumtours.co.uk/images/product/original/59_1.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
 }
