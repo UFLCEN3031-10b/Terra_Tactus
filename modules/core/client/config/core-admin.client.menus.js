@@ -33,8 +33,16 @@ angular.module('core.admin').run(['Menus',
       state: 'products-edit'
     });
     Menus.addSubMenuItem('topbar', 'admin', {
-      title: 'Edit Commercial Page',
+      title: 'Edit Commercial',
       state: 'commercial-edit'
+    });
+    Menus.addSubMenuItem('topbar', 'admin', {
+      title: 'Edit Subscriptions',
+      state: 'subscriptions-edit'
+    });
+    Menus.addSubMenuItem('topbar', 'admin', {
+      title: 'Edit Retail',
+      state: 'retail-edit'
     });
 
   }

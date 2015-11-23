@@ -38,7 +38,7 @@ angular.module('products').config(['$stateProvider',
             })
             .state('subscriptions', {
                 url: '/subscriptions',
-                templateUrl: 'modules/products/client/views/subscriptions.html'
+                templateUrl: 'modules/products/client/views/subscriptions.product.client.view.html'
             })
             .state('cart', {
                 url: '/cart',
@@ -57,7 +57,7 @@ angular.module('products').config(['$stateProvider',
             })
             .state('retail', {
                 url: '/retail',
-                templateUrl: 'modules/products/client/views/retail.html',
+                templateUrl: 'modules/products/client/views/retail.product.client.view.html',
             });
     }
 ]);

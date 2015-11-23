@@ -48,6 +48,22 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         roles: ['admin']
       }
     })
+    //adding an edit-retail page
+    .state('retail-edit', {
+      url: '/retail/edit',
+      templateUrl: 'modules/products/client/views/retailedit.product.client.view.html',
+      data: {
+        roles: ['admin']
+      }
+    })
+    //adding an edit-subscription page
+    .state('subscription-edit', {
+      url: '/subscription/edit',
+      templateUrl: 'modules/products/client/views/subscriptionedit.product.client.view.html',
+      data: {
+        roles: ['admin']
+      }
+    })
     .state('forbidden', {
       url: '/forbidden',
       templateUrl: 'modules/core/client/views/403.client.view.html',
