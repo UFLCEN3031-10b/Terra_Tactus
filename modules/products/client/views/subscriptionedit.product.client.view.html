@@ -1,0 +1,24 @@
+<section ng-controller="SubscriptionEditController">
+  <div class="page-header">
+    <h1>Edit Subscription Data</h1>
+  </div>
+  <form name="subscriptionDataForm" class="form-horizontal col-md-12" ng-submit="subscriptionUpdate()" novalidate>
+    <fieldset>
+      <div class="form-group">
+        <label>Quote to go over image</label>
+        <textarea name="quote" ng-model="subscriptionData.quote" class="form-control" cols="30" rows="5" placeholder="Enter text here..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Picture URL</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.pictureUrl" class="form-control" placeholder="https://www.thisisalink.com/image.jpg" required>
+      </div>
+      <div class="form-group">
+        <label>What you get text</label>
+        <textarea name="description" ng-model="subscriptionData.description" class="form-control" placeholder="Enter text here..." cols="30" rows="5" required></textarea>
+      </div>
+      <div class="form-group text-center">
+        <input type="submit" class="btn btn-blue">
+      </div>
+    </fieldset>
+  </form>
+</section>

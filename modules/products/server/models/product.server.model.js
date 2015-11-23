@@ -96,7 +96,7 @@ var ProductSchema = new Schema({
       trim: true
     },
     reviews: {
-      type: [ReviewSchema],
+      type: [ReviewSchema]
     }
 
 });

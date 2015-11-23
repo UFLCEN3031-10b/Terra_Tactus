@@ -12,47 +12,21 @@
     padding-bottom: 25px;
   }
 </style>
-<html lang="en">
-<head>
+<section id="section-banner" ng-controller="SubscriptionProdController">
+  <div class="banner-content text-center" style="background-image:url({{subscriptionData.pictureUrl}})">
+    <h2 class="title">{{subscriptionData.quote}}</h2>
+    <a href="#learnMore" class="btn btn-blue btn-product">Learn More</a>
+  </div>
 
-  <section id="section-banner">
-    <div class="container">
-      <div class="row">
-        <div class="banner-content text-center">
-          <h2 class="title">
-            <div class="line-top"></div>
-            Explore the world, culturally and geographically!
-            <div class="line-btm"></div>
-          </h2>
-          <a href="#learnMore" class="btn btn-blue btn-product">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</head>
-<body>
   <div class="row">
     <div class="col-md-5 col-premium">
       <h2>Geological</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Aliquam semper viverra eros ac vulputate.
-        Morbi porttitor ullamcorper sem in pellentesque.
-        Proin et ullamcorper sem, varius dapibus lacus.
-        Sed erat quam, volutpat sit amet nibh eget, lobortis fringilla lorem.
-      </p>
+      <p>{{subscriptionData.geologicalData}}</p>
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-5 col-premium">
       <h2>Cultural</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Aliquam semper viverra eros ac vulputate.
-        Morbi porttitor ullamcorper sem in pellentesque.
-        Proin et ullamcorper sem, varius dapibus lacus.
-        Sed erat quam, volutpat sit amet nibh eget, lobortis fringilla lorem.
-      </p>
+      <p> {{subscriptionData.culturalData}}</p>
     </div>
   </div>
   <section id="learnMore"><br><br>
@@ -61,15 +35,9 @@
       <div class="row">
         <div class="col-md-4 col-premium">
           <div class="text-center">
-            <h2>Monthly</h2>
-            <p class="price green">$9.99 <span class="small-down">/month</span></p>
-            <p class="green">Try it for 30 days</p>
-            <strong>
-              <p>Lorem ipsum dolor</p>
-              <p>Lorem ipsum dolor</p>
-              <p>Lorem ipsum dolor</p>
-              <p>Lorem ipsum dolor</p>
-            </strong>
+            <h2>{{subscriptionData.subscriptionOne}}</h2>
+            <p class="price green">{{subscriptionData.subscriptionOnePrice}}</p>
+            <p class="green">{{subscriptionData.subscriptionOneDesc}}</p>
             <a href="../authentication/signin.client.view.html" class="btn btn-blue btn-product">
               Purchase one kit now!
             </a><br>
@@ -77,16 +45,9 @@
         </div>
         <div class="col-md-4 col-premium">
           <div class="text-center">
-            <h2>6 Month Subscription</h2>
-            <p class="price green">$9.99 <span class="small-down">/month</span></p>
-            <p class="green">Try it for half the year</p>
-            <strong>
-              <p>Lorem ipsum dolor </p>
-              <p>Lorem ipsum dolor </p>
-              <p>Lorem ipsum dolor </p>
-              <p>Lorem ipsum dolor </p>
-            </strong>
-
+            <h2>{{subscriptionData.subscriptionTwo}}</h2>
+            <p class="price green">{{subscriptionData.subscriptionTwoPrice}}</p>
+            <p class="green">{{subscriptionData.subscriptionTwoDesc}}</p>
             <a href="../authentication/signin.client.view.html" class="btn btn-blue btn-product">
               Receive one kit a month!
             </a><br>
@@ -108,9 +69,8 @@
               Subscribe for a year
             </a><br>
           </div>
+          </div>
         </div>
       </div>
-    </div>
   </section>
-</body>
-</html>
+</section>
