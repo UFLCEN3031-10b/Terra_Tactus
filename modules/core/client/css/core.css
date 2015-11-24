@@ -83,11 +83,11 @@ body {
 }
 
 #product-info-blue {
-    background-color: #339933;
+    background-color: #3366cc;
 }
 
 #product-info-green {
-    background-color: #3366cc;
+    background-color: #339933;
 }
 
 .contact-info > div {
@@ -116,7 +116,7 @@ body {
     background-color: #333333;
 }
 .btn-blue {
-    background-color: #339933;
+    background-color: #3366cc;
     /*changed colors to increase contrast*/
 }
 
