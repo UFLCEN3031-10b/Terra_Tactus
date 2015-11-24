@@ -5,6 +5,8 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
   function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
     $scope.displayType = false; //initialized cultural
+
+    //individual product image picker function
     $scope.selection = 'imageOne';
     $scope.imageSelector = function (imagePick) {
       if (imagePick !== $scope.selection) {
@@ -14,12 +16,33 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       }
     };
 
+    //two different product types (change to ng-switch eventually)
     $scope.displayCultural = function () {
       $scope.displayType = true;
     };
 
     $scope.displayGeological = function () {
       $scope.displayType = false;
+    };
+
+    //array for temporary headers
+    $scope.tempTable = [];
+    $scope.tempNewRow = [];
+    $scope.amountOfColumns = [1,2,3];
+
+    //Function to add a header
+    $scope.addNewRow = function() {
+      if ($scope.tempNewRow.length !== 3) {
+        alert("err please fill out all columns of table!");
+        return false;
+      }
+      $scope.tempTable.push($scope.tempNewRow);
+      $scope.tempNewRow = [];
+    };
+
+    //deletes a row on the table
+    $scope.deleteRow = function(index) {
+      $scope.tempTable.splice(index,1);
     };
 
     //Array used to hold features for a product we are creating
