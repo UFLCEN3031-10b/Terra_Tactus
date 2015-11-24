@@ -27,7 +27,7 @@
 
             <div id="about" class="row">
                 <div class="col-md-8">
-                    <h3>About Us</h3><hr class = "brown">
+                    <h3>About Us</h3><hr>
                     <p>{{aboutUsText}}</p>
                     <!--<h4 class="text-center"><a href="#product-section"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a></h4>-->
                 </div>
@@ -43,7 +43,7 @@
           </div>
           <section ng-controller="AnnouncementsController" ng-init="find()" class="half-section">
                   <div class="list-group">
-                    <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item brown">
+                    <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item">
                       <div ng-hide="isEditing">
                       <h4 class="list-group-item-heading" ng-bind="announcement.title"></h4>
                       <div>

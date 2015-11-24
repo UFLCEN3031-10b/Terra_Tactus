@@ -2,7 +2,7 @@
 
 angular.module('core').controller('TabsCtrl', ['$scope', function ($scope) {
     $scope.tabs = [{
-            title: 'Cultural Products',
+            title: 'Country Products',
             url: 'one.tpl.html'
         }, {
             title: 'Geological Products',
