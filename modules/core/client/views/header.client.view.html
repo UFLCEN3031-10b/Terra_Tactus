@@ -6,7 +6,6 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <!-- <a ui-sref="home" class="navbar-brand">Terra Tactus</a> -->
     <a ui-sref="home" class="navbar-brand"><img style="height: 250%; margin-top: -15px;" src="modules/core/client/img/brand/logo.png"></a>
   </div>
   <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
@@ -44,6 +43,9 @@
         <ul class="dropdown-menu" role="menu">
           <li ui-sref-active="active" class="text-center" style="color:black">
             User Type: {{authentication.user.priceRoles.toString()}}
+          </li>
+          <li ui-sref-active="active">
+             <a ui-sref="user-orders">View Orders</a>
           </li>
           <li ui-sref-active="active">
             <a ui-sref="settings.profile">Edit Profile</a>

@@ -1,0 +1,64 @@
+<div ng-init="vRequestsList()">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 ng-bind="vRequest.user[0].username"></h1>
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-success" ng-click="userUpdate()">
+          Approve  <i class="glyphicon glyphicon-ok"></i>
+        </a>
+        <a class="btn btn-danger" ng-click="deleteVReq()">
+          Deny  <i class="glyphicon glyphicon-remove"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-3"><strong>First Name</strong></div>
+        <div class="col-md-6" ng-bind="vRequest.user[0].firstName"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><strong>Last Name</strong></div>
+        <div class="col-md-6" ng-bind="vRequest.user[0].lastName"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><strong>Email</strong></div>
+        <div class="col-md-6" ng-bind="vRequest.user[0].email"></div>
+      </div>
+      <hr/>
+      <div ng-show="showWholesale && !showEducation">
+        <div class = "row">
+          <div class = "col-md-3"><strong>DOB</strong></div>
+          <div class = "col-md-6" ng-bind="vRequest.DOB"></div>
+        </div>
+        <hr/>
+        <div class = "row">
+          <div class = "col-md-3"><strong>SSN</strong></div>
+          <div class = "col-md-6" ng-bind="vRequest.SSN"></div>
+        </div>
+      </div>
+      <div ng-show="showEducation && !showWholesale">
+        <div class = "row">
+          <div class = "col-md-3"><strong>State</strong></div>
+          <div class = "col-md-6" ng-bind="vRequest.state"></div>
+        </div>
+        <hr/>
+        <div class = "row">
+          <div class = "col-md-3"><strong>TID</strong></div>
+          <div class = "col-md-6" ng-bind="vRequest.TID"></div>
+        </div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><strong>Roles</strong></div>
+        <div class="col-md-6" ng-bind="vRequest.user[0].roles"></div>
+      </div>
+    </div>
+  </div>
+</div>

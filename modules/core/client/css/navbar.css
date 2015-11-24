@@ -11,55 +11,55 @@
 /* navbar */
 .navbar-default {
     background-color: #333333;
-    border-color: #996633;
-    border-bottom: 2px solid #996633;
+    border-color: white;
+    border-bottom: 2px solid #3366cc;
 
 
 }
 /* title */
 .navbar-default .navbar-brand {
-    color: #339933;
+    color: #3366cc;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #339933;
+    color: #3366cc;
     background-color: #343335;
 }
 /* link */
 .navbar-default .navbar-nav > li > a {
-    color: #339933;
+    color: #3366cc;
     text-shadow: none;
 
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #FFFFFF;
-    background-color: #3366cc;
+    background-color: #339933;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
     color: #FFFFFF;
-    background-color: #3366cc;
+    background-color: #339933;
     background-image: none;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-    color: #339933;
-    background-color: #3366cc;
+    color: #3366cc;
+    background-color: #339933;
     background-image: none;
 }
 /* mobile version */
 .navbar-default .navbar-toggle {
-    border-color: #339933;
+    border-color: #3366cc;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #3366cc;
+    background-color: #339933;
 }
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #339933;
+    background-color: #3366cc;
 }
 
 @media (max-width: 767px) {
@@ -85,7 +85,7 @@
 /* secondary navbar coloring */
 /* link */
 .secondary-nav .navbar-nav > li > a {
-    color: #3366cc;
+    color: #339933;
     font-weight: bold;
     text-shadow: none;
 }
@@ -93,21 +93,21 @@
 .secondary-nav .navbar-nav > li > a:focus {
     color: #FFFFFF;
     font-weight: bold;
-    background-color: #339933;
+    background-color: #3366cc;
 }
 .secondary-nav .navbar-nav > .active > a,
 .secondary-nav .navbar-nav > .active > a:hover,
 .secondary-nav .navbar-nav > .active > a:focus {
     color: #FFFFFF;
     font-weight: bold;
-    background-color: #3366cc;
+    background-color: #339933;
     background-image: none;
 }
 .secondary-nav .navbar-nav > .open > a,
 .secondary-nav .navbar-nav > .open > a:hover,
 .secondary-nav .navbar-nav > .open > a:focus {
-    color: #339933;
-    background-color: #3366cc;
+    color: #3366cc;
+    background-color: #339933;
     background-image: none;
 }
 
@@ -118,5 +118,5 @@
 }
 
 .secondary-nav .btn {
-    background-color: #339933;
+    background-color: #3366cc;
 }

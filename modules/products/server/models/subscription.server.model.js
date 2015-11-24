@@ -13,49 +13,55 @@ var SubscriptionSchema = new Schema({
     quote: {
         type: String
     },
-    description: {
+    typeOne: {
         type: String
     },
-    geologicalData: {
+    typeTwo: {
         type: String
     },
-    culturalData: {
+    typeOneData: {
         type: String
     },
-    subscriptionOnePrice: {
+    typeTwoData: {
         type: String
     },
-    subscriptionTwoPrice: {
+    grabber: {
         type: String
     },
-    subscriptionThreePrice: {
+    modelOnePrice: {
         type: String
     },
-    subscriptionOne: {
+    modelTwoPrice: {
         type: String
     },
-    subscriptionTwo: {
+    modelThreePrice: {
         type: String
     },
-    subscriptionThree: {
+    modelOne: {
         type: String
     },
-    subscriptionOneDesc: {
+    modelTwo: {
         type: String
     },
-    subscriptionTwoDesc: {
+    modelThree: {
         type: String
     },
-    subscriptionThreeDesc: {
+    modelOneDesc: {
         type: String
     },
-    subscriptionOneBtn: {
+    modelTwoDesc: {
         type: String
     },
-    subscriptionTwoBtn: {
+    modelThreeDesc: {
         type: String
     },
-    subscriptionThreeBtn: {
+    modelOneBtn: {
+        type: String
+    },
+    modelTwoBtn: {
+        type: String
+    },
+    modelThreeBtn: {
         type: String
     }
 });

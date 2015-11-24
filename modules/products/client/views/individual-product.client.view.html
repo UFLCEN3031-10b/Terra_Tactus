@@ -6,7 +6,7 @@
 			<div class="product col-md-3" ng-switch on="selection">
 
 					<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-default>
-					< src="{{product.imageTwo}}" alt="" ng-switch-when="imageTwo">
+					<img src="{{product.imageTwo}}" alt="" ng-switch-when="imageTwo">
 					<img src="{{product.imageThree}}" alt="" ng-switch-when="imageThree">
 					<img src="{{product.imageFour}}" alt="" ng-switch-when="imageFour">
 
@@ -35,7 +35,7 @@
 			<rating ng-model="product.rating" readonly="true" class="glyphicon-star-lg"></rating>
 			<hr>
 			<div class="product-price">${{product.indvPrice}}</div>
-			<div class="product-stock" ng-show="product.proType">Cultural Product</div>
+			<div class="product-stock" ng-show="product.proType">Country Product</div>
 			<div class="product-stock" ng-hide="product.proType">Geological Product</div>
 			<hr>
 			<div class="btn-group cart">

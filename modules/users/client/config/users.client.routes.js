@@ -87,6 +87,14 @@ angular.module('users').config(['$stateProvider',
           roles: ['freeUser', 'admin']
         }
       })
+      .state('teacher',{
+        url: '/teacherverify',
+        templateUrl: 'modules/users/client/views/verification/teacherverify.html',
+        data:{
+          priceRoles: ['education'],
+          roles: ['freeUser', 'admin']
+        }
+      })
       .state('verificationSuccess', {
         url: '/success',
         templateUrl: 'modules/users/client/views/verification/verifysuccess.html'

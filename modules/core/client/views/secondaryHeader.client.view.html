@@ -6,29 +6,10 @@
     <ul class="nav navbar-nav" ng-hide="authentication.user.roles=='paidUser'">
         <li role="presentation" ui-sref-active="active"><a ui-sref="products">Products</a></li>
         <li role="presentation" ui-sref-active="active"><a ui-sref="subscriptions">Subscriptions</a></li>
-        <!--<li role="presentation" ui-sref-active="active"><a ui-sref="testimonials">Testimonials</a></li>-->
+        <li role="presentation" ui-sref-active="active"><a ui-sref="testimonials">Reviews</a></li>
     </ul>
-    <ul class="nav navbar-nav">
-        <li ui-sref-active="active">
-          <a ui-sref="portal" ng-if="authentication.user.roles == 'paidUser' || authentication.user.roles == 'admin'">Subscribers' Portal</a>
-        </li>
-    </ul>
+
     <form class="navbar-form navbar-right" role="search">
-      <!--<div>-->
-        <!--<script>-->
-          <!--(function() {-->
-            <!--var cx = '017789545688394528597:njaeen8i3_y';-->
-            <!--var gcse = document.createElement('script');-->
-            <!--gcse.type = 'text/javascript';-->
-            <!--gcse.async = true;-->
-            <!--gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +-->
-              <!--'//cse.google.com/cse.js?cx=' + cx;-->
-            <!--var s = document.getElementsByTagName('script')[0];-->
-            <!--s.parentNode.insertBefore(gcse, s);-->
-          <!--})();-->
-        <!--</script>-->
-        <!--<gcse:searchbox></gcse:searchbox>-->
-      <!--</div>-->
         <div class="input-group">
             <input type="text" class="dark form-control" placeholder="Search..." name="searchValue">
 

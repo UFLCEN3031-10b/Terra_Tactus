@@ -1,0 +1,44 @@
+<div ng-controller = "VerifyController">
+  <div class = "row" ng-show="!verify">
+    <h1 class = "text-center">Please have your ____ forms ready before you verify.</h1>
+    <div class = "col-md-4 col-md-offset-4 text-center">
+      <p>In this verification process, you will need to submit certain information in order to ensure that you qualify for the prices that you are receiving.</p>
+      <p>Your information will be reviewed, and you will automatically be sent an email once you have been verified and your order has been placed.</p>
+      <p>Please note that this will NOT save your work, so ensure that you are able to complete the process in one sitting.</p>
+      <p>Once you're ready to begin, click the button below to start.</p>
+      <div>
+        <button id="add_item_button" class="btn btn-blue" ng-click="verify = true"> <!--will work upon integration-->
+          Begin Verification
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class = "row" ng-show="verify">
+    <h1 class = "text-center">Enter all of your information here.</h1>
+    <div class = "col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
+      <form name="userForm" ng-submit="submit(userForm.$valid)" novalidate> <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+        <fieldset>
+        <!-- NAME -->
+          <div class = "form-group" show-errors>
+            <label>State</label>
+            <br>
+            <select ng-model="credentials.state" ng-options="o as o for o in options" style="color: black; width:100%"></select>
+            </select>
+          </div>
+          <div class = "form-group" show-errors>
+            <label>Teacher Identification Number</label>
+            <input type = "text" name="TID" class="form-control" ng-model="credentials.TID" required>
+            <div ng-messages="userForm.TID.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">TID is required.</p>
+            </div>
+          </div>
+
+
+        <!-- SUBMIT BUTTON -->
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+    </form>
+    </div>
+  </div>
+</div>

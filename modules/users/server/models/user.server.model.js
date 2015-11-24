@@ -106,7 +106,23 @@ var UserSchema = new Schema({
     validRequest: {
       type: Boolean,
     },
-    user: [UserSchema]
+    user: [UserSchema],
+    TID: {
+      type: String,
+      default: ''
+    },
+    state: {
+      type: String,
+      default: ''
+    },
+    SSN: {
+      type: String,
+      default: ''
+    },
+    DOB: {
+      type: String,
+      default: ''
+    }
 });
 
 /**

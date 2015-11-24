@@ -5,8 +5,7 @@
 var subscriptionData = require('../controllers/subscription.server.controller');
 
 module.exports = function (app) {
-    // routing for homepage data, needs user restriction
-    //app.route('/api/subscription/data')
-    //    .get(subscriptionData.find)
-    //    .put(subscriptionData.update);
+    app.route('/api/subscription/data')
+        .get(subscriptionData.find)
+        .put(subscriptionData.update);
 };

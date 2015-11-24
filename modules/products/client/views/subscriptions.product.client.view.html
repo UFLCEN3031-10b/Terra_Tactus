@@ -20,53 +20,46 @@
 
   <div class="row">
     <div class="col-md-5 col-premium">
-      <h2>Geological</h2>
-      <p>{{subscriptionData.geologicalData}}</p>
+      <h2>{{subscriptionData.typeOne}}</h2>
+      <p>{{subscriptionData.typeOneData}}</p>
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-5 col-premium">
-      <h2>Cultural</h2>
-      <p> {{subscriptionData.culturalData}}</p>
+      <h2>{{subscriptionData.typeTwo}}</h2>
+      <p> {{subscriptionData.typeTwoData}}</p>
     </div>
   </div>
   <section id="learnMore"><br><br>
     <div class="container">
-      <h1 class="text-center">Subscribe to Terra Tactus <strong> now!</strong></h1><br>
+      <h1 class="text-center">{{subscriptionData.grabber}}</h1><br>
       <div class="row">
         <div class="col-md-4 col-premium">
           <div class="text-center">
-            <h2>{{subscriptionData.subscriptionOne}}</h2>
-            <p class="price green">{{subscriptionData.subscriptionOnePrice}}</p>
-            <p class="green">{{subscriptionData.subscriptionOneDesc}}</p>
+            <h2>{{subscriptionData.modelOne}}</h2>
+            <p class="price green">{{subscriptionData.modelOnePrice}}</p>
+            <p class="green">{{subscriptionData.modelOneDesc}}</p>
             <a href="../authentication/signin.client.view.html" class="btn btn-blue btn-product">
-              Purchase one kit now!
+              {{subscriptionData.modelOneBtn}}
             </a><br>
           </div>
         </div>
         <div class="col-md-4 col-premium">
           <div class="text-center">
-            <h2>{{subscriptionData.subscriptionTwo}}</h2>
-            <p class="price green">{{subscriptionData.subscriptionTwoPrice}}</p>
-            <p class="green">{{subscriptionData.subscriptionTwoDesc}}</p>
+            <h2>{{subscriptionData.modelTwo}}</h2>
+            <p class="price green">{{subscriptionData.modelTwoPrice}}</p>
+            <p class="green">{{subscriptionData.modelTwoDesc}}</p>
             <a href="../authentication/signin.client.view.html" class="btn btn-blue btn-product">
-              Receive one kit a month!
+              {{subscriptionData.modelTwoBtn}}
             </a><br>
           </div>
         </div>
         <div class="col-md-4 col-premium">
           <div class="text-center">
-            <h2>Yearly</h2>
-            <p class="price green">$9.99 <span class="small-down">/month</span></p>
-            <small class="green">RECOMMENDED</small>
-            <strong>
-              <p>Lorem ipsum dolor </p>
-              <p>Lorem ipsum dolor </p>
-              <p>Lorem ipsum dolor </p>
-              <p>Lorem ipsum dolor </p>
-            </strong>
-
+            <h2>{{subscriptionData.modelThree}}</h2>
+            <p class="price green">{{subscriptionData.modelThreePrice}}</p>
+            <p class="green">{{subscriptionData.modelThreeDesc}}</p>
             <a href="../authentication/signin.client.view.html" class="btn btn-blue btn-product">
-              Subscribe for a year
+              {{subscriptionData.modelThreeBtn}}
             </a><br>
           </div>
           </div>
