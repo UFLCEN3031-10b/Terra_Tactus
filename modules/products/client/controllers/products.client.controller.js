@@ -6,6 +6,13 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $scope.authentication = Authentication;
     $scope.displayType = false; //initialized cultural
     $scope.selection = 'imageOne';
+    $scope.imageSelector = function (imagePick) {
+      if (imagePick !== $scope.selection) {
+        $scope.selection = imagePick;
+      } else {
+        $scope.selection = 'imageOne';
+      }
+    };
 
     $scope.displayCultural = function () {
       $scope.displayType = true;
