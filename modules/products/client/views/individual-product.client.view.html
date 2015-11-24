@@ -14,15 +14,15 @@
 
 			<div class="container service1-items col-sm-2 col-md-2 pull-left">
 				<center>
-					<a id="item-1" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageTwo';">
+					<a id="item-1" class="service1-item" ng-switch on="selection" ng-click="imageSelector('imageTwo')">
 						<img src="{{product.imageTwo}}" alt="" ng-switch-default>
 						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageTwo">
 					</a>
-					<a id="item-2" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageThree';">
+					<a id="item-2" class="service1-item" ng-switch on="selection" ng-click="imageSelector('imageThree')">
 						<img src="{{product.imageThree}}" alt="" ng-switch-default>
 						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageThree">
 					</a>
-					<a id="item-3" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageFour';">
+					<a id="item-3" class="service1-item" ng-switch on="selection" ng-click="imageSelector('imageFour')">
 						<img src="{{product.imageFour}}" alt="" ng-switch-default>
 						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageFour">
 					</a>
