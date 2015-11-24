@@ -139,13 +139,13 @@ body {
     text-decoration:none;
     display:inline-block;
     font-weight:bold;
-    border:1px solid #3366cc;
-    background: #3366cc;
-    background-image: -webkit-linear-gradient(top, #328f32, #266e26);
-    background-image: -moz-linear-gradient(top, #328f32, #266e26);
-    background-image: -ms-linear-gradient(top, #328f32, #266e26);
-    background-image: -o-linear-gradient(top, #328f32, #266e26);
-    background-image: linear-gradient(to bottom, #328f32, #266e26);
+    border:1px solid #339933;
+    background: #339933;
+    background-image: -webkit-linear-gradient(top, #339933, #266e26);
+    background-image: -moz-linear-gradient(top, #339933, #266e26);
+    background-image: -ms-linear-gradient(top, #339933, #266e26);
+    background-image: -o-linear-gradient(top, #339933, #266e26);
+    background-image: linear-gradient(to bottom, #339933, #266e26);
     text-decoration: none;
     color: white;
     font-size: medium;
@@ -155,7 +155,7 @@ body {
     /*border:1px solid #339933;*/
     color: white;
 
-    background: #3366cc;
+    background: #339933;
     background-image: -webkit-linear-gradient(top, #328f32, #266e26);
     background-image: -moz-linear-gradient(top, #328f32, #266e26);
     background-image: -ms-linear-gradient(top, #328f32, #266e26);
@@ -166,7 +166,7 @@ body {
 
 
 .btn-blue{
-    border:1px solid #339933;
+    border:1px solid #3366cc;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -178,18 +178,18 @@ body {
     /*text-shadow: -1px -1px 0 rgba(255,255,255,0.3);*/
     font-weight:bold;
     color: white;
-    background: #339933;
-    background-image: -webkit-linear-gradient(top, #339933, #2980b9);
-    background-image: -moz-linear-gradient(top, #339933, #2980b9);
-    background-image: -ms-linear-gradient(top, #339933, #2980b9);
-    background-image: -o-linear-gradient(top, #339933, #2980b9);
-    background-image: linear-gradient(to bottom, #339933, #2980b9);
+    background: #3366cc;
+    background-image: -webkit-linear-gradient(top, #3366cc, #2980b9);
+    background-image: -moz-linear-gradient(top, #3366cc, #2980b9);
+    background-image: -ms-linear-gradient(top, #3366cc, #2980b9);
+    background-image: -o-linear-gradient(top, #3366cc, #2980b9);
+    background-image: linear-gradient(to bottom, #3366cc, #2980b9);
     font-size: medium;
 }
 
 .btn-blue:hover{
     /*border:1px solid #3366cc;*/
-    background: #339933;
+    background: #3366cc;
     background-image: -webkit-linear-gradient(top, #3361c2, #2977af);
     background-image: -moz-linear-gradient(top, #3361c2, #2977af);
     background-image: -ms-linear-gradient(top, #3361c2, #2977af);
