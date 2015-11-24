@@ -4,7 +4,7 @@
 angular.module('core').controller('ProductsController', ['$window','$http','$scope','$rootScope', '$stateParams', '$location', 'Authentication', 'Products',
   function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
-    $scope.displayType = false; //initialized cultural
+    $scope.displayType = false; //initialized country
     $scope.selection = 'imageOne';
 
     $scope.displayCultural = function () {

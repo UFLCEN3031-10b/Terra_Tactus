@@ -20,7 +20,7 @@ var ProductSchema = new Schema({
       type: Date,
       default: Date.now
     },
-    proType: Boolean, //false = geological, true = cultural
+    proType: Boolean, //false = geological, true = country
     proTitle: {
         type: String,
         default: '',
