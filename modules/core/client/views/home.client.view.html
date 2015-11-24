@@ -27,7 +27,7 @@
 
             <div id="about" class="row">
                 <div class="col-md-8">
-                    <h3>About Us</h3><hr class = "brown">
+                    <h3>About Us</h3><hr>
                     <p>{{aboutUsText}}</p>
                     <!--<h4 class="text-center"><a href="#product-section"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a></h4>-->
                 </div>
@@ -43,7 +43,7 @@
           </div>
           <section ng-controller="AnnouncementsController" ng-init="find()" class="half-section">
                   <div class="list-group">
-                    <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item brown">
+                    <div ng-repeat="announcement in announcements" class="bg-color-main list-group-item">
                       <div ng-hide="isEditing">
                       <h4 class="list-group-item-heading" ng-bind="announcement.title"></h4>
                       <div>
@@ -102,7 +102,7 @@
                     <img class="img-responsive" src="{{commercialImage}}" alt="Oops.">
                 </div>
                 <p>{{commercialText}}</p>
-                <p class="text-center"><a class="btn btn-green btn-lg" ui-sref="commercial" role="button">Learn more</a></p>
+                <p class="text-center"><a class="btn btn-blue btn-lg" ui-sref="commercial" role="button">Learn more</a></p>
             </div>
             <div class="col-sm-3 product-info" id="product-info-green">
                 <h3>Home Schoolers?</h3>
@@ -110,7 +110,7 @@
                     <img class="img-responsive" src="{{individualProdImage}}" alt="Oops.">
                 </div>
                 <p>{{individualProdText}}</p>
-                <p class="text-center"><a class="btn btn-blue btn-lg" href="/subscriptions" role="button">Learn more</a></p>
+                <p class="text-center"><a class="btn btn-green btn-lg" href="/subscriptions" role="button">Learn more</a></p>
             </div>
           <div class="col-sm-3 product-info" id="product-info-blue">
             <h3>Possibly gift shops?</h3>
@@ -118,7 +118,7 @@
               <img class="img-responsive" src="{{retailImage}}" alt="Oops.">
             </div>
             <p>{{retailText}}</p>
-            <p class="text-center"><a class="btn btn-green btn-lg" ui-sref="retail" role="button">Learn more</a></p>
+            <p class="text-center"><a class="btn btn-blue btn-lg" ui-sref="retail" role="button">Learn more</a></p>
           </div>
           <div class="col-sm-3 product-info" id="product-info-green">
             <h3>An Individual Product?</h3>
@@ -126,7 +126,7 @@
               <img class="img-responsive" src="{{individualProdImage}}" alt="Oops.">
             </div>
             <p>{{individualProdText}}</p>
-            <p class="text-center"><a class="btn btn-blue btn-lg" href="/products" role="button">Learn more</a></p>
+            <p class="text-center"><a class="btn btn-green btn-lg" href="/products" role="button">Learn more</a></p>
           </div>
         </div>
     </section>

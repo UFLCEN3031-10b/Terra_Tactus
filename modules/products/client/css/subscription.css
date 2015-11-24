@@ -11,14 +11,14 @@ body {
     -moz-border-radius: 15px;
 }
 .col-premium .checked {
-    color: #339933;
+    color: #3366cc;
 }
 .col-free .checked {
-    color: #339933;
+    color: #3366cc;
 }
 
 .col-offers .offers {
-    background-color: #3366cc;
+    background-color: #339933;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -43,26 +43,26 @@ h2.title{
     font-size: 60px;
     line-height:60px;
     color: #fff;
-    border-color: #339933;
+    border-color: #3366cc;
     border-radius: 10%;
     font-weight: 700;
     text-transform: uppercase;
 }
 
 h2 {
-    color: #339933;
+    color: #3366cc;
 }
 .line-top{
     width: 930px;
-    color: #996633;
-    background: #996633;
+    color: white;
+    background: white;
     height: 2px;
     margin: 32px auto;
 }
 .line-btm{
     width: 930px;
-    color: #996633;
-    background: #996633;
+    color: white;
+    background: white;
     height: 2px;
     margin: 32px auto;
 }
