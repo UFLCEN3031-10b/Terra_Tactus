@@ -119,13 +119,7 @@ body {
     background-color: #339933;
     /*changed colors to increase contrast*/
 }
-.btn:hover {
-    /*background-image: none !important;*/
-    /*background-color: lime !important;*/
-    /*color: white !important;*/
-    /*border-color: white;*/
-    /*font-weight: bold;*/
-}
+
 .bg-color-main {
     background-color: #333333;
 }
@@ -221,12 +215,11 @@ body {
 }
 .form-control {
     background-color: #222222;
-    color: #FFFFFF  ;
+    color: #FFFFFF;
     border-color: transparent;
 }
 .form-group {
     color: #339933;
-    /*border-color: #FFFFFF;*/
 }
 .page-header {
     color: #339933;
