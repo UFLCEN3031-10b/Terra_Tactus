@@ -4,7 +4,7 @@ angular.module('core')
   .directive('twitterTimeline', function() {
   return {
        restrict: 'E',
-       template: '<a class="twitter-timeline" href="https://twitter.com/TerraTactus" data-widget-id="658510925733883904" height="50%" width="100%">Tweets by @TerraTactus</a>',
+       template: '<a class="twitter-timeline" href="https://twitter.com/TerraTactus" data-widget-id="658510925733883904" height="45%" width="100%">Tweets by @TerraTactus</a>',
        link: function(scope, element, attrs) {
 
       function run() {

@@ -112,8 +112,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       else {
         teachType = false;
       }
-
-
+      
       // Create new Product object
       var product = new Products({
         proType: prodType,
@@ -129,7 +128,8 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         eduPrice: this.eduPrice,
         wholePrice: this.wholePrice,
         teacher: teachType,
-        features: this.tempFeatures
+        features: this.tempFeatures,
+        curriculum: this.tempTable
       });
 
       // Redirect after save
