@@ -95,11 +95,11 @@ body {
 }
 
 .contact-info > div > a {
-    color: #3366cc;
+    color: #339933;
 }
 
 .contact-info > div > a:hover {
-    color: #339933;
+    color: #3366cc;
 }
 
 .marg-auto {
@@ -119,13 +119,7 @@ body {
     background-color: #3366cc;
     /*changed colors to increase contrast*/
 }
-.btn:hover {
-    /*background-image: none !important;*/
-    /*background-color: lime !important;*/
-    /*color: white !important;*/
-    /*border-color: white;*/
-    /*font-weight: bold;*/
-}
+
 .bg-color-main {
     background-color: #333333;
 }
@@ -141,18 +135,18 @@ body {
     font-weight:bold;
     border:1px solid #339933;
     background: #339933;
-    background-image: -webkit-linear-gradient(top, #328f32, #266e26);
-    background-image: -moz-linear-gradient(top, #328f32, #266e26);
-    background-image: -ms-linear-gradient(top, #328f32, #266e26);
-    background-image: -o-linear-gradient(top, #328f32, #266e26);
-    background-image: linear-gradient(to bottom, #328f32, #266e26);
+    background-image: -webkit-linear-gradient(top, #339933, #266e26);
+    background-image: -moz-linear-gradient(top, #339933, #266e26);
+    background-image: -ms-linear-gradient(top, #339933, #266e26);
+    background-image: -o-linear-gradient(top, #339933, #266e26);
+    background-image: linear-gradient(to bottom, #339933, #266e26);
     text-decoration: none;
     color: white;
     font-size: medium;
 }
 
 .btn-green:hover{
-    /*border:1px solid #3366cc;*/
+    /*border:1px solid #339933;*/
     color: white;
 
     background: #339933;
@@ -188,7 +182,7 @@ body {
 }
 
 .btn-blue:hover{
-    /*border:1px solid #339933;*/
+    /*border:1px solid #3366cc;*/
     background: #3366cc;
     background-image: -webkit-linear-gradient(top, #3361c2, #2977af);
     background-image: -moz-linear-gradient(top, #3361c2, #2977af);
@@ -217,33 +211,26 @@ body {
 
 .clear-top-margin {
   margin-top: 0;
-  border-color: #996633;
+  border-color: #FFFFFF;
 
 }
 .form-control {
     background-color: #222222;
-    color: #3366cc  ;
+    color: #FFFFFF;
     border-color: transparent;
 }
 .form-group {
     color: #339933;
-    /*border-color: #996633;*/
 }
 .page-header {
-    color: #3366cc;
+    color: #339933;
     padding-bottom: 9px;
     margin: 40px 0px 20px;
-    border-bottom: 1px solid #996633;
+    border-bottom: 1px solid #FFFFFF;
 }
 .marg-auto {
-    color: #3366cc;
-}
-.brown {
-    border-color: #996633;
-}
-.row > .col-md-8 > .h3 {
     color: #339933;
 }
-.customisable-border.thm-dark, .thm-dark .customisable-border {
-    border-color: #996633;
+.row > .col-md-8 > .h3 {
+    color: #3366cc;
 }
