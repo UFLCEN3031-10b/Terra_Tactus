@@ -32,7 +32,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
 
     //Function to add a header
     $scope.addNewRow = function() {
-      if ($scope.tempNewRow.length !== 3) {
+      if ($scope.tempNewRow.length !== $scope.amountOfColumns.length) {
         alert("err please fill out all columns of table!");
         return false;
       }
@@ -43,6 +43,17 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     //deletes a row on the table
     $scope.deleteRow = function(index) {
       $scope.tempTable.splice(index,1);
+    };
+
+    //adds or removes a column in the container given args
+    $scope.col = function(argument) {
+      if (argument === "add") {
+        $scope.amountOfColumns.push($scope.amountOfColumns.length);
+      } else if (argument === "remove") {
+        $scope.amountOfColumns.splice($scope.amountOfColumns.length-1,1);
+      } else {
+        console.log("invalid argument in col function...!");
+      }
     };
 
     //Array used to hold features for a product we are creating
@@ -112,7 +123,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       else {
         teachType = false;
       }
-      
+
       // Create new Product object
       var product = new Products({
         proType: prodType,
