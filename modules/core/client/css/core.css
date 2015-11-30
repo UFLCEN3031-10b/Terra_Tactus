@@ -78,16 +78,16 @@ body {
 
 .product-info {
     height: 100%;
-    border: 2px solid black;
+    border: 2px solid #333333;
     border-radius: 10px;
 }
 
 #product-info-blue {
-    background-color: #00c9dd;
+    background-color: #3366cc;
 }
 
 #product-info-green {
-    background-color: #00DD00;
+    background-color: #339933;
 }
 
 .contact-info > div {
@@ -95,11 +95,11 @@ body {
 }
 
 .contact-info > div > a {
-    color: #00c9dd;
+    color: #339933;
 }
 
 .contact-info > div > a:hover {
-    color: #1ade4c;
+    color: #3366cc;
 }
 
 .marg-auto {
@@ -113,24 +113,17 @@ body {
     align-items: center;
 }
 .bg-color-main {
-    background-color: black;
+    background-color: #333333;
 }
 .btn-blue {
-    background-color: #00c9dd;
+    background-color: #3366cc;
     /*changed colors to increase contrast*/
 }
-.btn:hover {
-    background-image: none !important;
-    background-color: lime !important;
-    color: white !important;
-    border-color: white;
-    font-weight: bold;
-}
+
 .bg-color-main {
-    background-color: black;
+    background-color: #333333;
 }
 .btn-green{
-    border:1px solid #8cff90;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -139,59 +132,64 @@ body {
     padding: 10px 10px 10px 10px;
     text-decoration:none;
     display:inline-block;
-    text-shadow: -1px -1px 0 rgba(255,255,15,0.3);
     font-weight:bold;
-    color: #343335;
-    background-color: #C4FFC6; background-image: -webkit-gradient(linear, left top, left bottom, from(#C4FFC6), to(#00dd00));
-    background-image: -webkit-linear-gradient(top, #C4FFC6, #00dd00);
-    background-image: -moz-linear-gradient(top, #C4FFC6, #00dd00);
-    background-image: -ms-linear-gradient(top, #C4FFC6, #00dd00);
-    background-image: -o-linear-gradient(top, #C4FFC6, #00dd00);
-    background-image: linear-gradient(to bottom, #C4FFC6, #00dd00);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#C4FFC6, endColorstr=#00dd00);
+    border:1px solid #339933;
+    background: #339933;
+    background-image: -webkit-linear-gradient(top, #339933, #266e26);
+    background-image: -moz-linear-gradient(top, #339933, #266e26);
+    background-image: -ms-linear-gradient(top, #339933, #266e26);
+    background-image: -o-linear-gradient(top, #339933, #266e26);
+    background-image: linear-gradient(to bottom, #339933, #266e26);
+    text-decoration: none;
+    color: white;
     font-size: medium;
 }
 
 .btn-green:hover{
-    border:1px solid #5eff63;
-    background-color: #91ff95; background-image: -webkit-gradient(linear, left top, left bottom, from(#91ff95), to(#00CC00));
-    background-image: -webkit-linear-gradient(top, #91ff95, #00CC00);
-    background-image: -moz-linear-gradient(top, #91ff95, #00CC00);
-    background-image: -ms-linear-gradient(top, #91ff95, #00CC00);
-    background-image: -o-linear-gradient(top, #91ff95, #00CC00);
-    background-image: linear-gradient(to bottom, #91ff95, #00CC00);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#91ff95, endColorstr=#00CC00);
+    /*border:1px solid #339933;*/
+    color: white;
+
+    background: #339933;
+    background-image: -webkit-linear-gradient(top, #328f32, #266e26);
+    background-image: -moz-linear-gradient(top, #328f32, #266e26);
+    background-image: -ms-linear-gradient(top, #328f32, #266e26);
+    background-image: -o-linear-gradient(top, #328f32, #266e26);
+    background-image: linear-gradient(to bottom, #328f32, #266e26);
+    text-decoration: none;
 }
 
+
 .btn-blue{
-    border:1px solid #2ABBD1;
+    border:1px solid #3366cc;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
     font-size:12px;
     font-family:arial, helvetica, sans-serif;
     padding: 10px 10px 10px 10px;
-    text-decoration:none;
+    /*text-decoration:none;*/
     display:inline-block;
-    text-shadow: -1px -1px 0 rgba(255,255,255,0.3);
+    /*text-shadow: -1px -1px 0 rgba(255,255,255,0.3);*/
     font-weight:bold;
-    color: #343335;
-
-    background-color: #82D1DD; background-image: -webkit-gradient(linear, left top, left bottom, from(#82D1DD), to(#00C9DD));
-    background-image: -webkit-linear-gradient(top, #82D1DD, #00C9DD);
-    background-image: -moz-linear-gradient(top, #82D1DD, #00C9DD);
-    background-image: -ms-linear-gradient(top, #82D1DD, #00C9DD);
-    background-image: -o-linear-gradient(top, #82D1DD, #00C9DD);
-    background-image: linear-gradient(to bottom, #82D1DD, #00C9DD);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#82D1DD, endColorstr=#00C9DD);
+    color: white;
+    background: #3366cc;
+    background-image: -webkit-linear-gradient(top, #3366cc, #2980b9);
+    background-image: -moz-linear-gradient(top, #3366cc, #2980b9);
+    background-image: -ms-linear-gradient(top, #3366cc, #2980b9);
+    background-image: -o-linear-gradient(top, #3366cc, #2980b9);
+    background-image: linear-gradient(to bottom, #3366cc, #2980b9);
     font-size: medium;
 }
 
 .btn-blue:hover{
-    border:1px solid #35b1c4;
-    background-color: #9EFCFF; background-image: -webkit-gradient(linear, left top, left bottom, from(#9EFCFF), to(#009baa));
-    background-image: -webkit-linear-gradient(top, #9EFCFF, #009baa);
-    background-image: -moz-linear-gradient(top, #9EFCFF, #009baa);
-    background-image: -ms-linear-gradient(top, #9EFCFF, #009baa);
-    background-image: -o-linear-gradient(top, #9EFCFF, #009baa);
-    background-image: linear-gradient(to bottom, #9EFCFF, #009baa);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#9EFCFF, endColorstr=#009baa);
+    /*border:1px solid #3366cc;*/
+    background: #3366cc;
+    background-image: -webkit-linear-gradient(top, #3361c2, #2977af);
+    background-image: -moz-linear-gradient(top, #3361c2, #2977af);
+    background-image: -ms-linear-gradient(top, #3361c2, #2977af);
+    background-image: -o-linear-gradient(top, #3361c2, #2977af);
+    background-image: linear-gradient(to bottom, #3361c2, #2977af);
+    color: white;
 }
 
 .half-section {
@@ -212,4 +210,26 @@ body {
 
 .clear-top-margin {
   margin-top: 0;
+  border-color: #FFFFFF;
+
+}
+.form-control {
+    background-color: #222222;
+    color: #FFFFFF;
+    border-color: transparent;
+}
+.form-group {
+    color: #339933;
+}
+.page-header {
+    color: #339933;
+    padding-bottom: 9px;
+    margin: 40px 0px 20px;
+    border-bottom: 1px solid #FFFFFF;
+}
+.marg-auto {
+    color: #339933;
+}
+.row > .col-md-8 > .h3 {
+    color: #3366cc;
 }

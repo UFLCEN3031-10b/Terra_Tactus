@@ -1,0 +1,42 @@
+<section ng-controller="UserOrderController">
+    <div class="page-header">
+        <h1>Open Orders</h1>
+    </div>
+
+    <div ng-show="isLoading" class="col-md-12 text-center">
+        <h3>
+            <i class="fa fa-cog fa-spin"></i> Loading...
+        </h3>
+    </div>
+
+    <div ng-repeat="order in orders">
+        <div class="row">
+            <div class="col-md-2">
+                <h5>{{order.created | date:'medium'}}</h5>
+            </div>
+            <div class="col-md-5">
+                <h5>Description</h5>
+                <p>{{order.description}}</p>
+                <h5>Total</h5>
+                <p>${{order.total}}</p>
+                <h5>Status</h5>
+                <p>{{order.status}}</p>
+            </div>
+            <div class="col-md-5">
+                <h5>Shipping Address</h5>
+                <p>{{order.paypal_get_res[0].transactions[0].item_list.shipping_address.recipient_name}}<br>
+                    {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.line1}}<br>
+                    {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.city}}, {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.state}} {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.postal_code}}<br>
+                    {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.country_code}}</p>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <div ng-show="orders.length === 0 && !isLoading">
+        <div class="row text-center">
+            <h3>No orders found.</h3>
+        </div>
+        <hr>
+    </div>
+</section>

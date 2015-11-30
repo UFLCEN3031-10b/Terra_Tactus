@@ -9,7 +9,7 @@
 }
 /*code to give each product block some padding and color as well as round edges*/
 #temp-div{
-    background-color: #2e2f33;
+    background-color: white;
     padding-bottom: 30px;
     -moz-border-radius: 5px;
     border-radius: 20px;
@@ -37,16 +37,16 @@
     padding: 0 1em;
 }
 
-/* code for the styling of the cultural/geological product buttons*/
+/* code for the styling of the country/geological product buttons*/
 .tab-btn{
-    border: 1px solid #00DD00;
+    border: 1px solid #3366cc;
     background-color: transparent;
-    color: #00DD00;
+    color: #3366cc;
 }
 
 /*changes the color of the current tab*/
 .activetab {
-    background-color: #00c9dd;
+    background-color: #339933;
     color: white;
 }
 
@@ -170,7 +170,7 @@
 .service-image-left > center > img,.service-image-right > center > img{
 	max-height: 155px;
 }
-/*code that dictates what happens when you hover over the cultural/geological button tabs*/
+/*code that dictates what happens when you hover over the country/geological button tabs*/
 .tab-btn:hover{
     background-image:none !important;
     background-color:#0faf38 !important;
@@ -202,7 +202,7 @@
 
 /*css for the thumbnail or container holding all the product block info*/
 .product-thumb{
-    background-color : #2e2f33;
+    background-color : white;
     border-color:transparent;
     border-radius: 20px;
 }

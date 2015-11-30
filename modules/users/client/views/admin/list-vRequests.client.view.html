@@ -1,5 +1,5 @@
 <section>
-  <div ng-controller = "VerifyListController">
+  <div ng-controller = "VerifyListController" ng-init="vRequestsList()">
     <div class="page-header">
       <div class="row">
         <div class="col-md-4">
@@ -7,8 +7,27 @@
         </div>
       </div>
     </div>
+    <div class = "row">
+      <div class = "col-md-6">
+        <div id="tab" class="btn-group" data-toggle="buttons-radio">
+          <a class="btn active btn-blue" ng-click="showEducation = true; showWholesale=true">All Requests</a>
+          <a class="btn btn-blue" ng-click="showEducation = false; showWholesale = true">Wholesale Only</a>
+          <a class="btn btn-blue" ng-click="showWholesale=false;showEducation=true">Educational Only</a>
+        </div>
+      </div>
+    </div>
     <div class="list-group">
-      <a ng-repeat="vReq in vRequests" class="list-group-item">
+      <a ng-repeat="vReq in vRequests" ui-sref="admin.request({vReqID: vReq._id})" class="list-group-item" ng-if="showEducation && showWholesale">
+        <h4 class="list-group-item-heading" ng-bind="vReq.user[0].username"></h4>
+        <p class="list-group-item-text pull-right small" ng-bind="vReq.user[0].priceRoles"></p>
+        <p class="list-group-item-text" ng-bind="vReq.user[0].email"></p>
+      </a>
+      <a ng-repeat="vReq in wholesales" ui-sref="admin.request({vReqID: vReq._id})" class="list-group-item" ng-if="!showEducation && showWholesale">
+        <h4 class="list-group-item-heading" ng-bind="vReq.user[0].username"></h4>
+        <p class="list-group-item-text pull-right small" ng-bind="vReq.user[0].priceRoles"></p>
+        <p class="list-group-item-text" ng-bind="vReq.user[0].email"></p>
+      </a>
+      <a ng-repeat="vReq in educations" ui-sref="admin.request({vReqID: vReq._id})" class="list-group-item" ng-if="showEducation && !showWholesale">
         <h4 class="list-group-item-heading" ng-bind="vReq.user[0].username"></h4>
         <p class="list-group-item-text pull-right small" ng-bind="vReq.user[0].priceRoles"></p>
         <p class="list-group-item-text" ng-bind="vReq.user[0].email"></p>

@@ -46,6 +46,9 @@
             User Type: {{authentication.user.priceRoles.toString()}}
           </li>
           <li ui-sref-active="active">
+             <a ui-sref="user-orders">View Orders</a>
+          </li>
+          <li ui-sref-active="active">
             <a ui-sref="settings.profile">Edit Profile</a>
           </li>
           <li ui-sref-active="active">
@@ -62,18 +65,18 @@
       </li>
     </ul>
 
-    <ul class="nav navbar-nav navbar-right no-pad" ng-hide="isCollapsed">
-        <li><a href="{{socialmedia.linkedin}}"><i class="fa fa-linkedin-square fa-3x"></i></a></li>
-        <li><a href="{{socialmedia.facebook}}"><i class="fa fa-facebook-square fa-3x"></i></a></li>
-        <li><a href="{{socialmedia.twitter}}"><i class="fa fa-twitter-square fa-3x"></i></a></li>
-        <li><a href="{{socialmedia.googleplus}}"><i class="fa fa-google-plus-square fa-3x"></i></a></li>
-    </ul>
+    <!--<ul class="nav navbar-nav navbar-right no-pad" ng-hide="isCollapsed">-->
+        <!--<li><a href="{{socialmedia.linkedin}}"><i class="fa fa-linkedin-square fa-3x"></i></a></li>-->
+        <!--<li><a href="{{socialmedia.facebook}}"><i class="fa fa-facebook-square fa-3x"></i></a></li>-->
+        <!--<li><a href="{{socialmedia.twitter}}"><i class="fa fa-twitter-square fa-3x"></i></a></li>-->
+        <!--<li><a href="{{socialmedia.googleplus}}"><i class="fa fa-google-plus-square fa-3x"></i></a></li>-->
+    <!--</ul>-->
 
-    <ul class="nav navbar-nav navbar-right no-pad text-center" ng-show="isCollapsed">
-        <li><a class="navbar-socialmedia-oneline" href="{{socialmedia.linkedin}}"><i class="fa fa-linkedin-square fa-3x"></i></a>
-        <a class="navbar-socialmedia-oneline" href="{{socialmedia.facebook}}"><i class="fa fa-facebook-square fa-3x"></i></a>
-        <a class="navbar-socialmedia-oneline" href="{{socialmedia.twitter}}"><i class="fa fa-twitter-square fa-3x"></i></a>
-        <a class="navbar-socialmedia-oneline" href="{{socialmedia.googleplus}}"><i class="fa fa-google-plus-square fa-3x"></i></a></li>
-    </ul>
+    <!--<ul class="nav navbar-nav navbar-right no-pad text-center" ng-show="isCollapsed">-->
+        <!--<li><a class="navbar-socialmedia-oneline" href="{{socialmedia.linkedin}}"><i class="fa fa-linkedin-square fa-3x"></i></a>-->
+        <!--<a class="navbar-socialmedia-oneline" href="{{socialmedia.facebook}}"><i class="fa fa-facebook-square fa-3x"></i></a>-->
+        <!--<a class="navbar-socialmedia-oneline" href="{{socialmedia.twitter}}"><i class="fa fa-twitter-square fa-3x"></i></a>-->
+        <!--<a class="navbar-socialmedia-oneline" href="{{socialmedia.googleplus}}"><i class="fa fa-google-plus-square fa-3x"></i></a></li>-->
+    <!--</ul>-->
   </nav>
 </div>

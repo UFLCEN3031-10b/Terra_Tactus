@@ -10,6 +10,11 @@ angular.module('core').controller('CommercialProdController', function ($scope, 
         //    console.log(obj.teacher);
         //}
     });
+    $http.get('/api/commercial/data').success(function (res) {
+        console.log(res);
+        $scope.commercialData = res;
+    });
+
 
     $scope.addProduct = function (newTitle,newImage, newText, newPrice) {
         $scope.products.push({
