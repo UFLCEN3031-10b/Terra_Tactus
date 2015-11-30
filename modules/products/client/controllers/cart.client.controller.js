@@ -1,17 +1,10 @@
 'use strict';
 
-angular.module('products').controller('CartController', ['$scope', '$rootScope', '$http', 'Authentication', '$window', function($scope, $rootScope, $http, Authentication, $window) {
+angular.module('products').controller('CartController', ['$scope', '$rootScope', '$http', 'Authentication', function($scope, $rootScope, $http, Authentication) {
     $scope.cart = [];
     $scope.totalPrice = 0.0;
-    $scope.checkoutState = 0;
 
     var updatePrice = function () {
-        if ($scope.cart.length !== 0) {
-            $scope.checkoutState = 1;
-        } else {
-            $scope.checkoutState = 0;
-        }
-
         $scope.totalPrice = 0.0;
         $scope.cart.forEach(function (prodWrap) {
             //to keep editQuantity value up to date also
@@ -19,7 +12,7 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
 
             var tempPrice = -1;
 
-            if (undefined !== Authentication.user.roles) {
+            if (undefined !== Authentication.user.roles.length) {
                 for (var i = 0; i < Authentication.user.roles.length; i++) {
                     var r = Authentication.user.roles[i];
                     if (r === 'wholesale') {
@@ -37,18 +30,13 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
             if (tempPrice === "") {
                 tempPrice = "0.00";
             }
-
+            
             prodWrap.price = tempPrice;
             $scope.totalPrice += parseFloat(prodWrap.quantity)*parseFloat(tempPrice);
         });
     };
 
-    $scope.checkout = function () {
-        $scope.checkoutState = 2;
-        $http.post('/api/order').success(function (res) {
-            $window.location.href = res.redirect_url;
-        });
-    };
+    $scope.checkout = function () {};
 
     $scope.updateQuantity = function (prodWrap) {
         var id = prodWrap.product._id,

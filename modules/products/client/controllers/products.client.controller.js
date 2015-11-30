@@ -4,15 +4,56 @@
 angular.module('core').controller('ProductsController', ['$window','$http','$scope','$rootScope', '$stateParams', '$location', 'Authentication', 'Products',
   function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
-    $scope.displayType = false; //initialized country
+    $scope.displayType = false; //initialized cultural
+    //individual product image picker function
     $scope.selection = 'imageOne';
+    $scope.imageSelector = function (imagePick) {
+      if (imagePick !== $scope.selection) {
+        $scope.selection = imagePick;
+      } else {
+        $scope.selection = 'imageOne';
+      }
+    };
 
+    //two different product types (change to ng-switch eventually)
     $scope.displayCultural = function () {
       $scope.displayType = true;
     };
 
     $scope.displayGeological = function () {
       $scope.displayType = false;
+    };
+
+    //array for temporary headers
+    $scope.tempTable = [];
+    $scope.tempNewRow = [];
+    $scope.amountOfColumns = [1,2,3];
+    $scope.edittingRows = false;
+
+    //Function to add a header
+    $scope.addNewRow = function() {
+      if ($scope.tempNewRow.length !== $scope.amountOfColumns.length) {
+        alert("err please fill out all columns of table!");
+        return false;
+      }
+      $scope.tempTable.push($scope.tempNewRow);
+      $scope.tempNewRow = [];
+    };
+
+    //deletes a row on the table
+    $scope.deleteRow = function(index) {
+      $scope.tempTable.splice(index,1);
+    };
+
+    //adds or removes a column in the container given args
+    $scope.col = function(argument) {
+      if (argument === "add") {
+        $scope.amountOfColumns.push($scope.amountOfColumns.length);
+      } else if (argument === "remove") {
+        $scope.amountOfColumns.splice($scope.amountOfColumns.length-1,1);
+      } else {
+        console.log("invalid argument in col function...!");
+      }
     };
 
     //Array used to hold features for a product we are creating
@@ -83,7 +124,6 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         teachType = false;
       }
 
-
       // Create new Product object
       var product = new Products({
         proType: prodType,
@@ -99,7 +139,8 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         eduPrice: this.eduPrice,
         wholePrice: this.wholePrice,
         teacher: teachType,
-        features: this.tempFeatures
+        features: this.tempFeatures,
+        curriculum: this.tempTable
       });
 
       // Redirect after save
