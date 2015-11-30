@@ -38,8 +38,8 @@ describe('Payment CRUD tests', function () {
             done();
         });
     });
-});
 
-afterEach(function (done) {
-    User.remove().exec(done);
+    afterEach(function (done) {
+        User.remove().exec(done);
+    });
 });
