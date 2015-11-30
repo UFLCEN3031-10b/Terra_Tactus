@@ -83,7 +83,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         teachType = false;
       }
 
-
+      console.log(this.indvPrice);
       // Create new Product object
       var product = new Products({
         proType: prodType,
