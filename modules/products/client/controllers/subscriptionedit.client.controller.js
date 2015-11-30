@@ -8,7 +8,9 @@ angular.module('core').controller('SubscriptionEditController', ['$scope', '$htt
 
     $http.get('/api/subscription/data').success(function (res) {
         $scope.subscriptionData = res;
+        console.log(res);
     });
+
     $scope.subscriptionUpdate = function () {
         var req = $scope.subscriptionData;
 
