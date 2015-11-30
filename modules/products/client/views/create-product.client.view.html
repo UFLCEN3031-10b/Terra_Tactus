@@ -45,9 +45,10 @@
         <!--Field for setting product title-->
         <div class="form-group" show-errors>
           <label for="proTitle">Product Title</label>
-          <input name="proTitle" type="text" ng-model="proTitle" id="protitle" class="form-control" placeholder="Title" required>
+          <input name="proTitle" type="text" ng-maxlength="60" ng-model="proTitle" id="protitle" class="form-control" placeholder="Title" required>
           <div ng-messages="productForm.proTitle.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Product title is required.</p>
+            <p class="help-block error-text" ng-message="maxlength">Title must not exceed 60 characters</p>
           </div>
         </div>
         <!--Field for setting the image seen in the general products page-->

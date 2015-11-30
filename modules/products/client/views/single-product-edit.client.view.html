@@ -38,9 +38,10 @@
                 <!--Field for editing the product title-->
                 <div class="form-group" show-errors>
                     <label>Product Title</label>
-                    <input name="editproTitle" type="text" ng-model="product.proTitle" class="form-control" placeholder="product title" required>
+                    <input name="editproTitle" type="text" ng-maxlength="60" ng-model="product.proTitle" class="form-control" placeholder="product title" required>
                     <div ng-messages="updateProductForm.editproTitle.$error" role="alert">
                       <p class="help-block error-text" ng-message="required">Need a title for this product.</p>
+                      <p class="help-block error-text" ng-message="maxlength">Title must not exceed 60 characters</p>
                     </div>
                 </div>
                 <!--Field for editing the image seen in the overall products page-->
