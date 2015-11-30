@@ -29,6 +29,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $scope.tempTable = [];
     $scope.tempNewRow = [];
     $scope.amountOfColumns = [1,2,3];
+    $scope.edittingRows = false;
 
     //Function to add a header
     $scope.addNewRow = function() {
