@@ -10,7 +10,7 @@ var should = require('should'),
 
 var app, agent, credentials, user, order;
 
-describe('Payment CRUD tests', function () {
+describe('Admin Payment CRUD tests', function () {
     before(function (done) {
         app = express.init(mongoose);
         agent = request.agent(app);
@@ -31,7 +31,8 @@ describe('Payment CRUD tests', function () {
             email: 'test@test.com',
             username: credentials.username,
             password: credentials.password,
-            provider: 'local'
+            provider: 'local',
+            roles: [ "admin" ]
         });
 
         user.save(function () {
@@ -39,13 +40,14 @@ describe('Payment CRUD tests', function () {
         });
     });
 
-    it('should not list orders when not logged in', function (done) {
-        agent.get('/api/order/list')
-            .expect(400)
-            .end(done);
+    it('should not be able to get the list when not logged in to an admin acc', function (done) {
+        agent.get('/api/order/adminctl')
+            .expect(400);
+
+        done();
     });
 
-    it('should list orders when logged in', function (done) {
+    it('should be able to get the list as an admin', function (done) {
         agent.post('/api/auth/signin')
             .send(credentials)
             .expect(200)
@@ -54,7 +56,7 @@ describe('Payment CRUD tests', function () {
                     return done(signinErr);
                 }
 
-                agent.get('/api/order/list')
+                agent.get('/api/order/adminctl')
                     .expect(200);
 
                 done();
