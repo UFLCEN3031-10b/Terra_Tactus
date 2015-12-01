@@ -32,9 +32,10 @@ body {
 
 /***SET THE BUTTON'S HOVER AND FOCUS STATES***/
 #section-banner{
-    background: url(http://pre14.deviantart.net/293d/th/pre/f/2007/205/d/3/black_rocks_by_vraxor22.jpg);
+    /*background: url(http://pre14.deviantart.net/293d/th/pre/f/2007/205/d/3/black_rocks_by_vraxor22.jpg);*/
     background-size: 100%;
     background-repeat: no-repeat;
+
 }
 .banner-content{
     padding: 300px 0 300px 0;

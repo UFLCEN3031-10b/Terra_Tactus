@@ -27,13 +27,13 @@ exports.update = function (req, res) {
                 message: errorHandler.getErrorMessage(err)
             });
         } else {
-            //data.remove(function (err) {
-            //    if (err) {
-            //        return res.status(400).send({
-            //            message: errorHandler.getErrorMessage(err)
-            //        });
-            //    }
-            //});
+            data.remove(function (err) {
+                if (err) {
+                    return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                }
+            });
         }
     });
 

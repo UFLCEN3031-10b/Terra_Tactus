@@ -1,0 +1,90 @@
+<section ng-controller="SubscriptionEditController">
+  <div class="page-header">
+    <h1>Edit Subscription Data</h1>
+  </div>
+  <form name="subscriptionDataForm" class="form-horizontal col-md-12" ng-submit="subscriptionUpdate()" novalidate>
+    <fieldset>
+      <div class="form-group">
+        <label>Quote to go over image</label>
+        <textarea name="quote" ng-model="subscriptionData.quote" class="form-control" cols="30" rows="5" placeholder="Enter text here..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Picture URL</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.pictureUrl" class="form-control" placeholder="https://www.thisisalink.com/image.jpg" required>
+      </div>
+      <div class="form-group">
+        <label>Attention Grabber </label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.grabber" class="form-control" placeholder="Short something to grab the attention to the two product types" required>
+      </div>
+      <div class="form-group">
+        <label>Category One </label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.typeOne" class="form-control" placeholder="(Geological, cultural, etc..)" required>
+      </div>
+      <div class="form-group">
+        <label>Description of Category One</label>
+        <textarea name="pictureUrl" type="text" ng-model="subscriptionData.typeOneData" class="form-control" placeholder="Talk about geological kits here..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Category Two</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.typeTwo" class="form-control" placeholder="(Geological, country, etc..)" required>
+      </div>
+      <div class="form-group">
+        <label>Description of Category Two</label>
+        <textarea name="pictureUrl" type="text" ng-model="subscriptionData.typeTwoData" class="form-control" placeholder="Talk about country kits here..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Subscription Model #1 Title</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.modelOne" class="form-control" placeholder="Short Title" required>
+      </div>
+      <div class="form-group">
+        <label>Model #1 Pricing</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.modelOnePrice" class="form-control" placeholder="$19.99/month" required>
+      </div>
+      <div class="form-group">
+        <label>Model #1 Benefits</label>
+        <textarea name="pictureUrl" type="text" ng-model="subscriptionData.modelOneDesc" class="form-control" placeholder="Why should I subscribe to this model?" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Model #1 Button Text</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.modelOneBtn" class="form-control" placeholder="What is included in this model?" required>
+      </div>
+
+      <div class="form-group">
+        <label>Subscription Model #2 Title</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.modelTwo" class="form-control" placeholder="Short Title" required>
+      </div>
+      <div class="form-group">
+        <label>Model #2 Pricing</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.modelTwoPrice" class="form-control" placeholder="$29.99/month" required>
+      </div>
+      <div class="form-group">
+        <label>Model #2 Benefits</label>
+        <textarea name="pictureUrl" type="text" ng-model="subscriptionData.modelTwoDesc" class="form-control" placeholder="Why should I subscribe to this model?" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Model #2 Button Text</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.modelTwoBtn" class="form-control" placeholder="What is included in this model?" required>
+      </div>
+
+      <div class="form-group">
+        <label>Subscription Model #3 Title</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.modelThree" class="form-control" placeholder="Short Title" required>
+      </div>
+      <div class="form-group">
+        <label>Model #3 Pricing</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.modelThreePrice" class="form-control" placeholder="$49.99/year" required>
+      </div>
+      <div class="form-group">
+        <label>Model #3 Benefits</label>
+        <textarea name="pictureUrl" type="text" ng-model="subscriptionData.modelThreeDesc" class="form-control" placeholder="Why should I subscribe to this model?" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Model #3 Button Text</label>
+        <input name="pictureUrl" type="text" ng-model="subscriptionData.modelThreeBtn" class="form-control" placeholder="What is included in this model?" required>
+      </div>
+      <div class="form-group text-center">
+        <input type="submit" class="btn btn-blue">
+      </div>
+    </fieldset>
+  </form>
+</section>
