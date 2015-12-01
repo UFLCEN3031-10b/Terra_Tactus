@@ -34,9 +34,7 @@ describe('Payment CRUD tests', function () {
             provider: 'local'
         });
 
-        user.save(function () {
-            done();
-        });
+        user.save(done);
     });
 
     it('should not list orders when not logged in', function (done) {
@@ -55,13 +53,14 @@ describe('Payment CRUD tests', function () {
                 }
 
                 agent.get('/api/order/list')
-                    .expect(200);
-
-                done();
+                    .expect(200)
+                    .end(done);
             });
     });
 
     afterEach(function (done) {
-        User.remove().exec(done);
+        User.remove().exec(function () {
+            done();
+        });
     });
 });

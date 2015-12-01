@@ -35,16 +35,23 @@ describe('Admin Payment CRUD tests', function () {
             roles: [ "admin" ]
         });
 
+        order = new Order({
+            cart: [],
+            paypal_create_res: [],
+            paypal_get_res: [],
+            paypal_execute_res: [],
+            open: true
+        });
+
         user.save(function () {
-            done();
+            order.save(done);
         });
     });
 
     it('should not be able to get the list when not logged in to an admin acc', function (done) {
         agent.get('/api/order/adminctl')
-            .expect(400);
-
-        done();
+            .expect(403)
+            .end(done);
     });
 
     it('should be able to get the list as an admin', function (done) {
@@ -57,13 +64,40 @@ describe('Admin Payment CRUD tests', function () {
                 }
 
                 agent.get('/api/order/adminctl')
-                    .expect(200);
+                    .expect(200)
+                    .end(done);
+            });
+    });
 
-                done();
+    it('should not update when not an admin', function (done) {
+        agent.put('/api/order/adminctl/' + order._id)
+            .expect(403)
+            .end(done);
+    });
+
+    it('should update when on an admin acc', function (done) {
+        agent.post('/api/auth/signin')
+            .send(credentials)
+            .expect(200)
+            .end(function (signinErr, signinRes) {
+                if (signinErr) {
+                    return done(signinErr);
+                }
+
+                agent.put('/api/order/adminctl/' + order._id)
+                    .send({ newStatus: 'new status' })
+                    .expect(200)
+                    .end(function () {
+                        agent.get('/api/order/adminctl')
+                            .expect(200)
+                            .end(done);
+                    });
             });
     });
 
     afterEach(function (done) {
-        User.remove().exec(done);
+        User.remove().exec(function () {
+            Order.remove().exec(done);
+        });
     });
 });
