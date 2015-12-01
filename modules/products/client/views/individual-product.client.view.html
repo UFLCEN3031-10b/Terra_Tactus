@@ -14,15 +14,15 @@
 
 			<div class="container service1-items col-sm-2 col-md-2 pull-left">
 				<center>
-					<a id="item-1" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageTwo';">
+					<a id="item-1" class="service1-item" ng-switch on="selection" ng-click="imageSelector('imageTwo')">
 						<img src="{{product.imageTwo}}" alt="" ng-switch-default>
 						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageTwo">
 					</a>
-					<a id="item-2" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageThree';">
+					<a id="item-2" class="service1-item" ng-switch on="selection" ng-click="imageSelector('imageThree')">
 						<img src="{{product.imageThree}}" alt="" ng-switch-default>
 						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageThree">
 					</a>
-					<a id="item-3" class="service1-item" ng-switch on="selection" ng-click="selection = 'imageFour';">
+					<a id="item-3" class="service1-item" ng-switch on="selection" ng-click="imageSelector('imageFour')">
 						<img src="{{product.imageFour}}" alt="" ng-switch-default>
 						<img src="{{product.imageOne}}" alt="" class="img-fill" ng-switch-when="imageFour">
 					</a>
@@ -63,29 +63,17 @@
 				<tab-heading class="pane-titles">CURRICULUM</tab-heading>
 
 				<div class="table-responsive table-striped">
-				  <table class="table">
-				    <tr>
-							<th>Situation</th>
-							<th>Action</th>
-							<th>Result</th>
-						</tr>
-						<tr>
-							<td>Learn about the native lands of your ancestors.</td>
-							<td>Feel the soil that they slept on when beds weren't around.</td>
-							<td>Become one of the smarter kids in your class with my product.</td>
-						</tr>
-						<tr>
-							<td>Learn about the rivers which flowed rich with gold.</td>
-							<td>Touch the piece of gold that made billy bob joe go crazy in 1912.</td>
-							<td>Have a better understanding of what the gold rush is by going crazy.</td>
-						</tr>
-						<tr>
-							<td>I am really runnin out of things to say here.</td>
-							<td>Just know that you can really get hands on with this here kit.</td>
-							<td>It is going to be cray.</td>
-						</tr>
-				  </table>
-				</div>
+	        <table class="table">
+	          <tr>
+	            <th ng-repeat="header in product.curriculum[0] track by $index" ng-bind="header"></th>
+	          </tr>
+	          <tr ng-repeat="columns in product.curriculum track by $index" ng-if="$index !== 0">
+	            <td ng-repeat="columns in product.curriculum[$index] track by $index">
+	              {{columns}}
+	            </td>
+	          </tr>
+	        </table>
+	      </div>
 			</tab>
 			<tab>
 				<tab-heading class="pane-titles">REVIEWS</tab-heading>
