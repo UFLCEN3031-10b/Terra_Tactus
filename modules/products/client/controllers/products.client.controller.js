@@ -4,9 +4,8 @@
 angular.module('core').controller('ProductsController', ['$window','$http','$scope','$rootScope', '$stateParams', '$location', 'Authentication', 'Products',
   function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
-    $scope.displayType = false; //initialized cultural
-
     //individual product image picker function
+    $scope.displayType = false; //initialized country
     $scope.selection = 'imageOne';
     $scope.imageSelector = function (imagePick) {
       if (imagePick !== $scope.selection) {
