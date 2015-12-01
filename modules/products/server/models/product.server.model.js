@@ -97,8 +97,8 @@ var ProductSchema = new Schema({
     },
     reviews: {
       type: [ReviewSchema]
-    }
-
+    },
+    curriculum: []
 });
 
 mongoose.model('Product', ProductSchema);
