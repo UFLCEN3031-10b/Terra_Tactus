@@ -39,6 +39,11 @@ describe('Payment CRUD tests', function () {
         });
     });
 
+    it('should list orders for a user', function (done) {
+        agent.get('/api/order/list')
+            .expect(200);
+    });
+
     afterEach(function (done) {
         User.remove().exec(done);
     });
