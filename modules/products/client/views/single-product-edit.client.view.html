@@ -104,25 +104,28 @@
                   <!--Field for editing the individual price of a product-->
                   <div class="form-group" show-errors>
                       <label>Individual Price (ex. 9.99)</label>
-                      <input name="editindvPrice" type="text" ng-model="product.indvPrice" class="form-control" placeholder="Individual Price" required>
+                      <input name="editindvPrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="product.indvPrice" class="form-control" placeholder="Individual Price" required>
                       <div ng-messages="updateProductForm.editindvPrice.$error" role="alert">
                         <p class="help-block error-text" ng-message="required">Individual Price is required.</p>
+                        <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
                       </div>
                   </div>
                   <!--Field for editing the educators price of a product-->
                   <div class="form-group" show-errors>
                       <label>Educational Price (ex. 9.99)</label>
-                      <input name="editeduPrice" type="text" ng-model="product.eduPrice" class="form-control" placeholder="Educational Price" required>
+                      <input name="editeduPrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="product.eduPrice" class="form-control" placeholder="Educational Price" required>
                       <div ng-messages="updateProductForm.editeduPrice.$error" role="alert">
                         <p class="help-block error-text" ng-message="required">Educational Price is required.</p>
+                        <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
                       </div>
                   </div>
                   <!--Field for editing the wholesale price of a product-->
                   <div class="form-group" show-errors>
                       <label>Wholesale Price (ex. 9.99)</label>
-                      <input name="editwholePrice" type="text" ng-model="product.wholePrice" class="form-control" placeholder="Wholesale Price" required>
+                      <input name="editwholePrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="product.wholePrice" class="form-control" placeholder="Wholesale Price" required>
                       <div ng-messages="updateProductForm.editwholePrice.$error" role="alert">
                         <p class="help-block error-text" ng-message="required">Wholesale Price is required.</p>
+                        <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
                       </div>
                   </div>
                   <!--Code for editing if a user deems this product popular among educators-->

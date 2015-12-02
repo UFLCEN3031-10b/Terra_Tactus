@@ -111,25 +111,28 @@
         <!--Field for setting the individual price-->
         <div class="form-group" show-errors>
           <label for="indvPrice">Individual Price</label>
-          <input name="indvPrice" type="text" ng-model="indvPrice" id="indvPrice-tb" class="form-control" placeholder="Individual Price seen by guest users (ex. 9.99)" required>
+          <input name="indvPrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="indvPrice" id="indvPrice-tb" class="form-control" placeholder="Individual Price seen by guest users (ex. 9.99)" required>
           <div ng-messages="productForm.indvPrice.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Individual Price is required.</p>
+            <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
           </div>
         </div>
         <!--Field for setting the educators price-->
         <div class="form-group" show-errors>
           <label for="eduPrice">Educational Price</label>
-          <input name="eduPrice" type="text" ng-model="eduPrice" id="eduPrice-tb" class="form-control" placeholder="Educational Price seen by Educational Users (ex. 9.99)" required>
+          <input name="eduPrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="eduPrice" id="eduPrice-tb" class="form-control" placeholder="Educational Price seen by Educational Users (ex. 9.99)" required>
           <div ng-messages="productForm.eduPrice.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Educational Price is required.</p>
+            <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
           </div>
         </div>
         <!--Field for setting the wholesale price-->
         <div class="form-group" show-errors>
           <label for="wholePrice">Wholesale Price</label>
-          <input name="wholePrice" type="text" ng-model="wholePrice" id="wholePrice-tb" class="form-control" placeholder="Wholesale Price seen by Wholesale Users (ex. 9.99)" required>
+          <input name="wholePrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="wholePrice" id="wholePrice-tb" class="form-control" placeholder="Wholesale Price seen by Wholesale Users (ex. 9.99)" required>
           <div ng-messages="productForm.wholePrice.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Wholesale Price is required.</p>
+            <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
           </div>
         </div>
         <!--Check box for setting if the product is a teachers favorite or not-->
