@@ -38,9 +38,10 @@
                 <!--Field for editing the product title-->
                 <div class="form-group" show-errors>
                     <label>Product Title</label>
-                    <input name="editproTitle" type="text" ng-model="product.proTitle" class="form-control" placeholder="product title" required>
+                    <input name="editproTitle" type="text" ng-maxlength="60" ng-model="product.proTitle" class="form-control" placeholder="product title" required>
                     <div ng-messages="updateProductForm.editproTitle.$error" role="alert">
                       <p class="help-block error-text" ng-message="required">Need a title for this product.</p>
+                      <p class="help-block error-text" ng-message="maxlength">Title must not exceed 60 characters</p>
                     </div>
                 </div>
                 <!--Field for editing the image seen in the overall products page-->
@@ -103,25 +104,28 @@
                   <!--Field for editing the individual price of a product-->
                   <div class="form-group" show-errors>
                       <label>Individual Price (ex. 9.99)</label>
-                      <input name="editindvPrice" type="text" ng-model="product.indvPrice" class="form-control" placeholder="Individual Price" required>
+                      <input name="editindvPrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="product.indvPrice" class="form-control" placeholder="Individual Price" required>
                       <div ng-messages="updateProductForm.editindvPrice.$error" role="alert">
                         <p class="help-block error-text" ng-message="required">Individual Price is required.</p>
+                        <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
                       </div>
                   </div>
                   <!--Field for editing the educators price of a product-->
                   <div class="form-group" show-errors>
                       <label>Educational Price (ex. 9.99)</label>
-                      <input name="editeduPrice" type="text" ng-model="product.eduPrice" class="form-control" placeholder="Educational Price" required>
+                      <input name="editeduPrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="product.eduPrice" class="form-control" placeholder="Educational Price" required>
                       <div ng-messages="updateProductForm.editeduPrice.$error" role="alert">
                         <p class="help-block error-text" ng-message="required">Educational Price is required.</p>
+                        <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
                       </div>
                   </div>
                   <!--Field for editing the wholesale price of a product-->
                   <div class="form-group" show-errors>
                       <label>Wholesale Price (ex. 9.99)</label>
-                      <input name="editwholePrice" type="text" ng-model="product.wholePrice" class="form-control" placeholder="Wholesale Price" required>
+                      <input name="editwholePrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="product.wholePrice" class="form-control" placeholder="Wholesale Price" required>
                       <div ng-messages="updateProductForm.editwholePrice.$error" role="alert">
                         <p class="help-block error-text" ng-message="required">Wholesale Price is required.</p>
+                        <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
                       </div>
                   </div>
                   <!--Code for editing if a user deems this product popular among educators-->
@@ -140,7 +144,7 @@
 
                   <!-- Beginning of code with all the html associated with the edit feature GUI-->
                   <div ng-show="editingFeatures">
-                    <label class="form-group">Editting Features</label>
+                    <label class="form-group">Editing Features</label>
                     <!--This part of code is for adding a new feature-->
                     <div class="form-group input-group">
                     <input id="add_feature_text" type="text" class="form-control" placeholder="New feature" ng-model="newFt_edit">
