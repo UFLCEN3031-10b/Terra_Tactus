@@ -62,7 +62,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $scope.addFeature = function(){
       var itemCopy = {};
       //console.log($scope.newFt);
-      if ($scope.newFt !== undefined ){
+      if ($scope.newFt !== undefined && $scope.newFt !== "" ){
       itemCopy = $scope.newFt;
       $scope.tempFeatures.push(itemCopy);
       $scope.newFt = undefined;
@@ -85,9 +85,10 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
   //to edit a feature is embedded (editItem)
   $scope.showEdits = function(item){
     var index = $scope.tempFeatures.indexOf(item);
+    $scope.editBox = item;
     $scope.edits = true;
     $scope.editItem = function(){
-        if($scope.editBox !== undefined){
+        if($scope.editBox !== undefined && $scope.editBox !== "" ){
           $scope.tempFeatures[index] = $scope.editBox;
           $scope.edits = false;
           $scope.editBox = undefined;

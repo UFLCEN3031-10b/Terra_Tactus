@@ -52,7 +52,7 @@ angular.module('core').controller('editProductsController', ['$window','$http','
     $scope.addFeature_edit = function(){
       var itemCopy = {};
       //console.log($scope.newFt_edit);
-      if ($scope.newFt_edit !== undefined ){
+      if ($scope.newFt_edit !== undefined && $scope.newFt_edit !== "" ){
       itemCopy = $scope.newFt_edit;
       $scope.editFeatures.push(itemCopy);
       $scope.newFt_edit = undefined;
@@ -77,7 +77,7 @@ angular.module('core').controller('editProductsController', ['$window','$http','
       $scope.editBox_edit = item;
       $scope.edits = true;
       $scope.editItem_edit = function(){
-        if($scope.editBox_edit !== undefined){
+        if($scope.editBox_edit !== undefined && $scope.editBox_edit !== "" ){
           $scope.editFeatures[index] = $scope.editBox_edit;
           $scope.edits = false;
           $scope.editBox_edit = undefined;
