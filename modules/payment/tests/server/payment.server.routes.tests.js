@@ -34,7 +34,18 @@ describe('Payment CRUD tests', function () {
             provider: 'local'
         });
 
-        user.save(done);
+        order = new Order({
+            user: user._id,
+            cart: [],
+            paypal_create_res: [],
+            paypal_get_res: [],
+            paypal_execute_res: [],
+            open: true
+        });
+
+        user.save(function () {
+            order.save(done);
+        });
     });
 
     it('should not list orders when not logged in', function (done) {

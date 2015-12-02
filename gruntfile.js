@@ -174,7 +174,7 @@ module.exports = function (grunt) {
       src: testAssets.tests.server,
       options: {
         reporter: 'spec',
-        timeout: 5000
+        timeout: 60000
       }
     },
     mocha_istanbul: {
