@@ -32,7 +32,7 @@ angular.module('core').controller('editProductsController', ['$window','$http','
       });
     };
 
-    //values used to hide or show components used to edit the fetures
+    //values used to hide or show components used to edit the features
     $scope.editingFeatures = false; //Used to hide or show the whole GUI for editing features
     $scope.decideToEdit = true; //Used to hide or show the button that lets a user chose to edit features
 
@@ -88,6 +88,22 @@ angular.module('core').controller('editProductsController', ['$window','$http','
         };
       };
 
+    //Code for editing curriculumn
+    //values used to hide or show components used to edit the curriculumn
+    $scope.editingCurr = false; //Used to hide or show the whole GUI for editing features
+    $scope.decideToEditCurr = true;
+    //show the editing GUI while hiding the edit features button
+    $scope.startCurrEdit = function(){
+      $scope.editingCurr = true;
+      $scope.decideToEditCurr = false;
+    };
+
+    $scope.cancelCurrEdit = function(){
+      $scope.editingCurr = false;
+      $scope.decideToEditCurr = true;
+    };
+
+    //end of edit curriculumn
 
     //Code to Update Product
    $scope.updateProd = function (edited_product,isValid) {
