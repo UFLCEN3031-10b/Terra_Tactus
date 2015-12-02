@@ -168,6 +168,70 @@
               <span  aria-hidden="true">Update</span>
         </button>
       </div>
+      <label class="form-group">Curriculum</label>
+      <div class="table-responsive table-striped">
+        <table class="table">
+          <tr>
+            <th ng-repeat="header in tempTable[0] track by $index">
+              <span ng-hide="edittingRows">{{header}}</span>
+              <span ng-show="edittingRows">
+                <input name="col" type="text" ng-model="header" class="form-control" placeholder="Edit row...">
+              </span>
+            </th>
+            <th ng-show="tempTable.length !== 0">
+              <span>
+                <button type="button" class="btn btn-default pull-right" ng-click="deleteRow($index)">
+                  <div class="glyphicon glyphicon-trash" aria-hidden="true"></div>
+                </button>
+              </span>
+            </th>
+          </tr>
+          <tr ng-repeat="rows in tempTable track by $index" ng-if="$index !== 0">
+            <td ng-repeat="columns in tempTable[$index] track by $index">
+              <span ng-hide="edittingRows">{{columns}}</span>
+              <span ng-show="edittingRows">
+                <input name="col" type="text" ng-model="rows[$index]" class="form-control" placeholder="Edit row...">
+              </span>
+            </td>
+            <td>
+              <span>
+                <button type="button" class="btn btn-default pull-right" ng-click="deleteRow($index)">
+                  <div class="glyphicon glyphicon-trash" aria-hidden="true"></div>
+                </button>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td ng-repeat="columns in amountOfColumns track by $index">
+              <input name="col" type="text" ng-model="tempNewRow[$index]" class="form-control" placeholder="Add Col...">
+            </td>
+            <td>
+              <span>
+                <button type="button" class="btn btn-default" ng-click="addNewRow()">
+                  <div class="glyphicon glyphicon-ok" aria-hidden="true"></div>
+                </button>
+              </span>
+              <span>
+                <button type="button" class="btn btn-default" ng-click="col('remove')">
+                  <div class="glyphicon glyphicon-chevron-left" aria-hidden="true"></div>
+                </button>
+              </span>
+              <span>
+                <button type="button" class="btn btn-default" ng-click="col('add')">
+                  <div class="glyphicon glyphicon-chevron-right" aria-hidden="true"></div>
+                </button>
+              </span>
+              <span>
+                <button type="button" class="btn btn-default" ng-click="edittingRows = !edittingRows">
+                  <div class="glyphicon" ng-if="!edittingRows">Edit</div>
+                  <div class="glyphicon" ng-if="edittingRows">SaveEdits</div>
+                </button>
+              </span>
+            </td>
+          </tr>
+        </table>
+      </div>
+
         <!--Button for submitting a request to create a product-->
         <div class="form-group">
           <input type="submit" value="Create Product" class="btn btn-default">

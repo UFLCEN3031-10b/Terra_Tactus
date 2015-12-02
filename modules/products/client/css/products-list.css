@@ -60,6 +60,7 @@ a.text-warning:hover {
 
 .store-item-image {
     overflow: hidden;
+    height: 25em;
 }
 
 .store-item-image img {
@@ -69,6 +70,7 @@ a.text-warning:hover {
 
 .store-item-info {
     padding: 20px;
+    height: 200px;
     background-color: #f9f9f9;
 }
 
