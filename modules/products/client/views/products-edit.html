@@ -1,7 +1,7 @@
 <!--This code is meant to show all the products available, it will allow the user to click to edit a specific product, or delete a product-->
 <!--Code for a page header-->
 <div class="row">
-  <div class="col-lg-10">
+  <div class="col-lg-10 col-lg-offset-1">
     <h1 align = "center"><b> My Products </b></h1>
   </div>
 </div>
@@ -9,7 +9,7 @@
 <section ng-controller="editProductsController">
     <!-- Division that will be used to repeat the product blocks -->
     <div class="row" >
-        <div class="col-lg-10 " >
+        <div class="col-lg-10 col-lg-offset-1" >
             <div class=" col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="product in products" >
                 <div class="thumbnail product-thumb" >
                     <div class = "label-info">
