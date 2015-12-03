@@ -6,9 +6,10 @@ var should = require('should'),
     mongoose = require('mongoose'),
     User = mongoose.model('User'),
     Order = mongoose.model('Order'),
+    Product = mongoose.model('Product'),
     express = require(path.resolve('./config/lib/express'));
 
-var app, agent, credentials, user, order;
+var app, agent, credentials, user, order, product;
 
 describe('Payment CRUD tests', function () {
     before(function (done) {
@@ -43,8 +44,18 @@ describe('Payment CRUD tests', function () {
             open: true
         });
 
+        product = new Product({
+            proTitle: 'test product',
+            shortDes: 'description',
+            indvPrice: '1.00',
+            eduPrice: '2.00',
+            wholePrice: '3.00'
+        });
+
         user.save(function () {
-            order.save(done);
+            order.save(function () {
+                product.save(done);
+            });
         });
     });
 
@@ -69,9 +80,50 @@ describe('Payment CRUD tests', function () {
             });
     });
 
+    it('should return 400 when cart is empty', function (done) {
+        agent.post('/api/order')
+            .expect(400)
+            .end(done);
+    });
+
+    it('should return 400 when quantity is 0 for all products in cart', function (done) {
+        agent.post('/api/cart/product/' + product._id)
+            .expect(200)
+            .end(function () {
+                agent.post('/api/order')
+                    .expect(400)
+                    .end(function () {
+                        agent.delete('/api/cart')
+                            .expect(200)
+                            .end(done);
+                    });
+            });
+    });
+
+    it('should return a redirect url when cart has an item', function (done) {
+        agent.post('/api/cart/product/' + product._id)
+            .send({ quantity: 1 })
+            .expect(200)
+            .end(function () {
+                agent.post('/api/order')
+                    .expect(200)
+                    .end(function (err, res) {
+                        if (err) {
+                            return done(err);
+                        }
+
+                        should(JSON.parse(res.text)).have.property('redirect_url');
+
+                        done();
+                    });
+            });
+    });
+
     afterEach(function (done) {
         User.remove().exec(function () {
-            done();
+            Order.remove().exec(function () {
+                Product.remove().exec(done);
+            });
         });
     });
 });
