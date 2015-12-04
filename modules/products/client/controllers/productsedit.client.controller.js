@@ -20,8 +20,6 @@ angular.module('core').controller('editProductsController', ['$window','$http','
       }
     };
 
-
-
     //Array for holding current editing products features
     $scope.editFeatures = [];
 
@@ -93,7 +91,10 @@ angular.module('core').controller('editProductsController', ['$window','$http','
     $scope.editingCurr = false; //Used to hide or show the whole GUI for editing features
     $scope.decideToEditCurr = true;
     //show the editing GUI while hiding the edit features button
-    $scope.startCurrEdit = function(){
+    $scope.startCurrEdit = function(product){
+      for (var i in $scope.product.curriculum) {
+          $scope.tempTable.push($scope.product.curriculum[i]);
+      }
       $scope.editingCurr = true;
       $scope.decideToEditCurr = false;
     };
@@ -101,6 +102,39 @@ angular.module('core').controller('editProductsController', ['$window','$http','
     $scope.cancelCurrEdit = function(){
       $scope.editingCurr = false;
       $scope.decideToEditCurr = true;
+      $scope.tempTable = [];
+    };
+
+    //array for temporary headers
+    $scope.tempTable = [];
+    $scope.tempNewRow = [];
+    $scope.amountOfColumns = [1,2,3];
+    $scope.edittingRows = false;
+
+    //Function to add a header
+    $scope.addNewRow = function() {
+      if ($scope.tempNewRow.length !== $scope.amountOfColumns.length) {
+        alert("err please fill out all columns of table!");
+        return false;
+      }
+      $scope.tempTable.push($scope.tempNewRow);
+      $scope.tempNewRow = [];
+    };
+
+    //deletes a row on the table
+    $scope.deleteRow = function(index) {
+      $scope.tempTable.splice(index,1);
+    };
+
+    //adds or removes a column in the container given args
+    $scope.col = function(argument) {
+      if (argument === "add") {
+        $scope.amountOfColumns.push($scope.amountOfColumns.length);
+      } else if (argument === "remove") {
+        $scope.amountOfColumns.splice($scope.amountOfColumns.length-1,1);
+      } else {
+        console.log("invalid argument in col function...!");
+      }
     };
 
     //end of edit curriculumn
@@ -116,6 +150,10 @@ angular.module('core').controller('editProductsController', ['$window','$http','
       if($scope.editFeatures.length!==0)
       {
       edited_product.features = $scope.editFeatures.slice();
+      }
+      if($scope.editingCurr === true)
+      {
+      edited_product.curriculum = $scope.tempTable.slice();
       }
       //update product
       edited_product.$update(function () {
