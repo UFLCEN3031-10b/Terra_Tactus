@@ -146,7 +146,7 @@ Css Code for products-edit.clien.view.html file
 
 /*css for the thumbnail or container holding all the product block info*/
 .product-thumb{
-    background-color : white;
+    background-color : #222222;
     border-color:transparent;
     border-radius: 20px;
 }

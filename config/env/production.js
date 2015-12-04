@@ -57,12 +57,12 @@ module.exports = {
     sandbox: false
   },
   mailer: {
-    from: process.env.MAILER_FROM || 'MAILER_FROM',
+    from: 'Terra Tactus',
     options: {
-      service: process.env.MAILER_SERVICE_PROVIDER || 'MAILER_SERVICE_PROVIDER',
+      service: 'gmail',
       auth: {
-        user: process.env.MAILER_EMAIL_ID || 'MAILER_EMAIL_ID',
-        pass: process.env.MAILER_PASSWORD || 'MAILER_PASSWORD'
+        user: 'terratactusbot@gmail.com',
+        pass: 'Sydney2015!'
       }
     }
   },
