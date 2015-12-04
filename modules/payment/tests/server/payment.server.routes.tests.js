@@ -119,6 +119,62 @@ describe('Payment CRUD tests', function () {
             });
     });
 
+    it('should be able to close an order', function (done) {
+        agent.delete('/api/order/close/' + order._id)
+            .expect(200)
+            .end(done);
+    });
+
+    it('should not close an order if the order is not open', function (done) {
+        order.open = false;
+        order.save(function () {
+            agent.delete('/api/order/close/' + order._id)
+                .expect(400)
+                .end(done);
+        });
+    });
+
+    it('should cancel an order when the api is called', function (done) {
+        agent.get('/api/order/cancel/' + order._id)
+            .expect(302)
+            .end(function (err, res) {
+                if (err) {
+                    return done(err);
+                }
+
+                should(res.header.location).include('/cart');
+            });
+    });
+
+    it('should return the order information when the order is open', function (done) {
+        agent.get('/api/order/find/' + order._id)
+            .expect(200)
+            .end(function (err, res) {
+                if (err) {
+                    return done(err);
+                }
+
+                should(JSON.parse(res.text)).have.property('_id');
+                done();
+            });
+    });
+
+    it('should not return order information when the order is closed', function (done) {
+        order.open = false;
+        order.save(function (err) {
+            agent.get('/api/order/find/' + order._id)
+                .expect(200)
+                .end(function (err, res) {
+                    if (err) {
+                        return done(err);
+                    }
+
+                    should(JSON.parse(res.text)).not.be.ok();
+                    done();
+                });
+        });
+    });
+
     afterEach(function (done) {
         User.remove().exec(function () {
             Order.remove().exec(function () {
