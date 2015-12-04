@@ -161,7 +161,7 @@ angular.module('core').controller('editProductsController', ['$window','$http','
         $scope.error = errorResponse.data.message;
       });
       //redirect to general products edit page
-      $location.path('products-edit');
+      $location.path('product/'+edited_product._id);
 
     };
 
