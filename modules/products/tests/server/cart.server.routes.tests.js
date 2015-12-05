@@ -105,6 +105,36 @@ describe('Cart CRUD tests', function () {
             });
     });
 
+    it('should return an error when trying to update empty cart', function (done) {
+        agent.put('/api/cart/product/' + product._id)
+            .send({ quantity: 1 })
+            .expect(400)
+            .end(done);
+    });
+
+    it('should return an error for no quantity', function (done) {
+        agent.post('/api/cart/product/' + product._id)
+            .send({ quantity: 1 })
+            .expect(200)
+            .end(function () {
+                agent.put('/api/cart/product/' + product._id)
+                    .expect(400)
+                    .end(done);
+            });
+    });
+
+    it('should return an error for no quantity', function (done) {
+        agent.post('/api/cart/product/' + product._id)
+            .send({ quantity: 1 })
+            .expect(200)
+            .end(function () {
+                agent.put('/api/cart/product/' + product._id)
+                    .send({ quantity: 0 })
+                    .expect(400)
+                    .end(done);
+            });
+    });
+
     it('should respond with the length of the cart', function (done) {
         agent.get('/api/cart/length')
             .expect(200)

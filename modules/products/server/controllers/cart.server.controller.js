@@ -22,6 +22,18 @@ exports.remove = function (req, res) {
 };
 
 exports.update = function (req, res) {
+    if (!req.session.cart) {
+        return res.status(400).send({
+            message: 'no items in cart'
+        });
+    }
+
+    if (!req.body.quantity || req.body.quantity === "0") {
+        return res.status(400).send({
+            message: 'invalid quantity'
+        });
+    }
+
     var ind = -1;
     req.session.cart.forEach(function (pw, i) {
         if (String(req.product._id) === pw.product._id) {
