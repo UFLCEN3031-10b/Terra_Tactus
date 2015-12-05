@@ -47,8 +47,22 @@ describe('Cart CRUD tests', function () {
         });
     });
 
+    it('should return an error when quantity is undefined', function (done) {
+        agent.post('/api/cart/product/' + product._id)
+            .expect(400)
+            .end(done);
+    });
+
+    it('should return an error when quantity is 0', function (done) {
+        agent.post('/api/cart/product/' + product._id)
+            .send({ quantity: 0 })
+            .expect(400)
+            .end(done);
+    });
+
     it('should allow you to add a product when not logged in', function (done) {
         agent.post('/api/cart/product/' + product._id)
+            .send({ quantity: 1 })
             .expect(200)
             .end(function (err, res) {
                 if (err) {
@@ -66,6 +80,7 @@ describe('Cart CRUD tests', function () {
             .expect(200)
             .end(function () {
                 agent.post('/api/cart/product/' + product._id)
+                    .send({ quantity: 1 })
                     .expect(200)
                     .end(function (err, res) {
                         if (err) {
@@ -75,6 +90,18 @@ describe('Cart CRUD tests', function () {
                         should(res).be.ok();
                         done();
                     });
+            });
+    });
+
+    it('should not let you add the same product twice', function (done) {
+        agent.post('/api/cart/product/' + product._id)
+            .send({ quantity: 1 })
+            .expect(200)
+            .end(function () {
+                agent.post('/api/cart/product/' + product._id)
+                .send({ quantity: 1 })
+                .expect(400)
+                .end(done);
             });
     });
 

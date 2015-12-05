@@ -51,6 +51,10 @@ exports.add = function (req, res) {
         return res.status(400).send({
             message: errorHandler.getErrorMessage('Item already in cart')
         });
+    } else if (req.body.quantity === "0" || !req.body.quantity) {
+        return res.status(400).send({
+            message: 'quantity cannot be 0'
+        });
     } else {
         req.session.cart.push({
             product: req.product,
