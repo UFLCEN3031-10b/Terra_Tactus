@@ -212,6 +212,8 @@ body {
   height: 40%;
   overflow-y: auto;
   margin-bottom: 15px;
+    border-radius: 2px;
+    border-color: white;
 }
 
 .half-section::-webkit-scrollbar {
