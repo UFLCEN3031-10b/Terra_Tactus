@@ -23,7 +23,7 @@
           <label class="control-label" for="roles">Roles</label>
           <div class="controls">
             <div><label><input type="radio" ng-model="user.roles" name="optradio" value="admin">  Admin</label></div>
-            <div><label><input type="radio" ng-model="user.roles" name="optradio" value="freeUser" checked>  Free User</label></div>
+            <div><label><input type="radio" ng-model="user.roles" name="optradio" value="freeUser">  Free User</label></div>
             <div><label><input type="radio" ng-model="user.roles" name="optradio" value="paidUser">  Paid User</label></div>
             <div ng-messages="userForm.roles.$error" role="alert">
               <p class="help-block error-text" ng-message="required">At least one role is required.</p>
