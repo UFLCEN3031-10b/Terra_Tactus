@@ -22,16 +22,40 @@ describe('Subscription CRUD tests', function () {
     //Before each test do this stuff
     beforeEach(function (done) {
         credentials = {
-            username: 'username4tests',
+            username: 'admin4tests',
             password: 'M3@n.jsI$Aw3$0m3'
         };
-        done();
+        user = new User({
+            firstName: 'Admin',
+            lastName: 'Test',
+            displayName: 'firstName lastName',
+            email: 'test@me.com',
+            username: credentials.username,
+            password: credentials.password,
+            provider: 'local'
+        });
+        user.save(done);
     });
     //Test # 1 to see if you can access the subscription edit page without being signed in as a user.
-    it('Should attempt to access editing route without being signed in', function(done){
+    it('Should attempt to access edit subscriptions page without being signed in', function(done){
         agent.get('/api/subscription/edit')
             .expect(404)
             .end(done);
+    });
+    //Test #2 log in with admin account and access subscriptions
+    it('Should log in to admin then access the page to edit subscriptions', function (done) {
+        agent.post('/api/auth/signin')
+            .send(credentials)
+            .expect(200)
+            .end(function (signinErr, signinRes) {
+                if (signinErr) {
+                    return done(signinErr);
+                }
+
+                agent.get('/api/subscription/edit')
+                    .expect(200)
+                    .end(done);
+            });
     });
 
     //After each test say you're done.
