@@ -22,10 +22,9 @@
         <div class="form-group" show-errors>
           <label class="control-label" for="roles">Roles</label>
           <div class="controls">
-            <div><label><input type="radio" ng-model="user.roles" name="optradio" ng-value=admin>  Admin</label></div>
-            <div><label><input type="radio" ng-model="user.roles" name="optradio" ng-value=freeUser>  Free User</label></div>
-            <div><label><input type="radio" ng-model="user.roles" name="optradio" ng-value=paidUser>  Paid User</label></div>
-            <!--<input class="form-control" type="text" name="roles" ng-model="user.roles" id="roles" ng-list required />-->
+            <div><label><input type="radio" ng-model="user.roles" name="optradio" value="admin">  Admin</label></div>
+            <div><label><input type="radio" ng-model="user.roles" name="optradio" value="freeUser" checked>  Free User</label></div>
+            <div><label><input type="radio" ng-model="user.roles" name="optradio" value="paidUser">  Paid User</label></div>
             <div ng-messages="userForm.roles.$error" role="alert">
               <p class="help-block error-text" ng-message="required">At least one role is required.</p>
             </div>
