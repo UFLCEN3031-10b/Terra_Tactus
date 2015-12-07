@@ -22,6 +22,18 @@ exports.remove = function (req, res) {
 };
 
 exports.update = function (req, res) {
+    if (!req.session.cart) {
+        return res.status(400).send({
+            message: 'no items in cart'
+        });
+    }
+
+    if (!req.body.quantity || req.body.quantity === "0") {
+        return res.status(400).send({
+            message: 'invalid quantity'
+        });
+    }
+
     var ind = -1;
     req.session.cart.forEach(function (pw, i) {
         if (String(req.product._id) === pw.product._id) {
@@ -50,6 +62,10 @@ exports.add = function (req, res) {
     if (alreadyInCart) {
         return res.status(400).send({
             message: errorHandler.getErrorMessage('Item already in cart')
+        });
+    } else if (req.body.quantity === "0" || !req.body.quantity) {
+        return res.status(400).send({
+            message: 'quantity cannot be 0'
         });
     } else {
         req.session.cart.push({
