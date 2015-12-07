@@ -14,6 +14,9 @@ angular.module('core').controller('HomepageEditController', ['$scope', '$http', 
     });
 
     $http.get('/api/homepage/socialmedia').success(function (res) {
+        res.forEach(function (data) {
+            data.isEditting = false;
+        });
         $scope.socialmediaData = res;
     });
 
@@ -35,11 +38,23 @@ angular.module('core').controller('HomepageEditController', ['$scope', '$http', 
         });
     };
 
+    $scope.socialmediaAdd = function () {
+
+    };
+
+    $scope.socialmediaDelete = function () {
+
+    };
+
     $scope.socialmediaUpdate = function () {
         var req = $scope.socialmediaData;
 
         $http.put('/api/homepage/socialmedia', req).success(function (res) {
             $window.location.reload();
         });
+    };
+
+    $scope.toggleEditable = function (sm) {
+        sm.isEditting = !sm.isEditting;
     };
 }]);
