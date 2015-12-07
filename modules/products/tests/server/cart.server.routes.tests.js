@@ -148,6 +148,27 @@ describe('Cart CRUD tests', function () {
             });
     });
 
+    it('should not remove an item that is not in the cart', function (done) {
+        agent.delete('/api/cart/product/' + product._id)
+            .expect(400)
+            .end(done);
+    });
+
+    it('should remove the correct item from the cart', function (done) {
+        agent.post('/api/cart/product/' + product._id)
+            .send({ quantity: 1 })
+            .expect(200)
+            .end(function (err, res) {
+                if (err) {
+                    return done(err);
+                }
+
+                agent.delete('/api/cart/product/' + product._id)
+                    .expect(200)
+                    .end(done);
+            });
+    });
+
     afterEach(function (done) {
         User.remove().exec(function () {
             Product.remove().exec(function () {
