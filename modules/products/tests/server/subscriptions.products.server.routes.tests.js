@@ -40,26 +40,26 @@ describe('Subscription CRUD tests', function () {
 
     });
     //Test # 1 to see if you can access the subscription edit page without being signed in as a user.
-    //it('Should attempt to access edit subscriptions page without being signed in', function(done){
-    //    agent.get('/api/subscription/data')
-    //        .expect(404)
-    //        .end(done);
-    //});
-    ////Test #2 log in with admin account and access subscriptions
-    //it('Should log in to admin then access the page to edit subscriptions', function (done) {
-    //    agent.post('/api/auth/signin')
-    //        .send(credentials)
-    //        .expect(200)
-    //        .end(function (signinErr, signinRes) {
-    //            if (signinErr) {
-    //                return done(signinErr);
-    //            }
-    //
-    //            agent.get('/api/subscription/edit')
-    //                .expect(200)
-    //                .end(done);
-    //        });
-    //});
+    it('Should attempt to access edit subscriptions page without being signed in', function(done){
+        agent.get('/api/subscription/data')
+            .expect(404)
+            .end(done);
+    });
+    //Test #2 log in with admin account and access subscriptions
+    it('Should log in to admin then access the page to edit subscriptions', function (done) {
+        agent.post('/api/auth/signin')
+            .send(credentials)
+            .expect(200)
+            .end(function (signinErr, signinRes) {
+                if (signinErr) {
+                    return done(signinErr);
+                }
+
+                agent.get('/api/subscription/data')
+                    .expect(200)
+                    .end(done);
+            });
+    });
 
     //After each test say you're done.
     afterEach(function (done) {
