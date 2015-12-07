@@ -4,6 +4,7 @@
 'use strict';
 var subscriptionData = require('../controllers/subscription.server.controller');
 
+//Route for subscription data
 module.exports = function (app) {
     app.route('/api/subscription/data')
         .get(subscriptionData.find)
