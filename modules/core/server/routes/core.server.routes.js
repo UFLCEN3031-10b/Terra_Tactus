@@ -19,10 +19,10 @@ module.exports = function (app) {
     .put(contact.update);
 
   app.route('/api/homepage/socialmedia').all(hompagepolicy.isAllowed)
+    .post(socialmedia.add)
     .get(socialmedia.find);
 
   app.route('/api/homepage/socialmedia/:smId').all(hompagepolicy.isAllowed)
-    .post(socialmedia.add)
     .put(socialmedia.update)
     .delete(socialmedia.delete);
 
