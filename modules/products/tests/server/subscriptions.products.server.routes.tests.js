@@ -41,7 +41,7 @@ describe('Subscription CRUD tests', function () {
     });
     //Test # 1 to see if you can access the subscription edit page without being signed in as a user.
     it('Should attempt to access edit subscriptions page without being signed in', function(done){
-        agent.get('/api/subscription/data')
+        agent.get('/api/subscription/edit')
             .expect(404)
             .end(done);
     });
@@ -55,7 +55,7 @@ describe('Subscription CRUD tests', function () {
                     return done(signinErr);
                 }
 
-                agent.get('/api/subscription/data')
+                agent.get('/api/subscription/edit')
                     .expect(200)
                     .end(done);
             });
