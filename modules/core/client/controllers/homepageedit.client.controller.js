@@ -40,6 +40,10 @@ angular.module('core').controller('HomepageEditController', ['$scope', '$http', 
     };
 
     $scope.socialmediaAdd = function () {
+        if (!$scope.esm.iconLink) {
+            $scope.esm.iconLink = '';
+        }
+
         $http.post('/api/homepage/socialmedia', $scope.esm).success(function (res) {
             $window.location.reload();
         });
@@ -52,6 +56,10 @@ angular.module('core').controller('HomepageEditController', ['$scope', '$http', 
     };
 
     $scope.socialmediaUpdate = function (sm) {
+        if (!sm.iconLink) {
+            sm.iconLink = '';
+        }
+
         delete sm.hasIcon;
         $http.put('/api/homepage/socialmedia/' + sm._id, sm).success(function (err) {
             $window.location.reload();
