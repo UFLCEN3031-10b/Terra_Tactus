@@ -142,7 +142,8 @@ describe('Payment CRUD tests', function () {
                     return done(err);
                 }
 
-                should(res.header.location).include('/cart');
+                should(res.header.location).equal('/cart');
+                done();
             });
     });
 
