@@ -47,6 +47,41 @@ describe('Cart CRUD tests', function () {
         });
     });
 
+    it('should return the cart even when empty', function (done) {
+        agent.get('/api/cart')
+            .expect(200)
+            .end(function (err, res) {
+                if (err) {
+                    return done(err);
+                }
+
+                should(JSON.parse(res.text).length).equal(0);
+                done();
+            });
+    });
+
+    it('should return the cart with an item in it', function (done) {
+        agent.post('/api/cart/product/' + product._id)
+            .send({ quantity: 1 })
+            .expect(200)
+            .end(function (err, res) {
+                if (err) {
+                    return done(err);
+                }
+
+                agent.get('/api/cart')
+                    .expect(200)
+                    .end(function (err, res) {
+                        if (err) {
+                            return done(err);
+                        }
+
+                        should(JSON.parse(res.text).length).equal(1);
+                        done();
+                    });
+            });
+    });
+
     it('should return an error when quantity is undefined', function (done) {
         agent.post('/api/cart/product/' + product._id)
             .expect(400)
