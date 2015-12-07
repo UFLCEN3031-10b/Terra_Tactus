@@ -4,6 +4,7 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
+<<<<<<< HEAD
     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ds053718.mongolab.com:53718/terratactus',
     options: {
       user: 'use',
