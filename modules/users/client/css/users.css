@@ -91,6 +91,7 @@
 .login-block input#username {
     background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px top no-repeat;
     background-size: 16px 80px;
+    color: #3366cc;
 }
 
 /* If clicked on do this
@@ -102,6 +103,8 @@
 .login-block input#password {
     background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px top no-repeat;
     background-size: 16px 80px;
+    color: #3366cc;
+
 }
 
 /* If clicked on... do this
