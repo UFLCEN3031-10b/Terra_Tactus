@@ -20,7 +20,10 @@ var ProductSchema = new Schema({
       type: Date,
       default: Date.now
     },
-    proType: Boolean, //false = geological, true = country
+    proType: {
+      type: Boolean, //false = geological, true = country
+      default: false //by default we will product will be a geo kit
+    },
     proTitle: {
         type: String,
         default: '',
