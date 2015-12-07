@@ -88,9 +88,9 @@ angular.module('core').controller('editProductsController', ['$window','$http','
 
     //Code for editing curriculumn
     //values used to hide or show components used to edit the curriculumn
-    $scope.editingCurr = false; //Used to hide or show the whole GUI for editing features
+    $scope.editingCurr = false; //Used to hide or show the whole GUI for editing curriculum
     $scope.decideToEditCurr = true;
-    //show the editing GUI while hiding the edit features button
+    //show the editing GUI while hiding the edit curriculum button, populate tempTable with product curriculum
     $scope.startCurrEdit = function(product){
       for (var i in $scope.product.curriculum) {
           $scope.tempTable.push($scope.product.curriculum[i]);
@@ -99,6 +99,7 @@ angular.module('core').controller('editProductsController', ['$window','$http','
       $scope.decideToEditCurr = false;
     };
 
+    //stop showing the edit curriculum GUI and clear the temp Table
     $scope.cancelCurrEdit = function(){
       $scope.editingCurr = false;
       $scope.decideToEditCurr = true;
@@ -136,8 +137,7 @@ angular.module('core').controller('editProductsController', ['$window','$http','
         console.log("invalid argument in col function...!");
       }
     };
-
-    //end of edit curriculumn
+    //end of code for editting curriculumn
 
     //Code to Update Product
    $scope.updateProd = function (edited_product,isValid) {
@@ -160,12 +160,12 @@ angular.module('core').controller('editProductsController', ['$window','$http','
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
-      //redirect to general products edit page
-      $location.path('product/'+edited_product._id);
+      //redirect to general products page
+      $location.path('products');
 
     };
 
-    //If we cancel an edit, redirect
+    //If we cancel an edit, redirect to the general edit page
     $scope.cancelEdit = function(){
     $location.path('products-edit');
     };
