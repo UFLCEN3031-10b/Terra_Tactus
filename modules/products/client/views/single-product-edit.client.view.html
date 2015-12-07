@@ -176,9 +176,91 @@
                   </div>
                 </div> <!--End of code with all the html associated with the edit feature GUI-->
                   <br><!--Break for improved visibility-->
+
+                  <div class="form-group text-left" ng-show="decideToEditCurr">
+                    <button class="btn btn-primary btn-xs" type="button" ng-click="startCurrEdit(product)">
+                          <span class="glyphicon glyphicon-pencil" > Edit Curriculumn </span>
+                    </button>
+                  </div>
+
+                  <div class="form-group text-left" ng-show="editingCurr">
+                    <button class="btn btn-warning btn-xs" type="button" ng-click="cancelCurrEdit()">
+                          <span class="glyphicon glyphicon-pencil" > Cancel Curriculumn Edit </span>
+                    </button>
+                  </div>
+
+                  <div ng-show="editingCurr">
+                    <!--code for creating a curriculumn table for display in the products individual page-->
+                    <label class="form-group">Curriculum</label>
+                    <div class="table-responsive table-striped">
+                      <table class="table">
+                        <!--This code was bugging the edit for the top row of the curriculum table, row now edits properly upon removal-->
+                        <!--<tr>
+                          <th ng-repeat="header in tempTable[0] track by $index">
+                            <span ng-hide="edittingRows">{{header}}</span>
+                            <span ng-show="edittingRows">
+                              <input name="col" type="text" ng-model="header" class="form-control" placeholder="Edit row...">
+                            </span>
+                          </th>
+                          <th ng-show="tempTable.length !== 0">
+                            <span>
+                              <button type="button" class="btn btn-default pull-right" ng-click="deleteRow($index)">
+                                <div class="glyphicon glyphicon-trash" aria-hidden="true"></div>
+                              </button>
+                            </span>
+                          </th>
+                        </tr>-->
+                        <tr ng-repeat="rows in tempTable track by $index" > <!--ng-if="$index !== 0"--> <!--this line supressed the first row since it was previously a header-->
+                          <td ng-repeat="columns in tempTable[$index] track by $index">
+                            <span ng-hide="edittingRows">{{columns}}</span>
+                            <span ng-show="edittingRows">
+                              <input name="col" type="text" ng-model="rows[$index]" class="form-control" placeholder="Edit row...">
+                            </span>
+                          </td>
+                          <td>
+                            <span>
+                              <button type="button" class="btn btn-default pull-right" ng-click="deleteRow($index)">
+                                <div class="glyphicon glyphicon-trash" aria-hidden="true"></div>
+                              </button>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td ng-repeat="columns in amountOfColumns track by $index">
+                            <input name="col" type="text" ng-model="tempNewRow[$index]" class="form-control" placeholder="Add Col...">
+                          </td>
+                          <td>
+                            <span>
+                              <button type="button" class="btn btn-default" ng-click="addNewRow()">
+                                <div class="glyphicon glyphicon-ok" aria-hidden="true"></div>
+                              </button>
+                            </span>
+                            <span>
+                              <button type="button" class="btn btn-default" ng-click="col('remove')">
+                                <div class="glyphicon glyphicon-chevron-left" aria-hidden="true"></div>
+                              </button>
+                            </span>
+                            <span>
+                              <button type="button" class="btn btn-default" ng-click="col('add')">
+                                <div class="glyphicon glyphicon-chevron-right" aria-hidden="true"></div>
+                              </button>
+                            </span>
+                            <span>
+                              <button type="button" class="btn btn-default" ng-click="edittingRows = !edittingRows">
+                                <div class="glyphicon" ng-if="!edittingRows">Edit</div>
+                                <div class="glyphicon" ng-if="edittingRows">SaveEdits</div>
+                              </button>
+                            </span>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <!--end of code for creating the curriculumn table-->
+                </div>
+
                   <!--Below are the buttons for submitting an update, or for canceling an update-->
                   <div class="form-group text-center">
-                      <div class="col-xs-6"><input type="submit" class="btn btn-primary"></div>
+                      <div class="col-xs-6"><input type="submit" class="btn btn-primary" value="Submit Update"></div>
                       <div class="col-xs-6"><div ng-click="cancelEdit()" class="btn btn-warning">Cancel</div></div>
                   </div>
               </fieldset>
