@@ -129,12 +129,20 @@ Css Code for products-edit.clien.view.html file
     -moz-border-radius: 5px;
     border-radius: 10px;
     text-align: center;
+		vertical-align: middle;
+}
+
+.label-info2{
+	vertical-align: middle;
+	text-align: center;
+	display: table;
+	margin: 0 auto;
 }
 
 /*media rule so formatting is maintained upon minimizing*/
 @media screen and (min-width: 480px) {
   .label-info{
-  height:45px;
+  height:49px;
   }
 }
 
@@ -149,6 +157,7 @@ Css Code for products-edit.clien.view.html file
     background-color : #222222;
     border-color:transparent;
     border-radius: 20px;
+		padding-top: 5px;
 }
 
 /*********************************************************
