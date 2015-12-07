@@ -176,7 +176,8 @@
       <label class="form-group">Curriculum</label>
       <div class="table-responsive table-striped">
         <table class="table">
-          <tr>
+          <!--This code was bugging the edit for the top row of the curriculum table, row now edits properly upon removal-->
+          <!--<tr>
             <th ng-repeat="header in tempTable[0] track by $index">
               <span ng-hide="edittingRows">{{header}}</span>
               <span ng-show="edittingRows">
@@ -190,8 +191,8 @@
                 </button>
               </span>
             </th>
-          </tr>
-          <tr ng-repeat="rows in tempTable track by $index" ng-if="$index !== 0">
+          </tr>-->
+          <tr ng-repeat="rows in tempTable track by $index"> <!--ng-if="$index !== 0"--> <!--this line supressed the first row since it was previously a header-->
             <td ng-repeat="columns in tempTable[$index] track by $index">
               <span ng-hide="edittingRows">{{columns}}</span>
               <span ng-show="edittingRows">
