@@ -4,6 +4,7 @@ angular.module('core').controller('HomepageEditController', ['$scope', '$http', 
     $scope.homepageData = {};
     $scope.contactData = {};
     $scope.socialmediaData = {};
+    $scope.esm = {};
 
     $http.get('/api/homepage/data').success(function (res) {
         $scope.homepageData = res;
@@ -39,17 +40,20 @@ angular.module('core').controller('HomepageEditController', ['$scope', '$http', 
     };
 
     $scope.socialmediaAdd = function () {
-
+        $http.post('/api/homepage/socialmedia', $scope.esm).success(function (res) {
+            $window.location.reload();
+        });
     };
 
-    $scope.socialmediaDelete = function () {
-
+    $scope.socialmediaDelete = function (sm) {
+        $http.delete('/api/homepage/socialmedia/' + sm._id).success(function (res) {
+            $window.location.reload();
+        });
     };
 
-    $scope.socialmediaUpdate = function () {
-        var req = $scope.socialmediaData;
-
-        $http.put('/api/homepage/socialmedia', req).success(function (res) {
+    $scope.socialmediaUpdate = function (sm) {
+        delete sm.hasIcon;
+        $http.put('/api/homepage/socialmedia/' + sm._id, sm).success(function (err) {
             $window.location.reload();
         });
     };

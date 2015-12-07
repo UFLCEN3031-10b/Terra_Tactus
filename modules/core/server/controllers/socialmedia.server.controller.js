@@ -43,7 +43,7 @@ exports.update = function (req, res) {
     }
 
     req.socialmedia.linkText = req.body.linkText;
-    req.socialmedia.linkText = req.body.iconLink;
+    req.socialmedia.iconLink = req.body.iconLink;
     req.socialmedia.hasIcon = (req.body.iconLink !== '');
     req.socialmedia.save(function (err) {
         if (err) {

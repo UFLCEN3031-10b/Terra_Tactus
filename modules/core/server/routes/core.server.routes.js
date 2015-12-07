@@ -35,6 +35,8 @@ module.exports = function (app) {
 
   app.param('slideId', carouseldata.slideById);
 
+  app.param('smId', socialmedia.smById);
+
   // Define error pages
   app.route('/server-error').get(core.renderServerError);
 
