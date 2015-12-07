@@ -8,4 +8,7 @@ module.exports = function (app) {
     app.route('/api/subscription/data')
         .get(subscriptionData.find)
         .put(subscriptionData.update);
+    app.route('/api/subscription/edit')
+      .get(subscriptionData.find)
+      .put(subscriptionData.update);
 };
