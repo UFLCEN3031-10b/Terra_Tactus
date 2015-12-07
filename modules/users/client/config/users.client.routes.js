@@ -98,6 +98,11 @@ angular.module('users').config(['$stateProvider',
       .state('verificationSuccess', {
         url: '/success',
         templateUrl: 'modules/users/client/views/verification/verifysuccess.html'
+      })
+      .state('confirmation', {
+        url: '/confirmation/:confirmationID',
+        templateUrl: 'modules/users/client/views/verification/confirmsuccess.html',
+        controller: 'ConfirmationController'
       });
   }
 ]);

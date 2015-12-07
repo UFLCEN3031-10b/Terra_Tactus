@@ -9,6 +9,7 @@ module.exports = function (app) {
   // User Routes
   var users = require('../controllers/users.server.controller');
   var vRequest = require('../controllers/verify.server.controller');
+  var confirm = require('../controllers/confirmation.server.controller');
 
   // Setting up the users password api
   app.route('/api/auth/forgot').post(users.forgot);
@@ -24,6 +25,11 @@ module.exports = function (app) {
   app.route('/api/auth/vList/:vReqID').delete(vRequest.remove);
 
   app.param('vReqID', vRequest.vReqByID);
+
+  app.route('/api/auth/confirm').post(confirm.add);
+  app.route('/api/auth/confirm').get(confirm.get);
+
+  app.param('confirmationID', confirm.confirmByID);
   // Setting the facebook oauth routes
   app.route('/api/auth/facebook').get(users.oauthCall('facebook', {
     scope: ['email']

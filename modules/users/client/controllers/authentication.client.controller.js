@@ -25,6 +25,13 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
+        var confirmUser = {user: $scope.authentication.user};
+
+        $http.post('/api/auth/confirm', confirmUser).success(function(response) {
+          console.log('confirmation created');
+        }).error(function (response)  {
+          console.log('you fucking suck noob');
+        });
 
         // And redirect to the previous or home page
         if($scope.authentication.user.priceRoles.toString() === 'individual'){

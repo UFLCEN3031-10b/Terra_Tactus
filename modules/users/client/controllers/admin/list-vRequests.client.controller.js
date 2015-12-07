@@ -10,7 +10,6 @@ angular.module('users').controller('VerifyListController', ['$scope', '$state', 
         $scope.showWholesale = true;
         $scope.showEducation = true;
         if($stateParams.vReqID === undefined){
-          console.log("should be empty");
           for(var j = 0; j < $scope.vRequests.length; j++){
             if($scope.vRequests[j].user[0].priceRoles.toString() === 'wholesale'){
               $scope.wholesales.push($scope.vRequests[j]);
