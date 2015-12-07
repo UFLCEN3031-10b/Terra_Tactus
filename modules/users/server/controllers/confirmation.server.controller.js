@@ -3,6 +3,7 @@
 var path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   mongoose = require('mongoose'),
+  User = mongoose.model('User'),
   Confirmation = mongoose.model('Confirmation');
 
 
@@ -51,4 +52,45 @@ exports.confirmByID = function(req, res, next, id) {
         req.confirmation = confirm;
         next();
     });
+};
+
+exports.remove = function(req, res){
+
+};
+
+exports.updateUser = function(req, res){
+  var user = req.model;
+
+  //For security purposes only merge these parameters
+  user.confirmed = true;
+
+  user.save(function (err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+
+    res.json(user);
+  });
+};
+
+
+exports.userByID = function (req, res, next, id) {
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: 'User is invalid'
+    });
+  }
+
+  User.findById(id, '-salt -password').exec(function (err, user) {
+    if (err) {
+      return next(err);
+    } else if (!user) {
+      return next(new Error('Failed to load user ' + id));
+    }
+
+    req.model = user;
+    next();
+  });
 };

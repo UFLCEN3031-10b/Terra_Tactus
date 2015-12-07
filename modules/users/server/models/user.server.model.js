@@ -99,6 +99,10 @@ var UserSchema = new Schema({
   verified:{
     type: Boolean,
     default: false
+  },
+  confirmed: {
+    type: Boolean,
+    default: false
   }
 });
 

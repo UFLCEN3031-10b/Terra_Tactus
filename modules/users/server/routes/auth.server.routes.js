@@ -28,8 +28,11 @@ module.exports = function (app) {
 
   app.route('/api/auth/confirm').post(confirm.add);
   app.route('/api/auth/confirm').get(confirm.get);
+  app.route('/api/auth/confirm/:confirmationID').delete(confirm.remove);
+  app.route('/api/auth/confirm/:userID').put(confirm.updateUser);
 
   app.param('confirmationID', confirm.confirmByID);
+  app.param('userID', confirm.userByID);
   // Setting the facebook oauth routes
   app.route('/api/auth/facebook').get(users.oauthCall('facebook', {
     scope: ['email']

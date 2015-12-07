@@ -12,8 +12,20 @@ angular.module('users').controller('ConfirmationController', ['$scope', '$state'
         }
         else{continue;}
       }
+      $scope.userUpdate();
     }).error(function (res){
       console.log('YOU FUCKED UP');
     });
+
+    $scope.userUpdate = function(){
+      var userToUpdate = $scope.confirmation.user[0];
+      console.log(userToUpdate);
+      userToUpdate.verified = true;
+      $http.put('/api/auth/confirm/' + userToUpdate._id).success(function(res){
+        console.log('I\'M THE BEST');
+      }).error(function(res){
+        console.log('I\'M THE WORST');
+      });
+    };
   }
 ]);
