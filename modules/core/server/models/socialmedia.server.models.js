@@ -16,7 +16,7 @@ var SocialMediaSchema = new Schema({
     },
     hasIcon: {
         type: Boolean,
-        default: true
+        default: false
     }
 });
 
