@@ -26,16 +26,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
 
-        // // And redirect to the previous or home page
-        // if($scope.authentication.user.priceRoles.toString() === 'individual'){
-        //   $state.go($state.previous.state.name || 'home', $state.previous.params);
-        // }
-        // else if($scope.authentication.user.priceRoles.toString() === 'wholesale'){
-        //   $state.go('wholesale', $state.previous.params);
-        // }
-        // else if($scope.authentication.user.priceRoles.toString() === 'education'){
-        //   $state.go('teacher', $state.previous.params);
-        // }
+        // And redirect to the previous or home page
+        if($scope.authentication.user.priceRoles.toString() === 'individual'){
+          $state.go($state.previous.state.name || 'home', $state.previous.params);
+        }
+        else if($scope.authentication.user.priceRoles.toString() === 'wholesale'){
+          $state.go('wholesale', $state.previous.params);
+        }
+        else if($scope.authentication.user.priceRoles.toString() === 'education'){
+          $state.go('teacher', $state.previous.params);
+        }
       }).error(function (response) {
         $scope.error = response.message;
       });
