@@ -9,6 +9,22 @@ exports.find = function (req, res) {
   res.json(req.product);
 };
 
+exports.submitReview = function (req, res) {
+    var d = req.product;
+    d.reviews = req.body.reviews;
+
+    d.save(function (err) {
+        if (err) {
+          console.log(d);
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.json(d);
+        }
+    });
+};
+
 exports.update = function (req, res) {
     var d = req.product;
     d.proType = req.body.proType;
