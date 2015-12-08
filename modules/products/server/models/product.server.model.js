@@ -67,17 +67,20 @@ var ProductSchema = new Schema({
     indvPrice: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        required: 'Product must have an individual price'
     },
     eduPrice: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        required: 'Product must have an educational price'
     },
     wholePrice: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        required: 'Product must have a wholesale price'
     },
     teacher: {
       type: Boolean,
