@@ -19,8 +19,12 @@ module.exports = function (app) {
     .put(contact.update);
 
   app.route('/api/homepage/socialmedia').all(hompagepolicy.isAllowed)
-    .get(socialmedia.find)
-    .put(socialmedia.update);
+    .post(socialmedia.add)
+    .get(socialmedia.find);
+
+  app.route('/api/homepage/socialmedia/:smId').all(hompagepolicy.isAllowed)
+    .put(socialmedia.update)
+    .delete(socialmedia.delete);
 
   app.route('/api/homepage/carousel').all(hompagepolicy.isAllowed)
     .get(carouseldata.list)
@@ -30,6 +34,8 @@ module.exports = function (app) {
     .delete(carouseldata.remove);
 
   app.param('slideId', carouseldata.slideById);
+
+  app.param('smId', socialmedia.smById);
 
   // Define error pages
   app.route('/server-error').get(core.renderServerError);

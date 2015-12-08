@@ -22,14 +22,11 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$htt
       $scope.isCollapsed = false;
     });
 
-    var sm = $scope.socialmedia = {};
+    $scope.socialmedia = {};
     $http.get('/api/homepage/socialmedia').success(function (res) {
         if (res === null) console.log();
         else {
-            sm.facebook = res.facebook;
-            sm.twitter = res.twitter;
-            sm.linkedin = res.linkedin;
-            sm.googleplus = res.googleplus;
+            $scope.socialmedia = res;
         }
     });
 
