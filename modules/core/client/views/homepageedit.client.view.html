@@ -84,27 +84,50 @@
     <div class="page-header">
         <h1>Edit Social Media Links</h1>
     </div>
-    <form name="socialmediaDataForm" class="form-horizontal col-md-12" ng-submit="socialmediaUpdate()" novalidate>
-        <fieldset>
-            <div class="form-group">
-                <label>Facebook Link</label>
-                <input name="facebooklink" type="text" ng-model="socialmediaData.facebook" class="form-control" placeholder="https://www.facebook.com" required>
-            </div>
-            <div class="form-group">
-                <label>Twitter Link</label>
-                <input name="twitterlink" type="text" ng-model="socialmediaData.twitter" class="form-control" placeholder="https://www.twitter.com" required>
-            </div>
-            <div class="form-group">
-                <label>LinkedIn Link</label>
-                <input name="linkedinlink" type="text" ng-model="socialmediaData.linkedin" class="form-control" placeholder="https://www.linkedin.com" required>
-            </div>
-            <div class="form-group">
-                <label>Google Plus Link</label>
-                <input name="googlepluslink" type="text" ng-model="socialmediaData.googleplus" class="form-control" placeholder="https://plus.google.com" required>
-            </div>
-            <div class="form-group text-center">
-                <input type="submit" class="btn btn-blue">
-            </div>
-        </fieldset>
-    </form>
+    <div ng-repeat="sm in socialmediaData">
+        <div class="row" ng-hide="sm.isEditting">
+            <div class="col-md-4 col-xs-12 text-center">{{sm.linkText}}</div>
+            <div class="col-md-4 col-xs-12 text-center">{{sm.iconLink}}</div>
+            <div class="col-md-4 col-xs-12 text-center"><div class="btn btn-primary" ng-click="toggleEditable(sm)">Edit</div></div>
+        </div>
+        <div class="col-md-12" ng-show="sm.isEditting">
+            <form name="updatesocialmedia" class="form-horizontal" ng-submit="socialmediaUpdate(sm)" novalidate>
+                <fieldset>
+                    <div class="form-group">
+                        <label>Social Media Link</label>
+                        <input name="linkText" type="text" ng-model="sm.linkText" class="form-control" placeholder="social media link" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Icon Name</label>
+                        <input name="iconLink" type="text" ng-model="sm.iconLink" class="form-control" placeholder="icon name">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6 text-center"><input type="submit" class="btn btn-primary"></div>
+                        <div class="col-xs-6 text-center"><div ng-click="socialmediaDelete(sm)" class="btn btn-warning">Remove</div></div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <hr>
+    </div>
+    <div class="page-header">
+        <h1>Add social media</h1>
+    </div>
+    <div class="col-md-12">
+        <form name="addsocialmedia" class="form-horizontal" ng-submit="socialmediaAdd()">
+            <fieldset>
+                <div class="form-group">
+                    <label>Social Media Link</label>
+                    <input name="linkText" type="text" ng-model="esm.linkText" class="form-control" placeholder="social media link" required>
+                </div>
+                <div class="form-group">
+                    <label>Icon Name</label>
+                    <input name="iconLink" type="text" ng-model="esm.iconLink" class="form-control" placeholder="icon name">
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" class="btn btn-blue">
+                </div>
+            </fieldset>
+        </form>
+    </div>
 </section>

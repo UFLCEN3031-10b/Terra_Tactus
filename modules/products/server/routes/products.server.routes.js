@@ -23,6 +23,9 @@ module.exports = function (app) {
         .put(products.update)
         .delete(products.delete);
 
+    app.route('/api/reviews/products/:productId').all(productspolicy.isAllowed)
+        .put(products.submitReview);
+
     app.route('/api/products').all(productspolicy.isAllowed)
         .post(products.create)
         .get(products.list);

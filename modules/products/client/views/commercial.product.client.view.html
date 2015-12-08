@@ -1,5 +1,6 @@
 <section ng-controller="CommercialProdController">
   <head>
+    <!-- Background photo and quote puled from database-->
   <section id="section-commercial" style="background-image:url({{commercialData.pictureUrl}})">
         <div class="banner-content text-center">
           <h2 class="title">
@@ -10,7 +11,7 @@
   </head>
 
   <body>
-
+    <!-- Benefits of being an educator-->
     <div class = "center">
       <h2>As an educator...</h2>
     </div>
@@ -19,6 +20,7 @@
       <p>{{commercialData.description}}</p>
   </div><br>
 
+    <!-- Use the products controller to locate teacher's picks-->
   <section ng-controller="ProductsController" ng-init="find()">
     <div>
       <h2>Teacher's Picks</h2>

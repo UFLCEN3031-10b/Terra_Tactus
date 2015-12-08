@@ -64,9 +64,9 @@ angular.module('core').controller('ReviewsController', ['$scope', '$http', '$roo
       };
       product.reviews[product.reviews.length - 1].username = $scope.authentication.user.username;
       product.reviews[product.reviews.length - 1].userPicture = $scope.authentication.user.profileImageURL;
-      product.$update(function () {
-      }, function (errorResponse) {
-        $scope.error = errorResponse.data.message;
+
+      $http.put('/api/reviews/products/' + product._id, product).success(function (res) {
+        console.log("submitted a review");
       });
     };
 

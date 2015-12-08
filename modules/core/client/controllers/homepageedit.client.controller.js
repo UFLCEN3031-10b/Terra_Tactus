@@ -4,6 +4,7 @@ angular.module('core').controller('HomepageEditController', ['$scope', '$http', 
     $scope.homepageData = {};
     $scope.contactData = {};
     $scope.socialmediaData = {};
+    $scope.esm = {};
 
     $http.get('/api/homepage/data').success(function (res) {
         $scope.homepageData = res;
@@ -14,6 +15,9 @@ angular.module('core').controller('HomepageEditController', ['$scope', '$http', 
     });
 
     $http.get('/api/homepage/socialmedia').success(function (res) {
+        res.forEach(function (data) {
+            data.isEditting = false;
+        });
         $scope.socialmediaData = res;
     });
 
@@ -35,11 +39,34 @@ angular.module('core').controller('HomepageEditController', ['$scope', '$http', 
         });
     };
 
-    $scope.socialmediaUpdate = function () {
-        var req = $scope.socialmediaData;
+    $scope.socialmediaAdd = function () {
+        if (!$scope.esm.iconLink) {
+            $scope.esm.iconLink = '';
+        }
 
-        $http.put('/api/homepage/socialmedia', req).success(function (res) {
+        $http.post('/api/homepage/socialmedia', $scope.esm).success(function (res) {
             $window.location.reload();
         });
+    };
+
+    $scope.socialmediaDelete = function (sm) {
+        $http.delete('/api/homepage/socialmedia/' + sm._id).success(function (res) {
+            $window.location.reload();
+        });
+    };
+
+    $scope.socialmediaUpdate = function (sm) {
+        if (!sm.iconLink) {
+            sm.iconLink = '';
+        }
+
+        delete sm.hasIcon;
+        $http.put('/api/homepage/socialmedia/' + sm._id, sm).success(function (err) {
+            $window.location.reload();
+        });
+    };
+
+    $scope.toggleEditable = function (sm) {
+        sm.isEditting = !sm.isEditting;
     };
 }]);

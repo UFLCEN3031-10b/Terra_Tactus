@@ -33,8 +33,8 @@ exports.openOrder = function (req, res) {
         var tempPrice = -1;
 
         if (undefined !== req.user) {
-            for (var i = 0; i < req.user.roles.length; i++) {
-                var r = req.user.roles[i];
+            for (var i = 0; i < req.user.priceRoles.length; i++) {
+                var r = req.user.priceRoles[i];
                 if (r === 'wholesale') {
                     tempPrice = prodWrap.product.wholePrice;
                 } else if (r === 'education') {
