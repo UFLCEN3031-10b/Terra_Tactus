@@ -12,7 +12,10 @@ angular.module('users').controller('ConfirmationController', ['$scope', '$state'
         }
         else{continue;}
       }
-      $scope.userUpdate();
+      if($state.current.name === 'confirmation'){
+        $scope.userUpdate();
+      }
+      else{$scope.vReqUpdate();}
     }).error(function (res){
       console.log('YOU FUCKED UP');
     });

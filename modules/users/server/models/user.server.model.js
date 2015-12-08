@@ -103,30 +103,21 @@ var UserSchema = new Schema({
   confirmed: {
     type: Boolean,
     default: false
+  },
+  verifySent:{
+    type: Boolean,
+    default: false
+  },
+  eduEmail:{
+    type: String
   }
 });
 
 var VerifySchema = new Schema({
   validRequest: {
-    type: Boolean,
+    type: Boolean
   },
-  user: [UserSchema],
-  TID: {
-    type: String,
-    default: ''
-  },
-  state: {
-    type: String,
-    default: ''
-  },
-  SSN: {
-    type: String,
-    default: ''
-  },
-  DOB: {
-    type: String,
-    default: ''
-  }
+  user: [UserSchema]
 });
 
 var ConfirmationSchema = new Schema({

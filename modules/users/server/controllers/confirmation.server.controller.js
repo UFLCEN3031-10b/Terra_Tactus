@@ -72,7 +72,9 @@ exports.updateUser = function(req, res){
   var user = req.model;
 
   //For security purposes only merge these parameters
-  user.confirmed = true;
+  user.confirmed = req.body.confirmed;
+  user.verifySent = req.body.verifySent;
+  user.eduEmail = req.body.eduEmail;
 
   user.save(function (err) {
     if (err) {

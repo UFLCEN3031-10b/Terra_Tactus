@@ -17,10 +17,16 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
         $scope.vRequest = {validRequest: true, user: $scope.user, SSN: $scope.credentials.SSN, DOB: dateOfBirth};
       }
       else if($state.current.name === 'teacher'){
-        $scope.vRequest = {validRequest: true, user: $scope.user, TID: $scope.credentials.TID, state: $scope.credentials.state};
+        $scope.user.eduEmail = $scope.credentials.eduEmail;
+        $scope.vRequest = {validRequest: true, user: $scope.user};
       }
+      console.log($scope.vRequest);
       $http.post('/api/auth/verify', $scope.vRequest).success(function(response){
+        $scope.userUpdate();
         $scope.sendMail();
+        if($scope.user.eduEmail !== $scope.user.email){
+          $scope.createNewConfirmation();
+        }
         console.log("Submitted successfully!");
       }).error(function (response){
         $scope.error = response.message;
@@ -41,6 +47,32 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
         });
       }
     };
+
+    $scope.userUpdate = function(){
+      var updateUser = $scope.user;
+      updateUser.verifySent = true;
+      $http.put('/api/auth/confirm/' + updateUser._id).success(function(){
+        console.log('updated successfully');
+      }).error(function(){
+        console.log('you\'re a fucking idiot');
+      });
+    };
+
+    $scope.createNewConfirmation = function(){
+      var confirmUser = {user: $scope.user};
+
+      $http.post('/api/auth/confirm', confirmUser).success(function(res) {
+        $scope.confirmation = res;
+        $http.post('/api/mail/eduConfirmation', $scope.confirmation).success(function(){
+          console.log('edu email sent');
+        }).error(function(){
+          console.log('edu email not sent');
+        });
+      }).error(function (res)  {
+        console.log('you fucking suck noob');
+      });
+    };
+
   }
 ]);
 

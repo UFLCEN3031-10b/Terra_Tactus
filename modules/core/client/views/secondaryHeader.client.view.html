@@ -14,7 +14,7 @@
         </li>
     </ul>
 
-    <ul class ="nav navbar-nav" ng-if="authentication.user.confirmed && authentication.user.priceRoles.toString() !== 'individual' && !authentication.user.verified">
+    <ul class ="nav navbar-nav" ng-if="authentication.user.confirmed && authentication.user.priceRoles.toString() !== 'individual' && (!authentication.user.verified && !authentication.user.verifySent)">
       <li ui-sref-active="active">
         <a ui-sref="verify">Submit Your Verification Info Now!</a>
       </li>
