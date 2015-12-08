@@ -47,6 +47,7 @@ describe('Payment CRUD tests', function () {
         product = new Product({
             proTitle: 'test product',
             shortDes: 'description',
+            longDes: 'long description',
             indvPrice: '1.00',
             eduPrice: '2.00',
             wholePrice: '3.00'
