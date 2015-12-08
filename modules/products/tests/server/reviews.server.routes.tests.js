@@ -38,6 +38,7 @@ describe('Reviews CRUD tests', function () {
         product = new Product({
             proTitle: 'test product',
             shortDes: 'description',
+            longDes: 'long description',
             indvPrice: '1.00',
             eduPrice: '2.00',
             wholePrice: '3.00',
@@ -167,7 +168,7 @@ describe('Reviews CRUD tests', function () {
                 done();
             });
     });
-    
+
     afterEach(function (done) {
       User.remove().exec(function () {
         Product.remove().exec(done);
