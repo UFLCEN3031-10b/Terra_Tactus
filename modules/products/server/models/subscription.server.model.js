@@ -5,7 +5,7 @@
 
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
-
+//Things that are editable on the Subscription Page
 var SubscriptionSchema = new Schema({
     pictureUrl: {
         type: String

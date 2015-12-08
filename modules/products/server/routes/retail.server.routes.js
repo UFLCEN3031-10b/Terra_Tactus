@@ -4,6 +4,7 @@
 'use strict';
 var retailData = require('../controllers/retail.server.controller');
 
+//Route for retail data
 module.exports = function (app) {
     app.route('/api/retail/data')
         .get(retailData.find)

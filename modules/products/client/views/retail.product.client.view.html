@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
+<!--Pull data from the database as explained in the retail products controller-->
   <section ng-controller="RetailProdController" id="section-retail" style="background-image:url({{retailData.pictureUrl}})">
         <div class="banner-content text-center">
           <h2 class="title">
@@ -9,6 +10,7 @@
         </div>
       </div>
   </section>
+<!--Again pulling from the same controller but in a different section so the controller is declared again-->
   <div class = "center" >
     <h2>As a retail buyer...</h2>
   </div>
@@ -16,22 +18,5 @@
       <h3>These are the perks you get.</h3> <br>
       <p>{{retailData.description}}</p>
   </div>
-  <section ng-controller="ProductsController" ng-init="find()">
-    <div>
-      <h2>Popular Picks</h2>
-      <section id="teacher-section">
-        <div class="row">
-          <div class = "col-sm-3" ng-repeat = "product in products | filter: {'proType': false}">
-            <img src ="{{product.imageUrl}}" class="img-responsive product-img">
-            <h3 align = "center">${{product.wholePrice}}</h3>
-            <h3 align = "center">{{product.proTitle}}</h3>
-            <div class="wrapper">
-              <a class="btn btn-blue btn-lg" href="/authentication/signin" role="button">Learn more</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>
 </body>
 </html>

@@ -36,6 +36,7 @@ describe('Cart CRUD tests', function () {
 
         product = new Product({
             proTitle: 'test product',
+            longDes: 'long description',
             shortDes: 'description',
             indvPrice: '1.00',
             eduPrice: '2.00',

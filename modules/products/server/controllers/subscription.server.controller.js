@@ -8,6 +8,7 @@ var path = require('path'),
     subscriptionData = mongoose.model('SubscriptionData'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
+//Find products for the subscription page
 exports.find = function (req, res) {
     subscriptionData.findOne().exec(function (err, data) {
         if (err) {
@@ -20,6 +21,7 @@ exports.find = function (req, res) {
     });
 };
 
+//Update products on the subscription page
 exports.update = function (req, res) {
     subscriptionData.findOne().exec(function (err, data) {
         if (err) {
@@ -36,7 +38,7 @@ exports.update = function (req, res) {
             });
         }
     });
-
+    //These are all fields in the Susbscription model
     var d = new subscriptionData();
     d.pictureUrl = req.body.pictureUrl;
     d.quote = req.body.quote;

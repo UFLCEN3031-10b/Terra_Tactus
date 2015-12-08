@@ -22,6 +22,9 @@ exports.invokeRolesPolicies = function () {
         }, {
             resources: '/api/homepage/carousel/:slideId',
             permissions: '*'
+        }, {
+            resources: '/api/homepage/socialmedia/:smId',
+            permissions: '*'
         }]
     }, {
         roles: ['user', 'guest', 'freeUser'],

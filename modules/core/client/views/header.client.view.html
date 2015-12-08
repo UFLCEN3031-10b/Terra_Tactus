@@ -64,18 +64,22 @@
       </li>
     </ul>
 
-    <!--<ul class="nav navbar-nav navbar-right no-pad" ng-hide="isCollapsed">-->
-        <!--<li><a href="{{socialmedia.linkedin}}"><i class="fa fa-linkedin-square fa-3x"></i></a></li>-->
-        <!--<li><a href="{{socialmedia.facebook}}"><i class="fa fa-facebook-square fa-3x"></i></a></li>-->
-        <!--<li><a href="{{socialmedia.twitter}}"><i class="fa fa-twitter-square fa-3x"></i></a></li>-->
-        <!--<li><a href="{{socialmedia.googleplus}}"><i class="fa fa-google-plus-square fa-3x"></i></a></li>-->
-    <!--</ul>-->
+    <ul class="nav navbar-nav navbar-right no-pad" ng-hide="isCollapsed">
+        <li ng-repeat="sm in socialmedia">
+            <a href="{{sm.linkText}}">
+                <i ng-if="sm.hasIcon" class="fa fa-{{sm.iconLink}} fa-3x"></i>
+                <i ng-if="!sm.hasIcon" class="fa fa-share-square-o fa-3x"></i>
+            </a>
+        </li>
+    </ul>
 
-    <!--<ul class="nav navbar-nav navbar-right no-pad text-center" ng-show="isCollapsed">-->
-        <!--<li><a class="navbar-socialmedia-oneline" href="{{socialmedia.linkedin}}"><i class="fa fa-linkedin-square fa-3x"></i></a>-->
-        <!--<a class="navbar-socialmedia-oneline" href="{{socialmedia.facebook}}"><i class="fa fa-facebook-square fa-3x"></i></a>-->
-        <!--<a class="navbar-socialmedia-oneline" href="{{socialmedia.twitter}}"><i class="fa fa-twitter-square fa-3x"></i></a>-->
-        <!--<a class="navbar-socialmedia-oneline" href="{{socialmedia.googleplus}}"><i class="fa fa-google-plus-square fa-3x"></i></a></li>-->
-    <!--</ul>-->
+    <ul class="nav navbar-nav navbar-right no-pad text-center" ng-show="isCollapsed">
+        <li ng-repeat="sm in socialmedia">
+            <a class="navbar-socialmedia-oneline" href="{{sm.linkText}}">
+                <i ng-if="sm.hasIcon" class="fa fa-{{sm.iconLink}} fa-3x"></i>
+                <i ng-if="!sm.hasIcon" class="fa fa-share-square-o fa-3x"></i>
+            </a>
+        </li>
+    </ul>
   </nav>
 </div>
