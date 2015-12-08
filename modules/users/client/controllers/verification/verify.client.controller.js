@@ -43,3 +43,15 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
     };
   }
 ]);
+
+angular.module('users').controller('VerifyRouteController', ['$state', 'Authentication',
+  function($state, Authentication){
+    if(Authentication.user.priceRoles.toString() === 'education'){
+      $state.go('teacher');
+
+    }
+    else if(Authentication.user.priceRoles.toString() === 'wholesale'){
+      $state.go('wholesale');
+    }
+  }
+]);
