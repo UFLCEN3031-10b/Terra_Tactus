@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--CSS informations specific to this file-->
+<style>
+  .col-md-4 {
+    width: 25%;
+    margin-left: 75px;
+  }
+  .col-md-2, .col-md-4, .col-md-5{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+  }
+</style>
+<section id="section-banner" ng-controller="SubscriptionProdController">
+  <div class="banner-content text-center" style="background-image:url({{subscriptionData.pictureUrl}}); background-repeat: no-repeat">
+    <h2 class="title">{{subscriptionData.quote}}</h2>
+    <a href="#learnMore" class="btn btn-blue btn-product">Learn More</a>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 col-premium">
+      <h2>{{subscriptionData.typeOne}}</h2>
+      <p>{{subscriptionData.typeOneData}}</p>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-5 col-premium">
+      <h2>{{subscriptionData.typeTwo}}</h2>
+      <p> {{subscriptionData.typeTwoData}}</p>
+    </div>
+  </div>
+  <section id="learnMore"><br><br>
+    <div class="container">
+      <h1 class="text-center">{{subscriptionData.grabber}}</h1><br>
+      <div class="row">
+        <div class="col-md-4 col-premium">
+          <div class="text-center">
+            <h2>{{subscriptionData.modelOne}}</h2>
+            <p class="price green">{{subscriptionData.modelOnePrice}}</p>
+            <p class="green">{{subscriptionData.modelOneDesc}}</p>
+            <a href="../authentication/signin.client.view.html" class="btn btn-blue btn-product">
+              {{subscriptionData.modelOneBtn}}
+            </a><br>
+          </div>
+        </div>
+        <div class="col-md-4 col-premium">
+          <div class="text-center">
+            <h2>{{subscriptionData.modelTwo}}</h2>
+            <p class="price green">{{subscriptionData.modelTwoPrice}}</p>
+            <p class="green">{{subscriptionData.modelTwoDesc}}</p>
+            <a href="../authentication/signin.client.view.html" class="btn btn-blue btn-product">
+              {{subscriptionData.modelTwoBtn}}
+            </a><br>
+          </div>
+        </div>
+        <div class="col-md-4 col-premium">
+          <div class="text-center">
+            <h2>{{subscriptionData.modelThree}}</h2>
+            <p class="price green">{{subscriptionData.modelThreePrice}}</p>
+            <p class="green">{{subscriptionData.modelThreeDesc}}</p>
+            <a href="../authentication/signin.client.view.html" class="btn btn-blue btn-product">
+              {{subscriptionData.modelThreeBtn}}
+            </a><br>
+          </div>
+          </div>
+        </div>
+      </div>
+  </section>
+</section>

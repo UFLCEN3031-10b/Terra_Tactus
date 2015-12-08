@@ -13,24 +13,37 @@ angular.module('core.admin').run(['Menus',
       state: 'create-announcement'
     });
     Menus.addSubMenuItem('topbar', 'admin', {
-        title: 'Edit Carousel',
-        state: 'edit-carousel'
-    });
-    Menus.addSubMenuItem('topbar', 'admin', {
-        title: 'Edit Homepage',
-        state: 'edit-homepage'
-    });
-    Menus.addSubMenuItem('topbar', 'admin', {
         title: 'Create Product',
         state: 'create-product'
-    });
-    Menus.addSubMenuItem('topbar', 'admin', {
-        title: 'Edit Products',
-        state: 'products-edit'
     });
     Menus.addSubMenuItem('topbar', 'admin', {
         title: 'Review Comments',
         state: 'review-comments'
     });
+    Menus.addSubMenuItem('topbar', 'admin', {
+      title: 'Edit Carousel',
+      state: 'edit-carousel'
+    });
+    Menus.addSubMenuItem('topbar', 'admin', {
+      title: 'Edit Homepage',
+      state: 'edit-homepage'
+    });
+    Menus.addSubMenuItem('topbar', 'admin', {
+      title: 'Edit Products',
+      state: 'products-edit'
+    });
+    Menus.addSubMenuItem('topbar', 'admin', {
+      title: 'Edit Commercial',
+      state: 'commercial-edit'
+    });
+    Menus.addSubMenuItem('topbar', 'admin', {
+      title: 'Edit Subscriptions',
+      state: 'subscription-edit'
+    });
+    Menus.addSubMenuItem('topbar', 'admin', {
+      title: 'Edit Retail',
+      state: 'retail-edit'
+    });
+
   }
 ]);

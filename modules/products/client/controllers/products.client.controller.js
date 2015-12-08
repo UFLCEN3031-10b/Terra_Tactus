@@ -4,9 +4,18 @@
 angular.module('core').controller('ProductsController', ['$window','$http','$scope','$rootScope', '$stateParams', '$location', 'Authentication', 'Products',
   function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Products) {
     $scope.authentication = Authentication;
-    $scope.displayType = false; //initialized cultural
+    //individual product image picker function
+    $scope.displayType = false; //initialized country
     $scope.selection = 'imageOne';
+    $scope.imageSelector = function (imagePick) {
+      if (imagePick !== $scope.selection) {
+        $scope.selection = imagePick;
+      } else {
+        $scope.selection = 'imageOne';
+      }
+    };
 
+    //two different product types (change to ng-switch eventually)
     $scope.displayCultural = function () {
       $scope.displayType = true;
     };
@@ -15,32 +24,106 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       $scope.displayType = false;
     };
 
+    //array for temporary headers
+    $scope.tempTable = [];
+    $scope.tempNewRow = [];
+    $scope.amountOfColumns = [1,2,3];
+    $scope.edittingRows = false;
+
+    //Function to add a header
+    $scope.addNewRow = function() {
+      if ($scope.tempNewRow.length !== $scope.amountOfColumns.length) {
+        alert("err please fill out all columns of table!");
+        return false;
+      }
+      $scope.tempTable.push($scope.tempNewRow);
+      $scope.tempNewRow = [];
+    };
+
+    //deletes a row on the table
+    $scope.deleteRow = function(index) {
+      $scope.tempTable.splice(index,1);
+    };
+
+    //adds or removes a column in the container given args
+    $scope.col = function(argument) {
+      if (argument === "add") {
+        $scope.amountOfColumns.push($scope.amountOfColumns.length);
+      } else if (argument === "remove") {
+        $scope.amountOfColumns.splice($scope.amountOfColumns.length-1,1);
+      } else {
+        console.log("invalid argument in col function...!");
+      }
+    };
+
+    //Array used to hold features for a product we are creating
+    $scope.tempFeatures = [];
+    //Function to add a feature to the tempFeature array
+    $scope.addFeature = function(){
+      var itemCopy = {};
+      //console.log($scope.newFt);
+      if ($scope.newFt !== undefined && $scope.newFt !== "" ){
+      itemCopy = $scope.newFt;
+      $scope.tempFeatures.push(itemCopy);
+      $scope.newFt = undefined;
+    }
+    else {
+      alert("Please enter a feature");
+    }
+    };
+    //Code to delete a feature from the tempFeature array
+    $scope.deleteFeature = function(item){
+    //console.log("in delete");
+    var index = $scope.tempFeatures.indexOf(item);
+    $scope.tempFeatures.splice(index, 1);
+  };
+
+  //value used to hide the edit field for a feature in the create products GUI
+  $scope.edits = false;
+
+  //function to show the edit field, within this function the Function
+  //to edit a feature is embedded (editItem)
+  $scope.showEdits = function(item){
+    var index = $scope.tempFeatures.indexOf(item);
+    $scope.editBox = item;
+    $scope.edits = true;
+    $scope.editItem = function(){
+        if($scope.editBox !== undefined && $scope.editBox !== "" ){
+          $scope.tempFeatures[index] = $scope.editBox;
+          $scope.edits = false;
+          $scope.editBox = undefined;
+        }
+        else{
+          alert("Please enter a feature");
+        }
+    };
+  };
+
     // Create new Product
     $scope.create = function (isValid) {
-
+      //Declare variables for correctly getting checkbox values
       var prodType = null;
       var teachType = null;
       $scope.error = null;
-
+      //Check if our producForm was valid, if not create function is canceled and errors show on GUI
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'productForm');
         return false;
       }
-
+      //set the correct value of the product type variable
       if(document.getElementById("proType-cb").checked) {
         prodType = true;
       }
       else {
         prodType = false;
       }
-
+      //set the correct value of the teacher variable
       if(document.getElementById("teacher-cb").checked) {
         teachType = true;
       }
       else {
         teachType = false;
       }
-
 
       // Create new Product object
       var product = new Products({
@@ -56,7 +139,9 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         indvPrice: this.indvPrice,
         eduPrice: this.eduPrice,
         wholePrice: this.wholePrice,
-        teacher: teachType
+        teacher: teachType,
+        features: this.tempFeatures,
+        curriculum: this.tempTable
       });
 
       // Redirect after save
@@ -68,16 +153,6 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       });
 
       console.log('Product has been created');
-    };
-
-    $scope.delete = function (productID) {
-      var conf = confirm("Are you sure you want to delete this product?");
-      console.log(conf);
-      if(conf){
-        $http.delete('/api/product/' + productID).success(function (res) {
-            $window.location.reload();
-        });
-      }
     };
 
     // Find a list of Products
@@ -99,6 +174,10 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
           $location.path('cart');
       });
     };
+
+
+
+
 
   }
 ]);

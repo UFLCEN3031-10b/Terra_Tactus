@@ -1,55 +1,3 @@
-/* Code for the styling of this section*/
-.p-img img{
-    float: bottom;
-    background-color:white; /*frame color*/
-    padding: 6px; /*frame edge size*/
-    /* Give the frame rounded edges*/
-    -moz-border-radius: 5px;
-    border-radius: 10px;
-}
-/*code to give each product block some padding and color as well as round edges*/
-#temp-div{
-    background-color: #2e2f33;
-    padding-bottom: 30px;
-    -moz-border-radius: 5px;
-    border-radius: 20px;
-}
-/*code which gives a background for the description text of each product*/
-.t-box{
-    background-color: white;
-    padding-left: 6px;
-    padding-right: 6px;
-    min-height: 120px;
-    -moz-border-radius: 5px;
-    border-radius: 10px;
-
-}
-/*Code for the format of the tabs*/
-#ul-tab{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-/*Code for div held by current tab*/
-#mainView{
-    border: 0px solid black;
-    clear: both;
-    padding: 0 1em;
-}
-
-/* code for the styling of the cultural/geological product buttons*/
-.tab-btn{
-    border: 1px solid #00DD00;
-    background-color: transparent;
-    color: #00DD00;
-}
-
-/*changes the color of the current tab*/
-.activetab {
-    background-color: #00c9dd;
-    color: white;
-}
-
 /*individual product code*/
 
 /*********************************************
@@ -170,56 +118,51 @@
 .service-image-left > center > img,.service-image-right > center > img{
 	max-height: 155px;
 }
-/*code that dictates what happens when you hover over the cultural/geological button tabs*/
-.tab-btn:hover{
-    background-image:none !important;
-    background-color:#0faf38 !important;
-    color: white !important;
-}
 
+
+/**************************************************************************
+Css Code for products-edit.clien.view.html file
+***************************************************************************/
 /*css for the background of each product title*/
 .label-info{
     background-color:#0faf38;
     -moz-border-radius: 5px;
     border-radius: 10px;
     text-align: center;
+		vertical-align: middle;
 }
 
-/*css for the title of the product*/
-.label-info h2{
-    color:white;
-    font-weight: bold;
-    text-align: center;
+.label-info2{
+	vertical-align: middle;
+	text-align: center;
+	display: table;
+	margin: 0 auto;
+}
+
+/*media rule so formatting is maintained upon minimizing*/
+@media screen and (min-width: 480px) {
+  .label-info{
+  height:49px;
+  }
 }
 
 /* css for the product image*/
 .product-img{
-    height: 50vh;
-    width: 70vh;
     -moz-border-radius: 5px;
     border-radius: 10px;
 }
 
 /*css for the thumbnail or container holding all the product block info*/
 .product-thumb{
-    background-color : #2e2f33;
+    background-color : #222222;
     border-color:transparent;
     border-radius: 20px;
+		padding-top: 5px;
 }
 
-/*css for the "about product" header text*/
-.about-label{
-    color:white;
-    font-weight: bold;
-}
-
-/*css for the short description of the product*/
-.about-text{
-    color:white;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto
-}
+/*********************************************************
+Unsure what this is css code for, please verify or delete
+**********************************************************/
 
 .cart {
   width: 60%;

@@ -20,7 +20,7 @@ var ProductSchema = new Schema({
       type: Date,
       default: Date.now
     },
-    proType: Boolean, //false = geological, true = cultural
+    proType: Boolean, //false = geological, true = country
     proTitle: {
         type: String,
         default: '',
@@ -29,7 +29,7 @@ var ProductSchema = new Schema({
     longDes: {
         type: String,
         default: '',
-        //required: 'Product must have a description'
+        required: 'Product must have a long description'
     },
     shortDes: {
         type: String,
@@ -81,6 +81,10 @@ var ProductSchema = new Schema({
       default: false,
       trim: true
     },
+    features: {
+      type: [String],
+      default: []
+    },
     rating: {
       type: Number,
       default: 0,
@@ -92,9 +96,9 @@ var ProductSchema = new Schema({
       trim: true
     },
     reviews: {
-      type: [ReviewSchema],
-    }
-
+      type: [ReviewSchema]
+    },
+    curriculum: []
 });
 
 mongoose.model('Product', ProductSchema);

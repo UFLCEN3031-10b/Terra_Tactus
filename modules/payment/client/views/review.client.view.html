@@ -1,0 +1,43 @@
+<section ng-controller="OrderReviewController">
+    <div class="page-header">
+        <h1>Confirm Order</h1>
+    </div>
+
+    <div class="alert alert-danger" role="alert">
+        <strong>Warning!</strong> Navigating away from this page will cancel your order!
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 text-center vcenter">
+            <div class="marg-auto"><i class="fa fa-check-circle-o fa-5x"></i></div>
+        </div>
+
+        <div class="col-md-9">
+            <h3>Transaction details <small>PayPal has sent us the following information, do you accept this order?</small></h3><hr>
+
+            <div class="col-md-6">
+                <h4>Description</h4>
+                <p>{{order.description}}</p>
+                <h4>Total</h4>
+                <p>${{order.total}}</p>
+            </div>
+
+            <div class="col-md-6">
+                <h4>Shipping Address</h4>
+                <p>{{order.paypal_get_res[0].transactions[0].item_list.shipping_address.recipient_name}}<br>
+                    {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.line1}}<br>
+                    {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.city}}, {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.state}} {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.postal_code}}<br>
+                    {{order.paypal_get_res[0].transactions[0].item_list.shipping_address.country_code}}</p>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button ng-hide="disabledConfirm" ng-click="confirmButton()" class="btn btn-primary">
+                    Confirm
+                </button>
+                <button ng-show="disabledConfirm" ng-click="confirmButton()" class="btn btn-primary disabled">
+                    <i class="fa fa-cog fa-spin"></i> Processing...
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

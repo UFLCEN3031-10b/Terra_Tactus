@@ -1,0 +1,270 @@
+<style>
+#editproType-cb{
+  height: 20px;
+  width: 20px;
+  padding-left: 1px;
+  margin-left: -30px;
+  margin-top: 1px;
+}
+
+#editteacher-cb{
+  height: 20px;
+  width: 20px;
+  padding-left: 1px;
+  margin-left: -30px;
+  margin-top: 1px;
+}
+
+.editfeature-lt{
+  color: black;
+}
+</style>
+<!--Define the controller used to pull the single product we are editing, this controller includes all functions needed to update-->
+<section ng-controller="editProductsController" ng-init="findOne()">
+      <!--Provide a header with the name of the product we are editing-->
+      <H1> Editing [{{product.proTitle}}]  </H1>
+
+      <div class="col-md-12" >
+          <!--All the forms for editing, includes product type, title, all its images, descriptions, prices, teachers favorite boolean, and features-->
+          <!-- Each field, with the exception of the boolean values and the features has a required errror type, the shortDes has a character limit as well-->
+          <!-- We created the form updateProductForm, this form is then used to check for error when we submit a request to update-->
+          <form name="updateProductForm" class="form-horizontal" ng-submit="updateProd(product,updateProductForm.$valid)" novalidate>
+              <fieldset>
+                <!--Code to edit the product type-->
+                <div class="checkbox">
+                  <label><input type="checkbox" ng-model="product.proType" id = "editproType-cb"><b> Product Type (Country=Checked / Geological = Unchecked)</b></label>
+                </div>
+                <br><!--Break for improved visibility-->
+                <!--Field for editing the product title-->
+                <div class="form-group" show-errors>
+                    <label>Product Title</label>
+                    <input name="editproTitle" type="text" ng-maxlength="60" ng-model="product.proTitle" class="form-control" placeholder="product title" required>
+                    <div ng-messages="updateProductForm.editproTitle.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Need a title for this product.</p>
+                      <p class="help-block error-text" ng-message="maxlength">Title must not exceed 60 characters</p>
+                    </div>
+                </div>
+                <!--Field for editing the image seen in the overall products page-->
+                  <div class="form-group" show-errors>
+                      <label>Representative Image</label>
+                      <input name="editimageUrl" type="text" ng-model="product.imageUrl" class="form-control" placeholder="https://google.com/image.jpg" required>
+                      <div ng-messages="updateProductForm.editimageUrl.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Need an image to represent this product.</p>
+                      </div>
+                  </div>
+                  <!--Field for editing the main/default seen in the individual product page-->
+                  <div class="form-group" show-errors>
+                      <label>Main Image</label>
+                      <input name="editimageOne" type="text" ng-model="product.imageOne" class="form-control" placeholder="https://google.com/image.jpg" required>
+                      <div ng-messages="updateProductForm.editimageOne.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Need a main image of the actual kit.</p>
+                      </div>
+                  </div>
+                  <!--Field for editing the top left image seen in the individual product page-->
+                  <div class="form-group" show-errors>
+                      <label>Top Left Image</label>
+                      <input name="editimageTwo" type="text" ng-model="product.imageTwo" class="form-control" placeholder="https://google.com/image.jpg" required>
+                      <div ng-messages="updateProductForm.editimageTwo.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Need second image to show contents of kit.</p>
+                      </div>
+                  </div>
+                  <!--Field for editing the middle image seen in the individual product page-->
+                  <div class="form-group" show-errors>
+                      <label>Middle Image</label>
+                      <input name="editimageThree" type="text" ng-model="product.imageThree" class="form-control" placeholder="https://google.com/image.jpg" required>
+                      <div ng-messages="updateProductForm.editimageThree.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Need third image to show contents of kit.</p>
+                      </div>
+                  </div>
+                  <!--Field for editing the bottom right image seen in the individual product page-->
+                  <div class="form-group" show-errors>
+                      <label>Bottom Right Image</label>
+                      <input name="editimageFour" type="text" ng-model="product.imageFour" class="form-control" placeholder="https://google.com/image.jpg" required>
+                      <div ng-messages="updateProductForm.editimageFour.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Need fourth image to show contents of kit.</p>
+                      </div>
+                  </div>
+                  <!--Field for editing a products short description-->
+                  <div class="form-group" show-errors>
+                    <label>Short Description</label>
+                    <textarea name="editshortDes" ng-maxlength="250" ng-model="product.shortDes" class="form-control" cols="30" rows="5" placeholder="Short Description of what kit will acheive or teach" required></textarea>
+                    <div ng-messages="updateProductForm.editshortDes.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Need a short description for this product.</p>
+                      <p class="help-block error-text" ng-message="maxlength">Message must not exceed 250 characters</p>
+                    </div>
+                  </div>
+                  <!--Field for editing a products long description-->
+                  <div class="form-group" show-errors>
+                    <label>Long Description</label>
+                    <textarea name="editlongDes" ng-model="product.longDes" class="form-control" cols="30" rows="5" placeholder="Long Description of what kit will contain in it and other specific details" required></textarea>
+                    <div ng-messages="updateProductForm.editlongDes.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Need a long description for this product.</p>
+                    </div>
+                  </div>
+                  <!--Field for editing the individual price of a product-->
+                  <div class="form-group" show-errors>
+                      <label>Individual Price (ex. 9.99)</label>
+                      <input name="editindvPrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="product.indvPrice" class="form-control" placeholder="Individual Price" required>
+                      <div ng-messages="updateProductForm.editindvPrice.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Individual Price is required.</p>
+                        <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
+                      </div>
+                  </div>
+                  <!--Field for editing the educators price of a product-->
+                  <div class="form-group" show-errors>
+                      <label>Educational Price (ex. 9.99)</label>
+                      <input name="editeduPrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="product.eduPrice" class="form-control" placeholder="Educational Price" required>
+                      <div ng-messages="updateProductForm.editeduPrice.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Educational Price is required.</p>
+                        <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
+                      </div>
+                  </div>
+                  <!--Field for editing the wholesale price of a product-->
+                  <div class="form-group" show-errors>
+                      <label>Wholesale Price (ex. 9.99)</label>
+                      <input name="editwholePrice" type="text" ng-pattern="/(^[0-9]{1,7})(\.[0-9]{2})([0-9]{0})?$/" ng-model="product.wholePrice" class="form-control" placeholder="Wholesale Price" required>
+                      <div ng-messages="updateProductForm.editwholePrice.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Wholesale Price is required.</p>
+                        <p class="help-block error-text" ng-message="pattern"> Must input a valid price! ex. 9.99</p>
+                      </div>
+                  </div>
+                  <!--Code for editing if a user deems this product popular among educators-->
+                  <div class="checkbox">
+                    <label><input type="checkbox" ng-model="product.teacher" id = "editteacher-cb"><b> This product is a Teacher's Favorite </b></label>
+                  </div>
+                  <br><!--Break for improved visibility-->
+
+                  <!--For editing features, the user must first click a button stating they want to edit the faetures-->
+                  <!--Once the button is clicked, the GUI for editing features will appear-->
+                  <div class="form-group text-left" ng-show="decideToEdit">
+                    <button class="btn btn-primary btn-xs" type="button" ng-click="startFeaturesEdit(product)">
+                          <span class="glyphicon glyphicon-pencil" > Edit Features </span>
+                    </button>
+                  </div>
+
+                  <!-- Beginning of code with all the html associated with the edit feature GUI-->
+                  <div ng-show="editingFeatures">
+                    <label class="form-group">Editing Features</label>
+                    <!--This part of code is for adding a new feature-->
+                    <div class="form-group input-group">
+                    <input id="add_feature_text" type="text" class="form-control" placeholder="New feature" ng-model="newFt_edit">
+                      <span class="input-group-btn">
+                        <button id="add_feature_button" class="btn btn-default" type="button" ng-click="addFeature_edit()">
+                            Add
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </button>
+                      </span>
+                    </div>
+                    <!--This code will show all the current features the product has-->
+                    <ul class="list-group">
+                    <li class="list-group-item clearfix editfeature-lt" ng-repeat="obj in editFeatures track by $index">
+                      {{obj}}
+                      <button class = "btn btn-primary btn-xs pull-right" type = "button" ng-click = "showEdits_edit(obj)">
+                            <span class = "glyphicon glyphicon-pencil" aria-hidden = "true"></span>
+                        </button>
+                      <button class="btn btn-danger btn-xs pull-right" type="button" ng-click="deleteFeature_edit(obj)">
+                            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+                      </button>
+                    </li>
+                  </ul>
+                  <!--This edit field will appear when editing a specific feature-->
+                  <div ng-show = "edits">
+                    <input type = "text" class = "form-control" placeholder = "Edit item here" ng-model = "editBox_edit">
+                    <button class="btn btn-warning btn-xs pull-right" type="button" ng-click="editItem_edit()">
+                          <span  aria-hidden="true">Update</span>
+                    </button>
+                  </div>
+                </div> <!--End of code with all the html associated with the edit feature GUI-->
+                  <br><!--Break for improved visibility-->
+
+                  <div class="form-group text-left" ng-show="decideToEditCurr">
+                    <button class="btn btn-primary btn-xs" type="button" ng-click="startCurrEdit(product)">
+                          <span class="glyphicon glyphicon-pencil" > Edit Curriculumn </span>
+                    </button>
+                  </div>
+
+                  <div class="form-group text-left" ng-show="editingCurr">
+                    <button class="btn btn-warning btn-xs" type="button" ng-click="cancelCurrEdit()">
+                          <span class="glyphicon glyphicon-pencil" > Cancel Curriculumn Edit </span>
+                    </button>
+                  </div>
+
+                  <div ng-show="editingCurr">
+                    <!--code for creating a curriculumn table for display in the products individual page-->
+                    <label class="form-group">Curriculum</label>
+                    <div class="table-responsive table-striped">
+                      <table class="table">
+                        <!--This code was bugging the edit for the top row of the curriculum table, row now edits properly upon removal-->
+                        <!--<tr>
+                          <th ng-repeat="header in tempTable[0] track by $index">
+                            <span ng-hide="edittingRows">{{header}}</span>
+                            <span ng-show="edittingRows">
+                              <input name="col" type="text" ng-model="header" class="form-control" placeholder="Edit row...">
+                            </span>
+                          </th>
+                          <th ng-show="tempTable.length !== 0">
+                            <span>
+                              <button type="button" class="btn btn-default pull-right" ng-click="deleteRow($index)">
+                                <div class="glyphicon glyphicon-trash" aria-hidden="true"></div>
+                              </button>
+                            </span>
+                          </th>
+                        </tr>-->
+                        <tr ng-repeat="rows in tempTable track by $index" > <!--ng-if="$index !== 0"--> <!--this line supressed the first row since it was previously a header-->
+                          <td ng-repeat="columns in tempTable[$index] track by $index">
+                            <span ng-hide="edittingRows">{{columns}}</span>
+                            <span ng-show="edittingRows">
+                              <input name="col" type="text" ng-model="rows[$index]" class="form-control" placeholder="Edit row...">
+                            </span>
+                          </td>
+                          <td>
+                            <span>
+                              <button type="button" class="btn btn-default pull-right" ng-click="deleteRow($index)">
+                                <div class="glyphicon glyphicon-trash" aria-hidden="true"></div>
+                              </button>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td ng-repeat="columns in amountOfColumns track by $index">
+                            <input name="col" type="text" ng-model="tempNewRow[$index]" class="form-control" placeholder="Add Col...">
+                          </td>
+                          <td>
+                            <span>
+                              <button type="button" class="btn btn-default" ng-click="addNewRow()">
+                                <div class="glyphicon glyphicon-ok" aria-hidden="true"></div>
+                              </button>
+                            </span>
+                            <span>
+                              <button type="button" class="btn btn-default" ng-click="col('remove')">
+                                <div class="glyphicon glyphicon-chevron-left" aria-hidden="true"></div>
+                              </button>
+                            </span>
+                            <span>
+                              <button type="button" class="btn btn-default" ng-click="col('add')">
+                                <div class="glyphicon glyphicon-chevron-right" aria-hidden="true"></div>
+                              </button>
+                            </span>
+                            <span>
+                              <button type="button" class="btn btn-default" ng-click="edittingRows = !edittingRows">
+                                <div class="glyphicon" ng-if="!edittingRows">Edit</div>
+                                <div class="glyphicon" ng-if="edittingRows">SaveEdits</div>
+                              </button>
+                            </span>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <!--end of code for creating the curriculumn table-->
+                </div>
+
+                  <!--Below are the buttons for submitting an update, or for canceling an update-->
+                  <div class="form-group text-center">
+                      <div class="col-xs-6"><input type="submit" class="btn btn-primary" value="Submit Update"></div>
+                      <div class="col-xs-6"><div ng-click="cancelEdit()" class="btn btn-warning">Cancel</div></div>
+                  </div>
+              </fieldset>
+          </form>
+      </div>
+
+</section>

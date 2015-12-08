@@ -1,3 +1,11 @@
+<style>
+  @-moz-document url-prefix() {
+    .navbar-header > .navbar-brand {
+      margin-right: -128px;
+    }
+  }
+</style>
+
 <section ng-controller="HomeController">
     <section id="home-section" class="row">
         <div class="col-md-9">
@@ -25,7 +33,7 @@
                 </div>
 
                 <div class="col-md-4 vcenter" style="height: 37vh;">
-                    <img id="about-image" src="{{aboutUsImage}}" alt="Oops.">
+                    <img id="about-image" src="modules/core/client/img/brand/logo.png" alt="Oops.">
                 </div>
             </div>
         </div>

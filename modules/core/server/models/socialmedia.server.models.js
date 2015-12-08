@@ -4,17 +4,19 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var SocialMediaSchema = new Schema({
-    facebook: {
-        type: String
+    linkText: {
+        type: String,
+        required: 'Must provide a link',
+        trim: true
     },
-    twitter: {
-        type: String
+    iconLink: {
+        type: String,
+        trim: true,
+        default: ''
     },
-    linkedin: {
-        type: String
-    },
-    googleplus: {
-        type: String
+    hasIcon: {
+        type: Boolean,
+        default: false
     }
 });
 
