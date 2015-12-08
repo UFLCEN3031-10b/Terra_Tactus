@@ -38,3 +38,16 @@ exports.sendVReqTeacher = function(req, res){
 
   res.json(data);
 };
+
+exports.sendConfirmation = function(req, res){
+  var data = req.body;
+
+  transporter.sendMail({
+    from: 'terratactusbot@gmail.com',
+    to: data.user[0].email,
+    subject: 'Verify Your Terra Tactus Account!',
+    text: 'Thank you for registering for Terra Tactus. \n\nPlease paste the link below into your browser to confirm your account.\n\nlocalhost:3000/confirmation/' + data._id
+  });
+
+  res.json(data);
+};

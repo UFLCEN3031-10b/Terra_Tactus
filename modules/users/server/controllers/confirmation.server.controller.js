@@ -16,7 +16,7 @@ exports.add = function(req, res){
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.redirect('/');
+      res.json(confirm);
     }
   });
 };
@@ -55,7 +55,17 @@ exports.confirmByID = function(req, res, next, id) {
 };
 
 exports.remove = function(req, res){
+  var deleteConfirmation = req.confirmation;
 
+  deleteConfirmation.remove(function (err) {
+      if (err) {
+          return res.status(400).send({
+              message: errorHandler.getErrorMessage(err)
+          });
+      } else {
+          res.json(deleteConfirmation);
+      }
+  });
 };
 
 exports.updateUser = function(req, res){

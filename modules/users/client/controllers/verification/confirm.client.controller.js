@@ -22,7 +22,11 @@ angular.module('users').controller('ConfirmationController', ['$scope', '$state'
       console.log(userToUpdate);
       userToUpdate.verified = true;
       $http.put('/api/auth/confirm/' + userToUpdate._id).success(function(res){
-        console.log('I\'M THE BEST');
+        $http.delete('/api/auth/confirm/' + $scope.confirmation._id).success(function(response){
+          console.log('confirmation deleted successfully');
+        }).error(function (response){
+          console.log('how fucking stupid are you');
+        });
       }).error(function(res){
         console.log('I\'M THE WORST');
       });

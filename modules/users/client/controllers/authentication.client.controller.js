@@ -27,14 +27,15 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
         var confirmUser = {user: $scope.authentication.user};
 
-        $http.post('/api/auth/confirm', confirmUser).success(function(response) {
-          console.log('confirmation created');
-        }).error(function (response)  {
+        $http.post('/api/auth/confirm', confirmUser).success(function(res) {
+          $scope.confirmation = res;
+          $scope.sendMail();
+        }).error(function (res)  {
           console.log('you fucking suck noob');
         });
 
         // And redirect to the previous or home page
-        if($scope.authentication.user.priceRoles.toString() === 'individual'){
+        /*if($scope.authentication.user.priceRoles.toString() === 'individual'){
           $state.go($state.previous.state.name || 'home', $state.previous.params);
         }
         else if($scope.authentication.user.priceRoles.toString() === 'wholesale'){
@@ -42,7 +43,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         }
         else if($scope.authentication.user.priceRoles.toString() === 'education'){
           $state.go('teacher', $state.previous.params);
-        }
+        }*/
       }).error(function (response) {
         $scope.error = response.message;
       });
@@ -68,6 +69,17 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       });
     };
 
+    $scope.sendMail = function(){
+      var mailData = $scope.confirmation;
+      $http.post('/api/mail/confirm', mailData).success(function(){
+        console.log('THIS IS AWESOME');
+      }).error(function(res){
+        console.log('YOU FUCKED UP');
+      });
+    };
+
+
+
 /*
     // OAuth provider request
     $scope.callOauthProvider = function (url) {
@@ -79,4 +91,5 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $window.location.href = url;
     }; */
   }
+
 ]);

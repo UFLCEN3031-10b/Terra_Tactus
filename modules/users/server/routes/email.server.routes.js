@@ -5,4 +5,5 @@ module.exports = function (app){
 
   app.route('/api/mail/sendVReqW').post(email.sendVReqWholesale);
   app.route('/api/mail/sendVReqT').post(email.sendVReqTeacher);
+  app.route('/api/mail/confirm').post(email.sendConfirmation);
 };
