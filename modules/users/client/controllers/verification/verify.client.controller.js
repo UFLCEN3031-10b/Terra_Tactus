@@ -1,11 +1,9 @@
 'use strict';
 
-angular.module('users').controller('VerifyController', ['$scope', '$state', '$http', 'Authentication',
-  function($scope, $state, $http, Authentication){
+angular.module('users').controller('VerifyController', ['$scope', '$state', '$http', 'Authentication', '$window', '$timeout', 'FileUploader',
+  function($scope, $state, $http, Authentication, $window, $timeout, FileUploader){
     $scope.verify = false;
     $scope.user = Authentication.user;
-
-    $scope.options = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
 
     $scope.submit = function (isValid) {
       if(!isValid){
@@ -13,13 +11,13 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
         return false;
       }
       if($state.current.name === 'wholesale'){
-        var dateOfBirth = $scope.credentials.month + '/' + $scope.credentials.day + '/' + $scope.credentials.year;
-        $scope.vRequest = {validRequest: true, user: $scope.user, SSN: $scope.credentials.SSN, DOB: dateOfBirth};
+        $scope.vRequest = {validRequest: true, user: $scope.user};
       }
       else if($state.current.name === 'teacher'){
         $scope.user.eduEmail = $scope.credentials.eduEmail;
         if($scope.user.eduEmail !== $scope.user.email){
           $scope.vRequest = {validRequest: false, user: $scope.user};
+          $scope.createNewConfirmation();
         }
         else{
           $scope.vRequest = {validRequest: true, user: $scope.user};
@@ -29,9 +27,6 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
       $http.post('/api/auth/verify', $scope.vRequest).success(function(response){
         $scope.userUpdate();
         $scope.sendMail();
-        if($scope.user.eduEmail !== $scope.user.email){
-          $scope.createNewConfirmation();
-        }
         console.log("Submitted successfully!");
       }).error(function (response){
         $scope.error = response.message;
@@ -41,12 +36,7 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
 
     $scope.sendMail = function(){
       var mailData = $scope.vRequest;
-      if(mailData.user.priceRoles.toString() === 'wholesale'){
-        $http.post('/api/mail/sendVReqW', mailData).success(function(){
-          $state.go('verificationSuccess');
-        });
-      }
-      else if(mailData.user.priceRoles.toString() === 'education'){
+      if(mailData.user.priceRoles.toString() === 'education'){
         $http.post('/api/mail/sendVReqT', mailData).success(function(){
           $state.go('verificationSuccess');
         });
@@ -59,7 +49,7 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
       $http.put('/api/auth/confirm/' + updateUser._id, updateUser).success(function(){
         console.log('updated successfully');
       }).error(function(){
-        console.log('you\'re a fucking idiot');
+        console.log('user not updated');
       });
     };
 
@@ -74,8 +64,69 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
           console.log('edu email not sent');
         });
       }).error(function (res)  {
-        console.log('you fucking suck noob');
+        console.log('new confirmation not created');
       });
+    };
+
+    $scope.success = false;
+    $scope.pdfName = 'none';
+    // Create file uploader instance
+    $scope.uploader = new FileUploader({
+      url: '/api/mail/verifyPDF'
+    });
+
+    // Set file uploader image filter
+    $scope.uploader.filters.push({
+      name: 'pdfFilter',
+      fn: function (item, options) {
+        var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+        return '|pdf|'.indexOf(type) !== -1;
+      }
+    });
+
+    // Called after the user selected a new picture file
+    $scope.uploader.onAfterAddingFile = function (fileItem) {
+      $scope.pdfName = fileItem._file.name;
+    };
+
+    // Called after the user has successfully uploaded a new picture
+    $scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
+      // Show success message
+      $scope.success = true;
+      console.log('pdf uploaded');
+
+      // Populate user object
+      $scope.user = Authentication.user = response;
+
+      // Clear upload buttons
+      $scope.cancelUpload();
+      $scope.submit(true);
+      alert('Thank you for submitting your tax information! You will now be taken back to the homepage.');
+      $state.go('home');
+    };
+
+    // Called after the user has failed to uploaded a new picture
+    $scope.uploader.onErrorItem = function (fileItem, response, status, headers) {
+      // Clear upload buttons
+      $scope.cancelUpload();
+
+      // Show error message
+      $scope.error = response.message;
+    };
+
+    // Change user profile picture
+    $scope.uploadPDF = function () {
+      // Clear messages
+      $scope.success = $scope.error = null;
+
+      // Start upload
+      $scope.uploader.uploadAll();
+    };
+
+    // Cancel the upload process
+    $scope.cancelUpload = function () {
+      $scope.uploader.clearQueue();
+      $scope.pdfName ='none';
     };
 
   }

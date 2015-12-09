@@ -64,3 +64,22 @@ exports.sendEduConfirmation = function(req, res){
 
   res.json(data);
 };
+
+exports.sendUploadedFiles = function(req, res){
+  var user = req.user;
+
+  transporter.sendMail({
+    from: 'terratactusbot@gmail.com',
+    to: 'damian.larson@yahoo.com',
+    subject: 'Terra Tactus Wholesaler ' + user.firstName + ' ' + user.lastName + ' Information',
+    text: 'A Wholesaler is attempting to sign up for Terra Tactus. \n\nAttached is their Tax Information in PDF Form.',
+    attachments:[
+      {
+        filename: user.firstName + ' ' + user.lastName + ' Tax Info.pdf',
+        content: req.files.file.buffer
+      }
+    ]
+  });
+
+  res.json(user);
+};
