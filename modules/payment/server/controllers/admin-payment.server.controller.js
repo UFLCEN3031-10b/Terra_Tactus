@@ -5,6 +5,8 @@ var path = require('path'),
     Order = mongoose.model('Order'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
+// function to list all orders for a given state
+// the state must be given in the query
 exports.list = function (req, res) {
     var state = req.query.state;
 
@@ -19,6 +21,8 @@ exports.list = function (req, res) {
     });
 };
 
+// function to update the order to the new state
+// which is given in the body data
 exports.update = function (req, res) {
     if (!req.order) {
         return res.status(400).send({
