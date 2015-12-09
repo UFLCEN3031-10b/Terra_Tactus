@@ -3,19 +3,26 @@
         <h1><i class="fa fa-search"></i> Search Results</h1>
     </div>
 
-    <div ng-show="!isLoading && prodResults.length !== 0" ng-repeat="prod in prodResults">
+    <div ng-show="!prodLoading && prodResults.length !== 0" ng-repeat="prod in prodResults">
         <div class="row">
             <div class="col-md-3">
                 <img class="img-responsive" src="{{prod.imageUrl}}">
             </div>
+            <div class="col-md-9">
+                <h4><a href="/product/{{prod._id}}">{{prod.proTitle}}</a></h4><hr>
+                <p>{{prod.longDes}}</p>
+                <div class="text-center">
+                    <a class="btn btn-blue" href="/product/{{prod._id}}">Learn More</a>
+                </div>
+            </div>
         </div>
         <hr>
     </div>
-    <div ng-show="!isLoading && prodResults.length === 0" class="text-center">
+    <div ng-show="!prodLoading && prodResults.length === 0" class="text-center">
         <h3><i class="fa fa-exclamation-circle"></i> Oh No! <small>It seems your search didn't turn up any product results</small></h3>
         <hr>
     </div>
-    <div ng-show="isLoading" class="text-center">
+    <div ng-show="prodLoading" class="text-center">
         <h3><i class="fa fa-cog fa-spin"></i> Searching...</h3>
         <hr>
     </div>

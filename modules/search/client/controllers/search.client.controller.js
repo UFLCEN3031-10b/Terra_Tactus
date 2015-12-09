@@ -10,12 +10,12 @@ angular.module('search').controller('SearchController', ['$scope', '$stateParams
     $scope.annLoading = true;
 
     $http.get('/api/search/products?q=' + $stateParams.q).success(function (res) {
-        $scope.prodLoading = false;
         $scope.prodResults = res;
+        $scope.prodLoading = false;
     });
 
     $http.get('/api/search/announcements?q=' + $stateParams.q).success(function (res) {
-        $scope.annLoading = false;
         $scope.annResults = res;
+        $scope.annLoading = false;
     });
 }]);
