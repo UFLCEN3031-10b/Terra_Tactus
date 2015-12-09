@@ -33,6 +33,7 @@ exports.list = function (req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
+      console.log(suggestionlist);
       res.json(suggestionlist);
     }
   });

@@ -17,7 +17,7 @@ module.exports = function (app) {
     app.route('/api/suggestion').all(suggestionpolicy.isAllowed)
         .post(suggestion.submitSuggestion);
 
-    app.route('/api/admin/suggestion').all(suggestionpolicy.invokeRolesPolicies)
+    app.route('/api/admin/suggestion').all(suggestionpolicy.isAllowed)
         .get(suggestion.list)
         .delete(suggestion.delete);
 
