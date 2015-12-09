@@ -12,14 +12,26 @@
 }*/
 
 .searchAnnResultItem {
+    display: inline-block;
     border-radius: 5px;
     border: 1px solid white;
-    padding: 0;
+    padding: 5px;
     height: 190px;
-    width: 150px;
+    width: 300px;
     margin-right: 20px;
 }
 
 .list-inline {
-  white-space: nowrap;
+    white-space: nowrap;
+}
+
+.imgdiv {
+    width: 290px;
+    max-height: 75px;
+}
+
+.searchimg {
+    max-height: 75px;
+    max-width: 100%;
+    display: block;
 }

@@ -42,7 +42,7 @@ exports.findAnn = function (req, res) {
         }
 
         // grab the search item from the query data
-        var toFind = req.query.q;
+        var toFind = req.query.q.toLowerCase();
 
         // empty array to fill
         var results = [];
