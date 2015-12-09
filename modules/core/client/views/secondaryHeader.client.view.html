@@ -14,9 +14,9 @@
         </li>
     </ul>
 
-    <form class="navbar-form navbar-right" role="search" ng-Controller="SearchController" ng-init="search()">
+    <form class="navbar-form navbar-right" role="search" ng-submit="searchButton()">
         <div class="input-group">
-            <input type="text" ng-model="selected" placeholder="Search..." ui-typeahead="product for product in products | filter:$viewValue | limitTo:4" class="dark form-control">
+            <input type="text" class="dark form-control" placeholder="Search..." name="searchValue" ng-model="searchValue">
             <div class="input-group-btn">
 
                 <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
