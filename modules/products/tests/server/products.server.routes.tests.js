@@ -95,7 +95,7 @@ describe('Product CRUD tests', function () {
     });
 
     //Test # 4 to see if you can create products when signed in as a free user.
-  /*  it('Should not be able to create a product when signed in a free user', function(done){
+    it('Should not be able to create a product when signed in a free user', function(done){
       user.roles = ['freeUser'];
       user.save(function () {
       agent.post('/api/auth/signin')
@@ -121,11 +121,14 @@ describe('Product CRUD tests', function () {
 
                 });
         });
-    });*/
+    });
 
 
     //After each test say you're done.
     afterEach(function (done) {
-        done();
+        User.remove().exec(function () {
+          Product.remove().exec(done);
+        });
+
     });
 });
