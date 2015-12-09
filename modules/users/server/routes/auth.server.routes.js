@@ -23,6 +23,7 @@ module.exports = function (app) {
   app.route('/api/auth/verify').post(vRequest.add);
   app.route('/api/auth/vList').get(vRequest.list);
   app.route('/api/auth/vList/:vReqID').delete(vRequest.remove);
+  app.route('/api/auth/edit/:vReqID').put(vRequest.update);
 
   app.param('vReqID', vRequest.vReqByID);
 

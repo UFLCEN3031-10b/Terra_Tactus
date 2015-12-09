@@ -7,15 +7,19 @@ angular.module('users').controller('VerifyListController', ['$scope', '$state', 
         $scope.vRequests = res;
         $scope.wholesales = [];
         $scope.educations = [];
+        $scope.displayRequests = [];
         $scope.showWholesale = true;
         $scope.showEducation = true;
         if($stateParams.vReqID === undefined){
           for(var j = 0; j < $scope.vRequests.length; j++){
-            if($scope.vRequests[j].user[0].priceRoles.toString() === 'wholesale'){
-              $scope.wholesales.push($scope.vRequests[j]);
-            }
-            else if($scope.vRequests[j].user[0].priceRoles.toString() === 'education'){
-              $scope.educations.push($scope.vRequests[j]);
+            if($scope.vRequests[j].validRequest){
+              $scope.displayRequests.push($scope.vRequests[j]);
+              if($scope.vRequests[j].user[0].priceRoles.toString() === 'wholesale'){
+                $scope.wholesales.push($scope.vRequests[j]);
+              }
+              else if($scope.vRequests[j].user[0].priceRoles.toString() === 'education'){
+                $scope.educations.push($scope.vRequests[j]);
+              }
             }
           }
         }

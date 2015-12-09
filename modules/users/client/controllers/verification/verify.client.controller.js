@@ -18,7 +18,12 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
       }
       else if($state.current.name === 'teacher'){
         $scope.user.eduEmail = $scope.credentials.eduEmail;
-        $scope.vRequest = {validRequest: true, user: $scope.user};
+        if($scope.user.eduEmail !== $scope.user.email){
+          $scope.vRequest = {validRequest: false, user: $scope.user};
+        }
+        else{
+          $scope.vRequest = {validRequest: true, user: $scope.user};
+        }
       }
       console.log($scope.vRequest);
       $http.post('/api/auth/verify', $scope.vRequest).success(function(response){

@@ -46,6 +46,23 @@ exports.remove = function(req, res){
   });
 };
 
+exports.update = function(req, res){
+  var request = req.vRequest;
+
+  //For security purposes only merge these parameters
+  request.validRequest = req.body.validRequest;
+
+  request.save(function (err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+
+    res.json(request);
+  });
+};
+
 exports.vReqByID = function(req, res, next, id) {
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).send({

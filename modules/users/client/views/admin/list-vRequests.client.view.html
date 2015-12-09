@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="list-group">
-      <a ng-repeat="vReq in vRequests" ui-sref="admin.request({vReqID: vReq._id})" class="list-group-item" ng-if="showEducation && showWholesale">
+      <a ng-repeat="vReq in displayRequests" ui-sref="admin.request({vReqID: vReq._id})" class="list-group-item" ng-if="showEducation && showWholesale">
         <h4 class="list-group-item-heading" ng-bind="vReq.user[0].username"></h4>
         <p class="list-group-item-text pull-right small" ng-bind="vReq.user[0].priceRoles"></p>
         <p class="list-group-item-text" ng-bind="vReq.user[0].email"></p>
