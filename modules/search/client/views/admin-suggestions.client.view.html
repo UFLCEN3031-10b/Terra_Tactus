@@ -1,0 +1,33 @@
+<section ng-Controller="ReviewSuggestionsController">
+  <div class="page-header text-center">
+      <ul class="pagination">
+          <li ng-click="select(cs)">
+              <a>General Customer Service</a>
+          </li>
+          <li ng-click="select(s)">
+              <a>Suggestions</a>
+          </li>
+          <li ng-click="select(ps)">
+              <a>Product Support</a>
+          </li>
+      </ul>
+      <hr>
+      <div class="" ng-repeat="suggestion in suggestions" ng-switch on="selection">
+        <div class="" ng-switch-when="{{suggestion.subject}}">
+          <div class="col-md-4">
+            <h3>First Name: </h3>
+            <h3>Last Name: </h3>
+            <h3>Email Address: </h3>
+          </div>
+          <div class="col-md-8">
+
+          </div>
+        </div>
+      </div>
+      <div class="animate-switch-container" ng-switch on="selection">
+          <div class="animate-switch" ng-switch-when="settings">Settings Div</div>
+          <div class="animate-switch" ng-switch-when="home">Home Span</div>
+          <div class="animate-switch" ng-switch-default>default</div>
+      </div>
+  </div>
+</section>
