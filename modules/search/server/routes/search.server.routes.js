@@ -14,11 +14,11 @@ module.exports = function (app) {
         .get(search.findAnn);
 
     //route for submitting a suggestion
-    app.route('/api/suggestion')
+    app.route('/api/suggestion').all(suggestionpolicy.isAllowed)
         .post(suggestion.submitSuggestion);
 
-    app.route('/api/admin/suggestion')
+    app.route('/api/admin/suggestion').all(suggestionpolicy.invokeRolesPolicies)
         .get(suggestion.list)
-        .delete(suggestion.remove);
+        .delete(suggestion.delete);
 
 };

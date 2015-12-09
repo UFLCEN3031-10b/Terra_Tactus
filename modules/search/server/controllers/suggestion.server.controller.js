@@ -7,6 +7,7 @@ var path = require('path'),
 
 //submit a suggestion to the DB
 exports.submitSuggestion = function (req, res) {
+  console.log(req.body);
   var d = new Suggestion();
   d.firstName = req.body.firstName;
   d.lastName = req.body.lastName;

@@ -8,6 +8,7 @@ angular.module('search').controller('SuggestionController', ['$scope', '$statePa
     $scope.subject = 'Choose One:';
     $scope.message = '';
 
+
     $scope.create = function () {
       var suggestion = {
         firstName: $scope.firstName,

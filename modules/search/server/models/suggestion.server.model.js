@@ -22,7 +22,7 @@ var SuggestionSchema = new Schema({
     },
     subject: {
       type: String,
-      enum: ['General Customer Service', 'Suggestions', 'Product Support']
+      default: ''
     },
     message: {
       type: String,
