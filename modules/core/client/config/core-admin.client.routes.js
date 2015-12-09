@@ -35,6 +35,15 @@ angular.module('core.admin.routes').config(['$stateProvider',
           data: {
               roles: ['admin']
           }
+      })
+
+      .state('edit-reviews', {
+          url: '/edit/reviews',
+          templateUrl: '/modules/core/client/views/reviews.edit.client.view.html',
+          controller: 'ReviewsEditController',
+          data: {
+              roles: ['admin']
+          }
       });
   }
 ]);

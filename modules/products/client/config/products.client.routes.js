@@ -36,18 +36,12 @@ angular.module('products').config(['$stateProvider',
                   roles: ['admin']
                 }
             })
-            .state('subscriptions', {
-                url: '/subscriptions',
-                templateUrl: 'modules/products/client/views/subscriptions.product.client.view.html'
-            })
+
             .state('cart', {
                 url: '/cart',
                 templateUrl: 'modules/products/client/views/cart.client.view.html'
             })
-            .state('commercial', {
-                url: '/commercial',
-                templateUrl: 'modules/products/client/views/commercial.product.client.view.html',
-            })
+
             .state('review-comments', {
               url: '/review-comments',
               templateUrl: '/modules/products/client/views/review-comments.client.view.html',
@@ -55,9 +49,49 @@ angular.module('products').config(['$stateProvider',
                 roles: ['admin']
               }
             })
+
+            //adding a commercial page
+            .state('commercial', {
+                url: '/commercial',
+                templateUrl: 'modules/products/client/views/commercial.product.client.view.html',
+            })
+            //adding an edit-commercial page
+            .state('commercial-edit', {
+                url: '/commercial/edit',
+                templateUrl: 'modules/products/client/views/commercialedit.product.client.view.html',
+                data: {
+                    roles: ['admin']
+                }
+            })
+
+            //adding a retail page
             .state('retail', {
                 url: '/retail',
                 templateUrl: 'modules/products/client/views/retail.product.client.view.html',
+            })
+
+            //adding an edit-retail page
+            .state('retail-edit', {
+                url: '/retail/edit',
+                templateUrl: 'modules/products/client/views/retailedit.product.client.view.html',
+                data: {
+                    roles: ['admin']
+                }
+            })
+
+            //adding a subscriptions page
+            .state('subscriptions', {
+                url: '/subscriptions',
+                templateUrl: 'modules/products/client/views/subscriptions.product.client.view.html'
+            })
+
+            //adding an edit-subscription page
+            .state('subscription-edit', {
+                url: '/subscription/edit',
+                templateUrl: 'modules/products/client/views/subscriptionedit.product.client.view.html',
+                data: {
+                    roles: ['admin']
+                }
             });
     }
 ]);
