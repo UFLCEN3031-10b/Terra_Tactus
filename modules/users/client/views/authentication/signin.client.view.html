@@ -1,4 +1,3 @@
-
 <section ng-controller="AuthenticationController">
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <form name="userForm" ng-submit="signin(userForm.$valid)" class="signin" novalidate autocomplete="off">
@@ -13,39 +12,37 @@
          
           <div class="login-block">        
             
-            <h1>Login</h1>          
-            <div class="form-group" show-erros>  
-              <input type="text" id="username" placeholder="Username" class="form-control" ng-model="credentials.username" lowercase required/>
+            <h1>Login</h1> 
+
+            <div class="form-group" show-errors>  
+              <input type="text" id="username" name="username" placeholder="Username" class="form-control ng-dirty ng-valid-parse ng-touched ng-invalid ng-invalid-required" ng-model="credentials.username" lowercase required/>
               <div ng-messages="userForm.username.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Username is required.</p>
               </div>
             
-              <input type="password" id="password" placeholder="Password" class="form-control" ng-model="credentials.password" required/>       
+              <input type="password" id="password" name="password" placeholder="Password" class="form-control" ng-model="credentials.password" required/>       
               <div ng-messages="userForm.password.$error" role="alert">
                <p class="help-block error-text" ng-message="required">Password is required.</p>
               </div>
  
-              <div class="row"> 
+
+              <div class="row form-group"> 
                   <button type="submit" class="col-md-6">Sign In</button>
                   <button a ui-sref="signup" class="col-md-6">Sign Up</button>
 
-              </div>
 
-              <div class="row"> 
-                <div class="text-center forgot-password">
+                <div class="col-md-12 text-center forgot-password" style="margin-top">
                   <a ui-sref="password.forgot">Forgot your password?</a>
                 </div>
+
                 <alert type="danger" ng-show="error" class="text-center text-danger">
                   <span ng-bind="error"></span>
                 </alert>
-              </div>
-              
-            </div>
 
-          </div>
-   
+              </div>
+            </div> 
+          </div>   
         </div>
-      
       </div>
 
 
@@ -70,6 +67,7 @@
             <p class="help-block error-text" ng-message="required">Username is required.</p>
           </div>
         </div>
+        
         <div class="form-group" show-errors>
           <label for="password">Password</label>
           <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" required>

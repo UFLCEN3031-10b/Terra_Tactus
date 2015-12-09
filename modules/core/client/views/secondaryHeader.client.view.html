@@ -14,6 +14,7 @@
         </li>
     </ul>
 
+<<<<<<< HEAD
     <ul class ="nav navbar-nav" ng-if="(authentication.user.priceRoles.toString !== 'individual') && (!!authentication.user.confirmed) && !(authentication.user.verifySent || authentication.user.verified)">
       <li ui-sref-active="active">
         <a ui-sref="verify">Submit Your Verification Info Now!</a>
@@ -35,8 +36,11 @@
         <!--</script>-->
         <!--<gcse:searchbox></gcse:searchbox>-->
       <!--</div>-->
+=======
+    <form class="navbar-form navbar-right" role="search" ng-submit="searchButton()">
+>>>>>>> b5ffe6079c5932d9264db312ade9902e09c762f1
         <div class="input-group">
-            <input type="text" class="dark form-control" placeholder="Search..." name="searchValue">
+            <input type="text" class="dark form-control" placeholder="Search..." name="searchValue" ng-model="searchValue">
 
             <div class="input-group-btn">
 
