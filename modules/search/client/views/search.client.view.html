@@ -3,6 +3,14 @@
         <h1><i class="fa fa-search"></i> Search Results</h1>
     </div>
 
+    <div ng-show="!annLoading && annResults.length !== 0">
+
+    </div>
+    <div ng-show="annLoading" class="text-center">
+        <h3><i class="fa fa-cog fa-spin"></i> Searching...</h3>
+        <hr>
+    </div>
+
     <div ng-show="!prodLoading && prodResults.length !== 0" ng-repeat="prod in prodResults">
         <div class="row">
             <div class="col-md-3">
