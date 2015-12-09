@@ -59,7 +59,7 @@ exports.sendEduConfirmation = function(req, res){
     from: 'terratactusbot@gmail.com',
     to: data.user[0].eduEmail,
     subject: 'Verify Your Terra Tactus Account!',
-    text: 'Thank you for registering for Terra Tactus. \n\nPlease paste the link below into your browser to confirm your account.\n\nlocalhost:3000/verify/' + data._id
+    text: 'Thank you for providing us with your educational email.\n\nPlease paste the link below into your browser to confirm that this is a real email account.\n\nlocalhost:3000/verify/' + data._id
   });
 
   res.json(data);

@@ -56,7 +56,7 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
     $scope.userUpdate = function(){
       var updateUser = $scope.user;
       updateUser.verifySent = true;
-      $http.put('/api/auth/confirm/' + updateUser._id, $updateUser).success(function(){
+      $http.put('/api/auth/confirm/' + updateUser._id, updateUser).success(function(){
         console.log('updated successfully');
       }).error(function(){
         console.log('you\'re a fucking idiot');
