@@ -50,8 +50,12 @@ describe('Reviews CRUD tests', function () {
             }
         });
 
+        console.log("here");
+
         user.save(function () {
-            product.save(done);
+            product.save(function () {
+              done();
+            });
         });
     });
 
@@ -167,7 +171,7 @@ describe('Reviews CRUD tests', function () {
                 done();
             });
     });
-    
+
     afterEach(function (done) {
       User.remove().exec(function () {
         Product.remove().exec(done);
