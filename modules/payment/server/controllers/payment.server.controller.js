@@ -187,15 +187,23 @@ exports.executeOrder = function (req, res) {
                 message: "execution failed"
             });
         } else {
+            // update order status
             req.order.status = "Awaiting shipper confirmation";
+
+            // save paypal data
             req.order.paypal_execute_res = resp;
+
+            // empty the cart
             req.session.cart = [];
+
+            // save the data in the database
             req.order.save(function (err) {
                 if (err) {
                     return res.status(400).send({
                         message: errorHandler.getErrorMessage(err)
                     });
                 } else {
+                    // return a redirect url
                     res.json({ redirect_url: '/order/complete/' + req.order._id });
                 }
             });
@@ -203,6 +211,10 @@ exports.executeOrder = function (req, res) {
     });
 };
 
+// this function closes an order so that the
+// appropriate routes are not able to view it after
+// the initial view, the security of this could probably
+// be improved
 exports.close = function (req, res) {
     if (req.order && req.order.open) {
         req.order.open = false;
@@ -212,6 +224,7 @@ exports.close = function (req, res) {
                     message: errorHandler.getErrorMessage(err)
                 });
             } else {
+                // gotta send something ya know
                 res.json({ status: 'OK' });
             }
         });
@@ -222,28 +235,43 @@ exports.close = function (req, res) {
     }
 };
 
+// this route is where we are directed to from
+// paypal when the buyer chooses to cancel the order
 exports.cancelOrder = function (req, res) {
+    // update the status
     req.order.status = 'Canceled';
+
+    // we must also close the order
     req.order.open = false;
+
+    // save it back into the database
     req.order.save(function (err) {
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
         } else {
+            // send the user back to cart, which will still be
+            // intact after canceling the order
             res.redirect('/cart');
         }
     });
 };
 
+// simple route to return order data
+// we could probably delete some properties from
+// the order before sending, but nah
 exports.read = function (req, res) {
     if (req.order && req.order.open) {
         res.json(req.order);
     } else {
+        // just send null if there's nothing there
         res.json(null);
     }
 };
 
+// route to add the order to the request if the id
+// is given in the route
 exports.orderById = function (req, res, next, id) {
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).send({
