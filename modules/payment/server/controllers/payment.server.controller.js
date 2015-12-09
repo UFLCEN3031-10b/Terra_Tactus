@@ -14,6 +14,13 @@ paypal.configure({
 
 exports.openOrder = function (req, res) {
     var newOrder = new Order();
+
+    if (!req.session.cart) {
+        return res.status(400).send({
+            message: 'cart is empty'
+        });
+    }
+
     newOrder.cart = req.session.cart;
     newOrder.open = true;
     if (req.user) {
@@ -26,8 +33,8 @@ exports.openOrder = function (req, res) {
         var tempPrice = -1;
 
         if (undefined !== req.user) {
-            for (var i = 0; i < req.user.roles.length; i++) {
-                var r = req.user.roles[i];
+            for (var i = 0; i < req.user.priceRoles.length; i++) {
+                var r = req.user.priceRoles[i];
                 if (r === 'wholesale') {
                     tempPrice = prodWrap.product.wholePrice;
                 } else if (r === 'education') {
@@ -48,56 +55,62 @@ exports.openOrder = function (req, res) {
         desc += (String(prodWrap.quantity) + "x " + prodWrap.product.proTitle + ", ");
     });
 
-    desc = desc.substring(0, desc.length - 2);
-    newOrder.total = total.toFixed(2);
-    newOrder.description = desc;
+    if (total === 0.0 || total === 0) {
+        return res.status(400).send({
+            message: 'cart cannot have 0.00 for price'
+        });
+    } else {
+        desc = desc.substring(0, desc.length - 2);
+        newOrder.total = total.toFixed(2);
+        newOrder.description = desc;
 
-    var payment = {
-        "intent": "sale",
-        "payer": {
-            "payment_method": "paypal"
-        },
-        "redirect_urls": {
-            "return_url": "http://" + req.get('host') + "/api/order/confirm/" + String(newOrder._id),
-            "cancel_url": "http://" + req.get('host') + "/api/order/cancel/" + String(newOrder._id)
-        },
-        "transactions": [{
-            "amount": {
-                "currency": "USD",
-                "total": total.toFixed(2)
+        var payment = {
+            "intent": "sale",
+            "payer": {
+                "payment_method": "paypal"
             },
-            "description": desc
-        }]
-    };
+            "redirect_urls": {
+                "return_url": "http://" + req.get('host') + "/api/order/confirm/" + String(newOrder._id),
+                "cancel_url": "http://" + req.get('host') + "/api/order/cancel/" + String(newOrder._id)
+            },
+            "transactions": [{
+                "amount": {
+                    "currency": "USD",
+                    "total": total.toFixed(2)
+                },
+                "description": desc
+            }]
+        };
 
-    paypal.payment.create(payment, function (err, resp) {
-        if (err) {
-            console.log(err);
-            return res.status(400).send({
-                message: "payment failed"
-            });
-        } else if (resp) {
-            req.session.paymentId = resp.id;
-            var rurl;
-            for (var i = 0; i < resp.links.length; i++) {
-                if (resp.links[i].method === 'REDIRECT') {
-                    rurl = resp.links[i].href;
+        paypal.payment.create(payment, function (err, resp) {
+            if (err) {
+                // console.log(err);
+                return res.status(400).send({
+                    message: "payment failed"
+                });
+            } else if (resp) {
+                req.session.paymentId = resp.id;
+                var rurl;
+                for (var i = 0; i < resp.links.length; i++) {
+                    if (resp.links[i].method === 'REDIRECT') {
+                        rurl = resp.links[i].href;
+                    }
                 }
+
+                newOrder.paypal_create_res = resp;
+
+                newOrder.save(function (err) {
+                    if (err) {
+                        return res.status(400).send({
+                            message: errorHandler.getErrorMessage(err)
+                        });
+                    } else {
+                        res.json({ redirect_url: rurl });
+                    }
+                });
             }
-
-            newOrder.paypal_create_res = resp;
-
-            newOrder.save(function (err) {
-                if (err) {
-                    return res.status(400).send({
-                        message: errorHandler.getErrorMessage(err)
-                    });
-                } else {
-                    res.json({ redirect_url: rurl });
-                }
-            });
-        }
-    });
+        });
+    }
 };
 
 exports.confirm = function (req, res) {

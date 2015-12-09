@@ -1,9 +1,11 @@
 .content {
     margin-top: 50px;
 }
+
 .undecorated-link:hover {
     text-decoration: none;
 }
+
 [ng\:cloak],
 [ng-cloak],
 [x-ng-cloak],
@@ -11,6 +13,7 @@
 .x-ng-cloak {
     display: none !important;
 }
+
 .header-profile-image {
     opacity: 0.8;
     height: 28px;
@@ -18,20 +21,25 @@
     border-radius: 50%;
     margin-right: 5px;
 }
+
 .open .header-profile-image,
 a:hover .header-profile-image {
     opacity: 1;
 }
+
 .user-header-dropdown-toggle {
     padding-top: 11px !important;
     padding-bottom: 11px !important;
 }
+
 .error-text {
     display: none;
 }
+
 .has-error .help-block.error-text {
     display: block;
 }
+
 .has-error .help-inline.error-text {
     display: inline;
 }
@@ -76,6 +84,7 @@ body {
     width: 100%;
 }
 
+/*Products*/
 .product-info {
     height: 100%;
     border: 2px solid #333333;
@@ -90,6 +99,7 @@ body {
     background-color: #339933;
 }
 
+/*Social media*/
 .contact-info > div {
     height: 25vh;
 }
@@ -112,17 +122,23 @@ body {
     display: flex;
     align-items: center;
 }
+
+/*Background*/
 .bg-color-main {
     background-color: #333333;
 }
+
+
+.bg-color-main {
+    background-color: #333333;
+}
+
+/*Buttons*/
 .btn-blue {
     background-color: #3366cc;
     /*changed colors to increase contrast*/
 }
 
-.bg-color-main {
-    background-color: #333333;
-}
 .btn-green{
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -158,7 +174,6 @@ body {
     text-decoration: none;
 }
 
-
 .btn-blue{
     border:1px solid #3366cc;
     -webkit-border-radius: 3px;
@@ -192,15 +207,20 @@ body {
     color: white;
 }
 
+/*Announcements*/
 .half-section {
   height: 40%;
   overflow-y: auto;
+  margin-bottom: 15px;
+    border-radius: 2px;
+    border-color: white;
 }
 
 .half-section::-webkit-scrollbar {
     display: none;
 }
 
+/*Margins*/
 .clear-margins {
   margin-top: 0;
   margin-left: 0;
@@ -213,6 +233,8 @@ body {
   border-color: #FFFFFF;
 
 }
+
+/*Forms*/
 .form-control {
     background-color: #222222;
     color: #FFFFFF;

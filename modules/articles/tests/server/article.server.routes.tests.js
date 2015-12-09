@@ -17,6 +17,7 @@ var app, agent, credentials, user, article;
  * Article routes tests
  */
 describe('Article CRUD tests', function () {
+
   before(function (done) {
     // Get application
     app = express.init(mongoose);

@@ -8,6 +8,7 @@ var path = require('path'),
     retailData = mongoose.model('RetailData'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
+//Find retail Products
 exports.find = function (req, res) {
     retailData.findOne().exec(function (err, data) {
         if (err) {
@@ -20,6 +21,7 @@ exports.find = function (req, res) {
     });
 };
 
+//Update the products that are in the retail section
 exports.update = function (req, res) {
     retailData.findOne().exec(function (err, data) {
         if (err) {
@@ -27,13 +29,13 @@ exports.update = function (req, res) {
                 message: errorHandler.getErrorMessage(err)
             });
         } else {
-            //data.remove(function (err) {
-            //    if (err) {
-            //        return res.status(400).send({
-            //            message: errorHandler.getErrorMessage(err)
-            //        });
-            //    }
-            //});
+            data.remove(function (err) {
+                if (err) {
+                    return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                }
+            });
         }
     });
 

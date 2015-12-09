@@ -29,7 +29,7 @@ var ProductSchema = new Schema({
     longDes: {
         type: String,
         default: '',
-        //required: 'Product must have a description'
+        required: 'Product must have a long description'
     },
     shortDes: {
         type: String,
@@ -96,9 +96,9 @@ var ProductSchema = new Schema({
       trim: true
     },
     reviews: {
-      type: [ReviewSchema],
-    }
-
+      type: [ReviewSchema]
+    },
+    curriculum: []
 });
 
 mongoose.model('Product', ProductSchema);

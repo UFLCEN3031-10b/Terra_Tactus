@@ -1,28 +1,31 @@
 <!--This code is meant to show all the products available, it will allow the user to click to edit a specific product, or delete a product-->
 <!--Code for a page header-->
-<div>
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
     <h1 align = "center"><b> My Products </b></h1>
+  </div>
 </div>
 <!--Define which controller we are using which will have the functions for delete, and taking you to edit a product-->
 <section ng-controller="editProductsController">
     <!-- Division that will be used to repeat the product blocks -->
     <div class="row" >
-        <div class="col-lg-10 " >
-            <div class=" col-lg-4 col-md-4 col-sm-4" ng-repeat="product in products" >
+        <div class="col-lg-10 col-lg-offset-1" >
+            <div class=" col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="product in products" >
                 <div class="thumbnail product-thumb" >
                     <div class = "label-info">
-                        <h3>{{product.proTitle}}</h3><!--Diplay Product Title-->
+                        <div class="label-info2"><h4><b>{{product.proTitle}}</b></h4></div><!--Diplay Product Title-->
                     </div>
+                    <br>
                     <!--Display Product Image-->
-                    <img src ="{{product.imageUrl}}" class="img-responsive product-img" style="width:250px; height:250px;">
+                    <img src ="{{product.imageUrl}}" class="img-responsive product-img" style="width:200px; height:200px;">
                         <br>
                         <div class="row text-center">
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <!--Button for editing a specific product, this reroutes user to page for editing that specific product-->
                                 <a class="btn btn-primary btn-sm btn-product-edit" ui-sref="product-edit({productId: product._id})"><span class="glyphicon glyphicon-edit">
                                 </span> Edit Product</a>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <!--Button to delete product-->
                                 <a class="btn btn-danger btn-sm btn-product-delete" ng-click="delete(product._id)" >
                                     <span class="glyphicon glyphicon-trash">
