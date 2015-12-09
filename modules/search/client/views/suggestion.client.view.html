@@ -22,19 +22,7 @@
 
             	<div class="form-group">
 	                <label>Subject</label>
-	                <select class="form-control" id="subject" ng-model="subject" name="subject">
-                    <option value="service">
-                        General Customer Service
-                    </option>
-
-                    <option value="suggestions">
-                        Suggestions
-                    </option>
-
-                    <option value="product">
-                        Product Support
-                    </option>
-	                </select>
+	                <select class="form-control" id="subject" ng-model="subject" ng-options="item for item in items" name="subject"></select>
 	            </div>
 
 

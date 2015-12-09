@@ -5,7 +5,8 @@ angular.module('search').controller('SuggestionController', ['$scope', '$statePa
     $scope.firstName = '';
     $scope.lastName = '';
     $scope.emailAddress = '';
-    $scope.subject = 'Choose One:';
+    $scope.items = ['General Customer Service', 'Suggestions', 'Product Support'];
+    $scope.subject = $scope.items[0];
     $scope.message = '';
 
 

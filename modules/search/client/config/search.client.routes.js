@@ -9,5 +9,12 @@ angular.module('search').config(['$stateProvider', function ($stateProvider) {
         .state('suggestion', {
             url: '/suggestion',
             templateUrl: 'modules/search/client/views/suggestion.client.view.html'
+        })
+        .state('admin-suggestions', {
+            url: '/suggestion/admin',
+            templateUrl: 'modules/search/client/views/admin-suggestions.client.view.html',
+            data: {
+                roles: ['admin']
+            }
         });
 }]);
