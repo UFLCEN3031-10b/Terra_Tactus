@@ -41,10 +41,19 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       }
     })
 
-    .state('reviews', {
-      url: '/reviews',
-      templateUrl: '/modules/core/client/views/reviews.client.view.html',
-      controller: 'ReviewsController',
+    .state('testimonials', {
+      url: '/testimonials',
+      templateUrl: '/modules/core/client/views/testimonial.client.view.html',
+      controller: 'TestimonialController',
+    })
+
+    .state('testimonials-edit', {
+      url: '/testimonials/edit',
+      templateUrl: '/modules/core/client/views/testimonial.edit.client.view.html',
+      controller: 'TestimonialEditController',
+      data: {
+        roles: ['admin']
+      }
     })
     .state('forbidden', {
       url: '/forbidden',

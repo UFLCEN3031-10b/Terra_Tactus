@@ -39,7 +39,7 @@ angular.module('core.admin.routes').config(['$stateProvider',
 
       .state('edit-reviews', {
           url: '/edit/reviews',
-          templateUrl: '/modules/core/client/views/reviews.edit.client.view.html',
+          templateUrl: '/modules/core/client/views/testimonial.edit.client.view.html',
           controller: 'ReviewsEditController',
           data: {
               roles: ['admin']

@@ -7,7 +7,7 @@ var core = require('../controllers/core.server.controller'),
     carouseldata = require('../controllers/carouseldata.server.controller'),
     hompagepolicy = require('../policies/homepage.server.policy.js');
 
-module.exports = function (app) {
+  module.exports = function (app) {
   // routing for homepage data, needs user restriction
   app.route('/api/homepage/data').all(hompagepolicy.isAllowed)
     .get(homepageData.find)

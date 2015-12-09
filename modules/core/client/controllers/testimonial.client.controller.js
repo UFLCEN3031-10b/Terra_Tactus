@@ -4,23 +4,12 @@
 'use strict';
 
 angular.module('core').controller('TestimonialController', function ($scope, $http) {
-    $http.get('/api/testimonial/data').success(function (res) {
-        console.log(res);
-    });
+
     $http.get('/api/testimonial/data').success(function (res) {
         console.log(res);
         $scope.testimonials = res;
     });
 
-
-    $scope.addTestimonial = function (newFrom ,newQuote, newPictureURL, newCreditURL) {
-        $scope.products.push({
-            from: newFrom,
-            quote: newQuote,
-            pictureUrl: newPictureURL,
-            creditUrl: newCreditURL
-        });
-    };
     //// Create new Product
     //$scope.create = function (isValid) {
     //    //Declare variables for correctly getting checkbox values

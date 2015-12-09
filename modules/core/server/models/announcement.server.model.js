@@ -29,7 +29,7 @@ var AnnouncementSchema = new Schema({
     type: String,
     default: '',
     trim: true,
-    required: 'Title cannot be blank'
+    required: 'Username cannot be blank'
   },
   link: {
     type: String,
