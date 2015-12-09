@@ -32,26 +32,10 @@
         <div class="col-md-6" ng-bind="vRequest.user[0].email"></div>
       </div>
       <hr/>
-      <div ng-show="showWholesale && !showEducation">
-        <div class = "row">
-          <div class = "col-md-3"><strong>DOB</strong></div>
-          <div class = "col-md-6" ng-bind="vRequest.DOB"></div>
-        </div>
-        <hr/>
-        <div class = "row">
-          <div class = "col-md-3"><strong>SSN</strong></div>
-          <div class = "col-md-6" ng-bind="vRequest.SSN"></div>
-        </div>
-      </div>
       <div ng-show="showEducation && !showWholesale">
         <div class = "row">
-          <div class = "col-md-3"><strong>State</strong></div>
-          <div class = "col-md-6" ng-bind="vRequest.state"></div>
-        </div>
-        <hr/>
-        <div class = "row">
-          <div class = "col-md-3"><strong>TID</strong></div>
-          <div class = "col-md-6" ng-bind="vRequest.TID"></div>
+          <div class = "col-md-3"><strong>Educational Email</strong></div>
+          <div class = "col-md-6" ng-bind="vRequest.user[0].eduEmail"></div>
         </div>
       </div>
       <hr/>
