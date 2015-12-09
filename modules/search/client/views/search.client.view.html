@@ -9,7 +9,9 @@
                 <img class="img-responsive" src="{{prod.imageUrl}}">
             </div>
             <div class="col-md-9">
-                <h4><a href="/product/{{prod._id}}">{{prod.proTitle}}</a></h4><hr>
+                <h4>
+                    <a href="/product/{{prod._id}}">{{prod.proTitle}}</a>
+                </h4><hr>
                 <p>{{prod.longDes}}</p>
                 <div class="text-center">
                     <a class="btn btn-blue" href="/product/{{prod._id}}">Learn More</a>
@@ -19,7 +21,15 @@
         <hr>
     </div>
     <div ng-show="!prodLoading && prodResults.length === 0" class="text-center">
-        <h3><i class="fa fa-exclamation-circle"></i> Oh No! <small>It seems your search didn't turn up any product results</small></h3>
+        <h3>
+            <i class="fa fa-exclamation-circle"></i> Oh No! <small>It seems your search didn't turn up any product results</small>
+        </h3>
+        <p>
+            If you would like to suggest a new product, click below!
+        </p>
+        <div class="text-center">
+            <a href="#" class="btn btn-blue">Send a Suggestion</a>
+        </div>
         <hr>
     </div>
     <div ng-show="prodLoading" class="text-center">
