@@ -50,8 +50,6 @@ describe('Reviews CRUD tests', function () {
             }
         });
 
-        console.log("here");
-
         user.save(function () {
             product.save(function () {
               done();
