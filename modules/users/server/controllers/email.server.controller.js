@@ -8,7 +8,7 @@ var transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
       user: 'terratactusbot@gmail.com',
-      pass: //ASK DAME FOR IT
+      pass: 'dentist lion wearing toupee'
   }
 });
 //used to log in to email account
