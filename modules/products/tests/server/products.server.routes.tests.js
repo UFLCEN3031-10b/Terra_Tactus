@@ -1,6 +1,3 @@
-/**
- * Created by memamdie on 12/4/15.
- */
 'use strict';
 
 var should = require('should'),
@@ -23,7 +20,7 @@ describe('Product CRUD tests', function () {
     //Before each test do this stuff
     beforeEach(function (done) {
         credentials = {
-            username: 'admin4tests',
+            username: 'Admin4tests',
             password: 'M3@n.jsI$Aw3$0m3'
         };
         user = new User({
@@ -33,6 +30,7 @@ describe('Product CRUD tests', function () {
             email: 'test@me.com',
             username: credentials.username,
             password: credentials.password,
+            roles: ['admin'],
             provider: 'local'
         });
 
@@ -51,19 +49,80 @@ describe('Product CRUD tests', function () {
 
     });
 
-    //Test # 1 to see if you can access the product edit page without being signed in as a user.
-    it('Should attempt to access edit products page without being signed in', function(done){
-        agent.get('/api/products-edit')
-            .expect(404)
+    //Test # 1 to see if you can access the products without being signed in as a user.
+    it('Should attempt to access products without being signed in', function(done){
+        agent.get('/api/products')
+            .expect(200)
             .end(done);
     });
 
-    //Test # 2 to see if you can access the product edit page without being signed in as a user.
-    it('Should attempt to access an edit product page with a valid product id without being signed in', function(done){
-        agent.get('/api/product-edit'+product._id)
-            .expect(404)
+    //Test # 2 to see if you can create products without being signed in.
+    it('Should expect forbidden when creating a product without being signed in', function(done){
+        agent.post('/api/products')
+            .send(product)
+            .expect(403)
             .end(done);
     });
+
+    //Test # 3 to see if you can create products when signed in as an admin.
+    it('Should be able to create a product when signed in as an admin', function(done){
+      //user.roles = ['admin'];
+      //user.save(function () {
+      agent.post('/api/auth/signin')
+          .send(credentials)
+          .expect(200)
+          .end(function (signinErr, signinRes) {
+            // Handle signin error
+            if (signinErr) {
+              return done(signinErr);
+            }
+
+              agent.post('/api/products')
+                  .send(product)
+                  .expect(200)
+                  .end(function (err, res) {
+                      if (err) {
+                          return done(err);
+                      }
+
+                      should(res).be.ok();
+                      done();
+                  });
+          });
+
+      //  });
+
+    });
+
+    //Test # 4 to see if you can create products when signed in as a free user.
+  /*  it('Should not be able to create a product when signed in a free user', function(done){
+      user.roles = ['freeUser'];
+      user.save(function () {
+      agent.post('/api/auth/signin')
+          .send(credentials)
+          .expect(200)
+          .end(function (signinErr, signinRes) {
+            // Handle signin error
+            if (signinErr) {
+              return done(signinErr);
+            }
+
+              agent.post('/api/products')
+                  .send(product)
+                  .expect(403)
+                  .end(function (err, res) {
+                      if (err) {
+                          return done(err);
+                      }
+
+                      should(res).be.ok();
+                      done();
+                  });
+
+                });
+        });
+    });*/
+
 
     //After each test say you're done.
     afterEach(function (done) {
