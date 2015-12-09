@@ -20,6 +20,7 @@ exports.add = function(req, res){
     }
   });
 };
+//add confirmation to database
 
 exports.get = function(req, res, id){
   Confirmation.find().exec(function (err, confirms) {
@@ -32,6 +33,7 @@ exports.get = function(req, res, id){
       }
   });
 };
+//find all of the confirmations and send them back to the client
 
 exports.confirmByID = function(req, res, next, id) {
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -67,6 +69,7 @@ exports.remove = function(req, res){
       }
   });
 };
+//delete the confirmation passed into the function
 
 exports.updateUser = function(req, res){
   var user = req.model;
@@ -86,7 +89,7 @@ exports.updateUser = function(req, res){
     res.json(user);
   });
 };
-
+//update the user from the confirmation page
 
 exports.userByID = function (req, res, next, id) {
   if (!mongoose.Types.ObjectId.isValid(id)) {

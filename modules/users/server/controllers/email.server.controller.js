@@ -8,23 +8,10 @@ var transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
       user: 'terratactusbot@gmail.com',
-      pass: 'Sydney2015!'
+      pass: //ASK DAME FOR IT
   }
 });
-
-exports.sendVReqWholesale = function(req, res) {
-
-    var data = req.body;
-
-    transporter.sendMail({
-        from: 'terratactusbot@gmail.com',
-        to: 'damian.larson@yahoo.com',
-        subject: 'Terra Tactus - New Verification Request',
-        text: 'Hello! \n\nYou have a new verification request from ' + data.user.firstName + ' ' + data.user.lastName + '. \n\nDOB: ' + data.DOB + '\n\nSSN: ' + data.SSN + '\n\nPlease go to the website to review the information and approve or deny their request for reduced prices.'
-    });
-
-    res.json(data);
-};
+//used to log in to email account
 
 exports.sendVReqTeacher = function(req, res){
   var data = req.body;
@@ -38,6 +25,7 @@ exports.sendVReqTeacher = function(req, res){
 
   res.json(data);
 };
+//email sent to admin stating that an educator is trying to sign up
 
 exports.sendConfirmation = function(req, res){
   var data = req.body;
@@ -51,6 +39,7 @@ exports.sendConfirmation = function(req, res){
 
   res.json(data);
 };
+//email sent to confirm email accounts
 
 exports.sendEduConfirmation = function(req, res){
   var data = req.body;
@@ -64,7 +53,7 @@ exports.sendEduConfirmation = function(req, res){
 
   res.json(data);
 };
-
+//email sent to confirm .edu email accounts that !== the account email
 exports.sendUploadedFiles = function(req, res){
   var user = req.user;
 
@@ -83,3 +72,4 @@ exports.sendUploadedFiles = function(req, res){
 
   res.json(user);
 };
+//send uploaded pdf files to admin

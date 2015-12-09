@@ -4,6 +4,7 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
   function($scope, $state, $http, Authentication, $window, $timeout, FileUploader){
     $scope.verify = false;
     $scope.user = Authentication.user;
+    //initialize display variables
 
     $scope.submit = function (isValid) {
       if(!isValid){
@@ -12,12 +13,15 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
       }
       if($state.current.name === 'wholesale'){
         $scope.vRequest = {validRequest: true, user: $scope.user};
+        //create request for reduced prices
       }
       else if($state.current.name === 'teacher'){
         $scope.user.eduEmail = $scope.credentials.eduEmail;
         if($scope.user.eduEmail !== $scope.user.email){
           $scope.vRequest = {validRequest: false, user: $scope.user};
           $scope.createNewConfirmation();
+          //user must confirm that their .edu email is legitimate
+          //therefore, we create another confirmation hoop for the user to jump through
         }
         else{
           $scope.vRequest = {validRequest: true, user: $scope.user};
@@ -26,7 +30,9 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
       console.log($scope.vRequest);
       $http.post('/api/auth/verify', $scope.vRequest).success(function(response){
         $scope.userUpdate();
+        //update the user
         $scope.sendMail();
+        //send admin the email
         console.log("Submitted successfully!");
       }).error(function (response){
         $scope.error = response.message;
@@ -41,6 +47,7 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
           $state.go('verificationSuccess');
         });
       }
+      //wholesalers are taken care of elsewhere
     };
 
     $scope.userUpdate = function(){
@@ -51,6 +58,8 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
       }).error(function(){
         console.log('user not updated');
       });
+      //save that the user has sent in their verification materials
+      //hides the link to verify from the secondary navbar
     };
 
     $scope.createNewConfirmation = function(){
@@ -66,8 +75,11 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
       }).error(function (res)  {
         console.log('new confirmation not created');
       });
+      //create the new confirmation, send that email address the confirmation link
     };
 
+
+    //BELOW THIS IS FOR SUBMITTING PDF FILES
     $scope.success = false;
     $scope.pdfName = 'none';
     // Create file uploader instance
@@ -101,6 +113,7 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
       // Clear upload buttons
       $scope.cancelUpload();
       $scope.submit(true);
+      //create the requests in $scope.submit()
       alert('Thank you for submitting your tax information! You will now be taken back to the homepage.');
       $state.go('home');
     };
@@ -142,4 +155,5 @@ angular.module('users').controller('VerifyRouteController', ['$state', 'Authenti
       $state.go('wholesale');
     }
   }
+  //used for routing, poor coding practice but the views will be combined for the final build
 ]);
