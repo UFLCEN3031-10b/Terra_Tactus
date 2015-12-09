@@ -4,7 +4,15 @@
     </div>
 
     <div ng-show="!annLoading && annResults.length !== 0">
-
+        <div class="searchAnnResults">
+            <ul class="list-inline">
+                <li class="searchAnnResultItem" ng-repeat="ann in annResults">
+                    <h5>{{ann.title}}</h5>
+                    <p>{{ann.content}}</p>
+                </li>
+            </ul>
+        </div>
+        <hr>
     </div>
     <div ng-show="annLoading" class="text-center">
         <h3><i class="fa fa-cog fa-spin"></i> Searching...</h3>

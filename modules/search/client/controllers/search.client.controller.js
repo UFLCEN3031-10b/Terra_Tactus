@@ -15,6 +15,7 @@ angular.module('search').controller('SearchController', ['$scope', '$stateParams
     });
 
     $http.get('/api/search/announcements?q=' + $stateParams.q).success(function (res) {
+        console.log(res);
         $scope.annResults = res;
         $scope.annLoading = false;
     });

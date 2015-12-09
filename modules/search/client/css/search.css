@@ -1,0 +1,25 @@
+.searchAnnResults {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 210px;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: -15px;
+}
+
+/*.searchAnnResults::-webkit-scrollbar {
+    display: none;
+}*/
+
+.searchAnnResultItem {
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 0;
+    height: 190px;
+    width: 150px;
+    margin-right: 20px;
+}
+
+.list-inline {
+  white-space: nowrap;
+}
