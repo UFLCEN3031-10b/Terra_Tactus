@@ -3,11 +3,25 @@
 angular.module('search').controller('ReviewSuggestionsController', ['$scope', '$stateParams', '$http', '$location',
   function ($scope, $stateParams, $http, $location) {
     $scope.suggestions = [];
+    $scope.genCustomerService = [];
+    $scope.prodSupport = [];
     $scope.selection = 'Suggestions';
 
     $scope.find = function() {
       $http.get('/api/admin/suggestion').success(function (res) {
-        $scope.suggestions = res;
+        for (var i = 0; i < res.length; i++) {
+          if (res[i].subject === "Suggestions") {
+            $scope.suggestions.push(res[i]);
+          }
+
+          if (res[i].subject === "General Custome Service") {
+            $scope.genCustomerService.push(res[i]);
+          }
+
+          if (res[i].subject === "Product Support") {
+            $scope.prodSupport.push(res[i]);
+          }
+        }
       });
     };
 

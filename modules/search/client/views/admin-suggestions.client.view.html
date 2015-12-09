@@ -1,18 +1,18 @@
 <section ng-Controller="ReviewSuggestionsController" ng-init="find()">
   <div class="page-header text-center">
       <ul class="pagination">
-          <li ng-click="select('cs')">
+          <li class="btn" ng-click="select('cs')">
               <a>General Customer Service</a>
           </li>
-          <li ng-click="select('s')">
+          <li class="btn" ng-click="select('s')">
               <a>Suggestions</a>
           </li>
-          <li ng-click="select('ps')">
+          <li class="btn" ng-click="select('ps')">
               <a>Product Support</a>
           </li>
       </ul>
-      <div class="" ng-repeat="suggestion in suggestions" ng-switch on="selection">
-        <div class="row" ng-switch-when="Suggestions">
+      <div class="" ng-switch on="selection">
+        <div class="row" ng-repeat="suggestion in genCustomerService" ng-switch-when="General Customer Service">
           <div class="col-lg-4 col-md-4">
             <h3>First Name: </h3><p>{{suggestion.firstName}}</p>
             <h3>Last Name: </h3><p>{{suggestion.lastName}}</p>
@@ -22,7 +22,26 @@
             <h3>Message: </h3><p>{{suggestion.message}}</p>
           </div>
         </div>
-        <hr>
+        <div class="row" ng-repeat="suggestion in suggestions" ng-switch-when="Suggestions">
+          <div class="col-lg-4 col-md-4">
+            <h3>First Name: </h3><p>{{suggestion.firstName}}</p>
+            <h3>Last Name: </h3><p>{{suggestion.lastName}}</p>
+            <h3>Email Address: </h3><p>{{suggestion.emailAddress}}</p>
+          </div>
+          <div class="col-lg-4 col-md-8">
+            <h3>Message: </h3><p>{{suggestion.message}}</p>
+          </div>
+        </div>
+        <div class="row" ng-repeat="suggestion in prodSupport" ng-switch-when="Product Support">
+          <div class="col-lg-4 col-md-4">
+            <h3>First Name: </h3><p>{{suggestion.firstName}}</p>
+            <h3>Last Name: </h3><p>{{suggestion.lastName}}</p>
+            <h3>Email Address: </h3><p>{{suggestion.emailAddress}}</p>
+          </div>
+          <div class="col-lg-4 col-md-8">
+            <h3>Message: </h3><p>{{suggestion.message}}</p>
+          </div>
+        </div>
       </div>
   </div>
 </section>
