@@ -41,6 +41,7 @@ describe('Reviews CRUD tests', function () {
             indvPrice: '1.00',
             eduPrice: '2.00',
             wholePrice: '3.00',
+            longDes: 'this is a long description!',
             reviews: {
               username: 'username',
               userPicture: 'example_picture',
@@ -131,7 +132,6 @@ describe('Reviews CRUD tests', function () {
                         if (err) {
                             return done(err);
                         }
-
                         agent.get('/api/products/' + product._id)
                             .expect(200)
                             .end(function (err, res) {
@@ -154,20 +154,6 @@ describe('Reviews CRUD tests', function () {
                     });
               });
           done();
-    });
-
-    it('should allow you to add a product when not logged in', function (done) {
-        agent.post('/api/cart/product/' + product._id)
-            .send({ quantity: 1 })
-            .expect(200)
-            .end(function (err, res) {
-                if (err) {
-                    return done(err);
-                }
-
-                should(res).be.ok();
-                done();
-            });
     });
 
     afterEach(function (done) {
