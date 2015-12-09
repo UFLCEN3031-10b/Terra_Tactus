@@ -16,14 +16,14 @@ exports.findProd = function (req, res) {
         }
 
         // grab the search item from the query data
-        var toFind = req.query.q;
+        var toFind = req.query.q.toLowerCase();
 
         // empty array to fill
         var results = [];
 
         // search through the data
         datas.forEach(function (data) {
-            if (data.proTitle.indexOf(toFind) > -1 || data.longDes.indexOf(toFind) > -1 || data.shortDes.indexOf(toFind) > -1) {
+            if (data.proTitle.toLowerCase().indexOf(toFind) > -1 || data.longDes.toLowerCase().indexOf(toFind) > -1 || data.shortDes.toLowerCase().indexOf(toFind) > -1) {
                 results.push(data);
             }
         });
@@ -49,7 +49,7 @@ exports.findAnn = function (req, res) {
 
         // search through the data
         datas.forEach(function (data) {
-            if (data.title.indexOf(toFind) > -1 || data.content.indexOf(toFind) > -1 || data.username.indexOf(toFind) > -1) {
+            if (data.title.toLowerCase().indexOf(toFind) > -1 || data.content.toLowerCase().indexOf(toFind) > -1 || data.username.toLowerCase().indexOf(toFind) > -1) {
                 results.push(data);
             }
         });
