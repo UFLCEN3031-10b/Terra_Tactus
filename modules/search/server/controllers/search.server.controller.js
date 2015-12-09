@@ -6,10 +6,54 @@ var path = require('path'),
     Announcement = mongoose.model('Announcement'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
+// search database for products with the string
 exports.findProd = function (req, res) {
+    Product.find().exec(function (err, datas) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        }
 
+        // grab the search item from the query data
+        var toFind = req.query.q;
+
+        // empty array to fill
+        var results = [];
+
+        // search through the data
+        datas.forEach(function (data) {
+            if (data.proTitle.indexOf(toFind) > -1 || data.longDes.indexOf(toFind) > -1 || data.shortDes.indexOf(toFind) > -1) {
+                results.push(data);
+            }
+        });
+        // return the results
+        res.json(results);
+    });
 };
 
+// search database for announcements with the string
 exports.findAnn = function (req, res) {
-    
+    Announcement.find().exec(function (err, datas) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        }
+
+        // grab the search item from the query data
+        var toFind = req.query.q;
+
+        // empty array to fill
+        var results = [];
+
+        // search through the data
+        datas.forEach(function (data) {
+            if (data.title.indexOf(toFind) > -1 || data.content.indexOf(toFind) > -1 || data.username.indexOf(toFind) > -1) {
+                results.push(data);
+            }
+        });
+        // return the results
+        res.json(results);
+    });
 };
