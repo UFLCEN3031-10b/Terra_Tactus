@@ -18,6 +18,12 @@ exports.invokeRolesPolicies = function () {
             permissions: '*'
         }]
     }, {
+        roles: ['user', 'freeUser'],
+        allows: [{
+            resources: '/api/reviews/products/:productId',
+            permissions: ['put']
+        }]
+    }, {
         roles: ['user', 'guest', 'freeUser'],
         allows: [{
             resources: '/api/products/:productId',
