@@ -20,25 +20,21 @@
       <form name="userForm" ng-submit="submit(userForm.$valid)" novalidate> <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
         <fieldset>
         <!-- NAME -->
+        <div class = ""
           <div class = "form-group" show-errors>
-            <label>State</label>
+            <label>Educational Email</label>
             <br>
-            <select ng-model="credentials.state" ng-options="o as o for o in options" style="color: black; width:100%"></select>
-            </select>
-          </div>
-          <div class = "form-group" show-errors>
-            <label>Teacher Identification Number</label>
-            <input type = "text" name="TID" class="form-control" ng-model="credentials.TID" required>
-            <div ng-messages="userForm.TID.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">TID is required.</p>
-            </div>
+            <input type="text" name="year" class="form-control" ng-model ="credentials.eduEmail" required>
           </div>
 
-
-        <!-- SUBMIT BUTTON -->
+        <!--SUBMIT BUTTON -->
+        <div class = "col-xs-10 col-xs-offset-2">
           <button type="submit" class="btn btn-primary">Submit</button>
+          <button class="btn btn-primary" ng-click="credentials.eduEmail = user.email">Use Account Email</button>
+        </div>
         </fieldset>
     </form>
+
     </div>
   </div>
 </div>

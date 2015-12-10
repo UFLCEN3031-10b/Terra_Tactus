@@ -20,7 +20,10 @@ var ProductSchema = new Schema({
       type: Date,
       default: Date.now
     },
-    proType: Boolean, //false = geological, true = country
+    proType: {
+      type: Boolean, //false = geological, true = country
+      default: false //by default we will product will be a geo kit
+    },
     proTitle: {
         type: String,
         default: '',
@@ -64,17 +67,20 @@ var ProductSchema = new Schema({
     indvPrice: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        required: 'Product must have an individual price'
     },
     eduPrice: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        required: 'Product must have an educational price'
     },
     wholePrice: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        required: 'Product must have a wholesale price'
     },
     teacher: {
       type: Boolean,

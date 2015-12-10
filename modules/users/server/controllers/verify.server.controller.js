@@ -19,6 +19,7 @@ exports.add = function(req, res){
     }
   });
 };
+//add request
 
 exports.list = function(req, res){
   VerificationRequest.find().exec(function (err, vReqs) {
@@ -31,6 +32,7 @@ exports.list = function(req, res){
       }
   });
 };
+//list out all requests
 
 exports.remove = function(req, res){
   var deleteVReq = req.vRequest;
@@ -45,6 +47,25 @@ exports.remove = function(req, res){
       }
   });
 };
+//remove request passed into the Function
+
+exports.update = function(req, res){
+  var request = req.vRequest;
+
+  //For security purposes only merge these parameters
+  request.validRequest = req.body.validRequest;
+
+  request.save(function (err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+
+    res.json(request);
+  });
+};
+//update request passed into Function
 
 exports.vReqByID = function(req, res, next, id) {
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -66,3 +87,4 @@ exports.vReqByID = function(req, res, next, id) {
         next();
     });
 };
+//find request in the database

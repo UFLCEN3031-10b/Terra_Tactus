@@ -7,19 +7,26 @@ angular.module('users').controller('VerifyListController', ['$scope', '$state', 
         $scope.vRequests = res;
         $scope.wholesales = [];
         $scope.educations = [];
+        $scope.displayRequests = [];
         $scope.showWholesale = true;
         $scope.showEducation = true;
+        //initialize variables
+
         if($stateParams.vReqID === undefined){
-          console.log("should be empty");
           for(var j = 0; j < $scope.vRequests.length; j++){
-            if($scope.vRequests[j].user[0].priceRoles.toString() === 'wholesale'){
-              $scope.wholesales.push($scope.vRequests[j]);
-            }
-            else if($scope.vRequests[j].user[0].priceRoles.toString() === 'education'){
-              $scope.educations.push($scope.vRequests[j]);
+            if($scope.vRequests[j].validRequest){
+              $scope.displayRequests.push($scope.vRequests[j]);
+              if($scope.vRequests[j].user[0].priceRoles.toString() === 'wholesale'){
+                $scope.wholesales.push($scope.vRequests[j]);
+              }
+              else if($scope.vRequests[j].user[0].priceRoles.toString() === 'education'){
+                $scope.educations.push($scope.vRequests[j]);
+              }
             }
           }
         }
+        //load in valid requests only and load them into their respective arrays
+        //inefficient filtering method, but will fix to use ng-filter in final build
         else{
           for(var i = 0; i < $scope.vRequests.length; i++){
             if($stateParams.vReqID === $scope.vRequests[i]._id){
@@ -35,6 +42,7 @@ angular.module('users').controller('VerifyListController', ['$scope', '$state', 
             }
             else{continue;}
           }
+          //setting variables for filtering and display
         }
       }).error(function (response){
         $scope.error = response.message;
@@ -50,6 +58,7 @@ angular.module('users').controller('VerifyListController', ['$scope', '$state', 
       }).error(function(res){
         $scope.error = res.message;
       });
+      //updating user as verified, therefore they get the reduced prices
     };
 
     $scope.deleteVReq = function(){
@@ -57,5 +66,6 @@ angular.module('users').controller('VerifyListController', ['$scope', '$state', 
         $state.go('admin.requests');
       });
     };
+    //delete the request to clean up the database a bit
   }
 ]);

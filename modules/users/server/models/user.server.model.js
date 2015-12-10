@@ -99,30 +99,29 @@ var UserSchema = new Schema({
   verified:{
     type: Boolean,
     default: false
+  },
+  confirmed: {
+    type: Boolean,
+    default: false
+  },
+  verifySent:{
+    type: Boolean,
+    default: false
+  },
+  eduEmail:{
+    type: String
   }
 });
 
-  var VerifySchema = new Schema({
-    validRequest: {
-      type: Boolean,
-    },
-    user: [UserSchema],
-    TID: {
-      type: String,
-      default: ''
-    },
-    state: {
-      type: String,
-      default: ''
-    },
-    SSN: {
-      type: String,
-      default: ''
-    },
-    DOB: {
-      type: String,
-      default: ''
-    }
+var VerifySchema = new Schema({
+  validRequest: {
+    type: Boolean
+  },
+  user: [UserSchema]
+});
+
+var ConfirmationSchema = new Schema({
+  user: [UserSchema]
 });
 
 /**
@@ -194,3 +193,4 @@ UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
 
 mongoose.model('User', UserSchema);
 mongoose.model('VerifyRequest', VerifySchema);
+mongoose.model('Confirmation', ConfirmationSchema);
