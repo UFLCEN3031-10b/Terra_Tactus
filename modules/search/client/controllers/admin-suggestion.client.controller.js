@@ -42,7 +42,7 @@ angular.module('search').controller('ReviewSuggestionsController', ['$scope', '$
         $scope.suggestions.splice(index, 1);
       }
 
-      if (data.subject === "General Custome Service") {
+      if (data.subject === "General Customer Service") {
         $scope.genCustomerService.splice(index, 1);
       }
 
@@ -52,7 +52,7 @@ angular.module('search').controller('ReviewSuggestionsController', ['$scope', '$
     };
 
     $scope.remove = function(data, index) {
-      var conf = confirm("Are you sure this suggestion is resolved?")
+      var conf = confirm("Are you sure this suggestion is resolved?");
       if (!conf) {
           return;
       }
