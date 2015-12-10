@@ -5,9 +5,11 @@ var core = require('../controllers/core.server.controller'),
     contact = require('../controllers/contact.server.controller'),
     socialmedia = require('../controllers/socialmedia.server.controller'),
     carouseldata = require('../controllers/carouseldata.server.controller'),
-    hompagepolicy = require('../policies/homepage.server.policy.js');
+    hompagepolicy = require('../policies/homepage.server.policy.js'),
+    testimonialData = require('../controllers/testimonial.server.controller');
 
-  module.exports = function (app) {
+
+module.exports = function (app) {
   // routing for homepage data, needs user restriction
   app.route('/api/homepage/data').all(hompagepolicy.isAllowed)
     .get(homepageData.find)
@@ -17,6 +19,10 @@ var core = require('../controllers/core.server.controller'),
   app.route('/api/homepage/contact').all(hompagepolicy.isAllowed)
     .get(contact.find)
     .put(contact.update);
+
+  app.route('/api/testimonial/data')
+      .get(testimonialData.find)
+      .put(testimonialData.update);
 
   app.route('/api/homepage/socialmedia').all(hompagepolicy.isAllowed)
     .post(socialmedia.add)

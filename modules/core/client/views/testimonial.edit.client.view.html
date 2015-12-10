@@ -1,28 +1,46 @@
+<style>
+  .newAnnouncement {
+    border-bottom: double;
+  }
+</style>
 <section ng-controller="TestimonialEditController">
   <div class="page-header">
     <h1>Edit Testimonial Data</h1>
   </div>
-  <form name="testimonialDataFormm" class="form-horizontal col-md-12" ng-submit="testimonialUpdate()" novalidate>
+  <form name="testimonialDataFormm" class="form-horizontal col-md-12" ng-submit="newTestimonial()" novalidate>
     <fieldset>
-      <div class="form-group">
-        <label>Quote</label>
-        <textarea name="quote" ng-model="testimonialData.quote" class="form-control" cols="30" rows="5" placeholder="Enter text here..." required></textarea>
+      <div class="newAnnouncement"> <h2 align="center">New Testimonial</h2>
+        <div class="form-group">
+          <label>Quote</label>
+          <textarea name="quote" ng-model="testimonialData.quote" class="form-control" cols="30" rows="5" placeholder="Enter text here..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>From</label>
+          <input name="from" type="text" ng-model="testimonialData.from" class="form-control" placeholder="E.g. John Smith" required>
+        </div>
+        <div class="form-group">
+          <label>Picture Link (Optional)</label>
+          <input name="pictureUrl" ng-model="testimonialData.pictureUrl" class="form-control" placeholder="https://www.thisisalink.com/image.jpg" cols="30" rows="5" required>
+        </div>
+        <div class="form-group">
+          <label>Additional Link (Optional)</label>
+          <input name="creditUrl" type="text" ng-model="testimonialData.creditUrl" class="form-control" placeholder="https://www.thisisalink.com/" required>
+        </div>
+        <div class="form-group text-center">
+          <input type="submit" class="btn btn-blue">
+        </div>
       </div>
-      <div class="form-group">
-        <label>From</label>
-        <input name="from" type="text" ng-model="testimonialData.from" class="form-control" placeholder="E.g. John Smith" required>
-      </div>
-      <div class="form-group">
-        <label>Picture Link (Optional)</label>
-        <input name="pictureUrl" ng-model="testimonialData.pictureUrl" class="form-control" placeholder="https://www.thisisalink.com/image.jpg" cols="30" rows="5" required>
-      </div>
-      <div class="form-group">
-        <label>Additional Link (Optional)</label>
-        <input name="creditUrl" type="text" ng-model="testimonialData.creditUrl" class="form-control" placeholder="https://www.thisisalink.com/" required>
-      </div>
-      <div class="form-group text-center">
-        <input type="submit" class="btn btn-blue">
-      </div>
+
+      <!--<div>-->
+        <!--<h2 align="center" ng-submit="testimonialUpdate()">Edit Existing Testimonials</h2>-->
+        <!--<div ng-repeat='obj in testimonialData'>-->
+            <!--<div class="col-sm-3">Quote<p>{{obj.quote}}</p></div>-->
+            <!--<div class="col-sm-3">From<p>{{obj.from}}</p></div>-->
+            <!--<div class="col-sm-3">Picture Link (Optional)</div>-->
+            <!--<div class="col-sm-3">Additional Link (Optional)</div>-->
+            <!--<br>-->
+        <!--</div>-->
+      <!--</div>-->
     </fieldset>
   </form>
 </section>
