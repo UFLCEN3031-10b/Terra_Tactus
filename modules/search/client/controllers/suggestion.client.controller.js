@@ -19,6 +19,10 @@ angular.module('search').controller('SuggestionController', ['$scope', '$statePa
         message: $scope.message
       };
 
+      if ($scope.message === '') {
+        return;
+      }
+
       $http.post('/api/suggestion', suggestion).success(function (res) {
         $location.path('');
       });
