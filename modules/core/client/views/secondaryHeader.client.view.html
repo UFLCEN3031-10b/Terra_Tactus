@@ -8,6 +8,18 @@
         <li role="presentation" ui-sref-active="active"><a ui-sref="subscriptions">Subscriptions</a></li>
         <li role="presentation" ui-sref-active="active"><a ui-sref="testimonials">Testimonials</a></li>
     </ul>
+    <ul class="nav navbar-nav">
+      <li ng-repeat="item in menu.items | orderBy: 'position'" ng-switch="item.type" ng-class="{ active: $state.includes(item.state), dropdown: item.type === 'dropdown' }" class="{{item.class}}" dropdown="item.type === 'dropdown'">
+        <a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
+        <ul ng-switch-when="dropdown" class="dropdown-menu">
+          <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
+            <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
+          </li>
+        </ul>
+        <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
+      </li>
+    </ul>
+
 
     <form class="navbar-form navbar-right" role="search">
         <div class="input-group">
