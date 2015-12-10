@@ -3,25 +3,22 @@
         <h1><i class="fa fa-search"></i> Search Results</h1>
     </div>
 
-    <div ng-show="!annLoading && annResults.length !== 0">
-        <div class="searchAnnResults">
-            <ul class="list-inline">
-                <li class="searchAnnResultItem" ng-repeat="announcement in annResults">
-                    <h4 class="list-group-item-heading" ng-bind="announcement.title"></h4>
-                    <p class="list-group-item-text" ng-bind="announcement.content"></p>
-                    <!-- <div class="imgdiv">
-                        <img ng-if="announcement.picture" class="searchimg" src="{{announcement.picture}}">
-                    </div> -->
-                    <small class="list-group-item-text">
-                      Posted on
-                      <span ng-bind="announcement.created | date:'mediumDate'"></span>
-                      by
-                      <span ng-bind="announcement.username"></span>
-                    </small>
-                </li>
-            </ul>
-        </div>
-        <hr>
+    <div ng-show="!annLoading && annResults.length !== 0" ng-repeat="announcement in annResults">
+      <div class="row">
+          <div class="col-md-3">
+              <img class="img-responsive" src="{{announcement.picture}}">
+          </div>
+          <div class="col-md-9">
+              <h4>
+                  <a href="#">{{announcement.title}}</a>
+              </h4><hr>
+              <p>{{announcement.content}}</p>
+              <div class="text-center">
+                  <a class="btn btn-blue" href="http://{{announcement.link}}">Link</a>
+              </div>
+          </div>
+      </div>
+      <hr>
     </div>
     <div ng-show="annLoading" class="text-center">
         <h3><i class="fa fa-cog fa-spin"></i> Searching...</h3>
