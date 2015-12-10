@@ -18,7 +18,11 @@ module.exports = function (app) {
         .post(suggestion.submitSuggestion);
 
     app.route('/api/admin/suggestion').all(suggestionpolicy.isAllowed)
-        .get(suggestion.list)
+        .get(suggestion.list);
+
+    app.route('/api/admin/suggestion/:suggestionId').all(suggestionpolicy.isAllowed)
         .delete(suggestion.delete);
 
+    // Finish by binding the products middleware
+    app.param('suggestionId', suggestion.suggestionByID);
 };

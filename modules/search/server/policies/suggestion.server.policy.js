@@ -20,6 +20,9 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/admin/suggestion',
       permissions: '*'
+    }, {
+      resources: '/api/admin/suggestion/:suggestionId',
+      permissions: '*'
     }]
   }, {
     roles: ['freeUser', 'guest', 'paidUser'],

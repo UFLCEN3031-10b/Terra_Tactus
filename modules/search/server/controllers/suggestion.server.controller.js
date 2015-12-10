@@ -26,6 +26,27 @@ exports.submitSuggestion = function (req, res) {
   });
 };
 
+exports.suggestionByID = function (req, res, next, id) {
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: 'Suggestion is invalid'
+    });
+  }
+
+  Suggestion.findById(id).exec(function (err, suggestion) {
+    if (err) {
+      return next(err);
+    } else if (!suggestion) {
+      return res.status(404).send({
+        message: 'No suggestion with that identifier has been found'
+      });
+    }
+    req.suggestion = suggestion;
+    next();
+  });
+};
+
 exports.list = function (req, res) {
   Suggestion.find().sort('-created').exec(function (err, suggestionlist) {
     if (err) {
@@ -33,7 +54,6 @@ exports.list = function (req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      console.log(suggestionlist);
       res.json(suggestionlist);
     }
   });
@@ -41,7 +61,6 @@ exports.list = function (req, res) {
 
 exports.delete = function (req, res) {
   var d_suggestion = req.suggestion;
-
   d_suggestion.remove(function (err) {
     if (err) {
       return res.status(400).send({
