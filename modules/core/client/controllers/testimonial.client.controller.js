@@ -7,7 +7,7 @@ angular.module('core').controller('TestimonialController', function ($scope, $ht
 
     $http.get('/api/testimonial/data').success(function (res) {
         console.log(res);
-        $scope.testimonials = res;
+        $scope.testimonialData = res;
     });
 
     //// Create new Product

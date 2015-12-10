@@ -4,7 +4,7 @@
 'use strict';
 var testimonialData = require('../controllers/testimonial.server.controller');
 
-//Route for subscription data
+//Route for testimonial data
 module.exports = function (app) {
     app.route('/api/testimonial/data')
         .get(testimonialData.find)
