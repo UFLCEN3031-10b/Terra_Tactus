@@ -2,7 +2,7 @@
     <ul class="nav navbar-nav">
         <li role="presentation" ui-sref-active="active"><a ui-sref="home">Home</a></li>
     </ul>
-    <ul class="nav navbar-nav" ng-hide="authentication.user.roles=='paidUser'">
+    <ul class="nav navbar-nav">
         <li role="presentation" ui-sref-active="active"><a ui-sref="products">Products</a></li>
         <li role="presentation" ui-sref-active="active"><a ui-sref="subscriptions">Subscriptions</a></li>
         <li role="presentation" ui-sref-active="active"><a ui-sref="testimonials">Testimonials</a></li>
@@ -16,12 +16,8 @@
               <a ui-sref="retail" >Retailer</a>
             </li>
           </ul>
-          <!--<a ng-switch-default ui-sref="products" ng-bind="Individual"></a>-->
         </li>
-
     </ul>
-
-
 
     <form class="navbar-form navbar-right" role="search">
         <div class="input-group">

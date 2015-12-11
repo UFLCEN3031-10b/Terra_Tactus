@@ -42,7 +42,7 @@ angular.module('core.admin').run(['Menus',
     });
     Menus.addSubMenuItem('topbar', 'admin', {
       title: 'Edit Retail',
-      state: 'retail1-edit'
+      state: 'retail-edit'
     });
     Menus.addSubMenuItem('topbar', 'admin', {
       title: 'Edit Testimonials',
