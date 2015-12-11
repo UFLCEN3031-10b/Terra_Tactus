@@ -6,13 +6,19 @@
         <li role="presentation" ui-sref-active="active"><a ui-sref="products">Products</a></li>
         <li role="presentation" ui-sref-active="active"><a ui-sref="subscriptions">Subscriptions</a></li>
         <li role="presentation" ui-sref-active="active"><a ui-sref="testimonials">Testimonials</a></li>
-        <li role="presentation">
+        <li class="dropdown" role="presentation" dropdown>
           <a class="dropdown-toggle" dropdown-toggle role="button">Who Are You?<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li ui-sref-active="active">
               <a ui-sref="products">Individual Buyer</a>
+            </li>
+            <li ui-sref-active="active">
               <a ui-sref="commercial" >Teacher</a>
+            </li>
+            <li ui-sref-active="active">
               <a ui-sref="subscriptions">Subscriber</a>
+            </li>
+            <li ui-sref-active="active">
               <a ui-sref="retail" >Retailer</a>
             </li>
           </ul>
