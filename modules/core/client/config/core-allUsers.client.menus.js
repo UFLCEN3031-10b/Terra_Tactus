@@ -9,7 +9,7 @@ angular.module('core.all').run(['Menus',
             title: 'Who Are You?',
             state: 'admin',
             type: 'dropdown',
-            roles: ['admin', 'freeUser', 'paidUser']
+            roles: ['admin, freeUser, paidUser']
         });
         Menus.addSubMenuItem('secondbar', 'admin', {
             title: 'Commercial User',

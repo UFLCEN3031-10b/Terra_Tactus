@@ -1,4 +1,36 @@
-<!DOCTYPE html>
+<style>
+  .nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-width: 200px;
+  }
+  .nav ul li {
+    display: inline-block;
+  }
+  .nav ul li:hover {
+    background-color: #333;
+  }
+  .navbar .nav ul li:hover ul {
+    display: block;
+  }
+  .nav ul ul {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    border: 5px solid #222;
+    border-top: 0;
+    margin-left: -5px;
+  }
+  .nav ul ul li {
+    display: block;
+  }
+  .nav ul ul li a:hover {
+    color: #699;
+  }
+</style>
+
 <div class="navbar secondary-nav" ng-controller="SecondaryHeaderController">
     <ul class="nav navbar-nav">
         <li role="presentation" ui-sref-active="active"><a ui-sref="home">Home</a></li>
@@ -7,18 +39,14 @@
         <li role="presentation" ui-sref-active="active"><a ui-sref="products">Products</a></li>
         <li role="presentation" ui-sref-active="active"><a ui-sref="subscriptions">Subscriptions</a></li>
         <li role="presentation" ui-sref-active="active"><a ui-sref="testimonials">Testimonials</a></li>
+        <li> <a href="#">Who Are You?</a>
+          <ul>
+            <li><a ui-sref-active="active" ui-sref="products">Individual Buyer</a></li>
+            <li><a ui-sref-active="active" ui-ref="subscriptions">Subscriber</a></li>
+            <li><a ui-sref-active="active" ui-sref="retail">Retailer</a></li>
+            </ul></li>
     </ul>
-    <ul class="nav navbar-nav">
-      <li ng-repeat="item in menu.items | orderBy: 'position'" ng-switch="item.type" ng-class="{ active: $state.includes(item.state), dropdown: item.type === 'dropdown' }" class="{{item.class}}" dropdown="item.type === 'dropdown'">
-        <a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
-        <ul ng-switch-when="dropdown" class="dropdown-menu">
-          <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
-            <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
-          </li>
-        </ul>
-        <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
-      </li>
-    </ul>
+
 
 
     <form class="navbar-form navbar-right" role="search">
