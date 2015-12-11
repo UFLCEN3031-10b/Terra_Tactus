@@ -44,7 +44,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
     .state('testimonials', {
       url: '/testimonials',
       templateUrl: '/modules/core/client/views/testimonial.client.view.html',
-      controller: 'TestimonialController',
+      controller: 'TestimonialController'
     })
 
     .state('testimonials-edit', {
