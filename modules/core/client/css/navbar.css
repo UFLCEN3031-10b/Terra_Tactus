@@ -68,7 +68,7 @@
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-        color: #333;
+        color: #3366cc;
     }
 }
 
@@ -106,7 +106,7 @@
 .secondary-nav .navbar-nav > .open > a,
 .secondary-nav .navbar-nav > .open > a:hover,
 .secondary-nav .navbar-nav > .open > a:focus {
-    color: #3366cc;
+    color: #FFFFFF;
     background-color: #339933;
     background-image: none;
 }
@@ -119,4 +119,10 @@
 
 .secondary-nav .btn {
     background-color: #3366cc;
+}
+
+.dropdown-menu {
+    opacity: 0.9;
+    background-color: #222222;
+    color: #3366cc;
 }
