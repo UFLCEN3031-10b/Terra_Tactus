@@ -30,6 +30,27 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $scope.amountOfColumns = [1,2,3];
     $scope.edittingRows = false;
 
+    //Code for editing curriculumn
+    //values used to hide or show components used to edit the curriculumn
+    $scope.editingCurr = false; //Used to hide or show the whole GUI for editing curriculum
+    $scope.decideToEditCurr = true;
+    //show the editing GUI while hiding the edit curriculum button, populate tempTable with product curriculum
+    $scope.startCurrEdit = function(product){
+      for (var i in $scope.product.curriculum) {
+          $scope.tempTable.push($scope.product.curriculum[i]);
+      }
+      $scope.editingCurr = true;
+      $scope.decideToEditCurr = false;
+    };
+
+    //stop showing the edit curriculum GUI and clear the temp Table
+    $scope.cancelCurrEdit = function(){
+      $scope.editingCurr = false;
+      $scope.decideToEditCurr = true;
+      $scope.tempTable = [];
+    };
+
+
     //Function to add a header
     $scope.addNewRow = function() {
       if ($scope.tempNewRow.length !== $scope.amountOfColumns.length) {
@@ -58,6 +79,32 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
 
     //Array used to hold features for a product we are creating
     $scope.tempFeatures = [];
+
+
+    //values used to hide or show components used to edit the features
+    $scope.editingFeatures = false; //Used to hide or show the whole GUI for editing features
+    $scope.decideToEdit = true; //Used to hide or show the button that lets a user chose to edit features
+
+    //If a user decides to edit features, initialize the editFeatures array
+    //show the editing GUI while hiding the edit features button
+    $scope.startFeaturesEdit = function(product){
+      //alert($scope.editFeatures.length);
+      //alert(product.features);
+      for (var i in $scope.product.features) {
+          $scope.tempFeatures.push($scope.product.features[i]);
+      }
+      //alert($scope.editFeatures.length);
+      $scope.editingFeatures = true;
+      $scope.decideToEdit = false;
+    };
+
+    //stop showing the edit feature GUI and clear the tempFeatures array
+    $scope.cancelFeatureEdit = function(){
+      $scope.editingFeatures = false;
+      $scope.decideToEdit = true;
+      $scope.tempFeatures = [];
+    };
+
     //Function to add a feature to the tempFeature array
     $scope.addFeature = function(){
       var itemCopy = {};
@@ -97,6 +144,21 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
           alert("Please enter a feature");
         }
     };
+  };
+
+  //Code for deleting a product
+  $scope.delete = function (productID) {
+    var conf = confirm("Are you sure you want to delete this product?");
+    console.log(conf);
+    if(conf){
+      $http.delete('/api/products/' + productID).success(function (res) {
+        for (var i in $scope.products) {
+          if ($scope.products[i]._id === productID) {
+            $scope.products.splice(i, 1);
+          }
+        }
+      });
+    }
   };
 
     // Create new Product
@@ -153,6 +215,37 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       });
 
       console.log('Product has been created');
+    };
+
+    //Code to Update Product
+   $scope.updateProd = function (edited_product,isValid) {
+     //Check if the updateProductForm is valid, if not cancel update and display errors
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'updateProductForm');
+        return false;
+      }
+      //Check the length of editFeatures array, if it has been initialized, update the features of the product
+      if($scope.editingFeatures === true)
+      {
+      edited_product.features = $scope.tempFeatures.slice();
+      }
+      if($scope.editingCurr === true)
+      {
+      edited_product.curriculum = $scope.tempTable.slice();
+      }
+      //update product
+      edited_product.$update(function () {
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
+      });
+      //redirect to general products page
+      $location.path('products');
+
+    };
+
+    //If we cancel an edit, redirect to the general edit page
+    $scope.cancelEdit = function(){
+    $location.path('products-edit');
     };
 
     // Find a list of Products
