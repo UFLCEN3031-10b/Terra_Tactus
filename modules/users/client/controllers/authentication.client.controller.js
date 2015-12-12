@@ -25,17 +25,20 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
+        var confirmUser = {user: $scope.authentication.user};
+
+        $http.post('/api/auth/confirm', confirmUser).success(function(res) {
+          $scope.confirmation = res;
+          $scope.sendMail();
+          //create the confirmation, send the user the email with the link
+        }).error(function (res)  {
+          console.log('confirmation not created');
+        });
+
+        alert('Thank you for signing up for Terra Tactus! You will be sent an email with a link to verify that your email is real.');
 
         // And redirect to the previous or home page
-        if($scope.authentication.user.priceRoles.toString() === 'individual'){
-          $state.go($state.previous.state.name || 'home', $state.previous.params);
-        }
-        else if($scope.authentication.user.priceRoles.toString() === 'wholesale'){
-          $state.go('wholesale', $state.previous.params);
-        }
-        else if($scope.authentication.user.priceRoles.toString() === 'education'){
-          $state.go('teacher', $state.previous.params);
-        }
+        $state.go('home');
       }).error(function (response) {
         $scope.error = response.message;
       });
@@ -61,6 +64,18 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       });
     };
 
+    $scope.sendMail = function(){
+      var mailData = $scope.confirmation;
+      $http.post('/api/mail/confirm', mailData).success(function(){
+        console.log('mail sent');
+      }).error(function(res){
+        console.log('mail not sent');
+      });
+    };
+    //send mail to users
+
+
+
 /*
     // OAuth provider request
     $scope.callOauthProvider = function (url) {
@@ -72,4 +87,5 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $window.location.href = url;
     }; */
   }
+
 ]);

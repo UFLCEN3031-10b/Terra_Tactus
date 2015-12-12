@@ -17,7 +17,7 @@ angular.module('core.admin').run(['Menus',
         state: 'create-product'
     });
     Menus.addSubMenuItem('topbar', 'admin', {
-        title: 'Review Comments',
+        title: 'Verify Reviews',
         state: 'review-comments'
     });
     Menus.addSubMenuItem('topbar', 'admin', {

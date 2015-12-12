@@ -41,10 +41,16 @@
         </li>
     </ul>
 
-    <form class="navbar-form navbar-right" role="search">
-        <div class="input-group">
-            <input type="text" class="dark form-control" placeholder="Search..." name="searchValue">
 
+    <ul class ="nav navbar-nav" ng-if="(authentication.user.priceRoles.toString !== 'individual') && (!!authentication.user.confirmed) && !(authentication.user.verifySent || authentication.user.verified)">
+      <li ui-sref-active="active">
+        <a ui-sref="verify">Submit Your Verification Info Now!</a>
+      </li>
+    </ul>
+    
+    <form class="navbar-form navbar-right" role="search" ng-submit="searchButton()">
+        <div class="input-group">
+            <input type="text" class="dark form-control" placeholder="Search..." name="searchValue" ng-model="searchValue">
             <div class="input-group-btn">
 
                 <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>

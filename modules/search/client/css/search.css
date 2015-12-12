@@ -1,0 +1,56 @@
+.searchAnnResults {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 210px;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: -15px;
+}
+
+/*.searchAnnResults::-webkit-scrollbar {
+    display: none;
+}*/
+
+.searchAnnResultItem {
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 5px;
+    height: 190px;
+    width: 300px;
+    margin-right: 20px;
+}
+
+.list-inline {
+    white-space: nowrap;
+}
+
+.imgdiv {
+    width: 290px;
+    max-height: 75px;
+}
+
+.searchimg {
+    max-height: 75px;
+    max-width: 100%;
+    display: block;
+}
+
+.review-well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #333333;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.verticalLine-right {
+    border-right: 1px solid #e3e3e3;
+}
+
+.verticalLine-bottom {
+    border-bottom: 1px solid #e3e3e3;
+}

@@ -16,6 +16,9 @@ exports.invokeRolesPolicies = function () {
         }, {
             resources: '/api/products/reveiws/:reviewId',
             permissions: '*'
+        }, {
+            resources: '/api/reviews/products/:productId',
+            permissions: ['put']
         }]
     }, {
         roles: ['user', 'freeUser'],

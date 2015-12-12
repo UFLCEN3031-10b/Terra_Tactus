@@ -95,9 +95,24 @@ angular.module('users').config(['$stateProvider',
           roles: ['freeUser', 'admin']
         }
       })
+      .state('verify', {
+        url:'/verify',
+        templateUrl: 'modules/users/client/views/verification/verify.html',
+        controller: 'VerifyRouteController'
+      })
       .state('verificationSuccess', {
         url: '/success',
         templateUrl: 'modules/users/client/views/verification/verifysuccess.html'
+      })
+      .state('eduConfirmation', {
+        url: '/verify/:confirmationID',
+        templateUrl: 'modules/users/client/views/verification/confirmsuccess.html',
+        controller: 'ConfirmationController'
+      })
+      .state('confirmation', {
+        url: '/confirmation/:confirmationID',
+        templateUrl: 'modules/users/client/views/verification/confirmsuccess.html',
+        controller: 'ConfirmationController'
       });
   }
 ]);
