@@ -18,23 +18,30 @@ module.exports = function (app) {
     .get(contact.find)
     .put(contact.update);
 
+  // routing for adding a new social media link, and retrieving the link
   app.route('/api/homepage/socialmedia').all(hompagepolicy.isAllowed)
     .post(socialmedia.add)
     .get(socialmedia.find);
 
+  // routing for updating and deleting individual links
   app.route('/api/homepage/socialmedia/:smId').all(hompagepolicy.isAllowed)
     .put(socialmedia.update)
     .delete(socialmedia.delete);
 
+  // routes for carousel slide listing and creating
   app.route('/api/homepage/carousel').all(hompagepolicy.isAllowed)
     .get(carouseldata.list)
     .post(carouseldata.create);
+
+  // routes for updating and deleting individual slides
   app.route('/api/homepage/carousel/:slideId').all(hompagepolicy.isAllowed)
     .put(carouseldata.update)
     .delete(carouseldata.remove);
 
+  // slide middleware
   app.param('slideId', carouseldata.slideById);
 
+  // social media middleware
   app.param('smId', socialmedia.smById);
 
   // Define error pages
