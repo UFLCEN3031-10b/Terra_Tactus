@@ -210,6 +210,41 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       console.log('Product has been created');
     };
 
+    //Code to Update Product
+   $scope.updateProd = function (edited_product,isValid) {
+     //Check if the updateProductForm is valid, if not cancel update and display errors
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'updateProductForm');
+        return false;
+      }
+      //Check the length of editFeatures array, if it has been initialized, update the features of the product
+      if($scope.tempFeatures.length!==0)
+      {
+      edited_product.features = $scope.tempFeatures.slice();
+      }
+      if($scope.editingCurr === true)
+      {
+      edited_product.curriculum = $scope.tempTable.slice();
+      }
+      //update product
+      edited_product.$update(function () {
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
+      });
+      //redirect to general products page
+      $location.path('products');
+
+    };
+
+    //If we cancel an edit, redirect to the general edit page
+    $scope.cancelEdit = function(){
+    $location.path('products-edit');
+    };
+
+
+
+
+
     // Find a list of Products
     $scope.find = function () {
       $scope.products = Products.query();
