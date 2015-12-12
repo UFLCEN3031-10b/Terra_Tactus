@@ -23,7 +23,6 @@ angular.module('core')
 
       run();
 
-      //reload's the twitter feed.. does cause an error TODO find out why...
       if (typeof twttr !== 'undefined') {
         twttr.widgets.load();
       }
