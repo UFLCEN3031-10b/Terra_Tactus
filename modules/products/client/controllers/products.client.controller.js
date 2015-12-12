@@ -30,6 +30,27 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $scope.amountOfColumns = [1,2,3];
     $scope.edittingRows = false;
 
+    //Code for editing curriculumn
+    //values used to hide or show components used to edit the curriculumn
+    $scope.editingCurr = false; //Used to hide or show the whole GUI for editing curriculum
+    $scope.decideToEditCurr = true;
+    //show the editing GUI while hiding the edit curriculum button, populate tempTable with product curriculum
+    $scope.startCurrEdit = function(product){
+      for (var i in $scope.product.curriculum) {
+          $scope.tempTable.push($scope.product.curriculum[i]);
+      }
+      $scope.editingCurr = true;
+      $scope.decideToEditCurr = false;
+    };
+
+    //stop showing the edit curriculum GUI and clear the temp Table
+    $scope.cancelCurrEdit = function(){
+      $scope.editingCurr = false;
+      $scope.decideToEditCurr = true;
+      $scope.tempTable = [];
+    };
+
+
     //Function to add a header
     $scope.addNewRow = function() {
       if ($scope.tempNewRow.length !== $scope.amountOfColumns.length) {
@@ -58,6 +79,25 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
 
     //Array used to hold features for a product we are creating
     $scope.tempFeatures = [];
+
+
+    //values used to hide or show components used to edit the features
+    $scope.editingFeatures = false; //Used to hide or show the whole GUI for editing features
+    $scope.decideToEdit = true; //Used to hide or show the button that lets a user chose to edit features
+
+    //If a user decides to edit features, initialize the editFeatures array
+    //show the editing GUI while hiding the edit features button
+    $scope.startFeaturesEdit = function(product){
+      //alert($scope.editFeatures.length);
+      //alert(product.features);
+      for (var i in $scope.product.features) {
+          $scope.tempFeatures.push($scope.product.features[i]);
+      }
+      //alert($scope.editFeatures.length);
+      $scope.editingFeatures = true;
+      $scope.decideToEdit = false;
+    };
+
     //Function to add a feature to the tempFeature array
     $scope.addFeature = function(){
       var itemCopy = {};
