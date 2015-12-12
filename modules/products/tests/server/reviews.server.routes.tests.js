@@ -42,7 +42,6 @@ describe('Reviews CRUD tests', function () {
             indvPrice: '1.00',
             eduPrice: '2.00',
             wholePrice: '3.00',
-            longDes: 'this is a long description!',
             reviews: {
               username: 'username',
               userPicture: 'example_picture',

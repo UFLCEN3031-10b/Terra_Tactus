@@ -20,7 +20,7 @@ module.exports = function (app) {
     .get(contact.find)
     .put(contact.update);
 
-  app.route('/api/testimonial/data')
+  app.route('/api/testimonials/data')
       .get(testimonials.find)
       .put(testimonials.update);
 

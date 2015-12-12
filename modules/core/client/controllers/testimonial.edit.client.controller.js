@@ -9,7 +9,7 @@ angular.module('core').controller('TestimonialEditController', ['$window','$http
             var conf = confirm("Are you sure you want to delete this testimonial?");
             console.log(conf);
             if(conf){
-                $http.delete('/api/testimonials/' + testimonialID).success(function (res) {
+                $http.delete('/api/testimonials/data' + testimonialID).success(function (res) {
                     for (var i in $scope.testimonials) {
                         if ($scope.testimonials[i]._id === testimonialID) {
                             $scope.testimonials.splice(i, 1);
@@ -51,7 +51,7 @@ angular.module('core').controller('TestimonialEditController', ['$window','$http
         };
 
         //Get all the testimonials
-        $http.get('/api/testimonials').success(function (res) {
+        $http.get('/api/testimonials/data').success(function (res) {
             $scope.testimonials = res;
         });
 
@@ -74,7 +74,7 @@ angular.module('core').controller('TestimonialEditController', ['$window','$http
 
             // Redirect after save
             testimonial.$save(function (response) {
-                $location.path('testimonials');
+                $window.location.reload();
 
             }, function (errorResponse) {
                 $scope.error = errorResponse.data.message;
