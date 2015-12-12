@@ -6,7 +6,7 @@ var core = require('../controllers/core.server.controller'),
     socialmedia = require('../controllers/socialmedia.server.controller'),
     carouseldata = require('../controllers/carouseldata.server.controller'),
     hompagepolicy = require('../policies/homepage.server.policy.js'),
-    testimonialData = require('../controllers/testimonial.server.controller');
+    testimonials = require('../controllers/testimonial.server.controller');
 
 
 module.exports = function (app) {
@@ -21,8 +21,8 @@ module.exports = function (app) {
     .put(contact.update);
 
   app.route('/api/testimonial/data')
-      .get(testimonialData.find)
-      .put(testimonialData.update);
+      .get(testimonials.find)
+      .put(testimonials.update);
 
   app.route('/api/homepage/socialmedia').all(hompagepolicy.isAllowed)
     .post(socialmedia.add)

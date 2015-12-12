@@ -1,9 +1,27 @@
+<style>
+  .dark {
+    background-color: #222222;
+    border-radius: 25px;
+    padding-bottom: 2%;
+    padding-left: 1%;
+  }
+  .italic {
+    font-style: italic;
+  }
+</style>
 <section ng-controller="TestimonialController" ng-init="find()">
 <h1 align="center">Testimonials</h1>
-  <div ng-repeat="testimonial in testimonials" class="col-md-8">
-      <h2>{{testimonial.from}}</h2>
-        <div class="row">
-          {{testimonial.quote}}
-        </div>
-  </div>
+  <!--<div ng-repeat="testimonial in testimonials" class="col-md-8">-->
+      <!--<h2>{{testimonial.from}}</h2>-->
+        <!--<div class="row">-->
+          <!--{{testimonial.quote}}-->
+        <!--</div>-->
+  <!--</div>-->
+    <div class="col-md-8 dark">
+      <h3> Michelle</h3>
+      <div class="row italic" align="center">
+        this site is great
+      </div>
+    </div>
+
 </section>
