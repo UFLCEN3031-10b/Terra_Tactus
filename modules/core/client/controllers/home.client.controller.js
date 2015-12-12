@@ -5,8 +5,10 @@ angular.module('core').controller('HomeController', ['$scope', '$http', 'Authent
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
+    // default loading gif for images
     var loader = '/modules/core/client/img/loaders/loader_black.gif';
 
+    // declare text and image variables to be filled from database
     $scope.aboutUsText = '';
     $scope.aboutUsImage = loader;
     $scope.subscribeText = '';
@@ -18,6 +20,7 @@ angular.module('core').controller('HomeController', ['$scope', '$http', 'Authent
     $scope.retailText = '';
     $scope.retailImage = loader;
 
+    // get data and fill it in
     $http.get('/api/homepage/data').success(function (res) {
         if (res === null) console.log('[ERROR] homepage-data does not exist yet.');
         else {

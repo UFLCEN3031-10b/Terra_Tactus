@@ -6,6 +6,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$htt
     $scope.$state = $state;
     $scope.authentication = Authentication;
 
+    // cart length is 0 initially so it doesn't show
     $scope.cartLength = 0;
 
     // Get the topbar menu
@@ -22,7 +23,10 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$htt
       $scope.isCollapsed = false;
     });
 
+    // delcare social media json
     $scope.socialmedia = {};
+
+    // fill social media json
     $http.get('/api/homepage/socialmedia').success(function (res) {
         if (res === null) console.log();
         else {
@@ -30,10 +34,12 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$htt
         }
     });
 
+    // get new cart length
     $http.get('/api/cart/length').success(function (res) {
         $scope.cartLength = res.length;
     });
 
+    // listen for cart change and update length if received
     $scope.$on('cartChange', function (event) {
         $http.get('/api/cart/length').success(function (res) {
             $scope.cartLength = res.length;
