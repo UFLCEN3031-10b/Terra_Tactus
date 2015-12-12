@@ -3,12 +3,14 @@
  */
 'use strict';
 
-var testimonials = require('../controllers/testimonial.server.controller');
+var testimonials = require('../controllers/testimonial.server.controller'),
+    testimonialpolicy = require('../policies/testimonials.server.policy.js');
+
 
 //Route for testimonial data
 module.exports = function (app) {
 
-    app.route('/api/testimonials/data')
+    app.route('/api/testimonials/data').all(testimonialpolicy.isAllowed)
         .get(testimonials.find)
         .put(testimonials.update)
         .post(testimonials.create)
