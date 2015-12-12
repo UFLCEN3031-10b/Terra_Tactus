@@ -99,6 +99,21 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     };
   };
 
+  //Code for deleting a product
+  $scope.delete = function (productID) {
+    var conf = confirm("Are you sure you want to delete this product?");
+    console.log(conf);
+    if(conf){
+      $http.delete('/api/products/' + productID).success(function (res) {
+        for (var i in $scope.products) {
+          if ($scope.products[i]._id === productID) {
+            $scope.products.splice(i, 1);
+          }
+        }
+      });
+    }
+  };
+
     // Create new Product
     $scope.create = function (isValid) {
       //Declare variables for correctly getting checkbox values
