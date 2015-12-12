@@ -241,10 +241,6 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $location.path('products-edit');
     };
 
-
-
-
-
     // Find a list of Products
     $scope.find = function () {
       $scope.products = Products.query();
