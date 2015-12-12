@@ -2,7 +2,7 @@
 
 var path = require('path'),
     mongoose = require('mongoose'),
-    testimonials = mongoose.model('TestimonialData'),
+    testimonials = mongoose.model('Testimonial'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 exports.find = function (req, res) {
@@ -36,6 +36,7 @@ exports.create = function (req, res) {
     d.quote = req.body.quote;
     d.pictureUrl = req.body.pictureUrl;
     d.creditUrl = req.body.creditUrl;
+    console.log('Entering create function');
 
     d.save(function (err) {
         if (err) {

@@ -34,4 +34,4 @@ var TestimonialSchema = new Schema({
     }
 });
 
-mongoose.model('TestimonialData', TestimonialSchema);
+mongoose.model('Testimonial', TestimonialSchema);
