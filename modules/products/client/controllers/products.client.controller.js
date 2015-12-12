@@ -98,6 +98,13 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       $scope.decideToEdit = false;
     };
 
+    //stop showing the edit feature GUI and clear the tempFeatures array
+    $scope.cancelFeatureEdit = function(){
+      $scope.editingFeatures = false;
+      $scope.decideToEdit = true;
+      $scope.tempFeatures = [];
+    };
+
     //Function to add a feature to the tempFeature array
     $scope.addFeature = function(){
       var itemCopy = {};
@@ -218,7 +225,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         return false;
       }
       //Check the length of editFeatures array, if it has been initialized, update the features of the product
-      if($scope.tempFeatures.length!==0)
+      if($scope.editingFeatures === true)
       {
       edited_product.features = $scope.tempFeatures.slice();
       }

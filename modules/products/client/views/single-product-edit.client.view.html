@@ -142,6 +142,12 @@
                     </button>
                   </div>
 
+                  <div class="form-group text-left" ng-show="editingFeatures">
+                    <button class="btn btn-warning btn-xs" type="button" ng-click="cancelFeatureEdit()">
+                          <span class="glyphicon glyphicon-pencil" > Cancel Feature Edit </span>
+                    </button>
+                  </div>
+
                   <!-- Beginning of code with all the html associated with the edit feature GUI-->
                   <div ng-show="editingFeatures">
                     <label class="form-group">Editing Features</label>
