@@ -5,8 +5,7 @@ var core = require('../controllers/core.server.controller'),
     contact = require('../controllers/contact.server.controller'),
     socialmedia = require('../controllers/socialmedia.server.controller'),
     carouseldata = require('../controllers/carouseldata.server.controller'),
-    hompagepolicy = require('../policies/homepage.server.policy.js'),
-    testimonials = require('../controllers/testimonial.server.controller');
+    hompagepolicy = require('../policies/homepage.server.policy.js');
 
 
 module.exports = function (app) {
@@ -19,10 +18,6 @@ module.exports = function (app) {
   app.route('/api/homepage/contact').all(hompagepolicy.isAllowed)
     .get(contact.find)
     .put(contact.update);
-
-  app.route('/api/testimonials/data')
-      .get(testimonials.find)
-      .put(testimonials.update);
 
   // routing for adding a new social media link, and retrieving the link
   app.route('/api/homepage/socialmedia').all(hompagepolicy.isAllowed)

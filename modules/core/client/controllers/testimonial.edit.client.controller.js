@@ -27,7 +27,7 @@ angular.module('core').controller('TestimonialEditController', ['$window','$http
             });
         };
 
-        //
+
         //Code to Update Testimonial
         $scope.updateTest = function (edited_testimonial,isValid) {
             //Check if the updateTestimonialForm is valid, if not cancel update and display errors
@@ -56,14 +56,9 @@ angular.module('core').controller('TestimonialEditController', ['$window','$http
         });
 
         // Create new Testimonial
-        $scope.create = function (isValid) {
+        $scope.create = function () {
             $scope.error = null;
-            //Check if our testimonial form was valid, if not create function is canceled and errors show on GUI
-            if (!isValid) {
-                $scope.$broadcast('show-errors-check-validity', 'testimonialDataForm');
-                return false;
-            }
-
+            console.log('Entering create function');
             // Create new Testimonial object
             var testimonial = new Testimonials({
                 from: this.from,
