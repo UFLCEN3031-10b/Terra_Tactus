@@ -1,10 +1,17 @@
 'use strict';
 
 angular.module('payment').controller('AdminOrderController', ['$scope', '$http', function ($scope, $http) {
+    // variable for which status to show
     $scope.activeState = 0;
+
+    // should there be a loading icon
     $scope.isLoading = true;
+
+    // orders list
     $scope.orders = [];
 
+    // function which determines state and then queries
+    // the server for the proper list
     var getList = function () {
         var state = '';
         switch ($scope.activeState) {
@@ -25,6 +32,7 @@ angular.module('payment').controller('AdminOrderController', ['$scope', '$http',
         });
     };
 
+    // change the active state
     $scope.setActive = function (n) {
         $scope.isLoading = true;
         $scope.orders = [];
@@ -32,6 +40,8 @@ angular.module('payment').controller('AdminOrderController', ['$scope', '$http',
         getList();
     };
 
+    // update an order to a new state
+    // must have an up or down input and the order
     $scope.update = function (upOrDown, order) {
         var n = (upOrDown) ? $scope.activeState + 1: $scope.activeState - 1;
 
@@ -53,5 +63,6 @@ angular.module('payment').controller('AdminOrderController', ['$scope', '$http',
         });
     };
 
+    // update when it's done
     getList();
 }]);
