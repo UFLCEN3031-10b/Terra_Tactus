@@ -150,7 +150,6 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
   $scope.delete = function (product) {
     var conf = confirm("Are you sure you want to delete this product?");
     console.log(conf);
-    console.log("We have confirmwed"+conf);
     if(conf){
       if (product) {
         product.$delete();
@@ -165,13 +164,6 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
           $location.path('products');
         });
       }
-    /*  $http.delete('/api/products/' + productID).success(function (res) {
-        for (var i in $scope.products) {
-          if ($scope.products[i]._id === productID) {
-            $scope.products.splice(i, 1);
-          }
-        }
-      });*/
     }
   };
 
