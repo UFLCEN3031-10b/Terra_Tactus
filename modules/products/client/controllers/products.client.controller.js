@@ -172,24 +172,10 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         $scope.$broadcast('show-errors-check-validity', 'productForm');
         return false;
       }
-      //set the correct value of the product type variable
-      if(document.getElementById("proType-cb").checked) {
-        prodType = true;
-      }
-      else {
-        prodType = false;
-      }
-      //set the correct value of the teacher variable
-      if(document.getElementById("teacher-cb").checked) {
-        teachType = true;
-      }
-      else {
-        teachType = false;
-      }
-
+    
       // Create new Product object
       var product = new Products({
-        proType: prodType,
+        proType: this.proType,
         proTitle: this.proTitle,
         longDes: this.longDes,
         shortDes: this.shortDes,
@@ -201,7 +187,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         indvPrice: this.indvPrice,
         eduPrice: this.eduPrice,
         wholePrice: this.wholePrice,
-        teacher: teachType,
+        teacher: this.teacher,
         features: this.tempFeatures,
         curriculum: this.tempTable
       });
