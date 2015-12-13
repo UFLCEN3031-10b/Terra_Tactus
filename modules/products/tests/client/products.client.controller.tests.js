@@ -164,36 +164,36 @@
       });
     });
 
-  /*  describe('$scope.update()', function () {
+    describe('$scope.update()', function () {
       beforeEach(function () {
-        // Mock article in scope
-        scope.article = mockArticle;
+        // Mock product in scope
+        scope.product = mockProduct;
       });
 
-      it('should update a valid article', inject(function (Articles) {
+      it('should update a valid product', inject(function (Products) {
         // Set PUT response
-        $httpBackend.expectPUT(/api\/articles\/([0-9a-fA-F]{24})$/).respond();
+        $httpBackend.expectPUT(/api\/products\/([0-9a-fA-F]{24})$/).respond();
 
         // Run controller functionality
-        scope.update(true);
+        scope.updateProd(mockProduct,true);
         $httpBackend.flush();
 
-        // Test URL location to new object
-        expect($location.path()).toBe('/articles/' + mockArticle._id);
+        // Test URL location to general products page
+        expect($location.path()).toBe('/products');
       }));
 
-      it('should set scope.error to error response message', inject(function (Articles) {
+      it('should set scope.error to error response message', inject(function (Products) {
         var errorMessage = 'error';
-        $httpBackend.expectPUT(/api\/articles\/([0-9a-fA-F]{24})$/).respond(400, {
+        $httpBackend.expectPUT(/api\/products\/([0-9a-fA-F]{24})$/).respond(400, {
           message: errorMessage
         });
 
-        scope.update(true);
+        scope.updateProd(mockProduct,true);
         $httpBackend.flush();
 
         expect(scope.error).toBe(errorMessage);
       }));
-    });*/
+    });
 
     /*describe('$scope.remove(article)', function () {
       beforeEach(function () {
