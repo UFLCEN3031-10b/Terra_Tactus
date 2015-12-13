@@ -9,6 +9,7 @@
       $httpBackend,
       $stateParams,
       $location,
+      $window,
       Authentication,
       Products,
       mockProduct;
@@ -38,7 +39,7 @@
     // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
     // This allows us to inject a service but then attach it to a variable
     // with the same name as the service.
-    beforeEach(inject(function ($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_, _Authentication_, _Products_) {
+    beforeEach(inject(function ($controller, $rootScope, _$location_, _$window_,_$stateParams_, _$httpBackend_, _Authentication_, _Products_) {
       // Set a new global scope
       scope = $rootScope.$new();
 
@@ -46,6 +47,7 @@
       $stateParams = _$stateParams_;
       $httpBackend = _$httpBackend_;
       $location = _$location_;
+      $window = _$window_;
       Authentication = _Authentication_;
       Products = _Products_;
 
@@ -195,22 +197,29 @@
       }));
     });
 
-    /*describe('$scope.remove(article)', function () {
+    describe('$scope.delete(productID)', function () {
       beforeEach(function () {
+        spyOn($window,'confirm').and.callFake(function () {
+          return true;
+          });
+
         // Create new articles array and include the article
-        scope.articles = [mockArticle, {}];
+        scope.products = [mockProduct, {}];
 
         // Set expected DELETE response
-        $httpBackend.expectDELETE(/api\/articles\/([0-9a-fA-F]{24})$/).respond(204);
+        $httpBackend.expectDELETE(/api\/products\/([0-9a-fA-F]{24})$/).respond(204);
 
         // Run controller functionality
-        scope.remove(mockArticle);
+
+        scope.delete(mockProduct);
+
       });
 
-      it('should send a DELETE request with a valid articleId and remove the article from the scope', inject(function (Articles) {
-        expect(scope.articles.length).toBe(1);
+      it('should send a DELETE request with a valid productId and remove the product from the scope', inject(function (Products) {
+        //expect(window.confirm).toHaveBeenCalledWith("Are you sure you want to delete this product?");
+        expect(scope.products.length).toBe(1);
       }));
-    });*/
+    });
 
     /*describe('scope.remove()', function () {
       beforeEach(function () {

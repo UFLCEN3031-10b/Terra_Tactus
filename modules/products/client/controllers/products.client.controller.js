@@ -147,17 +147,31 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
   };
 
   //Code for deleting a product
-  $scope.delete = function (productID) {
+  $scope.delete = function (product) {
     var conf = confirm("Are you sure you want to delete this product?");
     console.log(conf);
+    console.log("We have confirmwed"+conf);
     if(conf){
-      $http.delete('/api/products/' + productID).success(function (res) {
+      if (product) {
+        product.$delete();
+
+        for (var i in $scope.products) {
+          if ($scope.products[i] === product) {
+            $scope.products.splice(i, 1);
+          }
+        }
+      } else {
+        $scope.product.$delete(function () {
+          $location.path('products');
+        });
+      }
+    /*  $http.delete('/api/products/' + productID).success(function (res) {
         for (var i in $scope.products) {
           if ($scope.products[i]._id === productID) {
             $scope.products.splice(i, 1);
           }
         }
-      });
+      });*/
     }
   };
 
@@ -172,7 +186,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         $scope.$broadcast('show-errors-check-validity', 'productForm');
         return false;
       }
-    
+
       // Create new Product object
       var product = new Products({
         proType: this.proType,
