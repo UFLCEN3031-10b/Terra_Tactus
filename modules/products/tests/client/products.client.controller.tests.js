@@ -57,7 +57,9 @@
         shortDes: 'description',
         indvPrice: '1.00',
         eduPrice: '2.00',
-        wholePrice: '3.00'
+        wholePrice: '3.00',
+        curriculum: [],
+        features: []
       });
 
       // Mock logged in admin
@@ -112,7 +114,9 @@
           shortDes: 'description',
           indvPrice: '1.00',
           eduPrice: '2.00',
-          wholePrice: '3.00'
+          wholePrice: '3.00',
+          curriculum: [],
+          features: []
         });
 
         // Fixture mock form input values
