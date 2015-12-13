@@ -199,6 +199,7 @@
 
     describe('$scope.delete(productID)', function () {
       beforeEach(function () {
+        //whenever we are deleting we get a confirm, so we must simulate accepting
         spyOn($window,'confirm').and.callFake(function () {
           return true;
           });
@@ -216,25 +217,30 @@
       });
 
       it('should send a DELETE request with a valid productId and remove the product from the scope', inject(function (Products) {
-        //expect(window.confirm).toHaveBeenCalledWith("Are you sure you want to delete this product?");
+        expect(window.confirm).toHaveBeenCalledWith("Are you sure you want to delete this product?");
         expect(scope.products.length).toBe(1);
       }));
     });
 
-    /*describe('scope.remove()', function () {
+    describe('scope.delete()', function () {
       beforeEach(function () {
         spyOn($location, 'path');
-        scope.article = mockArticle;
+        //whenever we are deleting we get a confirm, so we must simulate accepting
+        spyOn($window,'confirm').and.callFake(function () {
+          return true;
+          });
+        scope.product = mockProduct;
 
-        $httpBackend.expectDELETE(/api\/articles\/([0-9a-fA-F]{24})$/).respond(204);
+        $httpBackend.expectDELETE(/api\/products\/([0-9a-fA-F]{24})$/).respond(204);
 
-        scope.remove();
+        scope.delete();
         $httpBackend.flush();
       });
 
-      it('should redirect to articles', function () {
-        expect($location.path).toHaveBeenCalledWith('articles');
+      it('should redirect to products', function () {
+        expect(window.confirm).toHaveBeenCalledWith("Are you sure you want to delete this product?");
+        expect($location.path).toHaveBeenCalledWith('products');
       });
-    });*/
+    });
   });
 }());
