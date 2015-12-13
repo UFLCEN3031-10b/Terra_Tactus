@@ -9,7 +9,7 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
             var conf = confirm("Are you sure you want to delete this testimonial?");
             console.log(conf);
             if(conf){
-                $http.delete('/api/testimonials' + testimonialID).success(function (res) {
+                $http.delete('/api/testimonials/' + testimonialID).success(function (res) {
                     for (var i in $scope.testimonials) {
                         if ($scope.testimonials[i]._id === testimonialID) {
                             $scope.testimonials.splice(i, 1);
@@ -44,6 +44,8 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
 
         // Create new Testimonial
         $scope.create = function () {
+            var req = $scope.testimonials;
+
             $scope.error = null;
             console.log('Entering create function');
             // Create new Testimonial object
@@ -54,12 +56,10 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
                 creditUrl: this.creditUrl
             });
 
-            // Redirect after save
-            testimonial.$save(function (response) {
+            $http.put('/api/testimonial/edit', req).success(function (res) {
                 $window.location.reload();
-
-            }, function (errorResponse) {
-                $scope.error = errorResponse.data.message;
+            }).error(function (res) {
+                console.log(res);
             });
 
             console.log('Testimonial has been created');
