@@ -11,17 +11,8 @@
 </style>
 <section ng-controller="TestimonialController" ng-init="find()">
 <h1 align="center">Testimonials</h1>
-  <!--<div ng-repeat="testimonial in testimonials" class="col-md-8">-->
-      <!--<h2>{{testimonial.from}}</h2>-->
-        <!--<div class="row">-->
-          <!--{{testimonial.quote}}-->
-        <!--</div>-->
-  <!--</div>-->
-    <div class="col-md-8 dark">
-      <h3> Michelle</h3>
-      <div class="row italic" align="center">
-        this site is great
-      </div>
-    </div>
-
+  <div ng-repeat="testimonial in testimonials" class="col-md-8 dark">-->
+      <h3>{{testimonial.from}}</h3>
+        <div class="row italic" align="center">{{testimonial.quote}}</div>
+  </div>
 </section>

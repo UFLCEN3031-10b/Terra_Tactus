@@ -1,8 +1,7 @@
 'use strict';
 
-angular.module('core').controller('TestimonialController', ['$window','$http','$scope','$rootScope', '$stateParams', '$location', 'Authentication', 'Testimonials',
-    function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Testimonials) {
-        $scope.authentication = Authentication;
+angular.module('core').controller('TestimonialController', ['$window','$http','$scope', '$location', 'Testimonials',
+    function ($window, $http, $scope, $location, Testimonials) {
 
         //Code for deleting a testimonial
         $scope.delete = function (testimonialID) {
@@ -66,5 +65,8 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
 
             console.log('Testimonial has been created');
         };
+
+        //Automatically call find
+        //$scope.find();
     }
 ]);

@@ -2,11 +2,11 @@
 
 var path = require('path'),
     mongoose = require('mongoose'),
-    testimonials = mongoose.model('Testimonial'),
+    Testimonials = mongoose.model('Testimonial'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 exports.find = function (req, res) {
-    res.json(req.testimonial);
+  res.json(req.testimonial);
 };
 
 exports.testimonialByID = function (req, res, next, id) {
@@ -17,7 +17,7 @@ exports.testimonialByID = function (req, res, next, id) {
     });
   }
 
-  testimonials.findById(id).exec(function (err, testimonial) {
+  Testimonials.findById(id).exec(function (err, testimonial) {
     if (err) {
       return next(err);
     } else if (!testimonial) {
@@ -51,12 +51,11 @@ exports.update = function (req, res) {
 
 
 exports.create = function (req, res) {
-    var d = new testimonials();
+    var d = new Testimonials();
     d.from = req.body.from;
     d.quote = req.body.quote;
     d.pictureUrl = req.body.pictureUrl;
     d.creditUrl = req.body.creditUrl;
-    console.log('Entering create function');
 
     d.save(function (err) {
         if (err) {
@@ -70,13 +69,13 @@ exports.create = function (req, res) {
 };
 
 exports.list = function (req, res) {
-  testimonials.find().sort('-created').exec(function (err, testimonialslist) {
+  Testimonials.find().exec(function (err, testimonials) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(testimonialslist);
+      res.json(testimonials);
     }
   });
 };
