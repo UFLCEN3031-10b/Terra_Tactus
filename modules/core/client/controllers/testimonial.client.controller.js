@@ -56,10 +56,12 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
                 creditUrl: this.creditUrl
             });
 
-            $http.put('/api/testimonial/edit', req).success(function (res) {
-                $window.location.reload();
-            }).error(function (res) {
-                console.log(res);
+            // Redirect after save
+            testimonial.$save(function (response) {
+            $location.path('testimonials');
+
+            }, function (errorResponse) {
+              $scope.error = errorResponse.data.message;
             });
 
             console.log('Testimonial has been created');

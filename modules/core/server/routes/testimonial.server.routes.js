@@ -17,8 +17,9 @@ module.exports = function (app) {
         .delete(testimonials.delete);
 
     app.route('/api/testimonials').all(testimonialpolicy.isAllowed)
+        .get(testimonials.list)
         .post(testimonials.create);
-        
+
     // Finish by binding the testimonials middleware
     app.param('testimonialId', testimonials.testimonialByID);
 

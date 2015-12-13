@@ -13,7 +13,7 @@ exports.testimonialByID = function (req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
-      message: 'Product is invalid'
+      message: 'Testimonial is invalid'
     });
   }
 
@@ -67,6 +67,18 @@ exports.create = function (req, res) {
             res.json(d);
         }
     });
+};
+
+exports.list = function (req, res) {
+  testimonials.find().sort('-created').exec(function (err, testimonialslist) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(testimonialslist);
+    }
+  });
 };
 
 
