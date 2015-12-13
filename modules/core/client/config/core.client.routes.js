@@ -50,7 +50,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
     .state('testimonials-edit', {
       url: '/testimonials/edit',
       templateUrl: '/modules/core/client/views/testimonial.edit.client.view.html',
-      controller: 'TestimonialEditController',
+      controller: 'TestimonialController',
       data: {
         roles: ['admin']
       }

@@ -10,10 +10,16 @@ var testimonials = require('../controllers/testimonial.server.controller'),
 //Route for testimonial data
 module.exports = function (app) {
 
-    app.route('/api/testimonials/data').all(testimonialpolicy.isAllowed)
+    // routing for testimonials data, needs user restriction
+    app.route('/api/testimonials/:testimonialId').all(testimonialpolicy.isAllowed)
         .get(testimonials.find)
         .put(testimonials.update)
-        .post(testimonials.create)
         .delete(testimonials.delete);
+
+    app.route('/api/testimonials').all(testimonialpolicy.isAllowed)
+        .post(testimonials.create);
+        
+    // Finish by binding the testimonials middleware
+    app.param('testimonialId', testimonials.testimonialByID);
 
 };
