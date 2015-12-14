@@ -5,7 +5,9 @@ var core = require('../controllers/core.server.controller'),
     contact = require('../controllers/contact.server.controller'),
     socialmedia = require('../controllers/socialmedia.server.controller'),
     carouseldata = require('../controllers/carouseldata.server.controller'),
-    hompagepolicy = require('../policies/homepage.server.policy.js');
+    hompagepolicy = require('../policies/homepage.server.policy.js'),
+    testimonials = require('../controllers/testimonial.server.controller'),
+    testimonialpolicy = require('../policies/testimonials.server.policy.js');
 
 
 module.exports = function (app) {
@@ -38,6 +40,20 @@ module.exports = function (app) {
   app.route('/api/homepage/carousel/:slideId').all(hompagepolicy.isAllowed)
     .put(carouseldata.update)
     .delete(carouseldata.remove);
+
+  // routing for testimonials data, needs user restriction
+  app.route('/api/testimonials/:testimonialId').all(testimonialpolicy.isAllowed)
+      .get(testimonials.find)
+      .put(testimonials.update)
+      .delete(testimonials.delete);
+
+  app.route('/api/testimonials').all(testimonialpolicy.isAllowed)
+      .get(testimonials.list)
+      .post(testimonials.create);
+
+  // Finish by binding the testimonials middleware
+  app.param('testimonialId', testimonials.testimonialByID);
+
 
   // slide middleware
   app.param('slideId', carouseldata.slideById);
