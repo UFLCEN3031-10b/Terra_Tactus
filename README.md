@@ -107,6 +107,7 @@ Viewing Individual Products
 ![IndividualProduct](modules/core/client/img/screenshots/individualProd.png)
 
 Admin Menu
+
 ![Admin](modules/core/client/img/screenshots/admin.png)
 
 ## Credits
