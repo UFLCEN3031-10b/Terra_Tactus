@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('TestimonialController', ['$window','$http','$scope', '$location', 'Testimonials',
-    function ($window, $http, $scope, $location, Testimonials) {
+angular.module('core').controller('TestimonialController', ['$window','$http','$scope','$rootScope', '$stateParams', '$location', 'Authentication', 'Testimonials',
+    function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Testimonials) {
 
         //Code for deleting a testimonial
         $scope.delete = function (testimonialID) {
@@ -21,7 +21,10 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
 
         // Find existing Testimonials
         $scope.find = function () {
-          $scope.testimonials = Testimonials.query();
+            $http.get('/api/testimonials').success(function (res) {
+                console.log(res);
+                $scope.testimonials = res;
+            });
         };
 
         //Code to Update Testimonial
@@ -66,7 +69,32 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
             console.log('Testimonial has been created');
         };
 
-        //Automatically call find
-        //$scope.find();
+        $scope.headers = ["From", "Quote", "Picture", "Link"];
+
+
+        //value used to hide the edit field for a feature in the create products GUI
+        $scope.edits = false;
+
+        //Array used to hold features for a product we are creating
+        $scope.tempTestimonials = $scope.find();
+
+
+        //function to show the edit field, within this function the Function
+        //to edit a feature is embedded (editItem)
+        $scope.showEdits = function(item){
+          var index = $scope.tempTestimonials.indexOf(item);
+          $scope.editBox = item;
+          $scope.edits = true;
+          $scope.editItem = function(){
+              if($scope.editBox !== undefined && $scope.editBox !== "" ){
+                $scope.tempTestimonials[index] = $scope.editBox;
+                $scope.edits = false;
+                $scope.editBox = undefined;
+              }
+              else{
+                alert("Please enter a feature");
+              }
+          };
+        };
     }
 ]);
