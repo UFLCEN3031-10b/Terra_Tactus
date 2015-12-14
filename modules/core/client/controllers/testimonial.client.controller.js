@@ -96,5 +96,13 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
               }
           };
         };
+
+        //Code to delete a feature from the tempFeature array
+        $scope.deleteFeature = function(item){
+          //console.log("in delete");
+          var index = $scope.tempTestimonials.indexOf(item);
+          $scope.tempTestimonials.splice(index, 1);
+        };
+
     }
 ]);
