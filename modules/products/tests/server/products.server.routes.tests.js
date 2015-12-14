@@ -403,7 +403,7 @@ describe('Product CRUD tests', function () {
 
     //Test #15 error for a single product with a valid id but that does not exist
     it('should return proper error for single product which doesnt exist, if not signed in', function (done) {
-      // This is a valid mongoose Id but a non-existent article
+      // This is a valid mongoose Id but a non-existent product
       request(app).get('/api/products/559e9cd815f80b4c256a8f41')
         .end(function (req, res) {
           // Set assertion
@@ -461,19 +461,19 @@ describe('Product CRUD tests', function () {
       // Set product user
       product.user = user;
 
-      // Create new article model instance
+      // Create new product model instance
       var productObj = new Product(product);
 
       // Save the product
       productObj.save(function () {
-        // Try deleting article
+        // Try deleting product
         request(app).delete('/api/products/' + productObj._id)
           .expect(403)
           .end(function (productDeleteErr, productDeleteRes) {
             // Set message assertion
             (productDeleteRes.body.message).should.match('User is not authorized');
 
-            // Handle article error error
+            // Handle product error error
             done(productDeleteErr);
           });
 

@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  // Articles Controller Spec
+  // Products Controller Spec
   describe('Products Controller Tests', function () {
     // Initialize global variables
     var ProductsController,
@@ -54,7 +54,7 @@
       // create mock product
       mockProduct = new Products({
         _id: '525a8422f6d0f87f0e407a33',
-        proTitle: 'An Article about MEAN',
+        proTitle: 'A Product about MEAN',
         longDes: 'long description',
         shortDes: 'description',
         indvPrice: '1.00',
@@ -204,7 +204,7 @@
           return true;
           });
 
-        // Create new articles array and include the article
+        // Create new products array and include the product
         scope.products = [mockProduct, {}];
 
         // Set expected DELETE response

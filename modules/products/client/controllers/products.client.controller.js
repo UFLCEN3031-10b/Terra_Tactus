@@ -148,10 +148,13 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
 
   //Code for deleting a product
   $scope.delete = function (product) {
+    //window confirms that we want to delete
     var conf = confirm("Are you sure you want to delete this product?");
     console.log(conf);
+    //if user accepts confirm prompt then proceed to delete
     if(conf){
       if (product) {
+        //if valid product delete and splice from product array
         product.$delete();
 
         for (var i in $scope.products) {
@@ -160,6 +163,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
           }
         }
       } else {
+        //if no product redirect
         $scope.product.$delete(function () {
           $location.path('products');
         });
