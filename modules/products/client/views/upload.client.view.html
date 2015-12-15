@@ -1,0 +1,22 @@
+<div class = "row">
+  <h1 class = "text-center">Upload Your .pdf File Here</h1>
+  <div class = "col-md-8 col-md-offset-2">
+    <div class="text-center form-group" ng-hide="uploader.queue.length">
+      <span class="btn btn-default btn-file">
+          Select PDF <input type="file" nv-file-select uploader="uploader">
+      </span>
+    </div>
+    <div class="text-center form-group" ng-show="uploader.queue.length">
+      {{pdfName}}
+      <br>
+      <button class="btn btn-blue" ng-click="uploadPDF();">Upload</button>
+      <button class="btn btn-default" ng-click="cancelUpload();">Cancel</button>
+    </div>
+    <div ng-show="success" class="text-center text-success">
+      <strong>PDF Uploaded Successfully</strong>
+    </div>
+    <div ng-show="error" class="text-center text-danger">
+      <strong ng-bind="error"></strong>
+    </div>
+  </div>
+</div>
