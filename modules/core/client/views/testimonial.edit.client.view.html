@@ -55,24 +55,24 @@
           </th>
           <tr ng-repeat="testimonial in testimonials">
             <td>
-                <div ng-hide="editingData[testimonial.id]">{{testimonial.from}}</div>
-                <div ng-show="editingData[testimonial.id]"><input type="text"  class="editing" ng-model="testimonial.from" /></div>
+                <div ng-hide="editingData[testimonial._id]">{{testimonial.from}}</div>
+                <div ng-show="editingData[testimonial._id]"><input type="text"  class="editing" ng-model="testimonial.from" /></div>
             </td>
             <td>
-                <div ng-hide="editingData[testimonial.id]">{{testimonial.quote}}</div>
-                <div ng-show="editingData[testimonial.id]"><textarea  class="editing" ng-model="testimonial.quote"></textarea></div>
+                <div ng-hide="editingData[testimonial._id]">{{testimonial.quote}}</div>
+                <div ng-show="editingData[testimonial._id]"><textarea  class="editing" ng-model="testimonial.quote"></textarea></div>
             </td>
             <td>
-                <div ng-hide="editingData[testimonial.id]">{{testimonial.pictureUrl}}</div>
-                <div ng-show="editingData[testimonial.id]"><input type="text"  class="editing" ng-model="testimonial.pictureUrl" /></div>
+                <div ng-hide="editingData[testimonial._id]">{{testimonial.pictureUrl}}</div>
+                <div ng-show="editingData[testimonial._id]"><input type="text"  class="editing" ng-model="testimonial.pictureUrl" /></div>
             </td>
             <td>
-                <div ng-hide="editingData[testimonial.id]">{{testimonial.creditUrl}}</div>
-                <div ng-show="editingData[testimonial.id]"><input type="text"  class="editing" ng-model="testimonial.creditUrl" /></div>
+                <div ng-hide="editingData[testimonial._id]">{{testimonial.creditUrl}}</div>
+                <div ng-show="editingData[testimonial._id]"><input type="text"  class="editing" ng-model="testimonial.creditUrl" /></div>
             </td>
             <td>
-                <button class="btn-blue"ng-hide="editingData[testimonial.id]" ng-click="modify(testimonial)">Modify</button>
-                <button class="btn-blue"ng-show="editingData[testimonial.id]" ng-click="update(testimonial)">Update</button>
+                <button class="btn-blue"ng-hide="editingData[testimonial._id]" ng-click="modify(testimonial)">Modify</button>
+                <button class="btn-blue"ng-show="editingData[testimonial._id]" ng-click="update(testimonial)">Update</button>
                 <button class="btn-red"ng-hide="viewField">Remove</button>
             </td>
           </tr>

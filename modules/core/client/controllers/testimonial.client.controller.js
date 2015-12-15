@@ -47,19 +47,24 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
         $scope.editingData = {};
 
         for (var i in $scope.testimonials) {
-          $scope.editingData[$scope.testimonials[i].id] = false;
+          $scope.editingData[$scope.testimonials[i]._id] = false;
         }
 
         $scope.modify = function(testimonial){
-            $scope.editingData[testimonial.id] = true;
+            $scope.editingData[testimonial._id] = true;
             console.log('modifying');
         };
 
 
         $scope.update = function(testimonial){
-            $scope.editingData[testimonial.id] = false;
-            console.log('updating');
-
+            $scope.editingData[testimonial._id] = false;
+            //update testimonial
+            testimonial.$update(function () {
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+            //redirect to general testimonials page
+            $location.path('testimonials');
         };
 
 
