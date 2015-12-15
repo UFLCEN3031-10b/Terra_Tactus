@@ -73,7 +73,7 @@
             <td>
                 <button class="btn-blue"ng-hide="editingData[testimonial._id]" ng-click="modify(testimonial)">Modify</button>
                 <button class="btn-blue"ng-show="editingData[testimonial._id]" ng-click="update(testimonial)">Update</button>
-                <button class="btn-red"ng-hide="viewField">Remove</button>
+                <button class="btn-red"ng-hide="viewField" ng-click="delete(testimonial._id)">Remove</button>
             </td>
           </tr>
         </table>
