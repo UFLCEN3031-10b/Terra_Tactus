@@ -147,17 +147,27 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
   };
 
   //Code for deleting a product
-  $scope.delete = function (productID) {
+  $scope.delete = function (product) {
+    //window confirms that we want to delete
     var conf = confirm("Are you sure you want to delete this product?");
     console.log(conf);
+    //if user accepts confirm prompt then proceed to delete
     if(conf){
-      $http.delete('/api/products/' + productID).success(function (res) {
+      if (product) {
+        //if valid product delete and splice from product array
+        product.$delete();
+
         for (var i in $scope.products) {
-          if ($scope.products[i]._id === productID) {
+          if ($scope.products[i] === product) {
             $scope.products.splice(i, 1);
           }
         }
-      });
+      } else {
+        //if no product redirect
+        $scope.product.$delete(function () {
+          $location.path('products');
+        });
+      }
     }
   };
 
@@ -172,24 +182,10 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         $scope.$broadcast('show-errors-check-validity', 'productForm');
         return false;
       }
-      //set the correct value of the product type variable
-      if(document.getElementById("proType-cb").checked) {
-        prodType = true;
-      }
-      else {
-        prodType = false;
-      }
-      //set the correct value of the teacher variable
-      if(document.getElementById("teacher-cb").checked) {
-        teachType = true;
-      }
-      else {
-        teachType = false;
-      }
 
       // Create new Product object
       var product = new Products({
-        proType: prodType,
+        proType: this.proType,
         proTitle: this.proTitle,
         longDes: this.longDes,
         shortDes: this.shortDes,
@@ -201,7 +197,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         indvPrice: this.indvPrice,
         eduPrice: this.eduPrice,
         wholePrice: this.wholePrice,
-        teacher: teachType,
+        teacher: this.teacher,
         features: this.tempFeatures,
         curriculum: this.tempTable
       });

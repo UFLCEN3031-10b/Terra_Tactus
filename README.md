@@ -89,25 +89,26 @@ These bugs are explained further on the *Issues* page (https://github.com/UFLCEN
 ### Screenshots
 The homepage.
 
-![Homepage](modules/core/client/img/screenshots/home.PNG?raw=true)
+![Homepage](modules/core/client/img/screenshots/home.png)
 
 
-![Homepage](modules/core/client/img/screenshots/home2.PNG?raw=true)
+![Homepage](modules/core/client/img/screenshots/home2.png)
 
 Signing in.
 
-![Sign in](modules/core/client/img/screenshots/signIn.PNG?raw=true)
+![Sign in](modules/core/client/img/screenshots/signIn.png)
 
 Viewing Products
 
-![Products](modules/core/client/img/screenshots/prod.PNG?raw=true)
+![Products](modules/core/client/img/screenshots/prod.png)
 
 Viewing Individual Products
 
-![IndividualProduct](modules/core/client/img/screenshots/individualProd.PNG?raw=true)
+![IndividualProduct](modules/core/client/img/screenshots/individualProd.png)
 
 Admin Menu
-![Admin](modules/core/client/img/screenshots/admin.PNG?raw=true)
+
+![Admin](modules/core/client/img/screenshots/admin.png)
 
 ## Credits
 
