@@ -92,6 +92,12 @@ angular.module('products').config(['$stateProvider',
                 data: {
                     roles: ['admin']
                 }
+            })
+
+            //adding an under construction page
+            .state('construction', {
+                url: '/construction',
+                templateUrl: 'modules/products/client/views/construction.client.view.html'
             });
     }
 ]);
