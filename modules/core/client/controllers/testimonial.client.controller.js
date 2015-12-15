@@ -27,22 +27,42 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
             });
         };
 
-        //Code to Update Testimonial
-        $scope.update = function (edited_testimonial,isValid) {
-            //Check if the updateTestimonialForm is valid, if not cancel update and display errors
-            if (!isValid) {
-                $scope.$broadcast('show-errors-check-validity', 'updateTestimonialForm');
-                return false;
-            }
-            //update testimonial
-            edited_testimonial.$update(function () {
-            }, function (errorResponse) {
-                $scope.error = errorResponse.data.message;
-            });
-            //redirect to general testimonials page
-            $location.path('testimonials');
+        // //Code to Update Testimonial
+        // $scope.update = function (edited_testimonial,isValid) {
+        //     //Check if the updateTestimonialForm is valid, if not cancel update and display errors
+        //     if (!isValid) {
+        //         $scope.$broadcast('show-errors-check-validity', 'updateTestimonialForm');
+        //         return false;
+        //     }
+        //     //update testimonial
+        //     edited_testimonial.$update(function () {
+        //     }, function (errorResponse) {
+        //         $scope.error = errorResponse.data.message;
+        //     });
+        //     //redirect to general testimonials page
+        //     $location.path('testimonials');
+        //
+        // };
+
+        $scope.editingData = {};
+
+        for (var i in $scope.testimonials) {
+          $scope.editingData[$scope.testimonials[i].id] = false;
+        }
+
+        $scope.modify = function(testimonial){
+            $scope.editingData[testimonial.id] = true;
+            console.log('modifying');
+        };
+
+
+        $scope.update = function(testimonial){
+            $scope.editingData[testimonial.id] = false;
+            console.log('updating');
 
         };
+
+
 
         // Create new Testimonial
         $scope.create = function () {
