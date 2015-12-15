@@ -1,0 +1,83 @@
+<style>
+  .newAnnouncement {
+    border-bottom: double;
+  }
+  table {
+    table-layout: fixed;
+  }
+  td {
+    width: 20%;
+    word-wrap: break-word;
+  }
+  .editing {
+    background-color: #222222;
+    border-color: #222222;
+  }
+</style>
+<section ng-controller="TestimonialController">
+  <div class="page-header">
+    <h1>Edit Testimonial Data</h1>
+  </div>
+  <form name="testimonialDataForm" class="form-horizontal col-md-12" ng-submit="create()" novalidate>
+    <fieldset>
+      <div class="newAnnouncement"> <h2 align="center">New Testimonial</h2>
+        <div class="form-group">
+          <label>Quote</label>
+          <textarea name="quote" ng-model="quote" class="form-control" cols="30" rows="5" placeholder="Enter text here..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>From</label>
+          <input name="from" type="text" ng-model="from" class="form-control" placeholder="E.g. John Smith" required>
+        </div>
+        <div class="form-group">
+          <label>Picture Link (Optional)</label>
+          <input name="pictureUrl" ng-model="pictureUrl" class="form-control" placeholder="https://www.thisisalink.com/image.jpg" cols="30" rows="5" required>
+        </div>
+        <div class="form-group">
+          <label>Additional Link (Optional)</label>
+          <input name="creditUrl" type="text" ng-model="creditUrl" class="form-control" placeholder="https://www.thisisalink.com/" required>
+        </div>
+        <div class="form-group text-center">
+          <input type="submit" class="btn btn-blue">
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+  <form name="updateTestimonial" class="form-horizontal col-md-12" ng-init="find()" ng-submit="update()" novalidate>
+    <fieldset>
+      <div>
+        <h2 align="center">Edit Existing Testimonials</h2>
+        <table class= "table">
+          <th ng-repeat= "header in headers">
+              <a> {{headers[$index]}} </a>
+          </th>
+          <tr ng-repeat="testimonial in testimonials">
+            <td>
+                <div ng-hide="editingData[testimonial._id]">{{testimonial.from}}</div>
+                <div ng-show="editingData[testimonial._id]"><input type="text"  class="editing" ng-model="testimonial.from" /></div>
+            </td>
+            <td>
+                <div ng-hide="editingData[testimonial._id]">{{testimonial.quote}}</div>
+                <div ng-show="editingData[testimonial._id]"><textarea  class="editing" ng-model="testimonial.quote"></textarea></div>
+            </td>
+            <td>
+                <div ng-hide="editingData[testimonial._id]">{{testimonial.pictureUrl}}</div>
+                <div ng-show="editingData[testimonial._id]"><input type="text"  class="editing" ng-model="testimonial.pictureUrl" /></div>
+            </td>
+            <td>
+                <div ng-hide="editingData[testimonial._id]">{{testimonial.creditUrl}}</div>
+                <div ng-show="editingData[testimonial._id]"><input type="text"  class="editing" ng-model="testimonial.creditUrl" /></div>
+            </td>
+            <td>
+                <button class="btn-blue"ng-hide="editingData[testimonial._id]" ng-click="modify(testimonial)">Modify</button>
+                <button class="btn-blue"ng-show="editingData[testimonial._id]" ng-click="update(testimonial)">Update</button>
+                <button class="btn-red"ng-hide="viewField">Remove</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </fieldset>
+  </form>
+</section>

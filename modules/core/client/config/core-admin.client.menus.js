@@ -44,6 +44,10 @@ angular.module('core.admin').run(['Menus',
       title: 'Edit Retail',
       state: 'retail-edit'
     });
+    Menus.addSubMenuItem('topbar', 'admin', {
+      title: 'Edit Testimonials',
+      state: 'construction'
+    });
 
   }
 ]);
