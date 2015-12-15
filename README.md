@@ -85,6 +85,7 @@ These bugs are explained further on the *Issues* page (https://github.com/UFLCEN
 
 ## Unstarted Features
 
+- A subscriber's portal where subscribers can view all the curriculum that an admin chooses for them to see. 
 
 ### Screenshots
 The homepage.
