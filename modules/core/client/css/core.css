@@ -207,6 +207,38 @@ body {
     color: white;
 }
 
+.btn-red{
+    border:1px solid #D0451B;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size:12px;
+    font-family:arial, helvetica, sans-serif;
+    padding: 10px 10px 10px 10px;
+    /*text-decoration:none;*/
+    display:inline-block;
+    /*text-shadow: -1px -1px 0 rgba(255,255,255,0.3);*/
+    font-weight:bold;
+    color: white;
+    background: #3366cc;
+    background-image: -webkit-linear-gradient(top, #D0451B, #942911);
+    background-image: -moz-linear-gradient(top, #D0451B, #942911);
+    background-image: -ms-linear-gradient(top, #D0451B, #942911);
+    background-image: -o-linear-gradient(top, #D0451B, #942911);
+    background-image: linear-gradient(to bottom, #D0451B, #942911);
+    font-size: medium;
+}
+
+.btn-red:hover{
+    background: #3366cc;
+    background-image: -webkit-linear-gradient(top, #BC3315, #CF866C);
+    background-image: -moz-linear-gradient(top, #BC3315, #CF866C);
+    background-image: -ms-linear-gradient(top, #BC3315, #CF866C);
+    background-image: -o-linear-gradient(top, #BC3315, #CF866C);
+    background-image: linear-gradient(to bottom, #BC3315, #CF866C);
+    color: white;
+}
+
 /*Announcements*/
 .half-section {
   height: 40%;
