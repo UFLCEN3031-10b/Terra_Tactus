@@ -21,28 +21,12 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
 
         // Find existing Testimonials
         $scope.find = function () {
+
             $http.get('/api/testimonials').success(function (res) {
                 console.log(res);
                 $scope.testimonials = res;
             });
         };
-
-        // //Code to Update Testimonial
-        // $scope.update = function (edited_testimonial,isValid) {
-        //     //Check if the updateTestimonialForm is valid, if not cancel update and display errors
-        //     if (!isValid) {
-        //         $scope.$broadcast('show-errors-check-validity', 'updateTestimonialForm');
-        //         return false;
-        //     }
-        //     //update testimonial
-        //     edited_testimonial.$update(function () {
-        //     }, function (errorResponse) {
-        //         $scope.error = errorResponse.data.message;
-        //     });
-        //     //redirect to general testimonials page
-        //     $location.path('testimonials');
-        //
-        // };
 
         $scope.editingData = {};
 
@@ -52,19 +36,24 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
 
         $scope.modify = function(testimonial){
             $scope.editingData[testimonial._id] = true;
-            console.log('modifying');
         };
 
 
         $scope.update = function(testimonial){
-            $scope.editingData[testimonial._id] = false;
-            //update testimonial
-            testimonial.$update(function () {
-            }, function (errorResponse) {
-                $scope.error = errorResponse.data.message;
+          //Update is entered as soon as modify is clicked
+          //So make sure we have actually clicked update and there is a testimonial we want to update
+          if (typeof(testimonial) !== 'undefined') {
+            var req = {
+                from: testimonial.from,
+                quote: testimonial.quote,
+                pictureUrl: testimonial.pictureUrl,
+                creditUrl: testimonial.creditUrl
+            };
+            $http.put('/api/testimonials/' + testimonial._id, req).success(function (res) {
+                // set editing variables to null
+                $scope.editingData[testimonial._id] = false;
             });
-            //redirect to general testimonials page
-            $location.path('testimonials');
+          }
         };
 
 

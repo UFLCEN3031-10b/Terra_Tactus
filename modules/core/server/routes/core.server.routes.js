@@ -42,7 +42,7 @@ module.exports = function (app) {
     .delete(carouseldata.remove);
 
   // routing for testimonials data, needs user restriction
-  app.route('/api/testimonials/:testimonialId').all(testimonialpolicy.isAllowed)
+  app.route('/api/testimonials/:testimonialId').all(hompagepolicy.isAllowed)
       .get(testimonials.find)
       .put(testimonials.update)
       .delete(testimonials.delete);

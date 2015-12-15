@@ -17,9 +17,6 @@ exports.invokeRolesPolicies = function () {
         allows: [{
             resources: '/api/testimonials',
             permissions: '*'
-        }, {
-            resources: '/api/testimonials/:testimonialId',
-            permissions: '*'
         }]
     }, {
         roles: ['user'],
