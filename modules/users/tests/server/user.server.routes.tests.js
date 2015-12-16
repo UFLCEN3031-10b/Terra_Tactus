@@ -72,7 +72,7 @@ describe('User CRUD tests', function () {
   });
 
   it('should be able to retrieve a list of users if admin', function (done) {
-    user.roles = ['user', 'admin'];
+    user.roles = ['admin'];
 
     user.save(function () {
       agent.post('/api/auth/signin')

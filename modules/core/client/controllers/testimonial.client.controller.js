@@ -44,25 +44,25 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
         //Update existing testimonials
         $scope.update = function(testimonial, isValid){
           if (!isValid) {
-            $scope.$broadcast('show-errors-check-validity', 'updateTestimonial');
+            $scope.$broadcast('show-errors-check-validity', 'updateTestimonialForm');
             return false;
           }
-          //Update is entered as soon as modify is clicked
-          //So make sure we have actually clicked update and there is a testimonial we want to update
-          if (typeof(testimonial) !== 'undefined') {
-            //  Grab the values for the testimonial
-            var req = {
-                from: testimonial.from,
-                quote: testimonial.quote,
-                pictureUrl: testimonial.pictureUrl,
-                creditUrl: testimonial.creditUrl
-            };
-            //  Save the data
-            $http.put('/api/testimonials/' + testimonial._id, req).success(function (res) {
-                // set editing variables to false
-                $scope.editingData[testimonial._id] = false;
-            });
-          }
+            //Update is entered as soon as modify is clicked
+            //So make sure we have actually clicked update and there is a testimonial we want to update
+            if (typeof(testimonial) !== 'undefined') {
+              //  Grab the values for the testimonial
+              var req = {
+                  from: testimonial.from,
+                  quote: testimonial.quote,
+                  pictureUrl: testimonial.pictureUrl,
+                  creditUrl: testimonial.creditUrl
+              };
+              //  Save the data
+              $http.put('/api/testimonials/' + testimonial._id, req).success(function (res) {
+                  // set editing variables to false
+                  $scope.editingData[testimonial._id] = false;
+              });
+            }
         };
 
 
@@ -73,27 +73,30 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
               $scope.$broadcast('show-errors-check-validity', 'testimonialDataForm');
               return false;
             }
-            var req = $scope.testimonials;
+            // else {
+              var req = $scope.testimonials;
 
-            $scope.error = null;
-            console.log('Entering create function');
-            // Create new Testimonial object
-            var testimonial = new Testimonials({
-                from: this.from,
-                quote: this.quote,
-                pictureUrl: this.pictureUrl,
-                creditUrl: this.creditUrl
-            });
+              $scope.error = null;
+              console.log('Entering create function');
+              // Create new Testimonial object
+              var testimonial = new Testimonials({
+                  from: this.from,
+                  quote: this.quote,
+                  pictureUrl: this.pictureUrl,
+                  creditUrl: this.creditUrl
+              });
 
-            // Redirect after save
-            testimonial.$save(function (response) {
-            $location.path('testimonials');
+              // Redirect after save
+              testimonial.$save(function (response) {
+              $location.path('testimonials');
 
-            }, function (errorResponse) {
-              $scope.error = errorResponse.data.message;
-            });
+              }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+              });
 
-            console.log('Testimonial has been created');
+              console.log('Testimonial has been created');
+            // }
+
         };
 
         $scope.headers = ["From", "Quote", "Picture", "Link"];
