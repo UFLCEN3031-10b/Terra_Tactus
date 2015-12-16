@@ -61,7 +61,8 @@
         eduPrice: '2.00',
         wholePrice: '3.00',
         curriculum: [],
-        features: []
+        features: [],
+        suppName: ""
       });
 
       // Mock logged in admin
@@ -118,7 +119,8 @@
           eduPrice: '2.00',
           wholePrice: '3.00',
           curriculum: [],
-          features: []
+          features: [],
+          suppName: ""
         });
 
         // Fixture mock form input values
