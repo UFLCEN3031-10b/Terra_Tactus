@@ -1,7 +1,12 @@
 'use strict';
 var path = require('path'),
-  errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-  mongoose = require('mongoose');
+  errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
+var mongoose = require('mongoose'),
+    _ = require('lodash');
+
+var Grid = require('gridfs-stream');
+Grid.mongo = mongoose.mongo;
+var gfs = new Grid(mongoose.connection.db);
 
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
@@ -73,3 +78,32 @@ exports.sendUploadedFiles = function(req, res){
   res.json(user);
 };
 //send uploaded pdf files to admin
+
+exports.sendSupplements = function(req, res){
+  var supplement = '';
+  gfs.files.find({ filename: req.body.suppName }).toArray(function (err, files) {
+
+ 	    if(files.length===0){
+  			return res.status(400).send({
+  				message: 'File not found'
+  			});
+ 	    }
+
+      transporter.sendMail({
+        from: 'terratactusbot@gmail.com',
+        to: 'damian.larson@yahoo.com',
+        subject: 'Terra Tactus Educational Supplement',
+        text: 'Attached is the complementary supplement that comes with your Terra Tactus Order!',
+        attachments:[
+          {
+            filename: 'Supplement.pdf',
+            content: gfs.createReadStream({
+                filename: files[0].filename
+            })
+          }
+        ]
+      });
+	});
+
+  res.json({status: 'ok'});
+};

@@ -28,6 +28,7 @@ angular.module('payment').controller('AdminOrderController', ['$scope', '$http',
 
         $http.get('/api/order/adminctl?state=' + state).success(function (res) {
             $scope.orders = res;
+            console.log($scope.orders);
             $scope.isLoading = false;
         });
     };
