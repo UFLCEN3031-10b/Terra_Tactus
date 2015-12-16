@@ -26,8 +26,8 @@ $ grunt
 **Note!** This app was developed using Node version 0.12.7. A newer version of Node may cause this app to run differently or break altogether.
 
 ### Updating the database connection
-- In the file `Terra_Tactus\config\env\development.js`
-- Change lines 6 to 11 to be your respective login credentials and mongoLab information
+- In the file `Terra_Tactus\config\env\development.js`.
+- Change lines 6 to 11 to be your respective login credentials and mongoLab information.
 
 ## Completed Features
 - Allow a user to **create an account**,**log in**, or **log out**.
@@ -50,36 +50,36 @@ $ grunt
 
 
 - Allow the admin user to **edit all data on the website**.
-    - Admin tool bar located in `/modules/core/`
+    - Admin tool bar located in `modules/core/`.
     - When signed in as an admin user you are allowed to edit the individual pages.
     - This includes editing:
-        - Products located in `modules/products/`
-            - Features
-            - Curriculum
-            - Individual Product Data
+        - Products located in `modules/products/`.
+            - Features.
+            - Curriculum.
+            - Individual Product Data.
             -  Viewed by clicking the **"Who Are You?"** button or scrolling to the bottom of the homepage.
-        - Subscriptions located in `modules/products/`
-            - Entire Page
+        - Subscriptions located in `modules/products/`.
+            - Entire Page.
             -  Viewed by clicking the **"Who Are You?"** button or scrolling to the bottom of the homepage.
-        - Retail located in `modules/products/`
-            - Entire Page
+        - Retail located in `modules/products/`.
+            - Entire Page.
             - Viewed by clicking the **"Who Are You?"** button or scrolling to the bottom of the homepage.
-        - Commercial located in `modules/products/`
-            -  Entire Page
+        - Commercial located in `modules/products/`.
+            -  Entire Page.
             -  Viewed by clicking the **"Who Are You?"** button or scrolling to the bottom of the homepage.
-        - Testimonials located in `modules/core/`
-            - Create, Modify, and Delete
+        - Testimonials located in `modules/core/`.
+            - Create, Modify, and Delete.
             - Viewed by clicking the **Testimonials** button in the second navigation bar.
-        - Announcements located in `modules/core/`
-            -  Create, Modify, and Delete
+        - Announcements located in `modules/core/`.
+            -  Create, Modify, and Delete.
             -  Viewed on the right side of the homepage.
-        - Homepage located in `modules/core`
+        - Homepage located in `modules/core`.
             - There is a carousel on the homepage that can also be edited.
 - Allow the admin user to **send clients email from the website**.
     - When a user registers they have various user role options to choose from.
     - Depending on the option they choose, they will be required to verify that they are for example a retailer by providing Tax ID information.
     - This information will be sent using an emailer that is built into the website to send the admin emails for review.
-    - Code is located in `/modules/products/`
+    - Code is located in `modules/products/`.
 
 
 ## Incomplete Features
@@ -88,8 +88,11 @@ These bugs are explained further on the *Issues* page (https://github.com/UFLCEN
 
 ## Unstarted Features
 
-- A subscriber's portal where subscribers can view all the curriculum that an admin chooses for them to see. (Desecribed in further detail by clicking on the link above.)
+- A subscriber's portal where subscribers can view all the curriculum that an admin chooses for them to see. (Desecribed in further detail by clicking on the link above)
 
+## Testing
+- Thorough client-side and server-side tests have been run to ensure that only users with the proper credentials are able to edit data on the site.
+- There are Mocha, Karma, and Protractor tests.
 ### Screenshots
 The homepage.
 
