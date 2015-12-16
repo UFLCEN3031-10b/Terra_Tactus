@@ -28,29 +28,34 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
             });
         };
 
+        //Holds boolean values of whether or not we are editing this testimonial
         $scope.editingData = {};
 
+        //Initialize all the testimonials to not being edited
         for (var i in $scope.testimonials) {
           $scope.editingData[$scope.testimonials[i]._id] = false;
         }
 
+        //When you begin editing set editing for that testimonial to true so that the appearance changes for the user
         $scope.modify = function(testimonial){
             $scope.editingData[testimonial._id] = true;
         };
 
-
+        //Update existing testimonials
         $scope.update = function(testimonial){
           //Update is entered as soon as modify is clicked
           //So make sure we have actually clicked update and there is a testimonial we want to update
           if (typeof(testimonial) !== 'undefined') {
+            //  Grab the values for the testimonial
             var req = {
                 from: testimonial.from,
                 quote: testimonial.quote,
                 pictureUrl: testimonial.pictureUrl,
                 creditUrl: testimonial.creditUrl
             };
+            //  Save the data
             $http.put('/api/testimonials/' + testimonial._id, req).success(function (res) {
-                // set editing variables to null
+                // set editing variables to false
                 $scope.editingData[testimonial._id] = false;
             });
           }
@@ -85,38 +90,6 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
 
         $scope.headers = ["From", "Quote", "Picture", "Link"];
 
-
-        //value used to hide the edit field for a feature in the create products GUI
-        $scope.edits = false;
-
-        //Array used to hold features for a product we are creating
-        $scope.tempTestimonials = $scope.find();
-
-
-        //function to show the edit field, within this function the Function
-        //to edit a feature is embedded (editItem)
-        $scope.showEdits = function(item){
-          var index = $scope.tempTestimonials.indexOf(item);
-          $scope.editBox = item;
-          $scope.edits = true;
-          $scope.editItem = function(){
-              if($scope.editBox !== undefined && $scope.editBox !== "" ){
-                $scope.tempTestimonials[index] = $scope.editBox;
-                $scope.edits = false;
-                $scope.editBox = undefined;
-              }
-              else{
-                alert("Please enter a feature");
-              }
-          };
-        };
-
-        //Code to delete a feature from the tempFeature array
-        $scope.deleteFeature = function(item){
-          //console.log("in delete");
-          var index = $scope.tempTestimonials.indexOf(item);
-          $scope.tempTestimonials.splice(index, 1);
-        };
 
     }
 ]);
