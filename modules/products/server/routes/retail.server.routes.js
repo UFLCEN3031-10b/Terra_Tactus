@@ -5,6 +5,7 @@
 var retailData = require('../controllers/retail.server.controller'),
   whoareyoupolicy = require('../policies/variousUsers.server.policy.js');
 
+//Who are you policy makes sure you can only put if you have proper credentials
 
 //Route for retail data
 module.exports = function (app) {
