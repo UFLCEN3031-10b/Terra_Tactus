@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('ConfirmationController', ['$scope', '$state', '$http', '$stateParams',
-  function ($scope, $state, $http, $stateParams) {
+angular.module('users').controller('ConfirmationController', ['$scope', '$state', '$http', '$stateParams', '$window',
+  function ($scope, $state, $http, $stateParams, $window) {
     $http.get('/api/auth/confirm').success(function (res){
       var confirmations = res;
       for(var i = 0; i < res.length; i++){
@@ -31,6 +31,7 @@ angular.module('users').controller('ConfirmationController', ['$scope', '$state'
       userToUpdate.confirmed = true;
       $http.put('/api/auth/confirm/' + userToUpdate._id, userToUpdate).success(function(res){
         $scope.deleteConfirmation();
+        $window.location.reload();
         console.log(res);
       }).error(function(res){
         console.log('user not updated');

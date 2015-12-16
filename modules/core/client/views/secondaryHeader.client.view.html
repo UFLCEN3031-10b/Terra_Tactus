@@ -44,10 +44,10 @@
 
     <ul class ="nav navbar-nav" ng-if="(authentication.user.priceRoles.toString !== 'individual') && (!!authentication.user.confirmed) && !(authentication.user.verifySent || authentication.user.verified)">
       <li ui-sref-active="active">
-        <a ui-sref="verify">Submit Your Verification Info Now!</a>
+        <a ui-sref="verify">Submit Your Verification Info Now for Reduced Prices!</a>
       </li>
     </ul>
-    
+
     <form class="navbar-form navbar-right" role="search" ng-submit="searchButton()">
         <div class="input-group">
             <input type="text" class="dark form-control" placeholder="Search..." name="searchValue" ng-model="searchValue">

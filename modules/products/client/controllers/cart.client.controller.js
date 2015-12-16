@@ -30,9 +30,9 @@ angular.module('products').controller('CartController', ['$scope', '$rootScope',
             if (undefined !== Authentication.user.priceRoles) {
                 for (var i = 0; i < Authentication.user.priceRoles.length; i++) {
                     var r = Authentication.user.priceRoles[i];
-                    if (r === 'wholesale') {
+                    if (r === 'wholesale' && !!Authentication.user.verified) {
                         tempPrice = prodWrap.product.wholePrice;
-                    } else if (r === 'education') {
+                    } else if (r === 'education' && !!Authentication.user.verified) {
                         tempPrice = prodWrap.product.eduPrice;
                     }
                 }
