@@ -63,3 +63,5 @@ exports.read = function(req, res) {
 	});
 
 };
+
+//code adapted from https://www.codetutorial.io/file-upload-gridfs-mean-stack-meanjs/
