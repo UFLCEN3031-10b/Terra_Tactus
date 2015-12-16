@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
           <label>From</label>
-          <input name="from" type="text" ng-model="from" class="form-control" placeholder="E.g. John Smith" required>
+          <input name="from" type="text" ng-model="from" class="form-control" placeholder="E.g. John Smith">
         </div>
         <div class="form-group">
           <label>Picture Link (Optional)</label>
@@ -41,7 +41,7 @@
           <tr ng-repeat="testimonial in testimonials">
             <td>
                 <div ng-hide="editingData[testimonial._id]">{{testimonial.from}}</div>
-                <div ng-show="editingData[testimonial._id]"><input type="text"  class="editing" ng-model="testimonial.from" /></div>
+                <div ng-show="editingData[testimonial._id]"><input type="text"  class="editing" ng-model="testimonial.from"></div>
             </td>
             <td>
                 <div ng-hide="editingData[testimonial._id]">{{testimonial.quote}}</div>
