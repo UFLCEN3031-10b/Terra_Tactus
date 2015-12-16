@@ -1,0 +1,260 @@
+Output from grunt test
+
+  Article Model Unit Tests:
+    Method Save
+
+      ✓ should be able to save without problems (47ms)
+
+      ✓ should be able to show an error when try to save without title 
+
+  Article CRUD tests
+
+    ✓ should be able to save an article if logged in (609ms)
+
+    ✓ should not be able to save an article if not logged in (156ms)
+
+    ✓ should not be able to save an article if no title is provided (312ms)
+
+    ✓ should be able to update an article if signed in (726ms)
+
+    ✓ should be able to get a list of articles if not signed in (166ms)
+
+    ✓ should be able to get a single article if not signed in (145ms)
+
+    ✓ should return proper error for single article with an invalid Id, if not signed in (49ms)
+
+    ✓ should return proper error for single article which doesnt exist, if not signed in (229ms)
+
+    ✓ should be able to delete an article if signed in (724ms)
+
+    ✓ should not be able to delete an article if not signed in (203ms)
+
+  Announcement Model Unit Tests:
+    Method Save
+
+      ✓ should be able to save without problems (44ms)
+
+      ✓ should be able to show an error when try to save without title 
+
+  Announcement CRUD tests
+
+    ✓ should be able to save an announcement if logged in as admin (545ms)
+
+    ✓ should not be able to save an announcement if not logged in as admin (141ms)
+
+    ✓ should not be able to save an announcement if no title is provided (341ms)
+
+    ✓ should be able to update an announcement if logged in as an admin in (665ms)
+
+    ✓ should be able to get a list of announcements if not signed in (206ms)
+
+    ✓ should return proper error for single announcement which doesnt exist, if not signed in (92ms)
+
+    ✓ should be able to delete an announcement if signed in as an admin (813ms)
+
+    ✓ should not be able to delete an announcement if not an admin (170ms)
+
+  Testimonial CRUD tests
+
+    ✓ Should attempt to access testimonial page without being signed in (438ms)
+
+    ✓ Should not be able to put testimonial data without being signed in (94ms)
+
+    ✓ should be able to save testimonial data if logged in as an admin (614ms)
+
+  Admin Payment CRUD tests
+
+    ✓ should not be able to get the list when not logged in to an admin acc (50ms)
+
+    ✓ should be able to get the list as an admin (1312ms)
+
+    ✓ should not update when not an admin (213ms)
+
+    ✓ should update when on an admin acc (640ms)
+
+  Order Model Unit Tests
+
+    ✓ should save the model when all required fields are given (187ms)
+
+  Payment CRUD tests
+
+    ✓ should not list orders when not logged in (45ms)
+
+    ✓ should list orders when logged in (531ms)
+
+    ✓ should return 400 when cart is empty (133ms)
+
+    ✓ should return 400 when quantity is 0 for all products in cart (800ms)
+
+    ✓ should return a redirect url when cart has an item (2076ms)
+
+    ✓ should be able to close an order (1994ms)
+
+    ✓ should not close an order if the order is not open (226ms)
+
+    ✓ should cancel an order when the api is called (220ms)
+
+    ✓ should return the order information when the order is open (244ms)
+
+    ✓ should not return order information when the order is closed (301ms)
+
+  Cart CRUD tests
+
+    ✓ should return the cart even when empty (46ms)
+
+    ✓ should return the cart with an item in it (211ms)
+
+    ✓ should return an error when quantity is undefined (4085ms)
+
+    ✓ should return an error when quantity is 0 (146ms)
+
+    ✓ should allow you to add a product when not logged in (136ms)
+
+    ✓ should allow you to add a product when logged in (355ms)
+
+    ✓ should not let you add the same product twice (267ms)
+
+    ✓ should return an error when trying to update empty cart (128ms)
+
+    ✓ should return an error for no quantity (380ms)
+
+    ✓ should return an error for no quantity (257ms)
+
+    ✓ should respond with the length of the cart (89ms)
+
+    ✓ should not remove an item that is not in the cart (677ms)
+
+    ✓ should remove the correct item from the cart (301ms)
+
+  Commercial CRUD tests
+
+    ✓ Should attempt to access commercial page without being signed in (118ms)
+
+    ✓ Should not be able to put commercial data without being signed in (91ms)
+
+    ✓ should be able to save commercial data if logged in as an admin (570ms)
+
+  Product Model Unit Tests:
+    Method Save
+
+      ✓ should be able to save a product without problems (47ms)
+
+      ✓ should be able to show an error when try to save product without title 
+
+      ✓ should be able to show an error when try to save product without short description 
+
+      ✓ should be able to show an error when try to save product without long description 
+
+      ✓ should be able to show an error when try to save product without individual price 
+
+      ✓ should be able to show an error when try to save product without educational price 
+
+      ✓ should be able to show an error when try to save product without wholesale price 
+
+  Product CRUD tests
+
+    ✓ Should attempt to access products without being signed in (87ms)
+
+    ✓ should be able to get a list of products if not signed in (134ms)
+
+    ✓ Should not be able to create a product without being signed in (86ms)
+
+    ✓ should be able to save a product if logged in as an admin (2582ms)
+
+    ✓ Should not be able to create a product when signed in a free user (437ms)
+
+    ✓ should not be able to save a product if no title is provided (363ms)
+
+    ✓ should not be able to save a product if no shortDes is provided (1126ms)
+
+    ✓ should not be able to save a product if no longDes is provided (384ms)
+
+    ✓ should not be able to save a product if no indvPrice is provided (354ms)
+
+    ✓ should not be able to save a product if no eduPrice is provided (450ms)
+
+    ✓ should not be able to save a product if no wholePrice is provided (356ms)
+
+    ✓ should be able to update a product if signed in as admin (704ms)
+
+    ✓ should be able to get a single product if not signed in (157ms)
+
+    ✓ should return proper error for single product with an invalid Id, if not signed in (44ms)
+
+    ✓ should return proper error for single product which doesnt exist, if not signed in (97ms)
+
+    ✓ should be able to delete a product if signed in as admin (1185ms)
+
+    ✓ should not be able to delete a product if not signed in (133ms)
+
+  Retail CRUD tests
+
+    ✓ Should attempt to access retail page without being signed in (233ms)
+
+    ✓ Should not be able to put retail data without being signed in (99ms)
+
+    ✓ should be able to save retail data if logged in as an admin (2189ms)
+
+  Reviews CRUD tests
+
+    ✓ should get a list of reviews (88ms)
+
+    ✓ should be able to post a review when logged in (386ms)
+
+    ✓ should return an error when trying to post a review when not logged in (173ms)
+
+    ✓ should not change anything but the reviews when submitting 
+
+  Subscription CRUD tests
+
+    1) should not change anything but the reviews when submitting
+
+    ✓ Should attempt to access subscription page without being signed in (111ms)
+
+    ✓ Should not be able to put subscription data without being signed in (96ms)
+
+    ✓ should be able to save subscription data if logged in as an admin (695ms)
+
+  User Model Unit Tests:
+    Method Save
+
+      ✓ should begin with no users (49ms)
+
+      ✓ should be able to save without problems (139ms)
+
+      ✓ should fail to save an existing user again (236ms)
+
+      ✓ should validate when the password strength passes - "P@$$w0rd!!" 
+
+      ✓ should validate when the password is undefined 
+
+      ✓ should validate when the passphrase strength passes - "Open-Source Full-Stack Solution For MEAN Applications" 
+
+    User E-mail Validation Tests
+
+      ✓ should not allow invalid email address - "123" (91ms)
+
+      ✓ should not allow invalid email address - "123@123" (122ms)
+
+      ✓ should not allow invalid email address - "123.com" (90ms)
+
+      ✓ should not allow invalid email address - "@123.com" (90ms)
+
+      ✓ should not allow invalid email address - "abc@abc@abc.com" (85ms)
+
+      ✓ should not allow invalid characters in email address - "abc~@#$%^&*()ef=@abc.com" (82ms)
+
+      ✓ should not allow space characters in email address - "abc def@abc.com" (82ms)
+
+      ✓ should not allow doudble quote characters in email address - "abc"def@abc.com" (131ms)
+
+      ✓ should not allow double dotted characters in email address - "abcdef@abc..com" (126ms)
+
+
+  User CRUD tests
+
+    ✓ should not be able to retrieve a list of users if not admin (285ms)
+
+
+  106 passing (1m)
+
