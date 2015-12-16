@@ -80,9 +80,9 @@ exports.sendUploadedFiles = function(req, res){
 //send uploaded pdf files to admin
 
 exports.sendSupplements = function(req, res){
-  var supplement = '';
-  gfs.files.find({ filename: req.body.suppName }).toArray(function (err, files) {
-
+  var data = req.body;
+  gfs.files.find({ filename: data.product.suppName }).toArray(function (err, files) {
+    //find filestream in the database
  	    if(files.length===0){
   			return res.status(400).send({
   				message: 'File not found'
@@ -91,19 +91,20 @@ exports.sendSupplements = function(req, res){
 
       transporter.sendMail({
         from: 'terratactusbot@gmail.com',
-        to: 'damian.larson@yahoo.com',
-        subject: 'Terra Tactus Educational Supplement',
+        to: data.user.email,
+        subject: 'Terra Tactus Educational Supplement - ' + data.product.proTitle,
         text: 'Attached is the complementary supplement that comes with your Terra Tactus Order!',
         attachments:[
           {
-            filename: 'Supplement.pdf',
+            filename: data.product.proTitle + ' Supplement.pdf',
             content: gfs.createReadStream({
                 filename: files[0].filename
             })
+            //send filestream as email attachment
           }
         ]
       });
 	});
 
-  res.json({status: 'ok'});
+  res.json({status: "OK"});
 };
