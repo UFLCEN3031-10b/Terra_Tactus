@@ -93,11 +93,6 @@ angular.module('products').config(['$stateProvider',
                     roles: ['admin']
                 }
             })
-            .state('upload', {
-              url: '/upload',
-              templateUrl: 'modules/products/client/views/upload.client.view.html',
-              controller: 'UploadController'
-            })
 
             //adding an under construction page
             .state('construction', {
