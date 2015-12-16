@@ -327,6 +327,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
     $scope.cancelUpload = function () {
       $scope.uploader.clearQueue();
       $scope.pdfName ='none';
+      $scope.suppName = '';
     };
   }
 ]);
