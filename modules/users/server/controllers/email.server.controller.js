@@ -25,7 +25,7 @@ exports.sendVReqTeacher = function(req, res){
       from: 'terratactusbot@gmail.com',
       to: 'damian.larson@yahoo.com',
       subject: 'Terra Tactus - New Verification Request',
-      text: 'Hello! \n\nYou have a new verification request from ' + data.user.firstName + ' ' + data.user.lastName + '. \n\nEducational Email: ' + data.eduEmail + '\n\nPlease go to the website to review the information and approve or deny their request for reduced prices.'
+      text: 'Hello! \n\nYou have a new verification request from ' + data.user.firstName + ' ' + data.user.lastName + '. \n\nEducational Email: ' + data.user.eduEmail + '\n\nPlease go to the website to review the information and approve or deny their request for reduced prices.'
   });
 
   res.json(data);

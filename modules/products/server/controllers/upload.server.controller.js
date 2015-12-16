@@ -10,7 +10,6 @@ var gfs = new Grid(mongoose.connection.db);
 
 exports.create = function(req, res) {
 
-
   var part = req.files.file;
 
   var writeStream = gfs.createWriteStream({
@@ -22,8 +21,8 @@ exports.create = function(req, res) {
 
   writeStream.on('close', function() {
        return res.status(200).send({
-				message: 'Success'
-			});
+        message: 'Success'
+      });
   });
 
   writeStream.write(part.data);
@@ -38,9 +37,9 @@ exports.read = function(req, res) {
 	gfs.files.find({ filename: req.params.filename }).toArray(function (err, files) {
 
  	    if(files.length===0){
-			return res.status(400).send({
-				message: 'File not found'
-			});
+  			return res.status(400).send({
+  				message: 'File not found'
+  			});
  	    }
 
 		res.writeHead(200, {'Content-Type': files[0].contentType});
