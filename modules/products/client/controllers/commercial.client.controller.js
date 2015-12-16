@@ -1,27 +1,21 @@
 'use strict';
-/**
- * Created by memamdie on 10/28/15.
- */
-angular.module('core').controller('CommercialProdController', function ($scope, $http) {
-    $http.get('/api/products').success(function (res) {
-        console.log(res);
-        //res.find()
-        //for(var obj in res) {
-        //    console.log(obj.teacher);
-        //}
-    });
+angular.module('core').controller('CommercialProdController', function ($scope, $location, $http) {
+    $scope.commercialData = {};
+
+    //Gets the commercial data from the DB
+
     $http.get('/api/commercial/data').success(function (res) {
-        console.log(res);
         $scope.commercialData = res;
     });
+    //Updates the commercial data when changed in the commercial editing view
 
+    $scope.commercialUpdate = function () {
+        var req = $scope.commercialData;
 
-    $scope.addProduct = function (newTitle,newImage, newText, newPrice) {
-        $scope.products.push({
-            title: newTitle,
-            image: newImage,
-            text: newText,
-            price: newPrice
+        $http.put('/api/commercial/data', req).success(function (res) {
+            $location.path('commercial');
+        }).error(function (res) {
+            console.log(res);
         });
     };
 

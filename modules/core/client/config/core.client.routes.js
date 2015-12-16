@@ -40,13 +40,13 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         roles: ['admin']
       }
     })
-
+    //Viewing testimonials
     .state('testimonials', {
       url: '/testimonials',
       templateUrl: '/modules/core/client/views/testimonial.client.view.html',
       controller: 'TestimonialController'
     })
-
+     //Editing testimonials
     .state('testimonials-edit', {
       url: '/testimonials/edit',
       templateUrl: '/modules/core/client/views/testimonial.edit.client.view.html',
@@ -55,6 +55,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         roles: ['admin']
       }
     })
+    //Attempting to access a forbidden page
     .state('forbidden', {
       url: '/forbidden',
       templateUrl: 'modules/core/client/views/403.client.view.html',

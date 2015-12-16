@@ -46,7 +46,7 @@ module.exports = function (app) {
       .get(testimonials.find)
       .put(testimonials.update)
       .delete(testimonials.delete);
-
+  //routing for testimonial data needs user restriction
   app.route('/api/testimonials').all(testimonialpolicy.isAllowed)
       .get(testimonials.list)
       .post(testimonials.create);

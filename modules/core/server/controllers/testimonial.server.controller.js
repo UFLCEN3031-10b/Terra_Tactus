@@ -5,10 +5,12 @@ var path = require('path'),
     Testimonials = mongoose.model('Testimonial'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
+//Find all the testimonials
 exports.find = function (req, res) {
   res.json(req.testimonial);
 };
 
+//Find testimonial using its unique ID
 exports.testimonialByID = function (req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -30,6 +32,7 @@ exports.testimonialByID = function (req, res, next, id) {
   });
 };
 
+//Update existing testimonials
 exports.update = function (req, res) {
     var d = req.testimonial;
     d.from = req.body.from;
@@ -49,7 +52,7 @@ exports.update = function (req, res) {
     });
 };
 
-
+//Create new testimonials
 exports.create = function (req, res) {
     var d = new Testimonials();
     d.from = req.body.from;
@@ -68,6 +71,7 @@ exports.create = function (req, res) {
     });
 };
 
+//List out all the testimonials
 exports.list = function (req, res) {
   Testimonials.find().exec(function (err, testimonials) {
     if (err) {
@@ -80,7 +84,7 @@ exports.list = function (req, res) {
   });
 };
 
-
+//Delete testimonials
 exports.delete = function (req, res) {
     var d_testimonial = req.testimonial;
 
