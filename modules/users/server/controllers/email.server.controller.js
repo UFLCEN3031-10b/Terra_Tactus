@@ -23,7 +23,7 @@ exports.sendVReqTeacher = function(req, res){
 
   transporter.sendMail({
       from: 'terratactusbot@gmail.com',
-      to: 'damian.larson@yahoo.com',
+      to: 'terra.tactus@gmail.com',
       subject: 'Terra Tactus - New Verification Request',
       text: 'Hello! \n\nYou have a new verification request from ' + data.user.firstName + ' ' + data.user.lastName + '. \n\nEducational Email: ' + data.user.eduEmail + '\n\nPlease go to the website to review the information and approve or deny their request for reduced prices.'
   });
@@ -64,7 +64,7 @@ exports.sendUploadedFiles = function(req, res){
 
   transporter.sendMail({
     from: 'terratactusbot@gmail.com',
-    to: 'damian.larson@yahoo.com',
+    to: 'terra.tactus@gmail.com',
     subject: 'Terra Tactus Wholesaler ' + user.firstName + ' ' + user.lastName + ' Information',
     text: 'A Wholesaler is attempting to sign up for Terra Tactus. \n\nAttached is their Tax Information in PDF Form.',
     attachments:[
