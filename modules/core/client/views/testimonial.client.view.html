@@ -2,11 +2,13 @@
 <section ng-controller="TestimonialController" ng-init="find()">
 <h1 align="center">Testimonials</h1>
   <!--Repeats for each testimonial this structure-->
-  <div ng-repeat="testimonial in testimonials" class="col-md-8 dark">
-    <h3 class="testimonial-from"><br>{{testimonial.from}}</h3>
-    <div class="row italic" align="center">{{testimonial.quote}}</div>
-    <div class="picture" align="right" ng-if="testimonial.pictureUrl !== ''">
-        < src="{{testimonial.pictureUrl}}" style="width:128px;height:128px;"></div><br>
-    <div class="link" align="right" ng-if="testimonial.creditUrl !== ''"> {{testimonial.creditUrl}}</div>
+  <div align="center">
+    <div ng-repeat="testimonial in testimonials" class="dark">
+      <h3 class="testimonial-from"><br>{{testimonial.from}}</h3>
+      <div class="row italic" align="center">{{testimonial.quote}}</div>
+      <div class="picture" align="right" ng-if="testimonial.pictureUrl !== ''">
+          <img src="{{testimonial.pictureUrl}}" style="width:128px;height:128px;"></div><br>
+      <div class="link" align="right" ng-if="testimonial.creditUrl !== ''"><a href="http://{{testimonial.creditUrl}}">{{testimonial.creditUrl}}</a></div>
+    </div>
   </div>
 </section>

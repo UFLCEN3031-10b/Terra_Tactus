@@ -42,7 +42,11 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
         };
 
         //Update existing testimonials
-        $scope.update = function(testimonial){
+        $scope.update = function(testimonial, isValid){
+          if (!isValid) {
+            $scope.$broadcast('show-errors-check-validity', 'updateTestimonial');
+            return false;
+          }
           //Update is entered as soon as modify is clicked
           //So make sure we have actually clicked update and there is a testimonial we want to update
           if (typeof(testimonial) !== 'undefined') {
@@ -64,7 +68,11 @@ angular.module('core').controller('TestimonialController', ['$window','$http','$
 
 
         // Create new Testimonial
-        $scope.create = function () {
+        $scope.create = function (isValid) {
+            if (!isValid) {
+              $scope.$broadcast('show-errors-check-validity', 'testimonialDataForm');
+              return false;
+            }
             var req = $scope.testimonials;
 
             $scope.error = null;
