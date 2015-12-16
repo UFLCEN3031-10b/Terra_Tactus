@@ -21,7 +21,6 @@ The group working on this project consists of the following members:
 $ git clone https://github.com/UFLCEN3031-10b/Terra_Tactus
 $ cd Terra_Tactus
 $ grunt
-
 ```
 
 **Note!** This app was developed using Node version 0.12.7. A newer version of Node may cause this app to run differently or break altogether.
@@ -51,32 +50,36 @@ $ grunt
 
 
 - Allow the admin user to **edit all data on the website**.
+    - Admin tool bar located in `/modules/core/`
     - When signed in as an admin user you are allowed to edit the individual pages.
     - This includes editing:
         - Products located in `modules/products/`
             - Features
             - Curriculum
             - Individual Product Data
-            -  Viewed by clicking the who are you button or scrolling to the bottom of the homepage.
+            -  Viewed by clicking the **"Who Are You?"** button or scrolling to the bottom of the homepage.
         - Subscriptions located in `modules/products/`
             - Entire Page
-            -  Viewed by clicking the who are you button or scrolling to the bottom of the homepage.
+            -  Viewed by clicking the **"Who Are You?"** button or scrolling to the bottom of the homepage.
         - Retail located in `modules/products/`
             - Entire Page
-            - Viewed by clicking the who are you button or scrolling to the bottom of the homepage.
+            - Viewed by clicking the **"Who Are You?"** button or scrolling to the bottom of the homepage.
         - Commercial located in `modules/products/`
             -  Entire Page
-            -  Viewed by clicking the who are you button or scrolling to the bottom of the homepage.
+            -  Viewed by clicking the **"Who Are You?"** button or scrolling to the bottom of the homepage.
         - Testimonials located in `modules/core/`
             - Create, Modify, and Delete
-            - Viewed by clicking the Testimonials button in the second navigation bar.
+            - Viewed by clicking the **Testimonials** button in the second navigation bar.
         - Announcements located in `modules/core/`
             -  Create, Modify, and Delete
             -  Viewed on the right side of the homepage.
         - Homepage located in `modules/core`
             - There is a carousel on the homepage that can also be edited.
 - Allow the admin user to **send clients email from the website**.
-    - INCOMPLETE
+    - When a user registers they have various user role options to choose from.
+    - Depending on the option they choose, they will be required to verify that they are for example a retailer by providing Tax ID information.
+    - This information will be sent using an emailer that is built into the website to send the admin emails for review.
+    - Code is located in `/modules/products/`
 
 
 ## Incomplete Features
@@ -85,7 +88,7 @@ These bugs are explained further on the *Issues* page (https://github.com/UFLCEN
 
 ## Unstarted Features
 
-- A subscriber's portal where subscribers can view all the curriculum that an admin chooses for them to see. 
+- A subscriber's portal where subscribers can view all the curriculum that an admin chooses for them to see. (Desecribed in further detail by clicking on the link above.)
 
 ### Screenshots
 The homepage.
