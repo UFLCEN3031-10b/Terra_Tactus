@@ -1,11 +1,10 @@
 <div ng-controller = "VerifyController">
   <div class = "row" ng-show="!verify">
-    <h1 class = "text-center">Please have your ____ forms ready before you verify.</h1>
+    <h1 class = "text-center">Reduced Price Verification</h1>
     <div class = "col-md-4 col-md-offset-4 text-center">
-      <p>In this verification process, you will need to submit certain information in order to ensure that you qualify for the prices that you are receiving.</p>
-      <p>Your information will be reviewed, and you will automatically be sent an email once you have been verified and your order has been placed.</p>
-      <p>Please note that this will NOT save your work, so ensure that you are able to complete the process in one sitting.</p>
-      <p>Once you're ready to begin, click the button below to start.</p>
+      <p>In this verification process, you will simply have to submit a valid email address that is affiliated with your educational institution.</p>
+      <p>Once you confirm that this email is real by clicking the link that is sent to you, your information will become reviewable.</p>
+      <p>Once you have been approved, you will be able to purchase our products at reduced prices automatically.</p>
       <div>
         <button id="add_item_button" class="btn btn-blue" ng-click="verify = true"> <!--will work upon integration-->
           Begin Verification
@@ -32,7 +31,7 @@
         <!--SUBMIT BUTTON -->
         <div class = "col-xs-10 col-xs-offset-2">
           <button type="submit" class="btn btn-primary">Submit</button>
-          <button class="btn btn-primary" ng-click="credentials.eduEmail = user.email">Use Account Email</button>
+          <button class="btn btn-primary" type="button" ng-click="credentials.eduEmail = user.email">Use Account Email</button>
         </div>
         </fieldset>
     </form>

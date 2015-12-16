@@ -17,6 +17,7 @@ var config = require('../config'),
   helmet = require('helmet'),
   flash = require('connect-flash'),
   consolidate = require('consolidate'),
+  busboyBodyParser = require('busboy-body-parser'),
   path = require('path');
 
 /**
@@ -84,6 +85,7 @@ module.exports.initMiddleware = function (app) {
   }));
   app.use(bodyParser.json());
   app.use(methodOverride());
+  app.use(busboyBodyParser());
 
   // Add the cookie parser and flash middleware
   app.use(cookieParser());

@@ -1,8 +1,8 @@
 'use strict';
 
 // Products controller
-angular.module('core').controller('ProductsController', ['$window','$http','$scope','$rootScope', '$stateParams', '$location', 'Authentication', 'Products',
-  function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Products) {
+angular.module('core').controller('ProductsController', ['$window','$http','$scope','$rootScope', '$stateParams', '$location', 'Authentication', 'Products', 'FileUploader',
+  function ($window, $http, $scope, $rootScope, $stateParams, $location, Authentication, Products, FileUploader) {
     $scope.authentication = Authentication;
     //individual product image picker function
     $scope.displayType = false; //initialized country
@@ -199,6 +199,7 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
         wholePrice: this.wholePrice,
         teacher: this.teacher,
         features: this.tempFeatures,
+        suppName: $scope.suppName,
         curriculum: this.tempTable
       });
 
@@ -228,6 +229,10 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       if($scope.editingCurr === true)
       {
       edited_product.curriculum = $scope.tempTable.slice();
+      }
+
+      if($scope.suppName !== ''){
+        edited_product.suppName = $scope.suppName;
       }
       //update product
       edited_product.$update(function () {
@@ -264,9 +269,65 @@ angular.module('core').controller('ProductsController', ['$window','$http','$sco
       });
     };
 
+    //BELOW IS FOR PDF UPLOADING
+    $scope.success = false;
+    $scope.pdfName = 'none';
+    $scope.suppName = '';
+    // Create file uploader instance
+    $scope.uploader = new FileUploader({
+      url: '/api/upload'
+    });
+
+    // Set file uploader image filter
+    $scope.uploader.filters.push({
+      name: 'pdfFilter',
+      fn: function (item, options) {
+        var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+        return '|pdf|'.indexOf(type) !== -1;
+      }
+    });
+
+    // Called after the user selected a new picture file
+    $scope.uploader.onAfterAddingFile = function (fileItem) {
+      $scope.pdfName = fileItem._file.name;
+      $scope.suppName = fileItem._file.name;
+    };
+
+    // Called after the user has successfully uploaded a new picture
+    $scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
+      // Show success message
+      $scope.success = true;
+      console.log('pdf uploaded');
 
 
+      // Clear upload buttons
+      $scope.cancelUpload();
+      //create the requests in $scope.submit()
+    };
 
+    // Called after the user has failed to uploaded a new picture
+    $scope.uploader.onErrorItem = function (fileItem, response, status, headers) {
+      // Clear upload buttons
+      $scope.cancelUpload();
 
+      // Show error message
+      $scope.error = response.message;
+    };
+
+    // Change user profile picture
+    $scope.uploadPDF = function () {
+      // Clear messages
+      $scope.success = $scope.error = null;
+
+      // Start upload
+      $scope.uploader.uploadAll();
+    };
+
+    // Cancel the upload process
+    $scope.cancelUpload = function () {
+      $scope.uploader.clearQueue();
+      $scope.pdfName ='none';
+      $scope.suppName = '';
+    };
   }
 ]);
