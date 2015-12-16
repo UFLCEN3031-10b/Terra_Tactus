@@ -22,7 +22,9 @@
                           </a>
                       </div>
                       <div class="store-item-info clearfix">
-                          <span class="store-item-price themed-color-dark pull-right">$ {{product.indvPrice}}</span>
+                          <span class="store-item-price themed-color-dark pull-right" ng-if="authentication.user.priceRoles[0].toString() === 'individual' || !authentication.user.verified">$ {{product.indvPrice}}</span>
+                          <span class="store-item-price themed-color-dark pull-right" ng-if="authentication.user.priceRoles[0].toString() === 'education' && !!authentication.user.verified">$ {{product.eduPrice}}</span>
+                          <span class="store-item-price themed-color-dark pull-right" ng-if="authentication.user.priceRoles[0].toString() === 'wholesale' && !!authentication.user.verified">$ {{product.wholePrice}}</span>
                           <a ui-sref="product.view({productId: product._id})"><strong>{{product.proTitle}}</strong></a><br>
                           <small><i class="fa fa-shopping-cart text-muted"></i>
                           <a href="#" class="text-muted" ng-click="addOnetoCart(product._id)">Add to cart</a></small><br>

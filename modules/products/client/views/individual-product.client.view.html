@@ -34,7 +34,9 @@
 			<div class="product-desc" ng-bind="product.shortDes"></div>
 			<rating ng-model="product.rating" readonly="true" class="glyphicon-star-lg"></rating>
 			<hr>
-			<div class="product-price">${{product.indvPrice}}</div>
+			<div class="product-price" ng-if="authentication.user.priceRoles[0].toString() === 'individual' || !authentication.user.verified">${{product.indvPrice}}</div>
+			<div class="product-price" ng-if="authentication.user.priceRoles[0].toString() === 'education' && !!authentication.user.verified">${{product.eduPrice}}</div>
+			<div class="product-price" ng-if="authentication.user.priceRoles[0].toString() === 'wholesale' && !!authentication.user.verified">${{product.wholePrice}}</div>
 			<div class="product-stock" ng-show="product.proType">Country Product</div>
 			<div class="product-stock" ng-hide="product.proType">Geological Product</div>
 			<hr>

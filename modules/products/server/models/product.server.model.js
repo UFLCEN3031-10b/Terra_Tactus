@@ -104,6 +104,10 @@ var ProductSchema = new Schema({
     reviews: {
       type: [ReviewSchema]
     },
+    suppName:{
+      type: String,
+      default: ''
+    },
     curriculum: []
 });
 

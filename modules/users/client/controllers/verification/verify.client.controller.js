@@ -16,23 +16,23 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
         //create request for reduced prices
       }
       else if($state.current.name === 'teacher'){
+        var submitUser = $scope.user;
+        submitUser.eduEmail = $scope.credentials.eduEmail;
         $scope.user.eduEmail = $scope.credentials.eduEmail;
-        if($scope.user.eduEmail !== $scope.user.email){
-          $scope.vRequest = {validRequest: false, user: $scope.user};
+        if(submitUser.eduEmail !== submitUser.email){
+          $scope.vRequest = {validRequest: false, user: submitUser};
           $scope.createNewConfirmation();
           //user must confirm that their .edu email is legitimate
           //therefore, we create another confirmation hoop for the user to jump through
         }
         else{
-          $scope.vRequest = {validRequest: true, user: $scope.user};
+          $scope.vRequest = {validRequest: true, user: submitUser};
         }
       }
       console.log($scope.vRequest);
       $http.post('/api/auth/verify', $scope.vRequest).success(function(response){
         $scope.userUpdate();
         //update the user
-        $scope.sendMail();
-        //send admin the email
         console.log("Submitted successfully!");
       }).error(function (response){
         $scope.error = response.message;
@@ -54,6 +54,8 @@ angular.module('users').controller('VerifyController', ['$scope', '$state', '$ht
       var updateUser = $scope.user;
       updateUser.verifySent = true;
       $http.put('/api/auth/confirm/' + updateUser._id, updateUser).success(function(){
+        $scope.sendMail();
+        //send admin the email
         console.log('updated successfully');
       }).error(function(){
         console.log('user not updated');
