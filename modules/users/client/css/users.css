@@ -129,7 +129,9 @@
 /* Used for Signup Page */
 
 .signup-body{
-    background-color: #525252;
+     background: url('http://i.imgur.com/Eor57Ae.jpg') no-repeat fixed center center;
+    background-size: cover;
+    font-family: Montserrat;
 }
 .signup-centered-form{
   margin-top: 60px;
@@ -142,7 +144,8 @@
 
 /* Basic Style */
 .signup-form-group {
-    position: relative;   
+    position: relative; 
+    color: #339933  
 }
 .signup-form-group [data-toggle="floatLabel"] {
     height: 44px;
@@ -151,10 +154,10 @@
 .signup-form-group [data-toggle="floatLabel"] + label {
     font-size: 12px;
     left: 12px;
-  opacity: 1;
-  position: absolute;
-  top: 3px;
-  transition: all 0.3s ease-in-out;
+    opacity: 1;
+    position: absolute;
+    top: 3px;
+    transition: all 0.3s ease-in-out;
 }
 .signup-form-group [data-toggle="floatLabel"]:required + label {
     color: rgb(255, 0, 0);
