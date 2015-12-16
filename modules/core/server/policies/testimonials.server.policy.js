@@ -17,10 +17,8 @@ exports.invokeRolesPolicies = function () {
         allows: [{
             resources: '/api/testimonials',
             permissions: '*'
-        }, {
-            resources: '/api/testimonials/:testimonialId',
-            permissions: '*'
         }]
+        //There is an additional testimonial policy that is for admin users in the homepage server policy
     }, {
         roles: ['user'],
         allows: [{

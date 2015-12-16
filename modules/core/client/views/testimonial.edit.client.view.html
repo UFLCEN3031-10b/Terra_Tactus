@@ -1,23 +1,8 @@
-<style>
-  .newAnnouncement {
-    border-bottom: double;
-  }
-  table {
-    table-layout: fixed;
-  }
-  td {
-    width: 20%;
-    word-wrap: break-word;
-  }
-  .editing {
-    background-color: #222222;
-    border-color: #222222;
-  }
-</style>
 <section ng-controller="TestimonialController">
   <div class="page-header">
     <h1>Edit Testimonial Data</h1>
   </div>
+  <!--This form allows you to create a new testimonial-->
   <form name="testimonialDataForm" class="form-horizontal col-md-12" ng-submit="create()" novalidate>
     <fieldset>
       <div class="newAnnouncement"> <h2 align="center">New Testimonial</h2>
@@ -31,11 +16,11 @@
         </div>
         <div class="form-group">
           <label>Picture Link (Optional)</label>
-          <input name="pictureUrl" ng-model="pictureUrl" class="form-control" placeholder="https://www.thisisalink.com/image.jpg" cols="30" rows="5" required>
+          <input name="pictureUrl" ng-model="pictureUrl" class="form-control" placeholder="https://www.thisisalink.com/image.jpg" cols="30" rows="5">
         </div>
         <div class="form-group">
           <label>Additional Link (Optional)</label>
-          <input name="creditUrl" type="text" ng-model="creditUrl" class="form-control" placeholder="https://www.thisisalink.com/" required>
+          <input name="creditUrl" type="text" ng-model="creditUrl" class="form-control" placeholder="https://www.thisisalink.com/">
         </div>
         <div class="form-group text-center">
           <input type="submit" class="btn btn-blue">
@@ -44,7 +29,7 @@
 
     </fieldset>
   </form>
-
+  <!--This form allows you to view and update or delete existing testimonials-->
   <form name="updateTestimonial" class="form-horizontal col-md-12" ng-init="find()" ng-submit="update()" novalidate>
     <fieldset>
       <div>
@@ -73,7 +58,7 @@
             <td>
                 <button class="btn-blue"ng-hide="editingData[testimonial._id]" ng-click="modify(testimonial)">Modify</button>
                 <button class="btn-blue"ng-show="editingData[testimonial._id]" ng-click="update(testimonial)">Update</button>
-                <button class="btn-red"ng-hide="viewField">Remove</button>
+                <button class="btn-red"ng-hide="viewField" ng-click="delete(testimonial._id)">Remove</button>
             </td>
           </tr>
         </table>

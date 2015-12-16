@@ -1,24 +1,12 @@
-<style>
-  .dark {
-    background-color: #222222;
-    border-radius: 25px;
-    padding-bottom: 2%;
-    padding-left: 1%;
-  }
-  .italic {
-    font-style: italic;
-  }
-  .h3 {
-    padding-left: 42px;
-  }
-</style>
+<!--Finds all the testimonials using the TestimonialController-->
 <section ng-controller="TestimonialController" ng-init="find()">
 <h1 align="center">Testimonials</h1>
+  <!--Repeats for each testimonial this structure-->
   <div ng-repeat="testimonial in testimonials" class="col-md-8 dark">
-    <h3><br>{{testimonial.from}}</h3>
+    <h3 class="testimonial-from"><br>{{testimonial.from}}</h3>
     <div class="row italic" align="center">{{testimonial.quote}}</div>
     <div class="picture" align="right" ng-if="testimonial.pictureUrl !== ''">
-        <img src="{{testimonial.pictureUrl}}" style="width:128px;height:128px;"></img></div><br>
+        < src="{{testimonial.pictureUrl}}" style="width:128px;height:128px;"></div><br>
     <div class="link" align="right" ng-if="testimonial.creditUrl !== ''"> {{testimonial.creditUrl}}</div>
   </div>
 </section>

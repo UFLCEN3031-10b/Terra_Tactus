@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+//Things that are editable on the Commercial Page
 var CommercialSchema = new Schema({
     pictureUrl: {
         type: String

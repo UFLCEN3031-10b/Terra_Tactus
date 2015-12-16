@@ -3,45 +3,30 @@
 var acl = require('acl');
 
 acl = new acl(new acl.memoryBackend());
-
+//User roles
 exports.invokeRolesPolicies = function () {
     acl.allow([{
         roles: ['admin'],
         allows: [{
-            resources: '/api/homepage/data',
+            resources: '/api/subscription/data',
             permissions: '*'
         }, {
-            resources: '/api/homepage/contact',
+            resources: '/api/retail/data',
             permissions: '*'
         }, {
-            resources: '/api/homepage/socialmedia',
-            permissions: '*'
-        }, {
-            resources: '/api/homepage/carousel',
-            permissions: '*'
-        }, {
-            resources: '/api/homepage/carousel/:slideId',
-            permissions: '*'
-        },{
-            resources: '/api/testimonials/:testimonialId',
-            permissions: '*'
-        }, {
-            resources: '/api/homepage/socialmedia/:smId',
+            resources: '/api/commercial/data',
             permissions: '*'
         }]
     }, {
         roles: ['user', 'guest', 'freeUser'],
         allows: [{
-            resources: '/api/homepage/data',
+            resources: '/api/subscription/data',
             permissions: ['get']
         }, {
-            resources: '/api/homepage/contact',
+            resources: '/api/retail/data',
             permissions: ['get']
         }, {
-            resources: '/api/homepage/socialmedia',
-            permissions: ['get']
-        }, {
-            resources: '/api/homepage/carousel',
+            resources: '/api/commercial/data',
             permissions: ['get']
         }]
     }]);
