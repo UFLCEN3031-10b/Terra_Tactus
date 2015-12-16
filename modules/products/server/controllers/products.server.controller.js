@@ -45,6 +45,7 @@ exports.update = function (req, res) {
     d.rating = req.body.rating;
     d.curriculum = req.body.curriculum;
     d.numberVerified = req.body.numberVerified;
+    d.suppName = req.body.suppName;
 
     d.save(function (err) {
         if (err) {
@@ -97,6 +98,7 @@ exports.productByID = function (req, res, next, id) {
     d.teacher = req.body.teacher;
     d.curriculum = req.body.curriculum;
     d.features = req.body.features;
+    d.suppName = req.body.suppName;
 
     d.save(function (err) {
         if (err) {

@@ -140,6 +140,29 @@
           <label><input type="checkbox" ng-model = "teacher" id = "teacher-cb"><b> This product is a Teacher's Favorite </b></label>
         </div>
         <br>
+        <label class = "form-group">Supplementary PDF</label>
+        <div class = "row">
+          <div style="padding-left: 20px">
+            <div class="form-group" ng-hide="uploader.queue.length">
+              <span class="btn btn-default btn-file">
+                  Select PDF <input type="file" nv-file-select uploader="uploader">
+              </span>
+            </div>
+            <div class="form-group" ng-show="uploader.queue.length">
+              {{pdfName}}
+              <br>
+              <button class="btn btn-blue" ng-click="uploadPDF();" type="button">Upload</button>
+              <button class="btn btn-default" ng-click="cancelUpload();" type="button">Cancel</button>
+            </div>
+            <div ng-show="success" class="text-success">
+              <strong>PDF Uploaded Successfully</strong>
+            </div>
+            <div ng-show="error" class="text-center text-danger">
+              <strong ng-bind="error"></strong>
+            </div>
+          </div>
+        </div>
+        <br>
         <!--GUI for creating features for a product, features are diplayed in the individual product page in the order they are created-->
         <label class="form-group">Features</label>
         <!--code for adding a feauture-->
