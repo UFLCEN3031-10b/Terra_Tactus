@@ -7,9 +7,9 @@ var should = require('should'),
     User = mongoose.model('User'),
     express = require(path.resolve('./config/lib/express'));
 
-var app, agent, credentials, user, commData;
+var app, agent, credentials, user, retailData;
 
-describe('Commercial CRUD tests', function () {
+describe('Retail CRUD tests', function () {
     //Before running any tests do this stuff
     before(function (done) {
         app = express.init(mongoose);
@@ -32,7 +32,7 @@ describe('Commercial CRUD tests', function () {
             roles: ['admin'],
             provider: 'local'
         });
-        commData = {
+        retailData = {
             pictureUrl: 'hi',
             quote: 'hi',
             description: 'hi'
@@ -43,23 +43,23 @@ describe('Commercial CRUD tests', function () {
 
     });
 
-    //Test # 1 to see if you can access the commercials when not signed in
-    it('Should attempt to access commercial page without being signed in', function(done){
-        agent.get('/api/commercial/data')
+    //Test # 1 to see if you can access the retails when not signed in
+    it('Should attempt to access retail page without being signed in', function(done){
+        agent.get('/api/retail/data')
             .expect(200)
             .end(done);
     });
 
-    //Test # 2 to see if you can create commercial without being signed in.
-    it('Should not be able to put commercial data without being signed in', function(done){
-        agent.put('/api/commercial/data')
-            .send(commData)
+    //Test # 2 to see if you can create retail without being signed in.
+    it('Should not be able to put retail data without being signed in', function(done){
+        agent.put('/api/retail/data')
+            .send(retailData)
             .expect(403)
             .end(done);
     });
 
-    //Test #3 to see that commercial data is saved when signed in as an admin
-    it('should be able to save commercial data if logged in as an admin', function (done) {
+    //Test #3 to see that retail data is saved when signed in as an admin
+    it('should be able to save retail data if logged in as an admin', function (done) {
         //note our user was created with admin as its roles attribute
         agent.post('/api/auth/signin')
             .send(credentials)
@@ -71,21 +71,21 @@ describe('Commercial CRUD tests', function () {
                 }
 
                 // Save new data
-                agent.put('/api/commercial/data')
-                    .send(commData)
+                agent.put('/api/retail/data')
+                    .send(retailData)
                     .expect(200)
-                    .end(function (commDataSaveErr, commDataSaveRes) {
-                        // Handle commData save error
-                        if (commDataSaveErr) {
-                            return done(commDataSaveErr);
+                    .end(function (retailDataSaveErr, retailDataSaveRes) {
+                        // Handle retailData save error
+                        if (retailDataSaveErr) {
+                            return done(retailDataSaveErr);
                         }
 
-                        // Get a list of commercial
-                        agent.get('/api/commercial/data')
-                            .end(function (commercialGetErr, commercialGetRes) {
-                                // Handle commercial save error
-                                if (commercialGetErr) {
-                                    return done(commercialGetErr);
+                        // Get a list of retail
+                        agent.get('/api/retail/data')
+                            .end(function (retailGetErr, retailGetRes) {
+                                // Handle retail save error
+                                if (retailGetErr) {
+                                    return done(retailGetErr);
                                 }
                                 done();
                             });

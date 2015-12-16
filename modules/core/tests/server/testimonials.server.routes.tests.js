@@ -7,9 +7,9 @@ var should = require('should'),
     User = mongoose.model('User'),
     express = require(path.resolve('./config/lib/express'));
 
-var app, agent, credentials, user, commData;
+var app, agent, credentials, user, testimonialData;
 
-describe('Commercial CRUD tests', function () {
+describe('Testimonial CRUD tests', function () {
     //Before running any tests do this stuff
     before(function (done) {
         app = express.init(mongoose);
@@ -32,10 +32,11 @@ describe('Commercial CRUD tests', function () {
             roles: ['admin'],
             provider: 'local'
         });
-        commData = {
+        testimonialData = {
             pictureUrl: 'hi',
             quote: 'hi',
-            description: 'hi'
+            from: 'hi',
+            creditUrl: 'hi',
         };
         user.save(function() {
             done();
@@ -43,23 +44,23 @@ describe('Commercial CRUD tests', function () {
 
     });
 
-    //Test # 1 to see if you can access the commercials when not signed in
-    it('Should attempt to access commercial page without being signed in', function(done){
-        agent.get('/api/commercial/data')
+    //Test # 1 to see if you can access the testimonials when not signed in
+    it('Should attempt to access testimonial page without being signed in', function(done){
+        agent.get('/api/testimonials')
             .expect(200)
             .end(done);
     });
 
-    //Test # 2 to see if you can create commercial without being signed in.
-    it('Should not be able to put commercial data without being signed in', function(done){
-        agent.put('/api/commercial/data')
-            .send(commData)
+    //Test # 2 to see if you can create testimonial without being signed in.
+    it('Should not be able to put testimonial data without being signed in', function(done){
+        agent.post('/api/testimonials')
+            .send(testimonialData)
             .expect(403)
             .end(done);
     });
 
-    //Test #3 to see that commercial data is saved when signed in as an admin
-    it('should be able to save commercial data if logged in as an admin', function (done) {
+    //Test #3 to see that testimonial data is saved when signed in as an admin
+    it('should be able to save testimonial data if logged in as an admin', function (done) {
         //note our user was created with admin as its roles attribute
         agent.post('/api/auth/signin')
             .send(credentials)
@@ -71,21 +72,21 @@ describe('Commercial CRUD tests', function () {
                 }
 
                 // Save new data
-                agent.put('/api/commercial/data')
-                    .send(commData)
+                agent.post('/api/testimonials')
+                    .send(testimonialData)
                     .expect(200)
-                    .end(function (commDataSaveErr, commDataSaveRes) {
-                        // Handle commData save error
-                        if (commDataSaveErr) {
-                            return done(commDataSaveErr);
+                    .end(function (testimonialDataSaveErr, testimonialDataSaveRes) {
+                        // Handle testimonialData save error
+                        if (testimonialDataSaveErr) {
+                            return done(testimonialDataSaveErr);
                         }
 
-                        // Get a list of commercial
-                        agent.get('/api/commercial/data')
-                            .end(function (commercialGetErr, commercialGetRes) {
-                                // Handle commercial save error
-                                if (commercialGetErr) {
-                                    return done(commercialGetErr);
+                        // Get a list of testimonial
+                        agent.get('/api/testimonials')
+                            .end(function (testimonialGetErr, testimonialGetRes) {
+                                // Handle testimonial save error
+                                if (testimonialGetErr) {
+                                    return done(testimonialGetErr);
                                 }
                                 done();
                             });
